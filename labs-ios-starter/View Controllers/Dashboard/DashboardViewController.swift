@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
     }
 }
 
+/*
 extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         <#code#>
@@ -29,3 +30,4 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         <#code#>
     }
 }
+*/
