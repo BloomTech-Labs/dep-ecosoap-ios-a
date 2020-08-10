@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13A4A7C924E1EB95005326F9 /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 13A4A7C824E1EB95005326F9 /* OktaAuth */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -23,6 +22,7 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2C775E24E1EE9E006EF13C /* OktaAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A4A7C924E1EB95005326F9 /* OktaAuth in Frameworks */,
+				9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +163,7 @@
 			);
 			name = "labs-ios-starter";
 			packageProductDependencies = (
-				13A4A7C824E1EB95005326F9 /* OktaAuth */,
+				9C2C775E24E1EE9E006EF13C /* OktaAuth */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -194,7 +194,7 @@
 			);
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
-				13A4A7C724E1EB95005326F9 /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				9C2C775D24E1EE9E006EF13C /* XCRemoteSwiftPackageReference "OktaAuth" */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
@@ -434,7 +434,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		13A4A7C724E1EB95005326F9 /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
+		9C2C775D24E1EE9E006EF13C /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:SpencerCurtis/OktaAuth.git";
 			requirement = {
@@ -445,9 +445,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		13A4A7C824E1EB95005326F9 /* OktaAuth */ = {
+		9C2C775E24E1EE9E006EF13C /* OktaAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13A4A7C724E1EB95005326F9 /* XCRemoteSwiftPackageReference "OktaAuth" */;
+			package = 9C2C775D24E1EE9E006EF13C /* XCRemoteSwiftPackageReference "OktaAuth" */;
 			productName = OktaAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
