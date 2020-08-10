@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
+        <!--Dashboard-->
         <scene sceneID="ITx-U8-ePk">
             <objects>
                 <viewController id="Dch-YE-Pq5" customClass="DashboardViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,22 +20,55 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-ht-8K4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NxU-fk-kda">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NxU-fk-kda">
+                                    <size key="itemSize" width="128" height="153"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Opp-mH-ibd">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DashboardCell" id="Opp-mH-ibd" customClass="DashboardCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="153"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0DX-Tg-H1C">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="153"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ahl-0P-Fav">
+                                                    <rect key="frame" x="40" y="40" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ahl-0P-Fav" secondAttribute="height" multiplier="1:1" id="zhm-sl-RvS"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xup-4Q-XpW">
+                                                    <rect key="frame" x="8" y="96" width="112" height="49"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xup-4Q-XpW" firstAttribute="leading" secondItem="0DX-Tg-H1C" secondAttribute="leading" constant="8" id="Hfq-pm-CFD"/>
+                                                <constraint firstItem="ahl-0P-Fav" firstAttribute="leading" secondItem="0DX-Tg-H1C" secondAttribute="leading" constant="40" id="XJV-zN-k2H"/>
+                                                <constraint firstAttribute="trailing" secondItem="ahl-0P-Fav" secondAttribute="trailing" constant="40" id="ZhC-sc-xTd"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xup-4Q-XpW" secondAttribute="bottom" constant="8" id="j8o-tf-oq6"/>
+                                                <constraint firstItem="ahl-0P-Fav" firstAttribute="top" secondItem="0DX-Tg-H1C" secondAttribute="top" constant="40" id="ueq-ua-TYZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Xup-4Q-XpW" secondAttribute="trailing" constant="8" id="zWt-On-B2n"/>
+                                                <constraint firstItem="Xup-4Q-XpW" firstAttribute="top" secondItem="ahl-0P-Fav" secondAttribute="bottom" constant="8" id="ztz-kt-Dpx"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="128" height="153"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="ahl-0P-Fav" id="96S-de-vcw"/>
+                                            <outlet property="textLabel" destination="Xup-4Q-XpW" id="zto-qW-7YK"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dch-YE-Pq5" id="EXw-Qw-o3U"/>
+                                    <outlet property="delegate" destination="Dch-YE-Pq5" id="mqZ-2l-Bxw"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" name="ESB System Background"/>
@@ -47,7 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9T-iz-uGz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FPq-l9-Zd0"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="FPq-l9-Zd0"/>
                     <connections>
                         <outlet property="collectionView" destination="nWA-ht-8K4" id="baX-2v-0YR"/>
                     </connections>
@@ -102,8 +135,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AXZ-ks-3AO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Dashboard" image="list.dash" catalog="system" id="CgG-Us-DhN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zdS-w9-59Y">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zdS-w9-59Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
