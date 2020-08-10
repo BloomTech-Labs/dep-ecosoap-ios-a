@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z5J-9R-8ND">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="i3N-Ti-lRL">
+            <objects>
+                <viewController id="zE8-Th-vF6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DpX-0a-bdM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0Oe-aY-skm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NES-I6-ip7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eei-He-O58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179.7101449275362" y="57.589285714285708"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="3H2-hx-Bzb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z5J-9R-8ND" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.fill" catalog="system" id="due-aD-6uq"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="66D-bt-VGZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zE8-Th-vF6" kind="relationship" relationship="rootViewController" id="lCb-eA-Kgf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwK-3Q-QCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269.56521739130437" y="57.589285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+    </resources>
+</document>

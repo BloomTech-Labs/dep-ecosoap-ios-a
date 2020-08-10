@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
+		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
+		13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Schedule.storyboard */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
+		13A4A7D024E1F363005326F9 /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +64,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13A4A7D224E1F374005326F9 /* Starter Project Files */ = {
+			isa = PBXGroup;
+			children = (
+				46BEB4EB24C98EB400FE0CD1 /* Model */,
+				46BEB4EC24C98EBB00FE0CD1 /* Model Controller */,
+				46BEB4EF24C98ED900FE0CD1 /* Login */,
+				46BEB4F224C98F1100FE0CD1 /* Profiles */,
+				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
+			);
+			path = "Starter Project Files";
+			sourceTree = "<group>";
+		};
+		13A4A7D324E1F384005326F9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */,
+				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
+				13A4A7D024E1F363005326F9 /* Schedule.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		465DAA2724BD0BC100D94C24 /* App Lifecycle */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,11 +115,8 @@
 		466C4272249A8748007D033E /* labs-ios-starter */ = {
 			isa = PBXGroup;
 			children = (
-				46BEB4EB24C98EB400FE0CD1 /* Model */,
-				46BEB4EC24C98EBB00FE0CD1 /* Model Controller */,
-				46BEB4EF24C98ED900FE0CD1 /* Login */,
-				46BEB4F224C98F1100FE0CD1 /* Profiles */,
-				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
+				13A4A7D324E1F384005326F9 /* Storyboards */,
+				13A4A7D224E1F374005326F9 /* Starter Project Files */,
 				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
 				466C427C249A8749007D033E /* Assets.xcassets */,
 				466C4281249A8749007D033E /* Info.plist */,
@@ -210,8 +235,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */,
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
+				13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
+				13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 			);
