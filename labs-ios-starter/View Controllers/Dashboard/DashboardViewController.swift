@@ -10,6 +10,9 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,9 @@ class DashboardViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
+    
+    // MARK: - IBActions
+
 }
 
 /*

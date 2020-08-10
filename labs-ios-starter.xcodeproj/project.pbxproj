@@ -12,6 +12,7 @@
 		13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Schedule.storyboard */; };
 		13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */; };
 		13A4A7DC24E1FA42005326F9 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */; };
+		13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		13A4A7D024E1F363005326F9 /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				13A4A7D724E1F8DE005326F9 /* View Controllers */,
 				13A4A7D224E1F374005326F9 /* Starter Project Files */,
 				13A4A7D824E1F8FB005326F9 /* Application */,
+				13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */,
 			);
 			path = "labs-ios-starter";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
+				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,

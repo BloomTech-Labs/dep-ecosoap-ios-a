@@ -35,10 +35,6 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Dch-YE-Pq5" id="5Eg-hr-jyc"/>
-                                    <outlet property="delegate" destination="Dch-YE-Pq5" id="ZNb-cJ-SEm"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -51,6 +47,9 @@
                         <viewLayoutGuide key="safeArea" id="K9T-iz-uGz"/>
                     </view>
                     <navigationItem key="navigationItem" id="FPq-l9-Zd0"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nWA-ht-8K4" id="baX-2v-0YR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCI-fu-8f8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
