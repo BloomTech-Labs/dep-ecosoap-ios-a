@@ -7,11 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="ITx-U8-ePk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nCI-fu-8f8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="Dch-YE-Pq5" sceneMemberID="viewController">
+                <viewController id="Dch-YE-Pq5" customClass="DashboardViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wt9-VR-zKI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,6 +19,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FPq-l9-Zd0"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCI-fu-8f8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="810.14492753623199" y="-75"/>
         </scene>
