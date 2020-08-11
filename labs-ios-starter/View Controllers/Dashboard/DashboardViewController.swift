@@ -19,6 +19,16 @@ class DashboardViewController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let selectedIndexPaths = self.collectionView.indexPathsForSelectedItems {
+            for item in selectedIndexPaths {
+                self.collectionView.deselectItem(at: item, animated: true)
+            }
+        }
+    }
+    
     // MARK: - Private Methods
     private func setupViews() {
         if let layout = collectionView?.collectionViewLayout as? DashboardLayout {
@@ -29,6 +39,14 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
+         SEGUE IDENTIFIERS
+          - ShowProfilePushSegue
+          - ShowPropertiesPushSegue
+          - ShowPaymentHistoryPushSegue
+          - ShowMakePaymentPushSegue
+          - ShowSettingsPushSegue
+        */
     }
     
     // MARK: - IBActions
@@ -43,7 +61,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,37 +76,32 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
             cell.updateShadowOnSelect()
+            cell.isSelected = true
+        }
+        
+        if indexPath.item == 0 {
+            performSegue(withIdentifier: "ShowProfilePushSegue", sender: self)
+        } else if indexPath.item == 1 {
+            performSegue(withIdentifier: "ShowPropertiesPushSegue", sender: self)
+        } else if indexPath.item == 2 {
+            performSegue(withIdentifier: "ShowPaymentHistoryPushSegue", sender: self)
+        } else if indexPath.item == 3 {
+            performSegue(withIdentifier: "ShowMakePaymentPushSegue", sender: self)
+        } else if indexPath.item == 4 {
+            performSegue(withIdentifier: "ShowSettingsPushSegue", sender: self)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
+            cell.isSelected = false
+            cell.updateShadowOnDeselect()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
-            cell.updateShadowOnDeselect()
-        }
         return true
     }
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
 }
 
 extension DashboardViewController: DashboardLayoutDelegate {
@@ -102,8 +115,10 @@ extension DashboardViewController: DashboardLayoutDelegate {
             return 200
         } else if indexPath.item == 2 {
             return 200
-        } else {
+        } else if indexPath.item == 3 {
             return 250
+        } else {
+            return 150
         }
     }
 }

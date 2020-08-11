@@ -17,7 +17,7 @@ class DashboardLayout: UICollectionViewLayout {
     // MARK: - Properties
     weak var delegate: DashboardLayoutDelegate?
     
-    private let numberOfColumns = 2
+    private var numberOfColumns = 2
     private let cellPadding: CGFloat = 8
     private var cache: [UICollectionViewLayoutAttributes] = []
     private var contentHeight: CGFloat = 0
@@ -35,8 +35,8 @@ class DashboardLayout: UICollectionViewLayout {
     
     override func prepare() {
         guard cache.isEmpty == true, let collectionView = collectionView else { return }
-
-        let columnWidth = contentWidth / CGFloat(numberOfColumns)
+        
+        var columnWidth = contentWidth / CGFloat(numberOfColumns)
         var xOffset: [CGFloat] = []
         for column in 0..<numberOfColumns {
             xOffset.append(CGFloat(column) * columnWidth)
@@ -46,7 +46,10 @@ class DashboardLayout: UICollectionViewLayout {
         
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
-            
+            if indexPath.item == 4 {
+                numberOfColumns = 1
+                columnWidth = contentWidth / CGFloat(numberOfColumns)
+            }
             let photoHeight = delegate?.collectionView(
                 collectionView,
                 heightForCellAtIndexPath: indexPath) ?? 180

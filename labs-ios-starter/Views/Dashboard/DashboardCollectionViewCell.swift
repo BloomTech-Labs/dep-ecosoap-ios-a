@@ -29,24 +29,28 @@ class DashboardCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public Methods
     func updateShadowOnSelect() {
-        UIView.animate(withDuration: 0.2) {
-            self.layer.shadowOffset = CGSize(width: 2.0, height: 5.0)
-            self.layer.shadowRadius = 10.0
-            self.layer.shadowOpacity = 0.75
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.layer.shadowOffset = CGSize(width: 2.0, height: 5.0)
+                self.layer.shadowRadius = 10.0
+                self.layer.shadowOpacity = 0.75
+            }
         }
     }
     
     func updateShadowOnDeselect() {
-        UIView.animate(withDuration: 0.2) {
-            self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-            self.layer.shadowRadius = 5.0
-            self.layer.shadowOpacity = 0.25
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+                self.layer.shadowRadius = 5.0
+                self.layer.shadowOpacity = 0.25
+            }
         }
     }
     
     // MARK: - Private Methods
     private func setupViews() {
-        self.layer.cornerRadius = 12.0
+        self.layer.cornerRadius = 8.0
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.shadowColor = UIColor.lightGray.cgColor
@@ -67,8 +71,11 @@ class DashboardCollectionViewCell: UICollectionViewCell {
             imageView.image = UIImage(systemName: "house.fill")
         } else if indexPath.row == 2 {
             textLabel.text = "Payment History"
-            imageView.image = UIImage(systemName: "creditcard.fill")
+            imageView.image = UIImage(systemName: "list.dash")
         } else if indexPath.row == 3 {
+            textLabel.text = "Make a Payment"
+            imageView.image = UIImage(systemName: "creditcard.fill")
+        } else if indexPath.row == 4 {
             textLabel.text = "Settings"
             imageView.image = UIImage(systemName: "gear")
         }
