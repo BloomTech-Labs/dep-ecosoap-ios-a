@@ -16,6 +16,15 @@ class DashboardViewController: UIViewController {
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        if let layout = collectionView?.collectionViewLayout as? DashboardLayout {
+            layout.delegate = self
+        }
+        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
     
     // MARK: - Navigation
@@ -26,14 +35,12 @@ class DashboardViewController: UIViewController {
     
 }
 
-
 extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    // MARK: UICollectionViewDataSource
     
+    // MARK: UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
@@ -48,7 +55,6 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     // MARK: UICollectionViewDelegate
-    
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking
      func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
@@ -79,3 +85,19 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
      */
 }
 
+extension DashboardViewController: DashboardLayoutDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+        
+        if indexPath.item == 0 {
+            return 250
+        } else if indexPath.item == 1 {
+            return 200
+        } else if indexPath.item == 2 {
+            return 200
+        } else {
+            return 250
+        }
+    }
+}
