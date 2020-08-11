@@ -44,7 +44,11 @@
             <point key="canvasLocation" x="466.66666666666669" y="162.72321428571428"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="ESB Green"/>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <namedColor name="ESB Green">
+            <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

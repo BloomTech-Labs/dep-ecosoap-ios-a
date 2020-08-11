@@ -10,6 +10,11 @@
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
 		13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Schedule.storyboard */; };
+		13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */; };
+		13A4A7DC24E1FA42005326F9 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */; };
+		13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */; };
+		13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */; };
+		13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -32,6 +37,11 @@
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		13A4A7D024E1F363005326F9 /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
+		13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,18 +92,56 @@
 				13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */,
 				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
 				13A4A7D024E1F363005326F9 /* Schedule.storyboard */,
+				13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		465DAA2724BD0BC100D94C24 /* App Lifecycle */ = {
+		13A4A7D624E1F8D4005326F9 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13A4A7D624E1F8D4005326F9 /* Dashboard */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		13A4A7D824E1F8FB005326F9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				466C4273249A8748007D033E /* AppDelegate.swift */,
 				466C4275249A8748007D033E /* SceneDelegate.swift */,
 				466C427E249A8749007D033E /* LaunchScreen.storyboard */,
+				466C427C249A8749007D033E /* Assets.xcassets */,
+				466C4281249A8749007D033E /* Info.plist */,
+				466C4287249A889F007D033E /* File Organization.md */,
+				13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */,
 			);
-			path = "App Lifecycle";
+			path = Application;
+			sourceTree = "<group>";
+		};
+		13A4A7E324E20353005326F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13A4A7E424E2035F005326F9 /* Dashboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		13A4A7E424E2035F005326F9 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */,
+				13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		466C4267249A8748007D033E = {
@@ -116,11 +164,10 @@
 			isa = PBXGroup;
 			children = (
 				13A4A7D324E1F384005326F9 /* Storyboards */,
+				13A4A7D724E1F8DE005326F9 /* View Controllers */,
+				13A4A7E324E20353005326F9 /* Views */,
 				13A4A7D224E1F374005326F9 /* Starter Project Files */,
-				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
-				466C427C249A8749007D033E /* Assets.xcassets */,
-				466C4281249A8749007D033E /* Info.plist */,
-				466C4287249A889F007D033E /* File Organization.md */,
+				13A4A7D824E1F8FB005326F9 /* Application */,
 			);
 			path = "labs-ios-starter";
 			sourceTree = "<group>";
@@ -242,6 +289,7 @@
 				13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
+				13A4A7DC24E1FA42005326F9 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,12 +303,16 @@
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
+				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
+				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
+				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 			);
@@ -407,7 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "labs-ios-starter/Info.plist";
+				INFOPLIST_FILE = "labs-ios-starter/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -425,7 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "labs-ios-starter/Info.plist";
+				INFOPLIST_FILE = "labs-ios-starter/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
