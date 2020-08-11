@@ -55,16 +55,22 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     // MARK: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
+            cell.updateShadowOnSelect()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
+            cell.updateShadowOnDeselect()
+        }
+        return true
+    }
+    
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking
      func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
      return true
      }
      */
@@ -88,7 +94,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
 extension DashboardViewController: DashboardLayoutDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
-        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+        heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat {
         
         if indexPath.item == 0 {
             return 250

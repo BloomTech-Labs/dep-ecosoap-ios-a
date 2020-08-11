@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DashboardLayoutDelegate: AnyObject {
-    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat
+    func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat
 }
 
 class DashboardLayout: UICollectionViewLayout {
@@ -49,7 +49,7 @@ class DashboardLayout: UICollectionViewLayout {
             
             let photoHeight = delegate?.collectionView(
                 collectionView,
-                heightForPhotoAtIndexPath: indexPath) ?? 180
+                heightForCellAtIndexPath: indexPath) ?? 180
             let height = cellPadding * 2 + photoHeight
             let frame = CGRect(x: xOffset[column],
                                y: yOffset[column],
