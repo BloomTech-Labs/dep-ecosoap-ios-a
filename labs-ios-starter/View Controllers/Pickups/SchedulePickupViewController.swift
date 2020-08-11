@@ -10,21 +10,33 @@ import UIKit
 
 class SchedulePickupViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var schedulePickupButton: UIButton!
+    @IBOutlet weak var propertyBackgroundView: UIView!
+    @IBOutlet weak var dateBackgroundView: UIView!
+    @IBOutlet weak var timeBackgroundView: UIView!
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
 
-        // Do any additional setup after loading the view.
+    // MARK: - Private Methods
+    private func setupViews() {
+        self.hideKeyboardWhenViewTapped()
+        schedulePickupButton.layer.cornerRadius = 8
+        propertyBackgroundView.layer.cornerRadius = 8
+        dateBackgroundView.layer.cornerRadius = 8
+        timeBackgroundView.layer.cornerRadius = 8
+    }
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - IBActions
+    @IBAction func schedulePickupButtonTapped(_ sender: Any) {
     }
-    */
-
+    
 }
