@@ -35,6 +35,7 @@ class DashboardViewController: UIViewController {
             layout.delegate = self
         }
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        collectionView.allowsMultipleSelection = false
     }
     
     // MARK: - Navigation
@@ -76,7 +77,6 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
             cell.updateShadowOnSelect()
-            cell.isSelected = true
         }
         
         if indexPath.item == 0 {
@@ -94,13 +94,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
-            cell.isSelected = false
             cell.updateShadowOnDeselect()
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        return true
     }
 }
 
