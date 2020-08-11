@@ -17,15 +17,50 @@ class DashboardCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     var indexPath: IndexPath? {
         didSet {
-            setupViews()
+            updateViews()
         }
     }
     
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
-        self.layer.cornerRadius = 12
+        super.awakeFromNib()
+        setupViews()
     }
     
+    // MARK: - Public Methods
+    func updateShadowOnSelect() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.layer.shadowOffset = CGSize(width: 2.0, height: 5.0)
+                self.layer.shadowRadius = 10.0
+                self.layer.shadowOpacity = 0.75
+            }
+        }
+    }
+    
+    func updateShadowOnDeselect() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+                self.layer.shadowRadius = 5.0
+                self.layer.shadowOpacity = 0.25
+            }
+        }
+    }
+    
+    // MARK: - Private Methods
     private func setupViews() {
+        self.layer.cornerRadius = 8.0
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowOpacity = 0.25
+        self.layer.masksToBounds = false
+    }
+    
+    private func updateViews() {
         guard let indexPath = indexPath else { return }
         
         if indexPath.row == 0 {
@@ -36,12 +71,14 @@ class DashboardCollectionViewCell: UICollectionViewCell {
             imageView.image = UIImage(systemName: "house.fill")
         } else if indexPath.row == 2 {
             textLabel.text = "Payment History"
-            imageView.image = UIImage(systemName: "creditcard.fill")
+            imageView.image = UIImage(systemName: "list.dash")
         } else if indexPath.row == 3 {
+            textLabel.text = "Make a Payment"
+            imageView.image = UIImage(systemName: "creditcard.fill")
+        } else if indexPath.row == 4 {
             textLabel.text = "Settings"
             imageView.image = UIImage(systemName: "gear")
         }
     }
-    
 }
 
