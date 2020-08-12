@@ -23,6 +23,7 @@
 		13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */; };
 		13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */; };
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
+		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPropertyTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupContentsTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
+		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 		13A4A7EC24E3592C005326F9 /* Pickups */ = {
 			isa = PBXGroup;
 			children = (
+				13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */,
 				13A4A7EA24E35923005326F9 /* SchedulePickupViewController.swift */,
 				13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */,
 			);
@@ -352,6 +355,7 @@
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
+				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */,
