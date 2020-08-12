@@ -12,9 +12,14 @@ class SchedulePickupViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var schedulePickupButton: UIButton!
-    @IBOutlet weak var propertyBackgroundView: UIView!
-    @IBOutlet weak var dateBackgroundView: UIView!
-    @IBOutlet weak var timeBackgroundView: UIView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+//    @IBOutlet weak var propertyBackgroundView: UIView!
+//    @IBOutlet weak var dateBackgroundView: UIView!
+//    @IBOutlet weak var timeBackgroundView: UIView!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -26,9 +31,9 @@ class SchedulePickupViewController: UIViewController {
     private func setupViews() {
         self.hideKeyboardWhenViewTapped()
         schedulePickupButton.layer.cornerRadius = 8
-        propertyBackgroundView.layer.cornerRadius = 8
-        dateBackgroundView.layer.cornerRadius = 8
-        timeBackgroundView.layer.cornerRadius = 8
+//        propertyBackgroundView.layer.cornerRadius = 8
+//        dateBackgroundView.layer.cornerRadius = 8
+//        timeBackgroundView.layer.cornerRadius = 8
     }
 
     // MARK: - Navigation
