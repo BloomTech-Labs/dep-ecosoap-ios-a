@@ -27,7 +27,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Rj9-Ql-Op5"/>
                                             <constraint firstAttribute="bottom" secondItem="l6D-lH-3Gf" secondAttribute="bottom" id="gH6-bE-rm4"/>
@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" name="ESB Green"/>
+                                        <color key="backgroundColor" name="ESB Blue"/>
                                         <constraints>
                                             <constraint firstItem="IrG-LG-5WW" firstAttribute="centerY" secondItem="oFA-gi-RWH" secondAttribute="centerY" id="ME5-Vd-Ob3"/>
                                             <constraint firstItem="IrG-LG-5WW" firstAttribute="centerX" secondItem="oFA-gi-RWH" secondAttribute="centerX" id="pfE-8r-aU2"/>
@@ -54,9 +54,6 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdk-ml-7LB">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
-                                        <connections>
-                                            <segue destination="JMV-Dj-gqf" kind="show" id="WEP-IC-VV6"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -86,7 +83,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="IwP-A9-bvL" firstAttribute="top" secondItem="egW-h1-HTg" secondAttribute="top" id="AIq-Ep-Xrp"/>
                                             <constraint firstAttribute="width" constant="50" id="LWi-1F-zDs"/>
@@ -105,7 +102,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" name="ESB Blue"/>
+                                        <color key="backgroundColor" name="ESB Green"/>
                                         <constraints>
                                             <constraint firstItem="Krw-3y-pFW" firstAttribute="centerX" secondItem="M6s-vW-e2h" secondAttribute="centerX" id="6sh-ha-Eq6"/>
                                             <constraint firstItem="Krw-3y-pFW" firstAttribute="centerY" secondItem="M6s-vW-e2h" secondAttribute="centerY" id="l6y-1d-PFp"/>
@@ -113,6 +110,9 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5w-Ck-8DE">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
+                                        <connections>
+                                            <segue destination="JMV-Dj-gqf" kind="show" id="kW6-Ik-Zfz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
