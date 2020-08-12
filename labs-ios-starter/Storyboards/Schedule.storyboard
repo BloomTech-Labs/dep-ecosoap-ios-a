@@ -177,6 +177,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="i9k-A4-YQd" secondAttribute="bottom" id="xvf-se-i9D"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="OTE-Xz-pjU" kind="presentation" identifier="SelectPropertyModalSegue" id="lvo-1u-jVT"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectDateCell" id="i9S-Tj-mTE" customClass="PickupDateTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="115.5" width="374" height="43.5"/>
@@ -280,7 +283,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a note for pickup instructions." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2aV-g2-bu1">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a note for pickup instructions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2aV-g2-bu1">
                                                     <rect key="frame" x="20" y="11" width="334" height="93"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
@@ -408,6 +411,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lL7-9p-YyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2207.2463768115945" y="162.72321428571428"/>
+        </scene>
+        <!--Select Property View Controller-->
+        <scene sceneID="M9f-Du-bQ5">
+            <objects>
+                <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PropertyCell" textLabel="QkH-N6-lkB" style="IBUITableViewCellStyleDefault" id="okC-0n-Y5J">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okC-0n-Y5J" id="i6h-dw-tT2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QkH-N6-lkB">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OTE-Xz-pjU" id="UwD-p4-6IX"/>
+                                    <outlet property="delegate" destination="OTE-Xz-pjU" id="yCQ-37-lPF"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-Tr-zc1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Select a Property" id="0Uc-IB-cN8"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3U0-Tr-zc1" firstAttribute="trailing" secondItem="G58-vd-ByG" secondAttribute="trailing" id="06e-4H-Vwq"/>
+                            <constraint firstItem="3Zk-3p-4u4" firstAttribute="bottom" secondItem="G58-vd-ByG" secondAttribute="bottom" id="0Bb-NK-cld"/>
+                            <constraint firstItem="3U0-Tr-zc1" firstAttribute="top" secondItem="G58-vd-ByG" secondAttribute="top" id="4Sc-yf-kp6"/>
+                            <constraint firstItem="3Zk-3p-4u4" firstAttribute="leading" secondItem="G58-vd-ByG" secondAttribute="leading" id="8mS-Wj-Oxd"/>
+                            <constraint firstItem="3Zk-3p-4u4" firstAttribute="top" secondItem="3U0-Tr-zc1" secondAttribute="bottom" id="Q43-JN-UXy"/>
+                            <constraint firstItem="3Zk-3p-4u4" firstAttribute="trailing" secondItem="G58-vd-ByG" secondAttribute="trailing" id="X5E-ic-x5b"/>
+                            <constraint firstItem="3U0-Tr-zc1" firstAttribute="leading" secondItem="G58-vd-ByG" secondAttribute="leading" id="erR-TN-fae"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G58-vd-ByG"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3Zk-3p-4u4" id="UdV-66-5z0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aa-3U-fr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207.2463768115945" y="841.74107142857144"/>
         </scene>
         <!--Pickups-->
         <scene sceneID="IiY-cB-0x0">

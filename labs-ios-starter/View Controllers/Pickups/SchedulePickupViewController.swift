@@ -28,12 +28,15 @@ class SchedulePickupViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SelectPropertyModalSegue" {
+            guard let selectPropertyVC = segue.destination as? SelectPropertyViewController else { return }
+            selectPropertyVC.delegate = self
+        }
     }
     
     // MARK: - IBActions
     @IBAction func schedulePickupButtonTapped(_ sender: Any) {
     }
-    
 }
 
 extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSource {
@@ -98,6 +101,15 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupNotesCell", for: indexPath) as? PickupNotesTableViewCell else { return UITableViewCell() }
             
             return cell
+        }
+    }
+}
+
+extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
+    func deselectTableViewCell() {
+        if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
+            // Clear selected cell when the user returns from selecting a property
+            self.tableView.deselectRow(at: selectionIndexPath, animated: true)
         }
     }
 }
