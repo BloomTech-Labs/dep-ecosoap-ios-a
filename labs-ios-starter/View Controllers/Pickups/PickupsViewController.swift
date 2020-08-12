@@ -11,7 +11,8 @@ import UIKit
 class PickupsViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var schedulePickupView: UIView!
+    @IBOutlet weak var schedulePickupBackgroundView: UIView!
+    @IBOutlet weak var viewPickupsBackgroundView: UIView!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -21,11 +22,19 @@ class PickupsViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupViews() {
-        schedulePickupView.layer.cornerRadius = 8.0
-        schedulePickupView.layer.shadowColor = UIColor.lightGray.cgColor
-        schedulePickupView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        schedulePickupView.layer.shadowRadius = 5.0
-        schedulePickupView.layer.shadowOpacity = 0.25
-        schedulePickupView.layer.masksToBounds = true
+        schedulePickupBackgroundView.layer.cornerRadius = 8.0
+        schedulePickupBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
+        schedulePickupBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        schedulePickupBackgroundView.layer.shadowRadius = 5.0
+        schedulePickupBackgroundView.layer.shadowOpacity = 0.25
+        schedulePickupBackgroundView.layer.masksToBounds = true
+        
+        viewPickupsBackgroundView.layer.cornerRadius = 8.0
+        viewPickupsBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
+        viewPickupsBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        viewPickupsBackgroundView.layer.shadowRadius = 5.0
+        viewPickupsBackgroundView.layer.shadowOpacity = 0.25
+        viewPickupsBackgroundView.layer.masksToBounds = true
+        
     }
 }
