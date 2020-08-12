@@ -68,6 +68,36 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        if indexPath.section == 0 && indexPath.row == 0 {
+            // Select Property
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectPropertyCell", for: indexPath) as? PickupPropertyTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        } else if indexPath.section == 0 && indexPath.row == 1 {
+            // Select Date
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectDateCell", for: indexPath) as? PickupDateTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        } else if indexPath.section == 0 && indexPath.row == 2 {
+            // Select Time
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectTimeCell", for: indexPath) as? PickupTimeTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            // Add Weight
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupWeightCell", for: indexPath) as? PickupWeightTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            // Select Contents
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupContentsCell", for: indexPath) as? PickupContentsTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        } else {
+            // Add Notes
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupNotesCell", for: indexPath) as? PickupNotesTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        }
     }
 }

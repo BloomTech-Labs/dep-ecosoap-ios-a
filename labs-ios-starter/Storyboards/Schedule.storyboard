@@ -152,16 +152,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="i9k-A4-YQd">
-                                                    <rect key="frame" x="20" y="12" width="315" height="36"/>
+                                                    <rect key="frame" x="20" y="11" width="315" height="38"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROPERTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-XV-dny">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="PROPERTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-XV-dny">
                                                             <rect key="frame" x="0.0" y="0.0" width="63" height="14.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marriott Resort (Default)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IT-5o-z3b">
-                                                            <rect key="frame" x="0.0" y="15.5" width="187.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="15.5" width="187.5" height="22.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -173,6 +173,8 @@
                                                 <constraint firstItem="i9k-A4-YQd" firstAttribute="centerY" secondItem="NRM-8o-en0" secondAttribute="centerY" id="9vz-fB-Tge"/>
                                                 <constraint firstItem="i9k-A4-YQd" firstAttribute="leading" secondItem="NRM-8o-en0" secondAttribute="leadingMargin" id="KIH-RK-OUR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="i9k-A4-YQd" secondAttribute="trailing" id="R9v-zQ-Y7S"/>
+                                                <constraint firstItem="i9k-A4-YQd" firstAttribute="top" secondItem="NRM-8o-en0" secondAttribute="topMargin" id="gXa-wD-u37"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="i9k-A4-YQd" secondAttribute="bottom" id="xvf-se-i9D"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -189,8 +191,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pa-Nx-4Wb">
-                                                    <rect key="frame" x="263" y="11.5" width="72" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pa-Nx-4Wb">
+                                                    <rect key="frame" x="289" y="11.5" width="46" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -232,11 +234,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeightCell" id="mif-Dl-9QB" customClass="PickupWeightTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupWeightCell" id="mif-Dl-9QB" customClass="PickupWeightTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="202.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mif-Dl-9QB" id="cLw-Xn-Wr3">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coA-gM-VUU">
@@ -245,31 +247,45 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-wG-QIA">
-                                                    <rect key="frame" x="82" y="12.5" width="253" height="19"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-wG-QIA">
+                                                    <rect key="frame" x="82" y="11" width="258" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn3-U0-1Hn">
+                                                    <rect key="frame" x="344" y="11.5" width="10" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Yn3-U0-1Hn" firstAttribute="centerY" secondItem="cLw-Xn-Wr3" secondAttribute="centerY" id="1B2-QR-xgf"/>
                                                 <constraint firstItem="coA-gM-VUU" firstAttribute="centerY" secondItem="cLw-Xn-Wr3" secondAttribute="centerY" id="1ml-XS-TOJ"/>
                                                 <constraint firstItem="M1M-wG-QIA" firstAttribute="centerY" secondItem="cLw-Xn-Wr3" secondAttribute="centerY" id="38Y-kX-RYH"/>
-                                                <constraint firstItem="M1M-wG-QIA" firstAttribute="trailing" secondItem="cLw-Xn-Wr3" secondAttribute="trailingMargin" id="EK9-MP-JD2"/>
+                                                <constraint firstItem="Yn3-U0-1Hn" firstAttribute="leading" secondItem="M1M-wG-QIA" secondAttribute="trailing" constant="4" id="ASF-dG-DvG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Yn3-U0-1Hn" secondAttribute="trailing" id="JUO-GW-CFT"/>
                                                 <constraint firstItem="coA-gM-VUU" firstAttribute="leading" secondItem="cLw-Xn-Wr3" secondAttribute="leadingMargin" id="aCS-7L-dIn"/>
                                                 <constraint firstItem="M1M-wG-QIA" firstAttribute="leading" secondItem="coA-gM-VUU" secondAttribute="trailing" constant="8" id="rLq-bv-IZN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="weightTextField" destination="M1M-wG-QIA" id="vP2-XN-DJy"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotesCell" rowHeight="115" id="brb-WI-4ZM" customClass="PickupNotesTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupNotesCell" rowHeight="115" id="brb-WI-4ZM" customClass="PickupNotesTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="246" width="374" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brb-WI-4ZM" id="RCA-eP-ZSf">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Attach a note for pickup instructions." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2aV-g2-bu1">
-                                                    <rect key="frame" x="20" y="11" width="315" height="93"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a note for pickup instructions." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2aV-g2-bu1">
+                                                    <rect key="frame" x="20" y="11" width="334" height="93"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="93" id="sCW-5l-uw6"/>
+                                                    </constraints>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -283,18 +299,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentsCell" rowHeight="85" id="P2T-lN-oQT" customClass="PickupNotesTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupContentsCell" rowHeight="85" id="P2T-lN-oQT" customClass="PickupContentsTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="361" width="374" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P2T-lN-oQT" id="ew9-FO-DZb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CeR-Zq-ccN">
-                                                    <rect key="frame" x="43.5" y="12.5" width="256" height="60"/>
+                                                    <rect key="frame" x="20" y="11" width="334" height="63"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-yM-N2M">
-                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="30"/>
+                                                            <rect key="frame" x="39" y="0.0" width="256" height="30"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heg-cy-WCD">
                                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
@@ -326,10 +342,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="AWO-yW-GDO">
-                                                            <rect key="frame" x="32.5" y="30" width="191" height="30"/>
+                                                            <rect key="frame" x="71.5" y="30" width="191" height="33"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAe-sL-BJG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="33"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="YJ0-rb-TiA"/>
                                                                     </constraints>
@@ -338,7 +354,7 @@
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Viw-ha-iEj">
-                                                                    <rect key="frame" x="120" y="0.0" width="71" height="30"/>
+                                                                    <rect key="frame" x="120" y="0.0" width="71" height="33"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="Gee-SV-R4I"/>
                                                                     </constraints>
@@ -352,8 +368,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="CeR-Zq-ccN" firstAttribute="centerX" secondItem="ew9-FO-DZb" secondAttribute="centerX" id="1JQ-Gl-XnQ"/>
-                                                <constraint firstItem="CeR-Zq-ccN" firstAttribute="centerY" secondItem="ew9-FO-DZb" secondAttribute="centerY" id="kgH-Wh-Abn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CeR-Zq-ccN" secondAttribute="trailing" id="0K5-sa-8ay"/>
+                                                <constraint firstItem="CeR-Zq-ccN" firstAttribute="top" secondItem="ew9-FO-DZb" secondAttribute="topMargin" id="58l-Bu-9LT"/>
+                                                <constraint firstItem="CeR-Zq-ccN" firstAttribute="leading" secondItem="ew9-FO-DZb" secondAttribute="leadingMargin" id="63G-AE-JW7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="CeR-Zq-ccN" secondAttribute="bottom" id="ezo-ue-bOO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -386,11 +404,11 @@
             </objects>
             <point key="canvasLocation" x="2207.2463768115945" y="162.72321428571428"/>
         </scene>
-        <!--Schedule-->
+        <!--Pickups-->
         <scene sceneID="IiY-cB-0x0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NC1-oR-Rp6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" catalog="system" id="JFp-Fw-S9J"/>
+                    <tabBarItem key="tabBarItem" title="Pickups" image="calendar" catalog="system" id="JFp-Fw-S9J"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="VjM-Yh-CDP">

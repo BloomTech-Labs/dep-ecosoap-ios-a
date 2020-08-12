@@ -10,15 +10,13 @@ import UIKit
 
 class PickupWeightTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var weightTextField: UITextField!
+    
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        weightTextField.textAlignment = .right
+        weightTextField.font = .systemFont(ofSize: 17.0)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
