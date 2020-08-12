@@ -21,6 +21,7 @@
 		13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */; };
 		13FD2A9724E45796006D6B43 /* PickupWeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9624E45796006D6B43 /* PickupWeightTableViewCell.swift */; };
 		13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */; };
+		13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupNotesTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9624E45796006D6B43 /* PickupWeightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupWeightTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPropertyTableViewCell.swift; sourceTree = "<group>"; };
+		13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupContentsTableViewCell.swift; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 				13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */,
 				13FD2A9624E45796006D6B43 /* PickupWeightTableViewCell.swift */,
 				13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */,
+				13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */,
 			);
 			path = Pickups;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
+				13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				13FD2A9124E45750006D6B43 /* PickupTimeTableViewCell.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,

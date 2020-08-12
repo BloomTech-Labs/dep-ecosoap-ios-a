@@ -12,14 +12,7 @@ class SchedulePickupViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var schedulePickupButton: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    
-//    @IBOutlet weak var propertyBackgroundView: UIView!
-//    @IBOutlet weak var dateBackgroundView: UIView!
-//    @IBOutlet weak var timeBackgroundView: UIView!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -31,9 +24,6 @@ class SchedulePickupViewController: UIViewController {
     private func setupViews() {
         self.hideKeyboardWhenViewTapped()
         schedulePickupButton.layer.cornerRadius = 8
-//        propertyBackgroundView.layer.cornerRadius = 8
-//        dateBackgroundView.layer.cornerRadius = 8
-//        timeBackgroundView.layer.cornerRadius = 8
     }
 
     // MARK: - Navigation
@@ -44,4 +34,40 @@ class SchedulePickupViewController: UIViewController {
     @IBAction func schedulePickupButtonTapped(_ sender: Any) {
     }
     
+}
+
+extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 3
+        case 1:
+            return 2
+        case 2:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Pickup Details"
+        case 1:
+            return "Package Contents"
+        case 2:
+            return "Notes"
+        default:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 }
