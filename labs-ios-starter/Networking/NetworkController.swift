@@ -14,6 +14,7 @@ class BackendController {
     private var encoder = JSONEncoder()
     private var decoder = JSONDecoder()
     
+
     func queryAPI(query: String, completion: @escaping (String, Any?, Error?) -> Void) {
         var request = URLRequest(url: apiURL)
         request.httpMethod = "POST"
