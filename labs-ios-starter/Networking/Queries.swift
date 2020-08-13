@@ -71,4 +71,31 @@ class Queries {
         }
         """
     }
+
+    static func propertyById(propertyId: Int = 11) -> String {
+        return """
+        {
+          propertyById(input: {
+            propertyId: \(propertyId)
+          }) {
+            property {
+              id,
+                name,
+                rooms,
+                phone,
+                billingAddress,
+                shippingAddress,
+                coordinates,
+                shippingNote,
+                notes,
+              users {
+                id,
+                firstName,
+                lastName
+              }
+            }
+          }
+        }
+        """
+    }
 }
