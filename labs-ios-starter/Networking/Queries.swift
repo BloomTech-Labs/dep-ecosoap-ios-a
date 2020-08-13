@@ -34,4 +34,36 @@ class Queries {
   }
 }
 """
+    static let userById = """
+{
+  userById(input: {
+    userId: 1
+  }) {
+    user {
+      id,
+      firstName,
+      middleName,
+      lastName,
+      title,
+      company,
+      email,
+      phone,
+      skype,
+      address,
+      signupTime,
+      properties {
+        id,
+        name,
+        rooms,
+        phone,
+        billingAddress,
+        shippingAddress,
+        coordinates,
+        shippingNote,
+        notes
+      }
+    }
+  }
+}
+"""
 }
