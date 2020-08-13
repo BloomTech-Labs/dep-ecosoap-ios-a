@@ -109,7 +109,7 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
     func deselectTableViewCell() {
         if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
             // Clear selected cell when the user returns from selecting a property
-            self.tableView.deselectRow(at: selectionIndexPath, animated: true)
+            self.tableView.deselectRow(at: selectionIndexPath, animated: false)
         }
     }
 }
