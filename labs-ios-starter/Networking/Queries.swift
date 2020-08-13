@@ -9,20 +9,5 @@
 import Foundation
 
 class Queries {
-    static let statsById = """
-    query {
-      impactStatsByPropertyId(input: {
-        propertyId: 11
-      }) {
-        impactStats {
-          soapRecycled
-          linensRecycled
-          bottlesRecycled
-          paperRecycled
-          peopleServed
-          womenEmployed
-        }
-      }
-    }
-    """
+    static let statsById = "{propertyById(input: {propertyId: 2}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
 }

@@ -32,6 +32,7 @@
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2C775E24E1EE9E006EF13C /* OktaAuth */; };
 		9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E024E4EF3C007FC7DA /* Queries.swift */; };
+		9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
 		9C9A98E024E4EF3C007FC7DA /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
+		9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				9C9A98E024E4EF3C007FC7DA /* Queries.swift */,
+				9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */,
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
