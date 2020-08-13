@@ -34,6 +34,7 @@
 		9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E024E4EF3C007FC7DA /* Queries.swift */; };
 		9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */; };
 		9C9A98E624E506A6007FC7DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E524E506A6007FC7DA /* User.swift */; };
+		9C9A98E824E5078B007FC7DA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E724E5078B007FC7DA /* Property.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		9C9A98E024E4EF3C007FC7DA /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9C9A98E524E506A6007FC7DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C9A98E724E5078B007FC7DA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				9C9A98E524E506A6007FC7DA /* User.swift */,
+				9C9A98E724E5078B007FC7DA /* Property.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			files = (
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
+				9C9A98E824E5078B007FC7DA /* Property.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */,
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
