@@ -9,61 +9,66 @@
 import Foundation
 
 class Queries {
-    static let statsById = "{propertyById(input: {propertyId: 11}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
-    static let propertiesByUserId = """
-{
-  propertiesByUserId(input: {
-    userId: 11
-  }) {
-    properties {
-      id,
-        name,
-        rooms,
-        phone,
-        billingAddress,
-        shippingAddress,
-        coordinates,
-        shippingNote,
-        notes,
-      users {
-        id,
-        firstName,
-        lastName
-      }
+    
+    static func statsById(propertyId: Int = 11) -> String {
+        return "{propertyById(input: {propertyId: \(propertyId)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
     }
-  }
-}
-"""
-    static let userById = """
-{
-  userById(input: {
-    userId: 1
-  }) {
-    user {
-      id,
-      firstName,
-      middleName,
-      lastName,
-      title,
-      company,
-      email,
-      phone,
-      skype,
-      address,
-      signupTime,
-      properties {
-        id,
-        name,
-        rooms,
-        phone,
-        billingAddress,
-        shippingAddress,
-        coordinates,
-        shippingNote,
-        notes
-      }
+    
+    static func propertiesByUserId(userId: Int = 11) -> String {
+        return """
+        {
+        propertiesByUserId(input: { userId: \(userId) }) {
+            properties {
+                id,
+                name,
+                rooms,
+                phone,
+                billingAddress,
+                shippingAddress,
+                coordinates,
+                shippingNote,
+                notes,
+            users {
+                id,
+                firstName,
+                lastName
+              }
+            }
+          }
+        }
+        """
     }
-  }
-}
-"""
+
+    static func userById(userId: Int = 1) -> String {
+        return """
+        {
+          userById(input: { userId: \(userId) }) {
+            user {
+              id,
+              firstName,
+              middleName,
+              lastName,
+              title,
+              company,
+              email,
+              phone,
+              skype,
+              address,
+              signupTime,
+              properties {
+                id,
+                name,
+                rooms,
+                phone,
+                billingAddress,
+                shippingAddress,
+                coordinates,
+                shippingNote,
+                notes
+              }
+            }
+          }
+        }
+        """
+    }
 }
