@@ -98,4 +98,23 @@ class Queries {
         }
         """
     }
+
+    static func impactStatsByPropertyId(propertyId: Int = 11) -> String {
+        return """
+        query {
+          impactStatsByPropertyId(input: {
+            propertyId: \(propertyId)
+          }) {
+            impactStats {
+              soapRecycled
+              linensRecycled
+              bottlesRecycled
+              paperRecycled
+              peopleServed
+              womenEmployed
+            }
+          }
+        }
+        """
+    }
 }
