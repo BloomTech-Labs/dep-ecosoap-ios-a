@@ -36,6 +36,7 @@
 		9C9A98E624E506A6007FC7DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E524E506A6007FC7DA /* User.swift */; };
 		9C9A98E824E5078B007FC7DA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E724E5078B007FC7DA /* Property.swift */; };
 		9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E924E508BE007FC7DA /* Pickup.swift */; };
+		9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		9C9A98E524E506A6007FC7DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C9A98E724E5078B007FC7DA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		9C9A98E924E508BE007FC7DA /* Pickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickup.swift; sourceTree = "<group>"; };
+		9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				9C9A98E524E506A6007FC7DA /* User.swift */,
 				9C9A98E724E5078B007FC7DA /* Property.swift */,
 				9C9A98E924E508BE007FC7DA /* Pickup.swift */,
+				9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				9C9A98E824E5078B007FC7DA /* Property.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */,
 				9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */,
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,

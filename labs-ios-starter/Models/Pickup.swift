@@ -15,7 +15,7 @@ class Pickup {
     let collectoinType: String
     var status: String
     
-    internal init(id: Int, confirmationCode: String, readyDate: String, pickupDate: String, notes: String, collectoinType: String, status: String) {
+    init(id: Int, confirmationCode: String, readyDate: String, pickupDate: String, notes: String, collectoinType: String, status: String) {
         self.id = id
         self.confirmationCode = confirmationCode
         self.readyDate = readyDate
