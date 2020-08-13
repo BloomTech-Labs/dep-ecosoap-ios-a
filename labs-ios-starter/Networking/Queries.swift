@@ -9,5 +9,5 @@
 import Foundation
 
 class Queries {
-    static let statsById = "{propertyById(input: {propertyId: 2}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
+    static let statsById = "{propertyById(input: {propertyId: 11}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
 }
