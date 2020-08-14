@@ -12,14 +12,13 @@ class Property {
     
     let id: Int
     let rooms: Int
-    var name, propertyType: String
+    var name: String
     var phone, billingAddress, shippingAddress, coordinates, shippingNote, notes: String?
     
-    init(id: Int, rooms: Int, name: String, propertyType: String, phone: String? = nil, billingAddress: String? = nil, shippingAddress: String? = nil, coordinates: String? = nil, shippingNote: String? = nil, notes: String? = nil) {
+    init(id: Int, rooms: Int, name: String, phone: String? = nil, billingAddress: String? = nil, shippingAddress: String? = nil, coordinates: String? = nil, shippingNote: String? = nil, notes: String? = nil) {
         self.id = id
         self.rooms = rooms
         self.name = name
-        self.propertyType = propertyType
         self.phone = phone
         self.billingAddress = billingAddress
         self.shippingAddress = shippingAddress
@@ -27,4 +26,24 @@ class Property {
         self.shippingNote = shippingNote
         self.notes = notes
     }
+
+    init?(dictionary: [String: Any]) {
+        guard let id = dictionary["id"] as? Int,
+        let rooms = dictionary["rooms"] as? Int,
+        let name = dictionary["name"] as? String else {
+            return nil
+        }
+
+        self.id = id
+        self.rooms = rooms
+        self.name = name
+
+        self.phone = dictionary["phone"] as? String
+        self.billingAddress = dictionary["billingAddress"] as? String
+        self.shippingAddress = dictionary["shippingAddress"] as? String
+        self.coordinates = dictionary["coordinates"] as? String
+        self.shippingNote = dictionary["shippingNote"] as? String
+        self.notes = dictionary["notes"] as? String
+    }
+
 }
