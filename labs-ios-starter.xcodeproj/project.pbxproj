@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
 		13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Schedule.storyboard */; };
@@ -16,6 +17,8 @@
 		13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */; };
 		13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */; };
 		13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7EA24E35923005326F9 /* SchedulePickupViewController.swift */; };
+		13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */; };
+		13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */; };
 		13FD2A9124E45750006D6B43 /* PickupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9024E45750006D6B43 /* PickupTimeTableViewCell.swift */; };
 		13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9224E4575D006D6B43 /* PickupDateTableViewCell.swift */; };
 		13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */; };
@@ -49,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		13A4A7D024E1F363005326F9 /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
 		13A4A7EA24E35923005326F9 /* SchedulePickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePickupViewController.swift; sourceTree = "<group>"; };
+		13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsViewController.swift; sourceTree = "<group>"; };
+		13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsOverallCollectionViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9024E45750006D6B43 /* PickupTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTimeTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9224E4575D006D6B43 /* PickupDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupDateTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupNotesTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			children = (
 				13A4A7E424E2035F005326F9 /* Dashboard */,
 				13FD2A9A24E457A5006D6B43 /* Pickups */,
+				13DC372724E63C0E00AE20B3 /* Impact Statistics */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +197,16 @@
 		13DC372224E5EFA800AE20B3 /* Impact Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */,
+			);
+			path = "Impact Statistics";
+			sourceTree = "<group>";
+		};
+		13DC372724E63C0E00AE20B3 /* Impact Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */,
+				1380291924E63E820000C9FA /* StatisticsLayout.swift */,
 			);
 			path = "Impact Statistics";
 			sourceTree = "<group>";
@@ -396,10 +413,13 @@
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
+				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
+				13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */,
+				13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */,
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,

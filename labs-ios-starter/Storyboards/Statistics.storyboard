@@ -12,7 +12,7 @@
         <!--Impact Statistics-->
         <scene sceneID="i3N-Ti-lRL">
             <objects>
-                <viewController id="zE8-Th-vF6" sceneMemberID="viewController">
+                <viewController id="zE8-Th-vF6" customClass="ImpactStatisticsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DpX-0a-bdM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,9 +20,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ext-rj-mD4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
-                                <collectionViewLayout key="collectionViewLayout" id="Pkb-cw-eqd" customClass="DashboardLayout" customModule="labs_ios_starter" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="PIO-Ml-BMf" customClass="StatisticsLayout" customModule="labs_ios_starter" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XFV-nK-sFX">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImpactStatisticsOverallCell" id="XFV-nK-sFX" customClass="ImpactStatisticsOverallCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="8" y="0.0" width="398" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QxA-Z1-EYP">
@@ -244,7 +244,7 @@
                                                 <constraint firstItem="Yhy-g5-sjj" firstAttribute="leading" secondItem="QxA-Z1-EYP" secondAttribute="leading" constant="16" id="9yP-HR-XBV"/>
                                                 <constraint firstAttribute="trailing" secondItem="Yhy-g5-sjj" secondAttribute="trailing" constant="16" id="Ig5-Kg-zry"/>
                                                 <constraint firstItem="Yhy-g5-sjj" firstAttribute="top" secondItem="xJc-l4-Rz4" secondAttribute="bottom" constant="8" id="YdP-3E-8YP"/>
-                                                <constraint firstAttribute="bottom" secondItem="Yhy-g5-sjj" secondAttribute="bottom" constant="16" id="ecP-ii-EA2"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Yhy-g5-sjj" secondAttribute="bottom" constant="16" id="ecP-ii-EA2"/>
                                                 <constraint firstAttribute="trailing" secondItem="xJc-l4-Rz4" secondAttribute="trailing" constant="16" id="fOo-hm-hac"/>
                                                 <constraint firstItem="xJc-l4-Rz4" firstAttribute="leading" secondItem="QxA-Z1-EYP" secondAttribute="leading" constant="16" id="ooN-ol-5lE"/>
                                                 <constraint firstItem="xJc-l4-Rz4" firstAttribute="top" secondItem="QxA-Z1-EYP" secondAttribute="top" constant="16" id="xbj-YK-VX5"/>
@@ -253,16 +253,11 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="398" height="240"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4YZ-bn-SeI">
-                                        <rect key="frame" x="182" y="250" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pld-q3-lhs">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zE8-Th-vF6" id="PQ8-uR-Ryw"/>
+                                    <outlet property="delegate" destination="zE8-Th-vF6" id="iY3-nm-jmc"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" name="ESB System Background"/>
@@ -275,6 +270,9 @@
                         <viewLayoutGuide key="safeArea" id="0Oe-aY-skm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Impact Statistics" id="NES-I6-ip7"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Ext-rj-mD4" id="6QW-WM-NHR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eei-He-O58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
