@@ -11,33 +11,41 @@ import Foundation
 class BackendController {
     private let apiURL: URL = URL(string: "https://ecosoap-placeholder.herokuapp.com/graphql")!
     
-    private var encoder = JSONEncoder()
-    private var decoder = JSONDecoder()
-    
 
-    func queryAPI(query: String, completion: @escaping (String, Any?, Error?) -> Void) {
+    func queryAPI(query: Queries.Key, id: String, completion: @escaping (Any?, Error?) -> Void) {
         var request = URLRequest(url: apiURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query":query], options: [])
+        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query":Queries.shared.collection[query.rawValue]!(id)], options: [])
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let _ = error {
-                completion("No bueno", nil, error)
+                completion(nil, error)
                 return
             }
             
             guard let data = data else {
-                completion("No Data", nil, nil)
+                completion(nil, nil)
                 return
             }
             
             do {
-                let dict = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                completion("We got stuff", dict, nil)
+                let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                let dataContainer = dict?["data"]  as? [String: Any]
+                let queryContainer = dataContainer?[query.rawValue] as? [String: Any]
+
+
+                if query == .propertiesByUserId {
+                    let payloadContainer = queryContainer?[Queries.shared.payloads[query.rawValue]!] as? [[String: Any]]
+                    completion(payloadContainer, nil)
+                } else {
+                    let payloadContainer = queryContainer?[Queries.shared.payloads[query.rawValue]!] as? [String: Any]
+                    completion(payloadContainer, nil)
+                }
+
             } catch let error {
-                completion("No cigar", nil, error)
+                completion(nil, error)
             }
         }.resume()
         
