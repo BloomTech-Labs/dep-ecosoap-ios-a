@@ -10,10 +10,10 @@ import Foundation
 
 class ImpactStats {
     
-    let id: Int
+    let id: String
     let soapRecycled, linensRecycled, bottlesRecycled, paperRecycled, peopleServed, womenEmployed: Int?
     
-    init(id: Int, soapRecycled: Int?, linensRecycled: Int?, bottlesRecycled: Int?, paperRecycled: Int?, peopleServed: Int?, womenEmployed: Int?) {
+    init(id: String, soapRecycled: Int?, linensRecycled: Int?, bottlesRecycled: Int?, paperRecycled: Int?, peopleServed: Int?, womenEmployed: Int?) {
         self.id = id
         self.soapRecycled = soapRecycled
         self.linensRecycled = linensRecycled
@@ -22,5 +22,19 @@ class ImpactStats {
         self.peopleServed = peopleServed
         self.womenEmployed = womenEmployed
     }
-    
+
+    init?(dictionary: [String: Any]) {
+        guard let id = dictionary["id"] as? String else {
+            return nil
+        }
+
+        self.id = id
+        self.soapRecycled = dictionary["soapRecycled"] as? Int
+        self.linensRecycled = dictionary["linensRecycled"] as? Int
+        self.bottlesRecycled = dictionary["bottlesRecycled"] as? Int
+        self.paperRecycled = dictionary["paperRecycled"] as? Int
+        self.peopleServed = dictionary["peopleServed"] as? Int
+        self.womenEmployed = dictionary["womenEmployed"] as? Int
+    }
+
 }
