@@ -9,8 +9,17 @@
 import Foundation
 
 class Queries {
-    
-    static func statsById(propertyId: String = "11") -> String {
+
+    static let shared = Queries()
+
+    enum Key {
+        case userById
+        case propertiesByUserId
+        case propertyById
+        case impactStatsByPropertyId
+    }
+
+    func statsById(propertyId: String = "11") -> String {
         return "{propertyById(input: {propertyId: \(propertyId)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
     }
     
