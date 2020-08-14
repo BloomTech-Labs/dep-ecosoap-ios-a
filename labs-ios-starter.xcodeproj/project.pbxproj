@@ -140,6 +140,7 @@
 			children = (
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
+				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -184,6 +185,13 @@
 				13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */,
 			);
 			path = Pickups;
+			sourceTree = "<group>";
+		};
+		13DC372224E5EFA800AE20B3 /* Impact Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Impact Statistics";
 			sourceTree = "<group>";
 		};
 		13FD2A9A24E457A5006D6B43 /* Pickups */ = {
