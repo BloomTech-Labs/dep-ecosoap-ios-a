@@ -12,7 +12,20 @@ class Queries {
 
     static let shared = Queries()
 
-    enum Key {
+    let collection:[String: (String)->String]
+    let payloads = [Key.userById.rawValue:"user",
+                    Key.propertyById.rawValue:"property",
+                    Key.propertiesByUserId.rawValue:"properties",
+                    Key.impactStatsByPropertyId.rawValue:"impactStats"]
+
+    init() {
+        self.collection = [Key.userById.rawValue:userById,
+                           Key.propertyById.rawValue:propertyById,
+                           Key.propertiesByUserId.rawValue:propertiesByUserId,
+                           Key.impactStatsByPropertyId.rawValue:impactStatsByPropertyId]
+    }
+
+    enum Key: String {
         case userById
         case propertiesByUserId
         case propertyById
