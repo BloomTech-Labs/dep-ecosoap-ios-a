@@ -9,13 +9,13 @@
 import Foundation
 
 class Property {
-    
-    let id: Int
+
+    let id: String
     let rooms: Int
     var name: String
     var phone, billingAddress, shippingAddress, coordinates, shippingNote, notes: String?
-    
-    init(id: Int, rooms: Int, name: String, phone: String? = nil, billingAddress: String? = nil, shippingAddress: String? = nil, coordinates: String? = nil, shippingNote: String? = nil, notes: String? = nil) {
+
+    init(id: String, rooms: Int, name: String, phone: String? = nil, billingAddress: String? = nil, shippingAddress: String? = nil, coordinates: String? = nil, shippingNote: String? = nil, notes: String? = nil) {
         self.id = id
         self.rooms = rooms
         self.name = name
@@ -28,9 +28,10 @@ class Property {
     }
 
     init?(dictionary: [String: Any]) {
-        guard let id = dictionary["id"] as? Int,
+        guard let id = dictionary["id"] as? String,
         let rooms = dictionary["rooms"] as? Int,
         let name = dictionary["name"] as? String else {
+            print("Failed to find something")
             return nil
         }
 
