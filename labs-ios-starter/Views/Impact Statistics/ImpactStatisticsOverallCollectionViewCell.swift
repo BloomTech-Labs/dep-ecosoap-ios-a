@@ -24,7 +24,7 @@ class ImpactStatisticsOverallCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         self.layer.cornerRadius = 8.0
         self.layer.borderColor = UIColor.lightGray.cgColor
-        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.backgroundColor = UIColor(named: "Panel System Background")?.cgColor
         self.layer.shadowColor = UIColor.lightGray.cgColor
         self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         self.layer.shadowRadius = 5.0
