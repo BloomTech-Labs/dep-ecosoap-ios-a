@@ -3,21 +3,280 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Impact Statistics-->
         <scene sceneID="i3N-Ti-lRL">
             <objects>
-                <viewController id="zE8-Th-vF6" sceneMemberID="viewController">
+                <viewController id="zE8-Th-vF6" customClass="ImpactStatisticsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DpX-0a-bdM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ext-rj-mD4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="ESB System Background"/>
+                                <collectionViewLayout key="collectionViewLayout" id="PIO-Ml-BMf" customClass="StatisticsLayout" customModule="labs_ios_starter" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImpactStatisticsOverallCell" id="XFV-nK-sFX" customClass="ImpactStatisticsOverallCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="0.0" width="398" height="265"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QxA-Z1-EYP">
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="265"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Yhy-g5-sjj">
+                                                    <rect key="frame" x="16" y="48" width="366" height="200"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfh-XN-f8G">
+                                                            <rect key="frame" x="0.0" y="0.0" width="366" height="8"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2S-vr-wbv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="8"/>
+                                                                    <color key="backgroundColor" name="ESB Blue"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="NQB-Xr-SFz"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgF-gm-8Mv">
+                                                                    <rect key="frame" x="50" y="0.0" width="30" height="8"/>
+                                                                    <color key="backgroundColor" name="ESB Green"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="Njd-FE-L25"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-k2-xDv">
+                                                                    <rect key="frame" x="80" y="0.0" width="75" height="8"/>
+                                                                    <color key="backgroundColor" name="ESB Sapphire"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="75" id="Iyf-hz-hWc"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-6s-UPa">
+                                                                    <rect key="frame" x="155" y="0.0" width="45" height="8"/>
+                                                                    <color key="backgroundColor" name="ESB Gold"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="45" id="Jfs-SA-0hG"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYt-0z-V85">
+                                                                    <rect key="frame" x="200" y="0.0" width="116" height="8"/>
+                                                                    <color key="backgroundColor" name="ESB Orange"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="132" id="Phb-QB-NPH"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3H-ki-S00">
+                                                                    <rect key="frame" x="316" y="0.0" width="50" height="8"/>
+                                                                    <color key="backgroundColor" name="ESB Aqua"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="zvm-3W-hFb"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="8" id="K2d-0n-Vxb"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aQB-bY-3uE">
+                                                            <rect key="frame" x="0.0" y="20" width="366" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S8M-HH-rp3">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                    <color key="tintColor" name="ESB Blue"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="GSh-go-0Wu"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="Xxf-JX-lxW"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soap Recycled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufe-PJ-GVn">
+                                                                    <rect key="frame" x="28" y="0.0" width="305.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                    <color key="textColor" name="ESB Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHZ-Vc-UPh">
+                                                                    <rect key="frame" x="341.5" y="0.0" width="24.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r2i-bz-zqg">
+                                                            <rect key="frame" x="0.0" y="52" width="366" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dpM-p3-FUF">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="NRh-4Y-0RY"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="jtB-fW-e46"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linens Recycled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yU-mA-cJ3">
+                                                                    <rect key="frame" x="28" y="0.0" width="305.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <color key="textColor" name="ESB Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBC-AH-nhb">
+                                                                    <rect key="frame" x="341.5" y="0.0" width="24.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5gS-lP-7GF">
+                                                            <rect key="frame" x="0.0" y="84" width="366" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LJj-wt-Bla">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                    <color key="tintColor" name="ESB Sapphire"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="N80-W9-9cr"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="ddm-IS-QtE"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottles Recycled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rk-bT-uQW">
+                                                                    <rect key="frame" x="28" y="0.0" width="305.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <color key="textColor" name="ESB Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6W-zd-Bv9">
+                                                                    <rect key="frame" x="341.5" y="0.0" width="24.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-fe-fMj">
+                                                            <rect key="frame" x="0.0" y="116" width="366" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lrH-hc-20M">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                    <color key="tintColor" name="ESB Gold"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="SYn-YV-U9X"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="sWO-LS-2AR"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paper Recycled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vU-EB-rS9">
+                                                                    <rect key="frame" x="28" y="0.0" width="305.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <color key="textColor" name="ESB Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h57-ua-2bc">
+                                                                    <rect key="frame" x="341.5" y="0.0" width="24.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5C0-lf-sMj">
+                                                            <rect key="frame" x="0.0" y="148" width="366" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Q2n-Tm-WQw">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                    <color key="tintColor" name="ESB Orange"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="2e2-qK-LKr"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="jvs-wT-jre"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People Served" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qx-KR-dtH">
+                                                                    <rect key="frame" x="28" y="0.0" width="305.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <color key="textColor" name="ESB Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccn-m6-yiq">
+                                                                    <rect key="frame" x="341.5" y="0.0" width="24.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F0J-c1-voo">
+                                                            <rect key="frame" x="0.0" y="180" width="366" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sV7-Fz-m9l">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                    <color key="tintColor" name="ESB Aqua"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="1ee-6F-pdJ"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="az5-4y-3RX"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Women Employed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-Zw-f7A">
+                                                                    <rect key="frame" x="28" y="0.0" width="305.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <color key="textColor" name="ESB Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFr-YY-UHl">
+                                                                    <rect key="frame" x="341.5" y="0.0" width="24.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJc-l4-Rz4">
+                                                    <rect key="frame" x="16" y="16" width="366" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Yhy-g5-sjj" firstAttribute="leading" secondItem="QxA-Z1-EYP" secondAttribute="leading" constant="16" id="9yP-HR-XBV"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yhy-g5-sjj" secondAttribute="trailing" constant="16" id="Ig5-Kg-zry"/>
+                                                <constraint firstItem="Yhy-g5-sjj" firstAttribute="top" secondItem="xJc-l4-Rz4" secondAttribute="bottom" constant="8" id="YdP-3E-8YP"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Yhy-g5-sjj" secondAttribute="bottom" constant="16" id="ecP-ii-EA2"/>
+                                                <constraint firstAttribute="trailing" secondItem="xJc-l4-Rz4" secondAttribute="trailing" constant="16" id="fOo-hm-hac"/>
+                                                <constraint firstItem="xJc-l4-Rz4" firstAttribute="leading" secondItem="QxA-Z1-EYP" secondAttribute="leading" constant="16" id="ooN-ol-5lE"/>
+                                                <constraint firstItem="xJc-l4-Rz4" firstAttribute="top" secondItem="QxA-Z1-EYP" secondAttribute="top" constant="16" id="xbj-YK-VX5"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="398" height="265"/>
+                                        <connections>
+                                            <outlet property="soapView" destination="G2S-vr-wbv" id="yfh-Dd-eJQ"/>
+                                            <outlet property="womenView" destination="t3H-ki-S00" id="Rfl-cx-Lo7"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zE8-Th-vF6" id="PQ8-uR-Ryw"/>
+                                    <outlet property="delegate" destination="zE8-Th-vF6" id="iY3-nm-jmc"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="ESB System Background"/>
+                        <constraints>
+                            <constraint firstItem="Ext-rj-mD4" firstAttribute="bottom" secondItem="0Oe-aY-skm" secondAttribute="bottom" id="7lm-0S-hZC"/>
+                            <constraint firstItem="Ext-rj-mD4" firstAttribute="top" secondItem="0Oe-aY-skm" secondAttribute="top" id="Cnz-q6-2Ne"/>
+                            <constraint firstItem="Ext-rj-mD4" firstAttribute="leading" secondItem="0Oe-aY-skm" secondAttribute="leading" id="Feq-2t-WqV"/>
+                            <constraint firstItem="Ext-rj-mD4" firstAttribute="trailing" secondItem="0Oe-aY-skm" secondAttribute="trailing" id="uiL-4u-BZY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0Oe-aY-skm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NES-I6-ip7"/>
+                    <navigationItem key="navigationItem" title="Impact Statistics" id="NES-I6-ip7"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Ext-rj-mD4" id="6QW-WM-NHR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eei-He-O58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,8 +289,8 @@
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.fill" catalog="system" id="due-aD-6uq"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="66D-bt-VGZ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="66D-bt-VGZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -47,8 +306,30 @@
     <color key="tintColor" name="ESB Green"/>
     <resources>
         <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="ESB Aqua">
+            <color red="0.17254901960784313" green="0.60784313725490191" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Black">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Blue">
+            <color red="0.1803921568627451" green="0.54117647058823526" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Gold">
+            <color red="0.93725490196078431" green="0.87450980392156863" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Orange">
+            <color red="0.98039215686274506" green="0.56862745098039214" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Sapphire">
+            <color red="0.18431372549019609" green="0.33333333333333331" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB System Background">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
