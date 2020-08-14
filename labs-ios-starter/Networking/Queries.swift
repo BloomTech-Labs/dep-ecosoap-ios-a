@@ -19,14 +19,14 @@ class Queries {
         case impactStatsByPropertyId
     }
 
-    func statsById(propertyId: String = "11") -> String {
-        return "{propertyById(input: {propertyId: \(propertyId)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
+    private let statsById:(String) -> String = {
+        return "{propertyById(input: {propertyId: \($0)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
     }
     
-    static func propertiesByUserId(userId: String = "11") -> String {
+    private let propertiesByUserId:(String) -> String = {
         return """
         {
-        propertiesByUserId(input: { userId: \(userId) }) {
+        propertiesByUserId(input: { userId: \($0) }) {
             properties {
                 id,
                 name,
@@ -48,10 +48,10 @@ class Queries {
         """
     }
 
-    static func userById(userId: String = "1") -> String {
+    private let userById:(String) -> String = {
         return """
         {
-          userById(input: { userId: \(userId) }) {
+          userById(input: { userId: \($0) }) {
             user {
               id,
               firstName,
@@ -81,11 +81,11 @@ class Queries {
         """
     }
 
-    static func propertyById(propertyId: String = "11") -> String {
+    private let propertyById:(String) -> String = {
         return """
         {
           propertyById(input: {
-            propertyId: \(propertyId)
+            propertyId: \($0)
           }) {
             property {
               id,
@@ -108,11 +108,11 @@ class Queries {
         """
     }
 
-    static func impactStatsByPropertyId(propertyId: String = "11") -> String {
+    private let impactStatsByPropertyId:(String) -> String = {
         return """
         query {
           impactStatsByPropertyId(input: {
-            propertyId: \(propertyId)
+            propertyId: \($0)
           }) {
             impactStats {
               soapRecycled
