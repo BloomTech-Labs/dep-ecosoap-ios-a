@@ -10,11 +10,11 @@ import Foundation
 
 class Queries {
     
-    static func statsById(propertyId: Int = 11) -> String {
+    static func statsById(propertyId: String = "11") -> String {
         return "{propertyById(input: {propertyId: \(propertyId)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
     }
     
-    static func propertiesByUserId(userId: Int = 11) -> String {
+    static func propertiesByUserId(userId: String = "11") -> String {
         return """
         {
         propertiesByUserId(input: { userId: \(userId) }) {
@@ -39,7 +39,7 @@ class Queries {
         """
     }
 
-    static func userById(userId: Int = 1) -> String {
+    static func userById(userId: String = "1") -> String {
         return """
         {
           userById(input: { userId: \(userId) }) {
@@ -72,7 +72,7 @@ class Queries {
         """
     }
 
-    static func propertyById(propertyId: Int = 11) -> String {
+    static func propertyById(propertyId: String = "11") -> String {
         return """
         {
           propertyById(input: {
@@ -99,7 +99,7 @@ class Queries {
         """
     }
 
-    static func impactStatsByPropertyId(propertyId: Int = 11) -> String {
+    static func impactStatsByPropertyId(propertyId: String = "11") -> String {
         return """
         query {
           impactStatsByPropertyId(input: {
