@@ -60,7 +60,7 @@ extension ImpactStatisticsViewController: StatisticsLayoutDelegate {
         heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat {
 
         if indexPath.item == 0 {
-            return 240
+            return 265
         } else {
             return 0
         }
