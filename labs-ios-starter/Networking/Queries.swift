@@ -18,6 +18,7 @@ class Queries {
                     Key.propertiesByUserId.rawValue:"properties",
                     Key.impactStatsByPropertyId.rawValue:"impactStats"]
 
+
     init() {
         self.collection = [Key.userById.rawValue:userById,
                            Key.propertyById.rawValue:propertyById,
@@ -32,10 +33,6 @@ class Queries {
         case impactStatsByPropertyId
     }
 
-    private let statsById:(String) -> String = {
-        return "{propertyById(input: {propertyId: \($0)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
-    }
-    
     private let propertiesByUserId:(String) -> String = {
         return """
         {
@@ -50,13 +47,21 @@ class Queries {
                 coordinates,
                 shippingNote,
                 notes,
-            users {
-                id,
-                firstName,
-                lastName
-              }
+                users {
+                    id,
+                    firstName,
+                    lastName
+                }
+                impactStats {
+                  soapRecycled
+                  linensRecycled
+                  bottlesRecycled
+                  paperRecycled
+                  peopleServed
+                  womenEmployed
+                }
             }
-          }
+        }
         }
         """
     }
@@ -64,32 +69,32 @@ class Queries {
     private let userById:(String) -> String = {
         return """
         {
-          userById(input: { userId: \($0) }) {
-            user {
-              id,
-              firstName,
-              middleName,
-              lastName,
-              title,
-              company,
-              email,
-              phone,
-              skype,
-              address,
-              signupTime,
-              properties {
-                id,
-                name,
-                rooms,
-                phone,
-                billingAddress,
-                shippingAddress,
-                coordinates,
-                shippingNote,
-                notes
-              }
+        userById(input: { userId: \($0) }) {
+        user {
+        id,
+        firstName,
+        middleName,
+        lastName,
+        title,
+        company,
+        email,
+        phone,
+        skype,
+        address,
+        signupTime,
+        properties {
+            id,
+            name,
+            rooms,
+            phone,
+            billingAddress,
+            shippingAddress,
+            coordinates,
+            shippingNote,
+            notes
             }
-          }
+        }
+        }
         }
         """
     }
@@ -97,37 +102,25 @@ class Queries {
     private let propertyById:(String) -> String = {
         return """
         {
-          propertyById(input: {
-            propertyId: \($0)
-          }) {
-            property {
-              id,
-                name,
-                rooms,
-                phone,
-                billingAddress,
-                shippingAddress,
-                coordinates,
-                shippingNote,
-                notes,
-              users {
-                id,
-                firstName,
-                lastName
-              }
-            }
+        propertyById(input: {
+        propertyId: \($0)
+        }) {
+        property {
+          id,
+          name,
+          rooms,
+          phone,
+          billingAddress,
+          shippingAddress,
+          coordinates,
+          shippingNote,
+          notes,
+          users {
+            id,
+            firstName,
+            lastName
           }
-        }
-        """
-    }
-
-    private let impactStatsByPropertyId:(String) -> String = {
-        return """
-        query {
-          impactStatsByPropertyId(input: {
-            propertyId: \($0)
-          }) {
-            impactStats {
+          impactStats {
               soapRecycled
               linensRecycled
               bottlesRecycled
@@ -135,7 +128,27 @@ class Queries {
               peopleServed
               womenEmployed
             }
-          }
+        }
+        }
+        }
+        """
+    }
+
+    private let impactStatsByPropertyId:(String) -> String = {
+        return """
+        query {
+        impactStatsByPropertyId(input: {
+        propertyId: \($0)
+        }) {
+        impactStats {
+        soapRecycled
+        linensRecycled
+        bottlesRecycled
+        paperRecycled
+        peopleServed
+        womenEmployed
+        }
+        }
         }
         """
     }

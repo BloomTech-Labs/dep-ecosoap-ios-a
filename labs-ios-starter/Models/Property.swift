@@ -14,6 +14,7 @@ class Property {
     let rooms: Int
     var name: String
     var phone, billingAddress, shippingAddress, coordinates, shippingNote, notes: String?
+    var stats: ImpactStats?
 
     init(id: String, rooms: Int, name: String, phone: String? = nil, billingAddress: String? = nil, shippingAddress: String? = nil, coordinates: String? = nil, shippingNote: String? = nil, notes: String? = nil) {
         self.id = id
@@ -31,7 +32,10 @@ class Property {
         guard let id = dictionary["id"] as? String,
         let rooms = dictionary["rooms"] as? Int,
         let name = dictionary["name"] as? String else {
-            print("Failed to find something")
+            NSLog("Error unwrapping optional Property properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"])) ")
+            NSLog("\tRooms: \(String(describing: dictionary["rooms"])) ")
+            NSLog("\tName: \(String(describing:dictionary["name"])) ")
             return nil
         }
 
@@ -45,6 +49,14 @@ class Property {
         self.coordinates = dictionary["coordinates"] as? String
         self.shippingNote = dictionary["shippingNote"] as? String
         self.notes = dictionary["notes"] as? String
+
+        if let statsContainer = dictionary["impactStats"] as? [String: Any] {
+            print("Found stats")
+            if let stats = ImpactStats(dictionary: statsContainer) {
+                print("Stats initialized successfully")
+                self.stats = stats
+            }
+        }
     }
 
 }
