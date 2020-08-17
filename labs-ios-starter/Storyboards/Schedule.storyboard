@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pqO-At-G2x">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pqO-At-G2x">
                                 <rect key="frame" x="20" y="336" width="374" height="224"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTb-jP-zq6">
-                                        <rect key="frame" x="0.0" y="0.0" width="183" height="224"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="224"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FCy-iJ-AWz">
-                                                <rect key="frame" x="47" y="62.5" width="89" height="99"/>
+                                                <rect key="frame" x="45" y="62.5" width="89" height="99"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cube.box.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d2h-nC-FO3">
                                                         <rect key="frame" x="0.0" y="-0.5" width="89" height="50.5"/>
@@ -53,10 +53,10 @@ Pickups</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDO-uq-Rem">
-                                        <rect key="frame" x="191" y="0.0" width="183" height="224"/>
+                                        <rect key="frame" x="195" y="0.0" width="179" height="224"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hF9-sC-tXA">
-                                                <rect key="frame" x="49" y="62.5" width="85" height="99"/>
+                                                <rect key="frame" x="47" y="62.5" width="85" height="99"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k91-3u-r3P">
                                                         <rect key="frame" x="0.0" y="1" width="85" height="47.5"/>
@@ -77,6 +77,9 @@ Pickup</string>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9p-YO-38Y">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="224"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="JMV-Dj-gqf" kind="show" id="bZf-Ys-ZKt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,6 +101,10 @@ Pickup</string>
                         <viewLayoutGuide key="safeArea" id="x10-Eg-tNX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pickups" id="yiw-ZJ-kgq"/>
+                    <connections>
+                        <outlet property="schedulePickupBackgroundView" destination="iDO-uq-Rem" id="MIK-jk-Y7a"/>
+                        <outlet property="viewPickupsBackgroundView" destination="dTb-jP-zq6" id="mSi-Vd-Xau"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbv-ZZ-AxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,11 +115,11 @@ Pickup</string>
             <objects>
                 <viewController id="Owv-77-PcJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V2D-vF-C7r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5z-Go-YsN">
-                                <rect key="frame" x="0.0" y="842" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="847" width="414" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-ZU-h0G">
                                         <rect key="frame" x="20" y="10" width="374" height="50"/>
@@ -134,10 +141,10 @@ Pickup</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Oq-Ur-qge">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="707"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDI-bQ-fCQ" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="8" width="414" height="842"/>
+                                        <rect key="frame" x="0.0" y="8" width="414" height="707"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -483,7 +490,7 @@ Pickup</string>
             <objects>
                 <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">

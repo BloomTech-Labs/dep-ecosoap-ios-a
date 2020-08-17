@@ -27,14 +27,14 @@ class PickupsViewController: UIViewController {
         schedulePickupBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         schedulePickupBackgroundView.layer.shadowRadius = 5.0
         schedulePickupBackgroundView.layer.shadowOpacity = 0.25
-        schedulePickupBackgroundView.layer.masksToBounds = true
+        schedulePickupBackgroundView.layer.masksToBounds = false
         
         viewPickupsBackgroundView.layer.cornerRadius = 8.0
         viewPickupsBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
         viewPickupsBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         viewPickupsBackgroundView.layer.shadowRadius = 5.0
         viewPickupsBackgroundView.layer.shadowOpacity = 0.25
-        viewPickupsBackgroundView.layer.masksToBounds = true
+        viewPickupsBackgroundView.layer.masksToBounds = false
         
     }
 }
