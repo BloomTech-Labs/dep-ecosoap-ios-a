@@ -44,7 +44,7 @@ extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +62,7 @@ extension ImpactStatisticsViewController: StatisticsLayoutDelegate {
         if indexPath.item == 0 {
             return 265
         } else {
-            return 0
+            return 100
         }
     }
 }
