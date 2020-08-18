@@ -292,11 +292,11 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stop.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="whu-ra-qdi">
-                                                    <rect key="frame" x="8" y="42" width="156" height="71"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stop.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="whu-ra-qdi">
+                                                    <rect key="frame" x="8" y="42" width="156" height="46"/>
                                                     <color key="tintColor" name="ESB Blue"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="75" id="Wts-Ll-KGd"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Wts-Ll-KGd"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -312,6 +312,11 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="172" height="173"/>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="zXd-6U-Vlj" id="JHt-49-LNi"/>
+                                            <outlet property="imageView" destination="whu-ra-qdi" id="RUh-D0-Yvk"/>
+                                            <outlet property="titleLabel" destination="Tob-Lb-gJs" id="MB6-BX-2Js"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

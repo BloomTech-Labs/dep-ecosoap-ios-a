@@ -16,24 +16,11 @@ class ImpactStatisticsViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let layout = collectionView?.collectionViewLayout as? StatisticsLayout {
-//            layout.delegate = self
-//        }
-//        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-//        collectionView.allowsMultipleSelection = false
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }
 
 extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -44,7 +31,7 @@ extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,6 +41,8 @@ extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollection
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImpactStatisticsIndividualCell", for: indexPath) as? ImpactStatisticsIndividualCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.indexPath = indexPath
             
             return cell
         }
@@ -81,16 +70,3 @@ extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
     }
 
 }
-
-//extension ImpactStatisticsViewController: StatisticsLayoutDelegate {
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat {
-//
-//        if indexPath.item == 0 {
-//            return 265
-//        } else {
-//            return 100
-//        }
-//    }
-//}
