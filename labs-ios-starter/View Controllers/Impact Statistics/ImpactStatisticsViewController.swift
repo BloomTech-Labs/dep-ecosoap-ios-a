@@ -16,11 +16,11 @@ class ImpactStatisticsViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let layout = collectionView?.collectionViewLayout as? StatisticsLayout {
-            layout.delegate = self
-        }
-        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        collectionView.allowsMultipleSelection = false
+//        if let layout = collectionView?.collectionViewLayout as? StatisticsLayout {
+//            layout.delegate = self
+//        }
+//        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+//        collectionView.allowsMultipleSelection = false
     }
     
 
@@ -54,15 +54,37 @@ extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollection
     }
 }
 
-extension ImpactStatisticsViewController: StatisticsLayoutDelegate {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat {
-
+extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width : CGFloat
+        let height : CGFloat
+        
         if indexPath.item == 0 {
-            return 265
+            width = collectionView.bounds.width - 40
+            height = 265
         } else {
-            return 100
+            width = (collectionView.bounds.width / 2) - 25
+            height = 150
         }
+        return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20.0, left: 20, bottom: 20, right: 20)
+    }
+
 }
+
+//extension ImpactStatisticsViewController: StatisticsLayoutDelegate {
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat {
+//
+//        if indexPath.item == 0 {
+//            return 265
+//        } else {
+//            return 100
+//        }
+//    }
+//}
