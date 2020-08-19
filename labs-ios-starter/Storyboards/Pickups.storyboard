@@ -32,16 +32,16 @@
                                                     <state key="normal" image="ellipsis" catalog="system"/>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3VS-7b-JFU">
-                                                    <rect key="frame" x="95" y="18" width="145" height="44"/>
+                                                    <rect key="frame" x="95" y="18.5" width="145" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eG-47-PrT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="145" height="26.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="145" height="25.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="April 29, 2021 at 9:43 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-VD-vAb">
-                                                            <rect key="frame" x="0.0" y="29.5" width="145" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="28.5" width="145" height="14.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -86,6 +86,38 @@
                                             <outlet property="statusLabel" destination="zdN-IR-r8q" id="kVD-sr-fAB"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulePickupCell" rowHeight="80" id="S5c-yf-VPc">
+                                        <rect key="frame" x="20" y="135.5" width="374" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5c-yf-VPc" id="Zvr-GR-F2M">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Schedule a New Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-5a-1Nd">
+                                                    <rect key="frame" x="95" y="27.5" width="259" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="plus.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="idt-jI-38E">
+                                                    <rect key="frame" x="20" y="20" width="55" height="39.5"/>
+                                                    <color key="tintColor" name="ESB Black"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="5z4-4t-Zng"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="z4N-Z1-kFH"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="idt-jI-38E" secondAttribute="bottom" constant="8" id="Q6H-ck-Xrm"/>
+                                                <constraint firstItem="idt-jI-38E" firstAttribute="top" secondItem="Zvr-GR-F2M" secondAttribute="topMargin" constant="8" id="Uff-uw-HKq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="p3I-5a-1Nd" secondAttribute="trailing" id="Vty-Ym-fgF"/>
+                                                <constraint firstItem="p3I-5a-1Nd" firstAttribute="leading" secondItem="idt-jI-38E" secondAttribute="trailing" constant="20" id="aQS-zz-b0b"/>
+                                                <constraint firstItem="p3I-5a-1Nd" firstAttribute="centerY" secondItem="Zvr-GR-F2M" secondAttribute="centerY" id="cDQ-Kc-at4"/>
+                                                <constraint firstItem="idt-jI-38E" firstAttribute="leading" secondItem="Zvr-GR-F2M" secondAttribute="leadingMargin" id="zku-E2-0T3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="hqC-n6-NWS" id="Mry-9I-oSt"/>
@@ -105,6 +137,7 @@
                     <navigationItem key="navigationItem" title="Pickups" id="yiw-ZJ-kgq"/>
                     <connections>
                         <outlet property="tableView" destination="fs7-FZ-bU3" id="a1f-VN-LOz"/>
+                        <segue destination="JMV-Dj-gqf" kind="show" identifier="ShowScheduleNewPushSegue" id="VRj-h5-xFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbv-ZZ-AxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -116,11 +149,11 @@
             <objects>
                 <viewController id="Owv-77-PcJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V2D-vF-C7r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5z-Go-YsN">
-                                <rect key="frame" x="0.0" y="842" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="847" width="414" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-ZU-h0G">
                                         <rect key="frame" x="20" y="10" width="374" height="50"/>
@@ -142,10 +175,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Oq-Ur-qge">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="707"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDI-bQ-fCQ" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="8" width="414" height="842"/>
+                                        <rect key="frame" x="0.0" y="8" width="414" height="707"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -491,7 +524,7 @@
             <objects>
                 <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">
@@ -576,6 +609,10 @@
         <image name="checkmark.seal.fill" catalog="system" width="128" height="122"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <namedColor name="ESB Black">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
