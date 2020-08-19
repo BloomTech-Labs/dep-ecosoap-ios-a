@@ -10,7 +10,7 @@
 		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
-		13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Schedule.storyboard */; };
+		13A4A7D124E1F363005326F9 /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Pickups.storyboard */; };
 		13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */; };
 		13A4A7DC24E1FA42005326F9 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */; };
 		13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */; };
@@ -56,7 +56,7 @@
 		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
-		13A4A7D024E1F363005326F9 /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		13A4A7D024E1F363005326F9 /* Pickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
 		13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			children = (
 				13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */,
 				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
-				13A4A7D024E1F363005326F9 /* Schedule.storyboard */,
+				13A4A7D024E1F363005326F9 /* Pickups.storyboard */,
 				13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
@@ -387,7 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A4A7D124E1F363005326F9 /* Schedule.storyboard in Resources */,
+				13A4A7D124E1F363005326F9 /* Pickups.storyboard in Resources */,
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,

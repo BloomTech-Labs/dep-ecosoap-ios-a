@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="-1017" y="-399"/>
         </scene>
-        <!--Schedule-->
+        <!--Pickups-->
         <scene sceneID="cBf-Ow-bai">
             <objects>
-                <viewControllerPlaceholder storyboardName="Schedule" id="PI5-vP-pYH" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Pickups" id="PI5-vP-pYH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="MNf-qH-8wX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9d-l5-RAs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
