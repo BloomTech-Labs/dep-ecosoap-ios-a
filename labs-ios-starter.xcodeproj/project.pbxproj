@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */; };
 		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		13FD2A9A24E457A5006D6B43 /* Pickups */ = {
 			isa = PBXGroup;
 			children = (
+				133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */,
 				13FD2A9024E45750006D6B43 /* PickupTimeTableViewCell.swift */,
 				13FD2A9224E4575D006D6B43 /* PickupDateTableViewCell.swift */,
 				13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */,
@@ -430,6 +433,7 @@
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
+				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				13FD2A9124E45750006D6B43 /* PickupTimeTableViewCell.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
