@@ -20,11 +20,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupCell" rowHeight="80" id="aCZ-tD-tna" customClass="PickupTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupCell" rowHeight="94" id="aCZ-tD-tna" customClass="PickupTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aCZ-tD-tna" id="AOi-rV-1jM">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4j1-my-oWu">
@@ -32,7 +32,7 @@
                                                     <state key="normal" image="ellipsis" catalog="system"/>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3VS-7b-JFU">
-                                                    <rect key="frame" x="95" y="18.5" width="145" height="43"/>
+                                                    <rect key="frame" x="95" y="25.5" width="145" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eG-47-PrT">
                                                             <rect key="frame" x="0.0" y="0.0" width="145" height="25.5"/>
@@ -49,16 +49,16 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ah3-uw-oRP">
-                                                    <rect key="frame" x="20" y="19" width="55" height="42"/>
+                                                    <rect key="frame" x="20" y="19" width="55" height="56"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="checkmark.seal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lkl-tz-nKS">
-                                                            <rect key="frame" x="0.0" y="-0.5" width="55" height="21.5"/>
+                                                            <rect key="frame" x="0.0" y="-0.5" width="55" height="31.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="EJC-IN-24j"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="EJC-IN-24j"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdN-IR-r8q">
-                                                            <rect key="frame" x="0.0" y="28" width="55" height="14"/>
+                                                            <rect key="frame" x="0.0" y="38" width="55" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <color key="textColor" name="ESB Green"/>
                                                             <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulePickupCell" rowHeight="80" id="S5c-yf-VPc">
-                                        <rect key="frame" x="20" y="135.5" width="374" height="80"/>
+                                        <rect key="frame" x="20" y="149.5" width="374" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5c-yf-VPc" id="Zvr-GR-F2M">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
@@ -104,7 +104,7 @@
                                                     <color key="tintColor" name="ESB Black"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="5z4-4t-Zng"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="z4N-Z1-kFH"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="z4N-Z1-kFH"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -524,7 +524,7 @@
             <objects>
                 <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">

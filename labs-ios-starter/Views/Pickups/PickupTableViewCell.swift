@@ -37,10 +37,10 @@ class PickupTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let indexPath = indexPath else { return }
         
-        if indexPath.section == 1 {
+        if indexPath.row == 1 {
             self.statusLabel.text = "Active"
             self.statusImageView.image = UIImage(systemName: "checkmark.seal")
-        } else if indexPath.section == 2 {
+        } else if indexPath.row == 2 {
             self.statusLabel.text = "Canceled"
             self.statusImageView.image = UIImage(systemName: "xmark.seal.fill")
             self.statusImageView.tintColor = UIColor(named: "ESB Red")
