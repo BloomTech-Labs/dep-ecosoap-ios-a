@@ -11,8 +11,7 @@ import UIKit
 class PickupsViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var schedulePickupBackgroundView: UIView!
-    @IBOutlet weak var viewPickupsBackgroundView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -22,19 +21,23 @@ class PickupsViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupViews() {
-        schedulePickupBackgroundView.layer.cornerRadius = 8.0
-        schedulePickupBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
-        schedulePickupBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        schedulePickupBackgroundView.layer.shadowRadius = 5.0
-        schedulePickupBackgroundView.layer.shadowOpacity = 0.25
-        schedulePickupBackgroundView.layer.masksToBounds = false
         
-        viewPickupsBackgroundView.layer.cornerRadius = 8.0
-        viewPickupsBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
-        viewPickupsBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        viewPickupsBackgroundView.layer.shadowRadius = 5.0
-        viewPickupsBackgroundView.layer.shadowOpacity = 0.25
-        viewPickupsBackgroundView.layer.masksToBounds = false
         
     }
+}
+
+extension PickupsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PickupsCell", for: indexPath)
+        
+        cell.textLabel?.text = "This is a pickup"
+        
+        return cell
+    }
+    
+    
 }
