@@ -46,8 +46,11 @@ class StatisticsLayout: UICollectionViewLayout {
         
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
-            if indexPath.item == 0 {
+            if indexPath.item == 0 && indexPath.section == 0 {
                 numberOfColumns = 1
+                columnWidth = contentWidth / CGFloat(numberOfColumns)
+            } else {
+                numberOfColumns = 2
                 columnWidth = contentWidth / CGFloat(numberOfColumns)
             }
             let photoHeight = delegate?.collectionView(
