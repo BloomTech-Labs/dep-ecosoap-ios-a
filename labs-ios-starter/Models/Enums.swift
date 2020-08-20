@@ -31,3 +31,11 @@ enum CollectionType {
     case LOCAL
     case OTHER
 }
+
+enum Workflow {
+    case MANUAL
+    case ENHANCED
+    case SEMIAUTO
+    case AUTO
+    case OTHER
+}
