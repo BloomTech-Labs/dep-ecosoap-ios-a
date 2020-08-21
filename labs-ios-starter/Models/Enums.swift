@@ -39,3 +39,11 @@ enum Workflow {
     case AUTO
     case OTHER
 }
+
+enum PaymentMethod {
+    case ACH
+    case CREDIT
+    case DEBIT
+    case WIRE
+    case OTHER
+}
