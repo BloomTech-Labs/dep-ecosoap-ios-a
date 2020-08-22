@@ -10,53 +10,88 @@ import Foundation
 
 class Property {
 
-    let id: String
+    let id, name, propertyType, collectionType: String
     let rooms: Int
-    var name: String
-    var phone, billingAddress, shippingAddress, coordinates, shippingNote, notes: String?
-    var stats: ImpactStats?
-
-    init(id: String, rooms: Int, name: String, phone: String? = nil, billingAddress: String? = nil, shippingAddress: String? = nil, coordinates: String? = nil, shippingNote: String? = nil, notes: String? = nil) {
-        self.id = id
-        self.rooms = rooms
-        self.name = name
-        self.phone = phone
-        self.billingAddress = billingAddress
-        self.shippingAddress = shippingAddress
-        self.coordinates = coordinates
-        self.shippingNote = shippingNote
-        self.notes = notes
-    }
+    var phone, shippingNote, notes: String?
+    var servicesById: [String] = []
+    var logo: URL?
+    var billingAddress, shippingAddress: Address?
+    var coordinates: Coordinates?
+    var hub: Hub?
+    var impact: ImpactStats?
+    var usersById: [String] = []
+    var pickupsById: [String] = []
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
-        let rooms = dictionary["rooms"] as? Int,
-        let name = dictionary["name"] as? String else {
-            NSLog("Error unwrapping optional Property properties:")
-            NSLog("\tID: \(String(describing: dictionary["id"])) ")
-            NSLog("\tRooms: \(String(describing: dictionary["rooms"])) ")
-            NSLog("\tName: \(String(describing:dictionary["name"])) ")
+        let name = dictionary["name"] as? String,
+        let propertyType = dictionary["propertyType"] as? String,
+        let collectionType = dictionary["collectionType"] as? String,
+        let rooms = dictionary["rooms"] as? Int else {
+            NSLog("Error unwrapping non-optional Property properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"]))")
+            NSLog("\tName: \(String(describing: dictionary["name"]))")
+            NSLog("\tProperty Type: \(String(describing: dictionary["propertyType"]))")
+            NSLog("\tCollection Type: \(String(describing: dictionary["collectionType"]))")
+            NSLog("\tRooms: \(String(describing: dictionary["rooms"]))")
             return nil
         }
 
         self.id = id
-        self.rooms = rooms
         self.name = name
+        self.propertyType = propertyType
+        self.collectionType = collectionType
+        self.rooms = rooms
 
         self.phone = dictionary["phone"] as? String
-        self.billingAddress = dictionary["billingAddress"] as? String
-        self.shippingAddress = dictionary["shippingAddress"] as? String
-        self.coordinates = dictionary["coordinates"] as? String
         self.shippingNote = dictionary["shippingNote"] as? String
         self.notes = dictionary["notes"] as? String
+        self.logo = dictionary["logo"] as? URL
 
-        if let statsContainer = dictionary["impactStats"] as? [String: Any] {
-            print("Found stats")
-            if let stats = ImpactStats(dictionary: statsContainer) {
-                print("Stats initialized successfully")
-                self.stats = stats
+        if let billingContainer = dictionary["billingAddress"] as? [String: Any] {
+            self.billingAddress = Address(dictionary: billingContainer)
+        }
+
+        if let shippingContainer = dictionary["shippingAddress"] as? [String: Any] {
+            self.shippingAddress = Address(dictionary: shippingContainer)
+        }
+
+        if let coordinatesContainer = dictionary["coordinates"] as? [String: Any] {
+            self.coordinates = Coordinates(dictionary: coordinatesContainer)
+        }
+
+        if let hubContainer = dictionary["hub"] as? [String: Any] {
+            self.hub = Hub(dictionary: hubContainer)
+        }
+
+        if let impactContainer = dictionary["impact"] as? [String: Any] {
+            self.impact = ImpactStats(dictionary: impactContainer)
+        }
+
+        if let services = dictionary["services"] as? [[String: Any]] {
+            for service in services {
+                if let id = service["id"] as? String {
+                    self.servicesById.append(id)
+                }
             }
         }
+
+        if let users = dictionary["users"] as? [[String: Any]] {
+            for user in users {
+                if let id = user["id"] as? String {
+                    self.usersById.append(id)
+                }
+            }
+        }
+
+        if let pickups = dictionary["pickups"] as? [[String: Any]] {
+            for pickup in pickups {
+                if let id = pickup["id"] as? String {
+                    self.pickupsById.append(id)
+                }
+            }
+        }
+
     }
 
 }

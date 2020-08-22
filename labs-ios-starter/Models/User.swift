@@ -11,32 +11,24 @@ import Foundation
 class User {
     
     let id: String
-    var firstName, lastName, email: String
-    var middleName, title, company, phone, skype, address: String?
-    
-    init(id: String, firstName: String, lastName: String, email: String, middleName: String? = nil, title: String? = nil, company: String? = nil, phone: String? = nil, skype: String? = nil, address: String? = nil) {
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        self.middleName = middleName
-        self.title = title
-        self.company = company
-        self.phone = phone
-        self.skype = skype
-        self.address = address
-    }
+    var firstName, lastName, email, password: String
+    var middleName, title, company, phone, skype: String?
+    var address: Address?
+    var signupTime: Date?
+    var propertiesById: [String] = []
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
         let firstName = dictionary["firstName"] as? String,
         let lastName = dictionary["lastName"] as? String,
-        let email = dictionary["email"] as? String else {
-            NSLog("Error unwrapping optional User properties:")
+        let email = dictionary["email"] as? String,
+        let password = dictionary["password"] as? String else {
+            NSLog("Error unwrapping non-optional User properties:")
             NSLog("\tID: \(String(describing: dictionary["id"])) ")
             NSLog("\tFirst Name: \(String(describing: dictionary["firstName"])) ")
             NSLog("\tLast Name: \(String(describing: dictionary["lastName"])) ")
             NSLog("\tEmail: \(String(describing: dictionary["email"])) ")
+            NSLog("\tPassword: \(String(describing: dictionary["password"]))")
             return nil
         }
 
@@ -44,13 +36,32 @@ class User {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
+        self.password = password
 
         self.middleName = dictionary["middleName"] as? String
         self.title = dictionary["title"] as? String
         self.company = dictionary["company"] as? String
         self.phone = dictionary["phone"] as? String
         self.skype = dictionary["skype"] as? String
-        self.address = dictionary["address"] as? String
+
+        if let addressContainer = dictionary["address"] as? [String: Any] {
+            self.address = Address(dictionary: addressContainer)
+        }
+
+        let dateTime = DateFormatter()
+        dateTime.dateFormat = "yyyy-mm-dd hh:mm:ss+hh:mm"
+        if let signupTimeString = dictionary["signupTime"] as? String {
+            self.signupTime = dateTime.date(from: signupTimeString)
+        }
+
+        if let properties = dictionary["properties"] as? [[String: Any]] {
+            for property in properties {
+                if let id = property["id"] as? String {
+                    self.propertiesById.append(id)
+                }
+            }
+        }
+
     }
     
 }
