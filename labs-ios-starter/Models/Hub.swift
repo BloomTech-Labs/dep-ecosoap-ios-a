@@ -23,6 +23,12 @@ class Hub {
         let phone = dictionary["phone"] as? String,
             let addContainer = dictionary["address"] as? [String: Any],
         let address = Address(dictionary: addContainer) else {
+            NSLog("Error unwrapping non-optional Hub properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"]))")
+            NSLog("\tName: \(String(describing: dictionary["name"]))")
+            NSLog("\tEmail: \(String(describing: dictionary["email"]))")
+            NSLog("\tPhone: \(String(describing: dictionary["phone"]))")
+            NSLog("\tAddress: \(String(describing: dictionary["address"]))")
             return nil
         }
 

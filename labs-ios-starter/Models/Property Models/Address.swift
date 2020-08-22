@@ -15,6 +15,8 @@ class Address {
 
     init?(dictionary: [String: Any]) {
         guard let city = dictionary["city"] as? String else {
+            NSLog("Error unwrapping non-optional Address properties:")
+            NSLog("\tCity: \(String(describing: dictionary["city"]))")
             return nil
         }
         self.city = city

@@ -23,6 +23,12 @@ class Payment {
         let amountPaid = dictionary["amountPaid"] as? Int,
         let amountDue = dictionary["amountDue"] as? Int,
         let dateString = dictionary["date"] as? String else {
+            NSLog("Error unwrapping non-optional Payment properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"]))")
+            NSLog("\tPayment Method: \(String(describing: dictionary["paymentMethod"]))")
+            NSLog("\tAmount Paid: \(String(describing: dictionary["amountPaid"]))")
+            NSLog("\tAmount Due: \(String(describing: dictionary["amountDue"]))")
+            NSLog("\tDate String: \(String(describing: dictionary["date"]))")
             return nil
         }
 

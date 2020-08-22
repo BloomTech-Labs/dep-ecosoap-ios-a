@@ -26,6 +26,14 @@ class HospitalityContract {
         let paymentStartDateString = dictionary["paymentStartDate"] as? String,
         let paymentEndDateString = dictionary["paymentEndDate"] as? String,
         let automatedBilling = dictionary["automatedBilling"] as? Bool else {
+            NSLog("Error unwrapping non-optional HospitalityContract properties:")
+            NSLog("\tId: \(String(describing: dictionary["id"]))")
+            NSLog("\tPayment Frequency: \(String(describing: dictionary["paymentFrequency"]))")
+            NSLog("\tStart Date String: \(String(describing: dictionary["startDate"]))")
+            NSLog("\tEnd Date String: \(String(describing: dictionary["endDate"]))")
+            NSLog("\tPayment Start Date String: \(String(describing: dictionary["paymentStartDate"]))")
+            NSLog("\tPayment End Date String: \(String(describing: dictionary["paymentEndDate"]))")
+            NSLog("\tAutomated Billing: \(String(describing: dictionary["automatedBilling"]))")
             return nil
         }
 

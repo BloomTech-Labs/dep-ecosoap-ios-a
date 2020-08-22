@@ -29,13 +29,13 @@ class Pickup {
         let propertyId = property["id"] as? String,
         let readyDateString = dictionary["readyDate"] as? String,
         let readyDate = formatter.date(from: readyDateString) else {
-            NSLog("Error unwrapping optional Pickup properties:")
-            NSLog("\tID: \(String(describing: dictionary["id"])) ")
+            NSLog("Error unwrapping non-optional Pickup properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tConfirmation Code: \(String(describing: dictionary["confirmationCode"])) ")
             NSLog("\tCollection Type: \(String(describing: dictionary["collectionType"])) ")
             NSLog("\tStatus: \(String(describing: dictionary["status"])) ")
-            NSLog("\tReady Date: \(String(describing: dictionary["readyDate"])) ")
-            NSLog("\tPickup Date: \(String(describing: dictionary["pickupDate"])) ")
+            NSLog("\tProperty Dictionary: \(String(describing: dictionary["property"]))")
+            NSLog("\tReady Date: \(String(describing: dictionary["readyDate"]))")
             return nil
         }
 

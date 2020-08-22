@@ -28,6 +28,12 @@ class Property {
         let propertyType = dictionary["propertyType"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
         let rooms = dictionary["rooms"] as? Int else {
+            NSLog("Error unwrapping non-optional Property properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"]))")
+            NSLog("\tName: \(String(describing: dictionary["name"]))")
+            NSLog("\tProperty Type: \(String(describing: dictionary["propertyType"]))")
+            NSLog("\tCollection Type: \(String(describing: dictionary["collectionType"]))")
+            NSLog("\tRooms: \(String(describing: dictionary["rooms"]))")
             return nil
         }
 

@@ -23,7 +23,7 @@ class User {
         let lastName = dictionary["lastName"] as? String,
         let email = dictionary["email"] as? String,
         let password = dictionary["password"] as? String else {
-            NSLog("Error unwrapping optional User properties:")
+            NSLog("Error unwrapping non-optional User properties:")
             NSLog("\tID: \(String(describing: dictionary["id"])) ")
             NSLog("\tFirst Name: \(String(describing: dictionary["firstName"])) ")
             NSLog("\tLast Name: \(String(describing: dictionary["lastName"])) ")

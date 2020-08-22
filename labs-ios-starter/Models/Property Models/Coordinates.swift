@@ -15,6 +15,9 @@ class Coordinates {
     init?(dictionary: [String: Any]) {
         guard let latitude = dictionary["latitude"] as? Float,
             let longitude = dictionary["longitude"] as? Float else {
+                NSLog("Error unwrapping non-optional Coordinates properties:")
+                NSLog("\tLatitude: \(String(describing: dictionary["latitude"]))")
+                NSLog("\tLongitude: \(String(describing: dictionary["longitude"]))")
                 return nil
         }
         self.latitude = latitude

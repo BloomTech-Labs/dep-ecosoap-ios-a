@@ -15,6 +15,8 @@ class PickupCarton {
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String else {
+            NSLog("Error unwrapping non-optional PickupCarton properties:")
+            NSLog("\tId: \(String(describing: dictionary["id"]))")
             return nil
         }
 
