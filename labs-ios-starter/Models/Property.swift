@@ -12,7 +12,7 @@ class Property {
 
     let id, name, propertyType, collectionType: String
     let rooms: Int
-    var phone, shippingNote, notes: String?
+    var phone, shippingNote, notes, contractId: String?
     var servicesById: [String] = []
     var logo: URL?
     var billingAddress, shippingAddress: Address?
@@ -49,6 +49,7 @@ class Property {
         self.shippingNote = dictionary["shippingNote"] as? String
         self.notes = dictionary["notes"] as? String
         self.logo = dictionary["logo"] as? URL
+
 
         if let billingContainer = dictionary["billingAddress"] as? [String: Any] {
             self.billingAddress = Address(dictionary: billingContainer)
@@ -90,6 +91,10 @@ class Property {
                     self.pickupsById.append(id)
                 }
             }
+        }
+
+        if let contract = dictionary["contract"] as? [String: Any] {
+            self.contractId = contract["id"] as? String
         }
 
     }
