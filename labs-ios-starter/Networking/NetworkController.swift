@@ -176,6 +176,46 @@ class BackendController {
         }
     }
 
+    func hubByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
+        queryAPI(query: .hubByPropertyId, id: propertyId) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    func pickupsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
+        queryAPI(query: .pickupsByPropertyId, id: propertyId) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    func nextPaymentByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
+        queryAPI(query: .nextPaymentByPropertyId, id: propertyId) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    func paymentsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
+        queryAPI(query: .paymentsByPropertyId, id: propertyId) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
     func impactStatsByPropertyId(id: String, completion: @escaping (Error?) -> Void) {
         queryAPI(query: .impactStatsByPropertyId, id: id) { (data, error) in
             if let error = error {
