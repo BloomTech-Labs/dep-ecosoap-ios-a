@@ -216,6 +216,32 @@ class Queries {
         """
     }
 
+    private let nextPaymentByPropertyId:(String) -> String = {
+        """
+        query {
+          nextPaymentByPropertyId(input: {
+            propertyId: "\($0)"
+          }) {
+            payment {
+              id
+              invoiceCode
+              invoice
+              amountPaid
+              amountDue
+              date
+              invoicePeriodStartDate
+              invoicePeriodEndDate
+              dueDate
+              paymentMethod
+              hospitalityContract {
+                id
+              }
+            }
+          }
+        }
+        """
+    }
+
     private let monsterFetch:(String) -> String = {
         return """
         query {
