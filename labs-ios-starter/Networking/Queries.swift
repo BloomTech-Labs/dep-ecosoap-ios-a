@@ -17,6 +17,10 @@ class Queries {
                     Key.propertyById.rawValue:"property",
                     Key.propertiesByUserId.rawValue:"properties",
                     Key.impactStatsByPropertyId.rawValue:"impactStats",
+                    Key.hubByPropertyId.rawValue:"hub",
+                    Key.pickupsByPropertyId.rawValue:"pickups",
+                    Key.nextPaymentByPropertyId.rawValue:"payment",
+                    Key.paymentsByPropertyId.rawValue:"payments",
                     Key.monsterFetch.rawValue:"user"]
 
 
@@ -25,6 +29,10 @@ class Queries {
                            Key.propertyById.rawValue:propertyById,
                            Key.propertiesByUserId.rawValue:propertiesByUserId,
                            Key.impactStatsByPropertyId.rawValue:impactStatsByPropertyId,
+                           Key.hubByPropertyId.rawValue:hubByPropertyId,
+                           Key.pickupsByPropertyId.rawValue:pickupsByPropertyId,
+                           Key.nextPaymentByPropertyId.rawValue:nextPaymentByPropertyId,
+                           Key.paymentsByPropertyId.rawValue:paymentsByPropertyId,
                            Key.monsterFetch.rawValue:monsterFetch]
     }
 
@@ -33,6 +41,10 @@ class Queries {
         case propertiesByUserId
         case propertyById
         case impactStatsByPropertyId
+        case hubByPropertyId
+        case pickupsByPropertyId
+        case nextPaymentByPropertyId
+        case paymentsByPropertyId
         case monsterFetch
     }
 
