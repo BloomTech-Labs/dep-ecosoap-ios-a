@@ -11,7 +11,7 @@ import Foundation
 class PickupCarton {
     let id: String
     let product: String?
-    let weight: Int?
+    let percentFull: Int?
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String else {
@@ -22,6 +22,6 @@ class PickupCarton {
 
         self.id = id
         self.product = dictionary["product"] as? String
-        self.weight = dictionary["weight"] as? Int
+        self.percentFull = dictionary["percentFull"] as? Int
     }
 }
