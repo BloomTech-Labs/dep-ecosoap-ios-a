@@ -17,7 +17,7 @@ class Queries {
                     Key.propertyById.rawValue:"property",
                     Key.propertiesByUserId.rawValue:"properties",
                     Key.impactStatsByPropertyId.rawValue:"impactStats",
-                    Key.monsterFetch.rawValue:"fetchAll"]
+                    Key.monsterFetch.rawValue:"user"]
 
 
     init() {
@@ -39,7 +39,7 @@ class Queries {
     private let propertiesByUserId:(String) -> String = {
         return """
         {
-        propertiesByUserId(input: { userId: \($0) }) {
+        propertiesByUserId(input: { userId: "\($0)" }) {
             properties {
                 id,
                 name,
@@ -72,30 +72,22 @@ class Queries {
     private let userById:(String) -> String = {
         return """
         {
-        userById(input: { userId: \($0) }) {
+        userById(input: { userId:  \"\($0)\" }) {
         user {
-        id,
-        firstName,
-        middleName,
-        lastName,
-        title,
-        company,
-        email,
-        phone,
-        skype,
-        address,
-        signupTime,
+        id
+        firstName
+        middleName
+        lastName
+        title
+        company
+        email
+        password
+        phone
+        skype
+        signupTime
         properties {
-            id,
-            name,
-            rooms,
-            phone,
-            billingAddress,
-            shippingAddress,
-            coordinates,
-            shippingNote,
-            notes
-            }
+            id
+        }
         }
         }
         }
@@ -106,7 +98,7 @@ class Queries {
         return """
         {
         propertyById(input: {
-        propertyId: \($0)
+        propertyId: "\($0)"
         }) {
         property {
           id,
@@ -141,7 +133,7 @@ class Queries {
         return """
         query {
         impactStatsByPropertyId(input: {
-        propertyId: \($0)
+        propertyId: "\($0)"
         }) {
         impactStats {
         soapRecycled
@@ -160,7 +152,7 @@ class Queries {
         return """
         query {
           userById(input: {
-            userId: \($0)
+            userId: "\($0)"
           }) {
             user {
               id
@@ -314,6 +306,6 @@ class Queries {
             }
           }
         }
-"""
+        """
     }
 }
