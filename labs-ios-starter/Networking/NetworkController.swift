@@ -27,8 +27,11 @@ class BackendController {
     private var propertiesParser: (Any?) -> Void = {_ in }
     private var userParser: (Any?) -> Void = {_ in }
     private var pickupParser: (Any?) -> Void = {_ in }
+    private var pickupsParser: (Any?) -> Void = {_ in }
     private var hubParser: (Any?) -> Void = {_ in }
     private var paymentParser: (Any?) -> Void = {_ in }
+    private var paymentsParser: (Any?) -> Void = {_ in }
+
 
     init() {
 //        self.loggedInUser = user
@@ -80,6 +83,17 @@ class BackendController {
             self.pickups[pickup.id] = pickup
         }
 
+        self.pickupsParser = {
+            guard let pickupsContainer = $0 as? [[String: Any]] else {
+                NSLog("Couldn't cast data as dictionary for PICKUPS container.")
+                return
+            }
+
+            for pickup in pickupsContainer {
+                self.pickupParser(pickup)
+            }
+        }
+
         self.hubParser = {
             guard let hubContainer = $0 as? [String: Any] else {
                 NSLog("Couldn't cast data as dictionary for HUB initialization.")
@@ -110,10 +124,25 @@ class BackendController {
             self.payments[payment.id] = payment
         }
 
+        self.paymentsParser = {
+            guard let paymentsContainer = $0 as? [[String: Any]] else {
+                NSLog("Couldn't cast data as dictionary for PAYMENTS container.")
+                return
+            }
+
+            for payment in paymentsContainer {
+                self.paymentParser(payment)
+            }
+        }
+
         self.parsers = ["properties":propertyParser,
         "property":propertiesParser,
         "user":userParser,
-        "pickup":pickupParser]
+        "pickup":pickupParser,
+        "pickups":pickupsParser,
+        "hub":hubParser,
+        "payment":paymentParser,
+        "payments":paymentsParser]
 
     }
 
