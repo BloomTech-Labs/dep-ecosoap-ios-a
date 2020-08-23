@@ -18,6 +18,8 @@ class BackendController {
     var pickups: [String: Pickup] = [:]
     var hubs: [String: Hub] = [:]
     var payments: [String: Payment] = [:]
+    var pickupCartons: [String: PickupCarton] = [:]
+    var hospitalityContracts: [String: HospitalityContract] = [:]
 
     private var parsers: [String: (Any?)->()] = [:]
 
@@ -171,6 +173,101 @@ class BackendController {
 
             property.impact = stats
             completion(nil)
+
+        }
+    }
+
+    func initialFetch(userId: String, completion: @escaping (Error?) -> Void) {
+        queryAPI(query: .monsterFetch, id: userId) { (data, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            // Cast the data as a dictionary.
+            guard let container = data as? [String: Any] else {
+                NSLog("Couldn't unwrap USER data as dictionary in initial fetch.")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+
+            // Start by initializing the user.
+            guard let user = User(dictionary: container) else {
+                NSLog("Failed to initialize new user in initial fetch.")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+            self.users[user.id] = user
+
+            // Unwrap array of Properties if present
+            guard let properties = container["properties"] as? [[String: Any]] else {
+                NSLog("Failed to unwrap properties array from user payload.")
+                NSLog("\tProperties: \(String(describing: container["properties"]))")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+
+            // Initialize every property and add it to the dictionary
+            for propertyContainer in properties {
+                // Initializer handles error logs if failed to initialize.
+                if let property = Property(dictionary: propertyContainer) {
+                    self.properties[property.id] = property
+
+                    // For every properly initialized property.
+                    // If they contain a valid Hub, add it to the dictionary.
+                    if let hub = property.hub {
+                        self.hubs[hub.id] = hub
+                    }
+
+                    // Handle pickups.
+                    if let pickups = propertyContainer["pickups"] as? [[String: Any]] {
+                        for pickupContainer in pickups {
+                            // Initializer handles error logs if failed to initialize.
+                            if let pickup = Pickup(dictionary: pickupContainer) {
+                                self.pickups[pickup.id] = pickup
+
+                                // Handle Cartons
+                                if let cartons = pickupContainer["cartons"] as? [[String: Any]] {
+                                    for cartonContainer in cartons {
+                                        // Initializer handles error logs if failed to initialize.
+                                        if let carton = PickupCarton(dictionary: cartonContainer) {
+                                            self.pickupCartons[carton.id] = carton
+                                        }
+                                    }
+                                } else {
+                                    NSLog("Couldn't cast array of dictionary for pickup cartons data for pickup with ID: \(pickup.id)")
+                                }
+                            }
+                        }
+                    } else {
+                        NSLog("Couldn't cast array of dictionary for pickup data for property with ID: \(property.id)")
+                    }
+
+                    // Handle contract.
+                    if let contractContainer = propertyContainer["contract"] as? [String: Any] {
+                        // Initializer handles error logs if failed to initialize.
+                        if let contract = HospitalityContract(dictionary: contractContainer) {
+                            self.hospitalityContracts[contract.id] = contract
+
+                            // Handle payments.
+                            if let payments = contractContainer["payments"] as? [[String: Any]] {
+                                for paymentContainer in payments {
+                                    // Initializer handles error logs if failed to initialize.
+                                    if let payment = Payment(dictionary: paymentContainer) {
+                                        self.payments[payment.id] = payment
+                                    }
+                                }
+                            } else {
+                                NSLog("Couldn't cast payments dictionary array for contract with ID: \(contract.id)")
+                            }
+                        }
+                    } else {
+                        NSLog("Couldn't cast contract dictionary for property with ID: \(property.id)")
+                    }
+                }
+            }
+
+
 
         }
     }
