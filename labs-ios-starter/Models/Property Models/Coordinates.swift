@@ -9,12 +9,12 @@
 import Foundation
 
 class Coordinates {
-    var latitude: Float
-    var longitude: Float
+    var latitude: Double
+    var longitude: Double
 
     init?(dictionary: [String: Any]) {
-        guard let latitude = dictionary["latitude"] as? Float,
-            let longitude = dictionary["longitude"] as? Float else {
+        guard let latitude = dictionary["latitude"] as? Double,
+            let longitude = dictionary["longitude"] as? Double else {
                 NSLog("Error unwrapping non-optional Coordinates properties:")
                 NSLog("\tLatitude: \(String(describing: dictionary["latitude"]))")
                 NSLog("\tLongitude: \(String(describing: dictionary["longitude"]))")

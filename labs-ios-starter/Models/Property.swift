@@ -13,7 +13,7 @@ class Property {
     let id, name, propertyType, collectionType: String
     let rooms: Int
     var phone, shippingNote, notes, contractId: String?
-    var servicesById: [String] = []
+    var services: [String] = []
     var logo: URL?
     var billingAddress, shippingAddress: Address?
     var coordinates: Coordinates?
@@ -28,7 +28,7 @@ class Property {
         let propertyType = dictionary["propertyType"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
         let rooms = dictionary["rooms"] as? Int,
-        let services = dictionary["services"] as? [[String: Any]] else {
+        let services = dictionary["services"] as? [String] else {
             NSLog("Error unwrapping non-optional Property properties:")
             NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tName: \(String(describing: dictionary["name"]))")
@@ -44,6 +44,7 @@ class Property {
         self.propertyType = propertyType
         self.collectionType = collectionType
         self.rooms = rooms
+        self.services = services
 
         self.phone = dictionary["phone"] as? String
         self.shippingNote = dictionary["shippingNote"] as? String
@@ -69,12 +70,6 @@ class Property {
 
         if let impactContainer = dictionary["impact"] as? [String: Any] {
             self.impact = ImpactStats(dictionary: impactContainer)
-        }
-
-        for service in services {
-            if let id = service["id"] as? String {
-                self.servicesById.append(id)
-            }
         }
 
         if let users = dictionary["users"] as? [[String: Any]] {
