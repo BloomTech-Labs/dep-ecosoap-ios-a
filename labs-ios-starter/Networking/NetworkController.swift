@@ -9,9 +9,9 @@
 import Foundation
 
 class BackendController {
-    private let apiURL: URL = URL(string: "https://ecosoap-placeholder.herokuapp.com/graphql")!
+    private let apiURL: URL = URL(string: "http://35.208.9.187:9096/ios-api-3")!
 
-    var loggedInUser: User
+//    var loggedInUser: User
 
     var users: [String: User] = [:]
     var properties: [String: Property] = [:]
@@ -30,8 +30,8 @@ class BackendController {
     private var hubParser: (Any?) -> Void = {_ in }
     private var paymentParser: (Any?) -> Void = {_ in }
 
-    init(user: User) {
-        self.loggedInUser = user
+    init() {
+//        self.loggedInUser = user
 
         self.propertyParser = {
             guard let propertyContainer = $0 as? [String: Any] else {
@@ -187,6 +187,7 @@ class BackendController {
             // Cast the data as a dictionary.
             guard let container = data as? [String: Any] else {
                 NSLog("Couldn't unwrap USER data as dictionary in initial fetch.")
+                NSLog("\(String(describing: data))")
                 completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
                 return
             }
@@ -267,8 +268,7 @@ class BackendController {
                 }
             }
 
-
-
+            completion(nil)
         }
     }
 
@@ -276,32 +276,39 @@ class BackendController {
         var request = URLRequest(url: apiURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query":Queries.shared.collection[query.rawValue]!(id)], options: [])
-        
+
+        let wtf = Queries.shared.collection[query.rawValue]!(id)
+
+        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query": wtf], options: [])
+
+        print("Request body")
+        print(String(data: request.httpBody!, encoding: .utf8)!)
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let _ = error {
                 completion(nil, error)
                 return
             }
-            
+
             guard let data = data else {
                 completion(nil, nil)
                 return
             }
-            
+
             do {
                 let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 let dataContainer = dict?["data"]  as? [String: Any]
                 var queryContainer:[String: Any]?
 
+                let payloadString = Queries.shared.payloads[query.rawValue]!
+
                 if query == .monsterFetch {
                     queryContainer = dataContainer?["userById"] as? [String: Any]
+                    completion(queryContainer?[payloadString], nil)
+                    return
                 } else {
                     queryContainer = dataContainer?[query.rawValue] as? [String: Any]
                 }
 
-                let payloadString = Queries.shared.payloads[query.rawValue]!
 
                 guard let parser = self.parsers[payloadString] else {
                     print("The payload \(payloadString) doesn't possess a parser.")
