@@ -16,6 +16,8 @@ class BackendController {
     var users: [String: User] = [:]
     var properties: [String: Property] = [:]
     var pickups: [String: Pickup] = [:]
+    var hubs: [String: Hub] = [:]
+    var payments: [String: Payment] = [:]
 
     private var parsers: [String: (Any?)->()] = [:]
 
@@ -23,6 +25,8 @@ class BackendController {
     private var propertiesParser: (Any?) -> Void = {_ in }
     private var userParser: (Any?) -> Void = {_ in }
     private var pickupParser: (Any?) -> Void = {_ in }
+    private var hubParser: (Any?) -> Void = {_ in }
+    private var paymentParser: (Any?) -> Void = {_ in }
 
     init(user: User) {
         self.loggedInUser = user
@@ -72,6 +76,36 @@ class BackendController {
                 return
             }
             self.pickups[pickup.id] = pickup
+        }
+
+        self.hubParser = {
+            guard let hubContainer = $0 as? [String: Any] else {
+                NSLog("Couldn't cast data as dictionary for HUB initialization.")
+                return
+            }
+
+            guard let hub = Hub(dictionary: hubContainer) else {
+                NSLog("Failed to initialize HUB in parser.")
+                NSLog("Dictionary:")
+                NSLog("\t\(hubContainer)")
+                return
+            }
+            self.hubs[hub.id] = hub
+        }
+
+        self.paymentParser = {
+            guard let paymentContainer = $0 as? [String: Any] else {
+                NSLog("Couldn't cast data as dictionary for PAYMENT initialization.")
+                return
+            }
+
+            guard let payment = Payment(dictionary: paymentContainer) else {
+                NSLog("Failed to initialize HUB in parser.")
+                NSLog("Dictionary:")
+                NSLog("\t\(paymentContainer)")
+                return
+            }
+            self.payments[payment.id] = payment
         }
 
         self.parsers = ["properties":propertyParser,
@@ -135,7 +169,7 @@ class BackendController {
                 return
             }
 
-            property.stats = stats
+            property.impact = stats
             completion(nil)
 
         }
@@ -162,7 +196,13 @@ class BackendController {
             do {
                 let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 let dataContainer = dict?["data"]  as? [String: Any]
-                let queryContainer = dataContainer?[query.rawValue] as? [String: Any]
+                var queryContainer:[String: Any]?
+
+                if query == .monsterFetch {
+                    queryContainer = dataContainer?["userById"] as? [String: Any]
+                } else {
+                    queryContainer = dataContainer?[query.rawValue] as? [String: Any]
+                }
 
                 let payloadString = Queries.shared.payloads[query.rawValue]!
 
