@@ -9,15 +9,34 @@
 import Foundation
 
 class Queries {
-    
-    static func statsById(propertyId: Int = 11) -> String {
-        return "{propertyById(input: {propertyId: \(propertyId)}) {property {id,name,rooms,phone,billingAddress,shippingAddress,coordinates,shippingNote,notes,users {id,firstName,lastName}}}}"
+
+    static let shared = Queries()
+
+    let collection:[String: (String)->String]
+    let payloads = [Key.userById.rawValue:"user",
+                    Key.propertyById.rawValue:"property",
+                    Key.propertiesByUserId.rawValue:"properties",
+                    Key.impactStatsByPropertyId.rawValue:"impactStats"]
+
+
+    init() {
+        self.collection = [Key.userById.rawValue:userById,
+                           Key.propertyById.rawValue:propertyById,
+                           Key.propertiesByUserId.rawValue:propertiesByUserId,
+                           Key.impactStatsByPropertyId.rawValue:impactStatsByPropertyId]
     }
-    
-    static func propertiesByUserId(userId: Int = 11) -> String {
+
+    enum Key: String {
+        case userById
+        case propertiesByUserId
+        case propertyById
+        case impactStatsByPropertyId
+    }
+
+    private let propertiesByUserId:(String) -> String = {
         return """
         {
-        propertiesByUserId(input: { userId: \(userId) }) {
+        propertiesByUserId(input: { userId: \($0) }) {
             properties {
                 id,
                 name,
@@ -28,84 +47,80 @@ class Queries {
                 coordinates,
                 shippingNote,
                 notes,
-            users {
-                id,
-                firstName,
-                lastName
-              }
+                users {
+                    id,
+                    firstName,
+                    lastName
+                }
+                impactStats {
+                  soapRecycled
+                  linensRecycled
+                  bottlesRecycled
+                  paperRecycled
+                  peopleServed
+                  womenEmployed
+                }
             }
-          }
+        }
         }
         """
     }
 
-    static func userById(userId: Int = 1) -> String {
+    private let userById:(String) -> String = {
         return """
         {
-          userById(input: { userId: \(userId) }) {
-            user {
-              id,
-              firstName,
-              middleName,
-              lastName,
-              title,
-              company,
-              email,
-              phone,
-              skype,
-              address,
-              signupTime,
-              properties {
-                id,
-                name,
-                rooms,
-                phone,
-                billingAddress,
-                shippingAddress,
-                coordinates,
-                shippingNote,
-                notes
-              }
+        userById(input: { userId: \($0) }) {
+        user {
+        id,
+        firstName,
+        middleName,
+        lastName,
+        title,
+        company,
+        email,
+        phone,
+        skype,
+        address,
+        signupTime,
+        properties {
+            id,
+            name,
+            rooms,
+            phone,
+            billingAddress,
+            shippingAddress,
+            coordinates,
+            shippingNote,
+            notes
             }
-          }
+        }
+        }
         }
         """
     }
 
-    static func propertyById(propertyId: Int = 11) -> String {
+    private let propertyById:(String) -> String = {
         return """
         {
-          propertyById(input: {
-            propertyId: \(propertyId)
-          }) {
-            property {
-              id,
-                name,
-                rooms,
-                phone,
-                billingAddress,
-                shippingAddress,
-                coordinates,
-                shippingNote,
-                notes,
-              users {
-                id,
-                firstName,
-                lastName
-              }
-            }
+        propertyById(input: {
+        propertyId: \($0)
+        }) {
+        property {
+          id,
+          name,
+          rooms,
+          phone,
+          billingAddress,
+          shippingAddress,
+          coordinates,
+          shippingNote,
+          notes,
+          users {
+            id,
+            firstName,
+            lastName
           }
-        }
-        """
-    }
-
-    static func impactStatsByPropertyId(propertyId: Int = 11) -> String {
-        return """
-        query {
-          impactStatsByPropertyId(input: {
-            propertyId: \(propertyId)
-          }) {
-            impactStats {
+          impactStats {
               soapRecycled
               linensRecycled
               bottlesRecycled
@@ -113,7 +128,27 @@ class Queries {
               peopleServed
               womenEmployed
             }
-          }
+        }
+        }
+        }
+        """
+    }
+
+    private let impactStatsByPropertyId:(String) -> String = {
+        return """
+        query {
+        impactStatsByPropertyId(input: {
+        propertyId: \($0)
+        }) {
+        impactStats {
+        soapRecycled
+        linensRecycled
+        bottlesRecycled
+        paperRecycled
+        peopleServed
+        womenEmployed
+        }
+        }
         }
         """
     }
