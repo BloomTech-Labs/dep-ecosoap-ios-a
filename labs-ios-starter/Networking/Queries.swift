@@ -187,6 +187,35 @@ class Queries {
         """
     }
 
+    private let pickupsByPropertyId:(String) -> String = {
+        """
+        query {
+          pickupsByPropertyId(input: {
+            propertyId: "\($0)"
+          })  {
+            pickups {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              notes
+            }
+          }
+        }
+
+        """
+    }
+
     private let monsterFetch:(String) -> String = {
         return """
         query {
