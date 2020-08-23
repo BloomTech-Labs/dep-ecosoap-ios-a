@@ -44,12 +44,19 @@
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2C775E24E1EE9E006EF13C /* OktaAuth */; };
+		9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F86DD24EF8DAC00DECB24 /* PickupCarton.swift */; };
 		9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E024E4EF3C007FC7DA /* Queries.swift */; };
 		9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */; };
 		9C9A98E624E506A6007FC7DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E524E506A6007FC7DA /* User.swift */; };
 		9C9A98E824E5078B007FC7DA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E724E5078B007FC7DA /* Property.swift */; };
 		9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E924E508BE007FC7DA /* Pickup.swift */; };
 		9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */; };
+		9CEA63B624EE24A700A2C446 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63B524EE24A700A2C446 /* Enums.swift */; };
+		9CEA63B924EE257600A2C446 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63B824EE257600A2C446 /* Address.swift */; };
+		9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BA24EE26E700A2C446 /* Coordinates.swift */; };
+		9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BC24EE2D2800A2C446 /* Hub.swift */; };
+		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
+		9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63C024EF5E7800A2C446 /* Payment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,12 +99,19 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		9C5F86DD24EF8DAC00DECB24 /* PickupCarton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupCarton.swift; sourceTree = "<group>"; };
 		9C9A98E024E4EF3C007FC7DA /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9C9A98E524E506A6007FC7DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C9A98E724E5078B007FC7DA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		9C9A98E924E508BE007FC7DA /* Pickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickup.swift; sourceTree = "<group>"; };
 		9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStats.swift; sourceTree = "<group>"; };
+		9CEA63B524EE24A700A2C446 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		9CEA63B824EE257600A2C446 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		9CEA63BA24EE26E700A2C446 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		9CEA63BC24EE2D2800A2C446 /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
+		9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalityContract.swift; sourceTree = "<group>"; };
+		9CEA63C024EF5E7800A2C446 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,12 +329,27 @@
 		9C9A98E424E5068B007FC7DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9CEA63B724EE256500A2C446 /* Property Models */,
+				9CEA63B524EE24A700A2C446 /* Enums.swift */,
 				9C9A98E524E506A6007FC7DA /* User.swift */,
 				9C9A98E724E5078B007FC7DA /* Property.swift */,
 				9C9A98E924E508BE007FC7DA /* Pickup.swift */,
 				9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */,
+				9CEA63BC24EE2D2800A2C446 /* Hub.swift */,
+				9CEA63C024EF5E7800A2C446 /* Payment.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9CEA63B724EE256500A2C446 /* Property Models */ = {
+			isa = PBXGroup;
+			children = (
+				9CEA63B824EE257600A2C446 /* Address.swift */,
+				9CEA63BA24EE26E700A2C446 /* Coordinates.swift */,
+				9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */,
+				9C5F86DD24EF8DAC00DECB24 /* PickupCarton.swift */,
+			);
+			path = "Property Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,19 +439,24 @@
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				9C9A98E824E5078B007FC7DA /* Property.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,
 				9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */,
 				9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */,
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
+				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
+				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */,
+				9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */,
+				9CEA63B924EE257600A2C446 /* Address.swift in Sources */,
 				13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */,
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
@@ -433,10 +467,12 @@
 				13FD2A9124E45750006D6B43 /* PickupTimeTableViewCell.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
+				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				13FD2A9724E45796006D6B43 /* PickupWeightTableViewCell.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
+				9CEA63B624EE24A700A2C446 /* Enums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
 			);

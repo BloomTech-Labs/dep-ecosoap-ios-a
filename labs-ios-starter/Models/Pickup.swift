@@ -10,47 +10,58 @@ import Foundation
 
 class Pickup {
     
-    let id: String
-    let confirmationCode, readyDate, pickupDate, notes: String
-    let collectionType: String
-    var status: String
-    
-    init(id: String, confirmationCode: String, readyDate: String, pickupDate: String, notes: String, collectionType: String, status: String) {
-        self.id = id
-        self.confirmationCode = confirmationCode
-        self.readyDate = readyDate
-        self.pickupDate = pickupDate
-        self.notes = notes
-        self.collectionType = collectionType
-        self.status = status
-    }
+    let id, collectionType, confirmationCode, propertyId, status: String
+    var readyDate: Date
+    var pickupDate: Date?
+    var cartonsById: [String] = []
+    var notes: String?
 
     init?(dictionary: [String: Any]) {
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-mm-dd"
+
         guard let id = dictionary["id"] as? String,
         let confirmationCode = dictionary["confirmationCode"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
         let status = dictionary["status"] as? String,
-        let readyDate = dictionary["readyDate"] as? String,
-        let pickupDate = dictionary["pickupDate"] as? String,
-        let notes = dictionary["notes"] as? String else {
-            NSLog("Error unwrapping optional Pickup properties:")
-            NSLog("\tID: \(String(describing: dictionary["id"])) ")
+        let property = dictionary["property"] as? [String: Any],
+        let propertyId = property["id"] as? String,
+        let readyDateString = dictionary["readyDate"] as? String,
+        let readyDate = formatter.date(from: readyDateString) else {
+            NSLog("Error unwrapping non-optional Pickup properties:")
+            NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tConfirmation Code: \(String(describing: dictionary["confirmationCode"])) ")
             NSLog("\tCollection Type: \(String(describing: dictionary["collectionType"])) ")
-            NSLog("\tStatis: \(String(describing: dictionary["status"])) ")
-            NSLog("\tReady Date: \(String(describing: dictionary["readyDate"])) ")
-            NSLog("\tPickup Date: \(String(describing: dictionary["pickupDate"])) ")
-            NSLog("\tNotes: \(String(describing: dictionary["notes"])) ")
+            NSLog("\tStatus: \(String(describing: dictionary["status"])) ")
+            NSLog("\tProperty Dictionary: \(String(describing: dictionary["property"]))")
+            NSLog("\tReady Date: \(String(describing: dictionary["readyDate"]))")
             return nil
         }
 
         self.id = id
+        self.propertyId = propertyId
         self.confirmationCode = confirmationCode
-        self.readyDate = readyDate
-        self.pickupDate = pickupDate
-        self.notes = notes
         self.collectionType = collectionType
         self.status = status
+        self.readyDate = readyDate
+
+        self.notes = dictionary["notes"] as? String
+
+        if let pickupDateString = dictionary["pickupDate"] as? String {
+            self.pickupDate = formatter.date(from: pickupDateString)
+        }
+
+        guard let cartons = dictionary["cartons"] as? [[String: Any]] else {
+            return nil
+        }
+
+        for carton in cartons {
+            if let id = carton["id"] as? String {
+                self.cartonsById.append(id)
+            }
+        }
+
     }
     
 }
