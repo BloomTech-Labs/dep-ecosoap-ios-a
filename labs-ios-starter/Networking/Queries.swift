@@ -51,9 +51,7 @@ class Queries {
                 shippingNote,
                 notes,
                 users {
-                    id,
-                    firstName,
-                    lastName
+                    id
                 }
                 impactStats {
                   soapRecycled
@@ -111,9 +109,7 @@ class Queries {
           shippingNote,
           notes,
           users {
-            id,
-            firstName,
-            lastName
+            id
           }
           impactStats {
               soapRecycled
@@ -145,6 +141,49 @@ class Queries {
         }
         }
         }
+        """
+    }
+
+    private let hubByPropertyId:(String) -> String = {
+        """
+        query {
+          hubByPropertyId(input: {
+            propertyId: "\($0)"
+          }) {
+            hub {
+              id
+              name
+              address {
+                address1
+                address2
+                address3
+                city
+                state
+                postalCode
+                country
+              }
+              email
+              phone
+              coordinates {
+                longitude
+                latitude
+              }
+              properties {
+                id
+              }
+              workflow
+              impact {
+                soapRecycled
+                linensRecycled
+                bottlesRecycled
+                paperRecycled
+                peopleServed
+                womenEmployed
+              }
+            }
+          }
+        }
+
         """
     }
 
@@ -308,4 +347,5 @@ class Queries {
         }
         """
     }
+
 }
