@@ -9,7 +9,7 @@
 import UIKit
 import OktaAuth
 
-class LoginViewController: UIViewController {
+class LoginViewControllerStarter: UIViewController {
     
     let profileController = ProfileController.shared
     
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
 
 // MARK: - Add Profile Delegate
 
-extension LoginViewController: AddProfileDelegate {
+extension LoginViewControllerStarter: AddProfileDelegate {
     func profileWasAdded() {
         checkForExistingProfile()
     }
