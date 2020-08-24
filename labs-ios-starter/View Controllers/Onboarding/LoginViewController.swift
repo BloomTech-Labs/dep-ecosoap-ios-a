@@ -30,8 +30,8 @@ class LoginViewController: UIViewController {
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
-        button.setTitleColor(UIColor(named: "ESB Green"), for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "ESB Green")
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         button.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
         button.layer.cornerRadius = 8
@@ -46,6 +46,13 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     
+    private lazy var backgroundView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.backgroundColor = .white
+        return view
+    }()
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +64,24 @@ class LoginViewController: UIViewController {
         title = "Login"
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        view.backgroundColor = UIColor(named: "ESB Green")
-        view.addSubview(loginButton)
+        view.backgroundColor = UIColor(named: "ESB System Background")
+        
+        view.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        backgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        
+        backgroundView.addSubview(loginButton)
+        
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0.0).isActive = true
-        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.0).isActive = true
+        loginButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20).isActive = true
+        
+        
+        
     }
     
     // MARK: - Navigation
