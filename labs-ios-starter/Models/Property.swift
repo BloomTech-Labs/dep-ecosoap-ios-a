@@ -12,8 +12,8 @@ class Property {
 
     let id, name, propertyType, collectionType: String
     let rooms: Int
-    var phone, shippingNote, notes: String?
-    var servicesById: [String] = []
+    var phone, shippingNote, notes, contractId: String?
+    var services: [String] = []
     var logo: URL?
     var billingAddress, shippingAddress: Address?
     var coordinates: Coordinates?
@@ -27,13 +27,15 @@ class Property {
         let name = dictionary["name"] as? String,
         let propertyType = dictionary["propertyType"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
-        let rooms = dictionary["rooms"] as? Int else {
+        let rooms = dictionary["rooms"] as? Int,
+        let services = dictionary["services"] as? [String] else {
             NSLog("Error unwrapping non-optional Property properties:")
             NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tName: \(String(describing: dictionary["name"]))")
             NSLog("\tProperty Type: \(String(describing: dictionary["propertyType"]))")
             NSLog("\tCollection Type: \(String(describing: dictionary["collectionType"]))")
             NSLog("\tRooms: \(String(describing: dictionary["rooms"]))")
+            NSLog("\tServices: \(String(describing: dictionary["services"]))")
             return nil
         }
 
@@ -42,11 +44,13 @@ class Property {
         self.propertyType = propertyType
         self.collectionType = collectionType
         self.rooms = rooms
+        self.services = services
 
         self.phone = dictionary["phone"] as? String
         self.shippingNote = dictionary["shippingNote"] as? String
         self.notes = dictionary["notes"] as? String
         self.logo = dictionary["logo"] as? URL
+
 
         if let billingContainer = dictionary["billingAddress"] as? [String: Any] {
             self.billingAddress = Address(dictionary: billingContainer)
@@ -68,14 +72,6 @@ class Property {
             self.impact = ImpactStats(dictionary: impactContainer)
         }
 
-        if let services = dictionary["services"] as? [[String: Any]] {
-            for service in services {
-                if let id = service["id"] as? String {
-                    self.servicesById.append(id)
-                }
-            }
-        }
-
         if let users = dictionary["users"] as? [[String: Any]] {
             for user in users {
                 if let id = user["id"] as? String {
@@ -90,6 +86,10 @@ class Property {
                     self.pickupsById.append(id)
                 }
             }
+        }
+
+        if let contract = dictionary["contract"] as? [String: Any] {
+            self.contractId = contract["id"] as? String
         }
 
     }

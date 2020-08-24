@@ -16,14 +16,24 @@ class Queries {
     let payloads = [Key.userById.rawValue:"user",
                     Key.propertyById.rawValue:"property",
                     Key.propertiesByUserId.rawValue:"properties",
-                    Key.impactStatsByPropertyId.rawValue:"impactStats"]
+                    Key.impactStatsByPropertyId.rawValue:"impactStats",
+                    Key.hubByPropertyId.rawValue:"hub",
+                    Key.pickupsByPropertyId.rawValue:"pickups",
+                    Key.nextPaymentByPropertyId.rawValue:"payment",
+                    Key.paymentsByPropertyId.rawValue:"payments",
+                    Key.monsterFetch.rawValue:"user"]
 
 
     init() {
         self.collection = [Key.userById.rawValue:userById,
                            Key.propertyById.rawValue:propertyById,
                            Key.propertiesByUserId.rawValue:propertiesByUserId,
-                           Key.impactStatsByPropertyId.rawValue:impactStatsByPropertyId]
+                           Key.impactStatsByPropertyId.rawValue:impactStatsByPropertyId,
+                           Key.hubByPropertyId.rawValue:hubByPropertyId,
+                           Key.pickupsByPropertyId.rawValue:pickupsByPropertyId,
+                           Key.nextPaymentByPropertyId.rawValue:nextPaymentByPropertyId,
+                           Key.paymentsByPropertyId.rawValue:paymentsByPropertyId,
+                           Key.monsterFetch.rawValue:monsterFetch]
     }
 
     enum Key: String {
@@ -31,12 +41,17 @@ class Queries {
         case propertiesByUserId
         case propertyById
         case impactStatsByPropertyId
+        case hubByPropertyId
+        case pickupsByPropertyId
+        case nextPaymentByPropertyId
+        case paymentsByPropertyId
+        case monsterFetch
     }
 
     private let propertiesByUserId:(String) -> String = {
         return """
         {
-        propertiesByUserId(input: { userId: \($0) }) {
+        propertiesByUserId(input: { userId: "\($0)" }) {
             properties {
                 id,
                 name,
@@ -48,9 +63,7 @@ class Queries {
                 shippingNote,
                 notes,
                 users {
-                    id,
-                    firstName,
-                    lastName
+                    id
                 }
                 impactStats {
                   soapRecycled
@@ -69,30 +82,22 @@ class Queries {
     private let userById:(String) -> String = {
         return """
         {
-        userById(input: { userId: \($0) }) {
+        userById(input: { userId:  \"\($0)\" }) {
         user {
-        id,
-        firstName,
-        middleName,
-        lastName,
-        title,
-        company,
-        email,
-        phone,
-        skype,
-        address,
-        signupTime,
+        id
+        firstName
+        middleName
+        lastName
+        title
+        company
+        email
+        password
+        phone
+        skype
+        signupTime
         properties {
-            id,
-            name,
-            rooms,
-            phone,
-            billingAddress,
-            shippingAddress,
-            coordinates,
-            shippingNote,
-            notes
-            }
+            id
+        }
         }
         }
         }
@@ -103,7 +108,7 @@ class Queries {
         return """
         {
         propertyById(input: {
-        propertyId: \($0)
+        propertyId: "\($0)"
         }) {
         property {
           id,
@@ -116,9 +121,7 @@ class Queries {
           shippingNote,
           notes,
           users {
-            id,
-            firstName,
-            lastName
+            id
           }
           impactStats {
               soapRecycled
@@ -138,7 +141,7 @@ class Queries {
         return """
         query {
         impactStatsByPropertyId(input: {
-        propertyId: \($0)
+        propertyId: "\($0)"
         }) {
         impactStats {
         soapRecycled
@@ -152,4 +155,290 @@ class Queries {
         }
         """
     }
+
+    private let hubByPropertyId:(String) -> String = {
+        """
+        query {
+          hubByPropertyId(input: {
+            propertyId: "\($0)"
+          }) {
+            hub {
+              id
+              name
+              address {
+                address1
+                address2
+                address3
+                city
+                state
+                postalCode
+                country
+              }
+              email
+              phone
+              coordinates {
+                longitude
+                latitude
+              }
+              properties {
+                id
+              }
+              workflow
+              impact {
+                soapRecycled
+                linensRecycled
+                bottlesRecycled
+                paperRecycled
+                peopleServed
+                womenEmployed
+              }
+            }
+          }
+        }
+
+        """
+    }
+
+    private let pickupsByPropertyId:(String) -> String = {
+        """
+        query {
+          pickupsByPropertyId(input: {
+            propertyId: "\($0)"
+          })  {
+            pickups {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              notes
+            }
+          }
+        }
+
+        """
+    }
+
+    private let nextPaymentByPropertyId:(String) -> String = {
+        """
+        query {
+          nextPaymentByPropertyId(input: {
+            propertyId: "\($0)"
+          }) {
+            payment {
+              id
+              invoiceCode
+              invoice
+              amountPaid
+              amountDue
+              date
+              invoicePeriodStartDate
+              invoicePeriodEndDate
+              dueDate
+              paymentMethod
+              hospitalityContract {
+                id
+              }
+            }
+          }
+        }
+        """
+    }
+
+    private let paymentsByPropertyId:(String) -> String = {
+        """
+        query {
+          paymentsByPropertyId(input: {
+            propertyId: "\($0)"
+          }) {
+          payments {
+              id
+              invoiceCode
+              invoice
+              amountPaid
+              amountDue
+              date
+              invoicePeriodStartDate
+              invoicePeriodEndDate
+              dueDate
+              paymentMethod
+              hospitalityContract {
+                id
+              }
+            }
+            }
+        }
+        """
+    }
+
+    private let monsterFetch:(String) -> String = {
+        return """
+        query {
+          userById(input: {
+            userId: "\($0)"
+          }) {
+            user {
+              id
+              firstName
+              middleName
+              lastName
+              title
+              company
+              email
+              password
+              phone
+              skype
+              address {
+                address1
+                address2
+                address3
+                city
+                state
+                postalCode
+                country
+                # formattedAddress
+              }
+              signupTime
+              properties {
+                id
+                name
+                propertyType
+                rooms
+                services
+                collectionType
+                logo
+                phone
+                billingAddress {
+                  address1
+                  address2
+                  address3
+                  city
+                  state
+                  postalCode
+                  country
+                  # formattedAddress
+                }
+                shippingAddress {
+                  address1
+                  address2
+                  address3
+                  city
+                  state
+                  postalCode
+                  country
+                  # formattedAddress
+                }
+                coordinates {
+                    longitude
+                    latitude
+                }
+                shippingNote
+                notes
+                hub {
+                  id
+                  name
+                  address {
+                    address1
+                    address2
+                    address3
+                    city
+                    state
+                    postalCode
+                    country
+                    # formattedAddress
+                  }
+                  email
+                  phone
+                  coordinates {
+                    longitude
+                    latitude
+                  }
+                  properties {
+                    id
+                  }
+                  workflow
+                  impact {
+                    soapRecycled
+                    linensRecycled
+                    bottlesRecycled
+                    paperRecycled
+                    peopleServed
+                    womenEmployed
+                  }
+                }
+                impact {
+                  soapRecycled
+                  linensRecycled
+                  bottlesRecycled
+                  paperRecycled
+                  peopleServed
+                  womenEmployed
+                }
+                users {
+                  id
+                }
+                pickups {
+                  id
+                  confirmationCode
+                  collectionType
+                  status
+                  readyDate
+                  pickupDate
+                  property {
+                    id
+                  }
+                  cartons {
+                    id
+                    product
+                    percentFull
+                  }
+                  notes
+                }
+                contract {
+                  id
+                  startDate
+                  endDate
+                  paymentStartDate
+                  paymentEndDate
+                  properties {
+                    id
+                  }
+                  paymentFrequency
+                  price
+                  discount
+                  billingMethod
+                  automatedBilling
+                  payments {
+                    id
+                    invoice
+                    invoice
+                    amountPaid
+                    amountDue
+                    date
+                    invoicePeriodStartDate
+                    invoicePeriodEndDate
+                    dueDate
+                    paymentMethod
+                    hospitalityContract {
+                      id
+                    }
+                  }
+                  amountPaid
+                }
+              }
+            }
+          }
+        }
+        """
+    }
+
 }
