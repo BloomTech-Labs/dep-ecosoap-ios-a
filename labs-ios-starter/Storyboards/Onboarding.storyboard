@@ -17,10 +17,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RAY-Gh-1oF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="InD-yw-04U"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9j-fx-Pxr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32" y="123"/>
+            <point key="canvasLocation" x="942.02898550724649" y="122.54464285714285"/>
         </scene>
     </scenes>
     <color key="tintColor" name="ESB Green"/>
