@@ -11,6 +11,8 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
+    let profileController = ProfileController.shared
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +60,7 @@ class LoginViewController: UIViewController {
         button.backgroundColor = UIColor(named: "ESB Green")
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         button.layer.cornerRadius = 8
+        button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         return button
     }()
     
@@ -168,6 +171,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
+                                               object: nil,
+                                               queue: .main,
+                                               using: checkForExistingProfile)
+        NotificationCenter.default.addObserver(forName: .oktaAuthenticationExpired,
+                                               object: nil,
+                                               queue: .main,
+                                               using: alertUserOfExpiredCredentials)
+    }
+    
+    // MARK: - IBActions
+    @objc func login(_ sender: Any) {
+        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
     // MARK: - Private Methods
@@ -224,7 +241,46 @@ class LoginViewController: UIViewController {
         forgotPasswordButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
     }
     
+    private func alertUserOfExpiredCredentials(_ notification: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.presentSimpleAlert(with: "Your Okta credentials have expired",
+                                    message: "Please sign in again",
+                                    preferredStyle: .alert,
+                                    dismissText: "Dimiss")
+        }
+    }
+    
+    // MARK: Notification Handling
+    private func checkForExistingProfile(with notification: Notification) {
+        checkForExistingProfile()
+    }
+    
+    private func checkForExistingProfile() {
+        profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
+            guard let self = self,
+                self.presentedViewController == nil else { return }
+            
+            if exists {
+                self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "ModalAddProfile", sender: nil)
+            }
+        }
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ModalAddProfile" {
+            guard let addProfileVC = segue.destination as? AddProfileViewController else { return }
+            addProfileVC.delegate = self
+        }
     }
 }
+
+// MARK: - Add Profile Delegate
+extension LoginViewController: AddProfileDelegate {
+    func profileWasAdded() {
+        checkForExistingProfile()
+    }
+}
+
