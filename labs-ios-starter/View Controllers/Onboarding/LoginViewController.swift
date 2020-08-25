@@ -13,7 +13,8 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "System", size: 17.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 25.0)
         label.numberOfLines = 0
         label.text = "EcoSoap-Bank"
         return label
@@ -21,35 +22,76 @@ class LoginViewController: UIViewController {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "System", size: 17.0)
+        label.textColor = .lightGray
         label.numberOfLines = 0
         label.text = "Saving, sanitizing, and supplying RECYCLED SOAP for the developing world"
         return label
     }()
     
+    private lazy var registerAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Register", for: .normal)
+        button.setTitleColor(UIColor(named: "ESB Blue"), for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return button
+    }()
+    
+    private lazy var forgotPasswordButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Forgot Password?", for: .normal)
+        button.setTitleColor(UIColor(named: "ESB Blue"), for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+        return button
+    }()
+    
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(named: "ESB Green")
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
         button.layer.cornerRadius = 8
         return button
     }()
     
-    private lazy var stackView: UIStackView = {
+    private lazy var usernameTextField: UITextField = {
+        let textfield = UITextField()
+        textfield.borderStyle = .none
+        textfield.textContentType = .username
+        textfield.clearButtonMode = .whileEditing
+        textfield.placeholder = "Username"
+        return textfield
+    }()
+    
+    private lazy var passwordTextField: UITextField = {
+        let textfield = UITextField()
+        textfield.borderStyle = .none
+        textfield.textContentType = .password
+        textfield.clearButtonMode = .whileEditing
+        textfield.placeholder = "Password"
+        return textfield
+    }()
+    
+    private lazy var infoLabelStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .fill
         stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.spacing = 8
         return stackView
     }()
     
-    private lazy var backgroundView: UIView = {
+    private lazy var panelView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 8
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "Panel System Background")
         return view
     }()
     
@@ -66,21 +108,32 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         view.backgroundColor = UIColor(named: "ESB System Background")
         
-        view.addSubview(backgroundView)
-        backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        backgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        // Panel View
+        view.addSubview(panelView)
+        panelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        panelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        panelView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        panelView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         
-        backgroundView.addSubview(loginButton)
+        // Login Button
+        panelView.addSubview(loginButton)
+        loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
         
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20).isActive = true
-        loginButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20).isActive = true
-        loginButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20).isActive = true
-        
-        
+        // Labels
+        infoLabelStackView.addArrangedSubview(titleLabel)
+        infoLabelStackView.addArrangedSubview(descriptionLabel)
+        view.addSubview(infoLabelStackView)
+        infoLabelStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        infoLabelStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        infoLabelStackView.bottomAnchor.constraint(equalTo: panelView.topAnchor, constant: -20).isActive = true
+
+        // Forgot Password Button
+        view.addSubview(forgotPasswordButton)
+        forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        forgotPasswordButton.topAnchor.constraint(equalTo: panelView.bottomAnchor, constant: 8.0).isActive = true
         
     }
     
