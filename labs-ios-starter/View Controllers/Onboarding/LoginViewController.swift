@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 25.0)
         label.numberOfLines = 0
         label.text = "EcoSoap-Bank"
+        label.textAlignment = .center
         return label
     }()
     
@@ -25,6 +26,7 @@ class LoginViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "System", size: 17.0)
         label.textColor = .lightGray
+        label.textAlignment = .center
         label.numberOfLines = 0
         label.text = "Saving, sanitizing, and supplying RECYCLED SOAP for the developing world"
         return label
