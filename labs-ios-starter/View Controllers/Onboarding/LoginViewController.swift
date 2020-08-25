@@ -205,26 +205,21 @@ class LoginViewController: UIViewController {
         // Textfields
         usernameStackView.addArrangedSubview(usernameTextField)
         usernameStackView.addArrangedSubview(usernameView)
-
         passwordStackView.addArrangedSubview(passwordTextField)
         passwordStackView.addArrangedSubview(passwordView)
-
         textfieldStackView.addArrangedSubview(usernameStackView)
         textfieldStackView.addArrangedSubview(passwordStackView)
-     
-        
         panelView.addSubview(textfieldStackView)
         textfieldStackView.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
         textfieldStackView.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
         textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
         
-        // Image
+        // ESB Logo
         view.addSubview(imageView)
         imageView.bottomAnchor.constraint(equalTo: infoLabelStackView.topAnchor, constant: -20).isActive = true
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-
     }
     
     // MARK: - Navigation
