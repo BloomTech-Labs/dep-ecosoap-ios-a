@@ -172,23 +172,16 @@ class LoginViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupViews() {
-        //        title = "Login"
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         view.backgroundColor = UIColor(named: "ESB System Background")
         
-        // Panel View
-        view.addSubview(panelView)
-        panelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        panelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        panelView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        panelView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-        
-        // Login Button
-        panelView.addSubview(loginButton)
-        loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
-        loginButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
-        loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
+        // ESB Logo
+        view.addSubview(imageView)
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: 0.20).isActive = true
         
         // Labels
         infoLabelStackView.addArrangedSubview(titleLabel)
@@ -196,14 +189,14 @@ class LoginViewController: UIViewController {
         view.addSubview(infoLabelStackView)
         infoLabelStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         infoLabelStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        infoLabelStackView.bottomAnchor.constraint(equalTo: panelView.topAnchor, constant: -20).isActive = true
-
-        // Forgot Password Button
-        view.addSubview(forgotPasswordButton)
-        forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-        forgotPasswordButton.topAnchor.constraint(equalTo: panelView.bottomAnchor, constant: 8.0).isActive = true
+        infoLabelStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20).isActive = true
         
+        // Panel View
+        view.addSubview(panelView)
+        panelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        panelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        panelView.topAnchor.constraint(equalTo: infoLabelStackView.bottomAnchor, constant: 20).isActive = true
+
         // Textfields
         usernameStackView.addArrangedSubview(usernameTextField)
         usernameStackView.addArrangedSubview(usernameView)
@@ -216,12 +209,19 @@ class LoginViewController: UIViewController {
         textfieldStackView.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
         textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
         
-        // ESB Logo
-        view.addSubview(imageView)
-        imageView.bottomAnchor.constraint(equalTo: infoLabelStackView.topAnchor, constant: -20).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        // Login Button
+        panelView.addSubview(loginButton)
+        loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
+        loginButton.topAnchor.constraint(equalTo: textfieldStackView.bottomAnchor, constant: 20).isActive = true
+        
+        // Forgot Password Button
+        view.addSubview(forgotPasswordButton)
+        forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        forgotPasswordButton.topAnchor.constraint(equalTo: panelView.bottomAnchor, constant: 8.0).isActive = true
+        forgotPasswordButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
     }
     
     // MARK: - Navigation
