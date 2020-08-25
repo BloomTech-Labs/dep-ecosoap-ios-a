@@ -155,6 +155,13 @@ class LoginViewController: UIViewController {
         return view
     }()
     
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "ESB-Logo"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,7 +170,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupViews() {
-        title = "Login"
+        //        title = "Login"
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         view.backgroundColor = UIColor(named: "ESB System Background")
@@ -211,6 +218,12 @@ class LoginViewController: UIViewController {
         textfieldStackView.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
         textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
         
+        // Image
+        view.addSubview(imageView)
+        imageView.bottomAnchor.constraint(equalTo: infoLabelStackView.topAnchor, constant: -20).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
 
     }
     
