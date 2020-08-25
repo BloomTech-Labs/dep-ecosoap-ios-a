@@ -61,19 +61,33 @@ class LoginViewController: UIViewController {
     
     private lazy var usernameTextField: UITextField = {
         let textfield = UITextField()
+        textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.borderStyle = .none
         textfield.textContentType = .username
         textfield.clearButtonMode = .whileEditing
-        textfield.placeholder = "Username"
+        textfield.placeholder = "  Username"
+        textfield.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        textfield.layer.cornerRadius = 8
+        let imageView = UIImageView(image: UIImage(systemName: "person.fill"))
+        imageView.tintColor = .lightGray
+        textfield.leftView = imageView
+        textfield.leftViewMode = .always
         return textfield
     }()
     
     private lazy var passwordTextField: UITextField = {
         let textfield = UITextField()
+        textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.borderStyle = .none
         textfield.textContentType = .password
         textfield.clearButtonMode = .whileEditing
-        textfield.placeholder = "Password"
+        textfield.placeholder = "  Password"
+        textfield.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        textfield.layer.cornerRadius = 8
+        let imageView = UIImageView(image: UIImage(systemName: "lock.fill"))
+        imageView.tintColor = .lightGray
+        textfield.leftView = imageView
+        textfield.leftViewMode = .always
         return textfield
     }()
     
@@ -85,6 +99,52 @@ class LoginViewController: UIViewController {
         stackView.distribution = .fill
         stackView.spacing = 8
         return stackView
+    }()
+    
+    private lazy var textfieldStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .fill
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    private lazy var usernameStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .fill
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        return stackView
+    }()
+    
+    private lazy var passwordStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .fill
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        return stackView
+    }()
+    
+    private lazy var usernameView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        view.backgroundColor = UIColor(named: "ESB Blue")
+        return view
+    }()
+    
+    private lazy var passwordView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        view.backgroundColor = UIColor(named: "ESB Blue")
+        return view
     }()
     
     private lazy var panelView: UIView = {
@@ -135,6 +195,23 @@ class LoginViewController: UIViewController {
         forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
         forgotPasswordButton.topAnchor.constraint(equalTo: panelView.bottomAnchor, constant: 8.0).isActive = true
         
+        // Textfields
+        usernameStackView.addArrangedSubview(usernameTextField)
+        usernameStackView.addArrangedSubview(usernameView)
+
+        passwordStackView.addArrangedSubview(passwordTextField)
+        passwordStackView.addArrangedSubview(passwordView)
+
+        textfieldStackView.addArrangedSubview(usernameStackView)
+        textfieldStackView.addArrangedSubview(passwordStackView)
+     
+        
+        panelView.addSubview(textfieldStackView)
+        textfieldStackView.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
+        textfieldStackView.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
+        textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
+        
+
     }
     
     // MARK: - Navigation
