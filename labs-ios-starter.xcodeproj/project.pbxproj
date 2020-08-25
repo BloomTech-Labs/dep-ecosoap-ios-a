@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */; };
-		1365F63324EF714700E69068 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1365F63224EF714700E69068 /* UserLoginViewController.swift */; };
+		1365F63624F4457E00E69068 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1365F63524F4457E00E69068 /* LoginViewController.swift */; };
 		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
@@ -38,7 +38,7 @@
 		466C427D249A8749007D033E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466C427C249A8749007D033E /* Assets.xcassets */; };
 		466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466C427E249A8749007D033E /* LaunchScreen.storyboard */; };
 		46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E024C9828800FE0CD1 /* Profile.swift */; };
-		46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E424C98CDC00FE0CD1 /* LoginViewController.swift */; };
+		46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */; };
 		46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E624C98D8900FE0CD1 /* Notifications.swift */; };
 		46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E824C98DAF00FE0CD1 /* ProfileListViewController.swift */; };
 		46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4ED24C98ECC00FE0CD1 /* ProfileController.swift */; };
@@ -63,7 +63,7 @@
 
 /* Begin PBXFileReference section */
 		133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
-		1365F63224EF714700E69068 /* UserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		1365F63524F4457E00E69068 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		466C4281249A8749007D033E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466C4287249A889F007D033E /* File Organization.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "File Organization.md"; sourceTree = "<group>"; };
 		46BEB4E024C9828800FE0CD1 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		46BEB4E424C98CDC00FE0CD1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerStarter.swift; sourceTree = "<group>"; };
 		46BEB4E624C98D8900FE0CD1 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		46BEB4E824C98DAF00FE0CD1 /* ProfileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListViewController.swift; sourceTree = "<group>"; };
 		46BEB4ED24C98ECC00FE0CD1 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		1365F63424EF714B00E69068 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1365F63224EF714700E69068 /* UserLoginViewController.swift */,
+				1365F63524F4457E00E69068 /* LoginViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 		46BEB4EF24C98ED900FE0CD1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				46BEB4E424C98CDC00FE0CD1 /* LoginViewController.swift */,
+				46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */,
 				463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */,
 				466C4279249A8748007D033E /* Main.storyboard */,
 				46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */,
@@ -466,7 +466,6 @@
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
-				1365F63324EF714700E69068 /* UserLoginViewController.swift in Sources */,
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */,
@@ -480,6 +479,7 @@
 				13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
+				1365F63624F4457E00E69068 /* LoginViewController.swift in Sources */,
 				13FD2A9124E45750006D6B43 /* PickupTimeTableViewCell.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
@@ -487,7 +487,7 @@
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				13FD2A9724E45796006D6B43 /* PickupWeightTableViewCell.swift in Sources */,
-				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
+				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* Enums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
