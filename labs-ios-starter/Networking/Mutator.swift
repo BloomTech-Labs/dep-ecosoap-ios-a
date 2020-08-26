@@ -8,16 +8,42 @@
 
 import Foundation
 
-class Mutator {
-    static let shared = Mutator()
+class Mutator: Request {
 
-    private init() {
+    var body: String
 
+    var payload: ResponseModel
+
+    var name: String
+
+    private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup]
+
+    private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup]
+
+    init?(name: MutationName, input: Input) {
+        guard let function = Mutator.collection[name] else {
+            NSLog("Couldn't find this mutation in the collection. Check your implementation.")
+            return nil
+        }
+
+        guard let body = function(input) else {
+            return nil
+        }
+
+        guard let payload = Mutator.payloads[name] else {
+            NSLog("Couldn't find a matching payload name. Check your implementation.")
+            return nil
+        }
+        self.body = body
+        self.payload = payload
+        self.name = name.rawValue
     }
 
-    let payloads: [String: String] = [:]
-
-    func schedulePickup(pickup: PickupInput) -> String {
+    private static func schedulePickup(input: Input) -> String? {
+        guard let pickup = input as? PickupInput else {
+            NSLog("Couldn't cast input to PickupInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
         return """
         mutation {
           schedulePickup(input:{

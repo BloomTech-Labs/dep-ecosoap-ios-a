@@ -9,9 +9,19 @@
 import Foundation
 
 class BackendController {
+
+    enum Errors: Error {
+        case RequestInitFail
+    }
+
     private let apiURL: URL = URL(string: "http://35.208.9.187:9096/ios-api-3")!
 
 //    var loggedInUser: User
+
+    static let shared: BackendController = BackendController()
+
+    private init() {
+    }
 
     var users: [String: User] = [:]
     var properties: [String: Property] = [:]
@@ -21,151 +31,139 @@ class BackendController {
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
 
-    private var parsers: [String: (Any?)->()] = [:]
+    private var parsers: [ResponseModel: (Any?)->()] = [.property: BackendController.propertyParser,
+                                                        .properties: BackendController.propertiesParser,
+                                                        .user: BackendController.userParser,
+                                                        .pickup:  BackendController.pickupParser,
+                                                        .pickups: BackendController.pickupsParser,
+                                                        .hub: BackendController.hubParser,
+                                                        .payment: BackendController.paymentParser,
+                                                        .payments: BackendController.paymentsParser
+                                                        ]
 
-    private var propertyParser: (Any?) -> Void = {_ in }
-    private var propertiesParser: (Any?) -> Void = {_ in }
-    private var userParser: (Any?) -> Void = {_ in }
-    private var pickupParser: (Any?) -> Void = {_ in }
-    private var pickupsParser: (Any?) -> Void = {_ in }
-    private var hubParser: (Any?) -> Void = {_ in }
-    private var paymentParser: (Any?) -> Void = {_ in }
-    private var paymentsParser: (Any?) -> Void = {_ in }
-    private var cartonParser: (Any?) -> Void = {_ in }
-
-
-    init() {
-//        self.loggedInUser = user
-
-        self.propertyParser = {
-            guard let propertyContainer = $0 as? [String: Any] else {
-                NSLog("Couldn't PROPERTY cast data as dictionary for initialization")
-                return
-            }
-
-            guard let property = Property(dictionary: propertyContainer) else {
-                return
-            }
-            self.properties[property.id] = property
+    private static func propertyParser(data: Any?) {
+        guard let propertyContainer = data as? [String: Any] else {
+            NSLog("Couldn't PROPERTY cast data as dictionary for initialization")
+            return
         }
 
-        self.propertiesParser = {
-            guard let propertiesContainer = $0 as? [[String: Any]] else {
-                NSLog("Couldn't PROPERTIES cast data as dictionary for initialization")
-                return
-            }
+        guard let property = Property(dictionary: propertyContainer) else {
+            return
+        }
+        shared.properties[property.id] = property
+    }
 
-            for prop in propertiesContainer {
-                self.propertyParser(prop)
-            }
+    private static func propertiesParser(data: Any?) {
+        guard let propertiesContainer = data as? [[String: Any]] else {
+            NSLog("Couldn't PROPERTIES cast data as dictionary for initialization")
+            return
         }
 
-        self.userParser = {
-            guard let userContainer = $0 as? [String: Any] else {
-                NSLog("Couldn't USER cast data as dictionary for initialization")
-                return
-            }
+        for prop in propertiesContainer {
+            propertyParser(data:prop)
+        }
+    }
 
-            guard let user = User(dictionary: userContainer) else {
-                return
-            }
-            self.users[user.id] = user
+    private static func userParser(data: Any?) {
+        guard let userContainer = data as? [String: Any] else {
+            NSLog("Couldn't USER cast data as dictionary for initialization")
+            return
         }
 
-        self.pickupParser = {
-            guard let pickupContainer = $0 as? [String: Any] else {
-                NSLog("Couldn't PICKUP cast data as dictionary for initialization")
-                return
-            }
+        guard let user = User(dictionary: userContainer) else {
+            return
+        }
+        shared.users[user.id] = user
+    }
 
-            guard let pickup = Pickup(dictionary: pickupContainer) else {
-                return
-            }
-
-            if let cartonContainer = pickupContainer["cartons"] as? [[String: Any]] {
-                self.cartonParser(cartonContainer)
-            }
-            self.pickups[pickup.id] = pickup
+    private static func pickupParser(data: Any?) {
+        guard let pickupContainer = data as? [String: Any] else {
+            NSLog("Couldn't PICKUP cast data as dictionary for initialization")
+            return
         }
 
-        self.pickupsParser = {
-            guard let pickupsContainer = $0 as? [[String: Any]] else {
-                NSLog("Couldn't cast data as dictionary for PICKUPS container.")
-                return
-            }
-
-            for pickup in pickupsContainer {
-                self.pickupParser(pickup)
-            }
+        guard let pickup = Pickup(dictionary: pickupContainer) else {
+            return
         }
 
-        self.hubParser = {
-            guard let hubContainer = $0 as? [String: Any] else {
-                NSLog("Couldn't cast data as dictionary for HUB initialization.")
-                return
-            }
+        if let cartonContainer = pickupContainer["cartons"] as? [[String: Any]] {
+            cartonParser(data: cartonContainer)
+        }
+        shared.pickups[pickup.id] = pickup
+    }
 
-            guard let hub = Hub(dictionary: hubContainer) else {
-                NSLog("Failed to initialize HUB in parser.")
-                NSLog("Dictionary:")
-                NSLog("\t\(hubContainer)")
-                return
-            }
-            self.hubs[hub.id] = hub
+    private static func pickupsParser(data: Any?) {
+        guard let pickupsContainer = data as? [[String: Any]] else {
+            NSLog("Couldn't cast data as dictionary for PICKUPS container.")
+            return
         }
 
-        self.paymentParser = {
-            guard let paymentContainer = $0 as? [String: Any] else {
-                NSLog("Couldn't cast data as dictionary for PAYMENT initialization.")
-                return
-            }
+        for pickup in pickupsContainer {
+            pickupParser(data: pickup)
+        }
+    }
 
-            guard let payment = Payment(dictionary: paymentContainer) else {
-                NSLog("Failed to initialize HUB in parser.")
-                NSLog("Dictionary:")
-                NSLog("\t\(paymentContainer)")
-                return
-            }
-            self.payments[payment.id] = payment
+    private static func hubParser(data: Any?) {
+        guard let hubContainer = data as? [String: Any] else {
+            NSLog("Couldn't cast data as dictionary for HUB initialization.")
+            print(data)
+            return
         }
 
-        self.paymentsParser = {
-            guard let paymentsContainer = $0 as? [[String: Any]] else {
-                NSLog("Couldn't cast data as dictionary for PAYMENTS container.")
-                return
-            }
+        guard let hub = Hub(dictionary: hubContainer) else {
+            NSLog("Failed to initialize HUB in parser.")
+            NSLog("Dictionary:")
+            NSLog("\t\(hubContainer)")
+            return
+        }
+        shared.hubs[hub.id] = hub
+    }
 
-            for payment in paymentsContainer {
-                self.paymentParser(payment)
-            }
+    private static func paymentParser(data: Any?) {
+        guard let paymentContainer = data as? [String: Any] else {
+            NSLog("Couldn't cast data as dictionary for PAYMENT initialization.")
+            return
         }
 
-        self.cartonParser = {
-            guard let cartonsContainer = $0 as? [[String: Any]] else {
-                return
-            }
+        guard let payment = Payment(dictionary: paymentContainer) else {
+            NSLog("Failed to initialize HUB in parser.")
+            NSLog("Dictionary:")
+            NSLog("\t\(paymentContainer)")
+            return
+        }
+        shared.payments[payment.id] = payment
+    }
 
-            for cartonDict in cartonsContainer {
-                if let carton = PickupCarton(dictionary: cartonDict) {
-                    self.pickupCartons[carton.id] = carton
-                }
-            }
-
+    private static func paymentsParser(data: Any?) {
+        guard let paymentsContainer = data as? [[String: Any]] else {
+            NSLog("Couldn't cast data as dictionary for PAYMENTS container.")
+            return
         }
 
-        self.parsers = ["properties":propertyParser,
-        "property":propertiesParser,
-        "user":userParser,
-        "pickup":pickupParser,
-        "pickups":pickupsParser,
-        "hub":hubParser,
-        "payment":paymentParser,
-        "payments":paymentsParser]
+        for payment in paymentsContainer {
+            paymentParser(data: payment)
+        }
+    }
+
+    private static func cartonParser(data: Any?) {
+        guard let cartonsContainer = data as? [[String: Any]] else {
+            return
+        }
+
+        for cartonDict in cartonsContainer {
+            if let carton = PickupCarton(dictionary: cartonDict) {
+                shared.pickupCartons[carton.id] = carton
+            }
+        }
 
     }
 
     func propertiesByUserId(id: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .propertiesByUserId, id: id) { (_, error) in
+        guard let request = Queries(name: .propertiesByUserId, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -175,7 +173,11 @@ class BackendController {
     }
 
     func propertyById(id: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .propertyById, id: id) { (_, error) in
+        guard let request = Queries(name: .propertyById, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -185,7 +187,11 @@ class BackendController {
     }
 
     func userById(id: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .userById, id: id) { (_, error) in
+        guard let request = Queries(name: .userById, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -195,7 +201,11 @@ class BackendController {
     }
 
     func hubByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .hubByPropertyId, id: propertyId) { (_, error) in
+        guard let request = Queries(name: .hubByPropertyId, id: propertyId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -205,7 +215,11 @@ class BackendController {
     }
 
     func pickupsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .pickupsByPropertyId, id: propertyId) { (_, error) in
+        guard let request = Queries(name: .pickupsByPropertyId, id: propertyId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -215,7 +229,11 @@ class BackendController {
     }
 
     func nextPaymentByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .nextPaymentByPropertyId, id: propertyId) { (_, error) in
+        guard let request = Queries(name: .nextPaymentByPropertyId, id: propertyId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -225,7 +243,11 @@ class BackendController {
     }
 
     func paymentsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .paymentsByPropertyId, id: propertyId) { (_, error) in
+        guard let request = Queries(name: .paymentsByPropertyId, id: propertyId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -235,7 +257,12 @@ class BackendController {
     }
 
     func impactStatsByPropertyId(id: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .impactStatsByPropertyId, id: id) { (data, error) in
+        guard let request = Queries(name: .impactStatsByPropertyId, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+
+        requestAPI(with: request) { (data, error) in
             if let error = error {
                 completion(error)
                 return
@@ -260,12 +287,16 @@ class BackendController {
 
             property.impact = stats
             completion(nil)
-
         }
     }
 
     func initialFetch(userId: String, completion: @escaping (Error?) -> Void) {
-        queryAPI(query: .monsterFetch, id: userId) { (data, error) in
+        guard let request = Queries(name: .monsterFetch, id: userId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+
+        requestAPI(with: request) { (data, error) in
             if let error = error {
                 completion(error)
                 return
@@ -359,80 +390,31 @@ class BackendController {
         }
     }
 
-    private func queryAPI(query: Queries.Key, id: String, completion: @escaping (Any?, Error?) -> Void) {
-        var request = URLRequest(url: apiURL)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        let wtf = Queries.shared.collection[query.rawValue]!(id)
-
-        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query": wtf], options: [])
-
-        print("Request body")
-        print(String(data: request.httpBody!, encoding: .utf8)!)
-        URLSession.shared.dataTask(with: request) { data, _, error in
-            if let _ = error {
-                completion(nil, error)
-                return
-            }
-
-            guard let data = data else {
-                completion(nil, nil)
-                return
-            }
-
-            do {
-                let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                let dataContainer = dict?["data"]  as? [String: Any]
-                var queryContainer:[String: Any]?
-
-                let payloadString = Queries.shared.payloads[query.rawValue]!
-
-                if query == .monsterFetch {
-                    queryContainer = dataContainer?["userById"] as? [String: Any]
-                    completion(queryContainer?[payloadString], nil)
-                    return
-                } else {
-                    queryContainer = dataContainer?[query.rawValue] as? [String: Any]
-                }
-
-
-                guard let parser = self.parsers[payloadString] else {
-                    print("The payload \(payloadString) doesn't possess a parser.")
-                    completion(queryContainer?[payloadString], nil)
-                    return
-                }
-                parser(queryContainer?[payloadString])
-                completion(nil, nil)
-
-            } catch let error {
-                completion(nil, error)
-            }
-        }.resume()
-    }
-
-    func schedulePickup(input: PickupInput) {
-        mutateAPI(requestBody: Mutator.shared.schedulePickup(pickup: input), payload: .pickup, mutation: .schedulePickup) { (_, error) in
+    func schedulePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .schedulePickup, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
             if let error = error {
-                NSLog("Error Scheduling Pickup")
-                NSLog("\(error)")
+                completion(error)
                 return
             }
 
-            NSLog("Successfully scheduled pickup.")
+            completion(nil)
         }
     }
 
-    private func mutateAPI(requestBody: String, payload: ResponseModel, mutation: Mutations, completion: @escaping (Any?, Error?) -> Void) {
-        var request = URLRequest(url: apiURL)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    private func requestAPI(with request: Request, completion: @escaping (Any?, Error?) -> Void) {
+        var urlRequest = URLRequest(url: apiURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query": requestBody], options: [])
+        urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: ["query": request.body], options: [])
 
         print("Request body")
-        print(String(data: request.httpBody!, encoding: .utf8)!)
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        print(String(data: urlRequest.httpBody!, encoding: .utf8)!)
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             if let _ = error {
                 completion(nil, error)
                 return
@@ -445,13 +427,29 @@ class BackendController {
 
             do {
                 let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                let dataContainer = dict?["data"]  as? [String: Any]
+                guard let dataContainer = dict?["data"]  as? [String: Any] else {
+                    NSLog("No data in request response.")
+                    completion(nil, NSError(domain: "No data in response.", code: 0, userInfo: nil))
+                    return
+                }
 
-                let queryContainer:[String: Any]? = dataContainer?[mutation.rawValue] as? [String: Any]
+                var queryContainer:[String: Any]?
 
-                let payloadString = payload.rawValue
+                let payloadString = request.payload.rawValue
 
-                guard let parser = self.parsers[payloadString] else {
+                if request.name == "monsterFetch" {
+                    guard let queryContainer = dataContainer["userById"] as? [String: Any] else {
+                        completion(nil, NSError(domain: "Query container is nil.", code: 0, userInfo: nil))
+                        return
+                    }
+                    completion(queryContainer[payloadString], nil)
+                    return
+                } else {
+                    queryContainer = dataContainer[request.name] as? [String: Any]
+                }
+
+
+                guard let parser = self.parsers[request.payload] else {
                     print("The payload \(payloadString) doesn't possess a parser.")
                     completion(queryContainer?[payloadString], nil)
                     return

@@ -4,85 +4,192 @@
 //
 //  Created by Karen Rodriguez on 8/12/20.
 //  Copyright © 2020 Spencer Curtis. All rights reserved.
-//
 
 import Foundation
 
-class Queries {
+class Queries: Request {
 
-    static let shared = Queries()
+    var body: String
 
-    let collection:[String: (String)->String]
-    let payloads = [Key.userById.rawValue:"user",
-                    Key.propertyById.rawValue:"property",
-                    Key.propertiesByUserId.rawValue:"properties",
-                    Key.impactStatsByPropertyId.rawValue:"impactStats",
-                    Key.hubByPropertyId.rawValue:"hub",
-                    Key.pickupsByPropertyId.rawValue:"pickups",
-                    Key.nextPaymentByPropertyId.rawValue:"payment",
-                    Key.paymentsByPropertyId.rawValue:"payments",
-                    Key.monsterFetch.rawValue:"user"]
+    var payload: ResponseModel
 
+    var name: String
 
-    private init() {
-        self.collection = [Key.userById.rawValue:userById,
-                           Key.propertyById.rawValue:propertyById,
-                           Key.propertiesByUserId.rawValue:propertiesByUserId,
-                           Key.impactStatsByPropertyId.rawValue:impactStatsByPropertyId,
-                           Key.hubByPropertyId.rawValue:hubByPropertyId,
-                           Key.pickupsByPropertyId.rawValue:pickupsByPropertyId,
-                           Key.nextPaymentByPropertyId.rawValue:nextPaymentByPropertyId,
-                           Key.paymentsByPropertyId.rawValue:paymentsByPropertyId,
-                           Key.monsterFetch.rawValue:monsterFetch]
+    private static let collection = [QueryName.userById: Queries.userById,
+                                              .propertyById: Queries.propertyById,
+                                              .propertiesByUserId: Queries.propertiesByUserId,
+                                              .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
+                                              .hubByPropertyId: Queries.hubByPropertyId,
+                                              .pickupsByPropertyId: Queries.pickupsByPropertyId,
+                                              .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
+                                              .paymentsByPropertyId: Queries.paymentsByPropertyId,
+                                              .monsterFetch: Queries.monsterFetch]
+
+    private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
+                                                               .propertyById: .property,
+                                                               .propertiesByUserId: .properties,
+                                                               .impactStatsByPropertyId: .impactStats,
+                                                               .hubByPropertyId: .hub,
+                                                               .pickupsByPropertyId: .pickups,
+                                                               .nextPaymentByPropertyId: .payment,
+                                                               .paymentsByPropertyId: .payments,
+                                                               .monsterFetch: .user]
+
+    init?(name: QueryName, id: String) {
+        guard let body = Queries.collection[name] else {
+            NSLog("Couldn't find this query in the collection. Check your implementation.")
+            return nil
+        }
+
+        guard let payload = Queries.payloads[name] else {
+            NSLog("Couldn't find a matching payload name. Check your implementation.")
+            return nil
+        }
+
+        self.body = body(id)
+        self.payload = payload
+        self.name = name.rawValue
     }
 
-    enum Key: String {
-        case userById
-        case propertiesByUserId
-        case propertyById
-        case impactStatsByPropertyId
-        case hubByPropertyId
-        case pickupsByPropertyId
-        case nextPaymentByPropertyId
-        case paymentsByPropertyId
-        case monsterFetch
-    }
-
-    private let propertiesByUserId:(String) -> String = {
+    private static func propertiesByUserId(propertyID: String) -> String {
         return """
         {
-        propertiesByUserId(input: { userId: "\($0)" }) {
-            properties {
-                id,
-                name,
-                rooms,
-                phone,
-                billingAddress,
-                shippingAddress,
-                coordinates,
-                shippingNote,
-                notes,
-                users {
-                    id
+            propertiesByUserId(input: { userId: "\(propertyID)" }) {
+                properties {
+                      id
+                      name
+                      propertyType
+                      rooms
+                      services
+                      collectionType
+                      logo
+                      phone
+                      billingAddress {
+                        address1
+                        address2
+                        address3
+                        city
+                        state
+                        postalCode
+                        country
+                        # formattedAddress
+                      }
+                      shippingAddress {
+                        address1
+                        address2
+                        address3
+                        city
+                        state
+                        postalCode
+                        country
+                        # formattedAddress
+                      }
+                      coordinates {
+                          longitude
+                                  latitude
+                      }
+                      shippingNote
+                      notes
+                      hub {
+                        id
+                        name
+                        address {
+                          address1
+                          address2
+                          address3
+                          city
+                          state
+                          postalCode
+                          country
+                          # formattedAddress
+                        }
+                        email
+                        phone
+                        coordinates {
+                          longitude
+                                  latitude
+                        }
+                        properties {
+                          id
+                        }
+                        workflow
+                        impact {
+                          soapRecycled
+                          linensRecycled
+                          bottlesRecycled
+                          paperRecycled
+                          peopleServed
+                          womenEmployed
+                        }
+                      }
+                      impact {
+                        soapRecycled
+                        linensRecycled
+                        bottlesRecycled
+                        paperRecycled
+                        peopleServed
+                        womenEmployed
+                      }
+                      users {
+                        id
+                      }
+                      pickups {
+                        id
+                        confirmationCode
+                        collectionType
+                        status
+                        readyDate
+                        pickupDate
+                        property {
+                          id
+                        }
+                        cartons {
+                          id
+                          product
+                          percentFull
+                        }
+                        notes
+                      }
+                      contract {
+                        id
+                        startDate
+                        endDate
+                        paymentStartDate
+                        paymentEndDate
+                        properties {
+                          id
+                        }
+                        paymentFrequency
+                        price
+                        discount
+                        billingMethod
+                        automatedBilling
+                        payments {
+                          id
+                          invoice
+                          invoice
+                          amountPaid
+                          amountDue
+                          date
+                          invoicePeriodStartDate
+                          invoicePeriodEndDate
+                          dueDate
+                          paymentMethod
+                          hospitalityContract {
+                            id
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
-                impactStats {
-                  soapRecycled
-                  linensRecycled
-                  bottlesRecycled
-                  paperRecycled
-                  peopleServed
-                  womenEmployed
-                }
-            }
-        }
-        }
         """
     }
 
-    private let userById:(String) -> String = {
+    private static func userById(userID: String) -> String {
         return """
         {
-        userById(input: { userId:  \"\($0)\" }) {
+        userById(input: { userId:  \"\(userID)\" }) {
         user {
         id
         firstName
@@ -104,44 +211,148 @@ class Queries {
         """
     }
 
-    private let propertyById:(String) -> String = {
+    private static func propertyById(propertyID: String) -> String {
         return """
         {
         propertyById(input: {
-        propertyId: "\($0)"
+        propertyId: "\(propertyID)"
         }) {
         property {
-          id,
-          name,
-          rooms,
-          phone,
-          billingAddress,
-          shippingAddress,
-          coordinates,
-          shippingNote,
-          notes,
-          users {
-            id
-          }
-          impactStats {
-              soapRecycled
-              linensRecycled
-              bottlesRecycled
-              paperRecycled
-              peopleServed
-              womenEmployed
+              id
+              name
+              propertyType
+              rooms
+              services
+              collectionType
+              logo
+              phone
+              billingAddress {
+                address1
+                address2
+                address3
+                city
+                state
+                postalCode
+                country
+                # formattedAddress
+              }
+              shippingAddress {
+                address1
+                address2
+                address3
+                city
+                state
+                postalCode
+                country
+                # formattedAddress
+              }
+              coordinates {
+                  longitude
+                          latitude
+              }
+              shippingNote
+              notes
+              hub {
+                id
+                name
+                address {
+                  address1
+                  address2
+                  address3
+                  city
+                  state
+                  postalCode
+                  country
+                  # formattedAddress
+                }
+                email
+                phone
+                coordinates {
+                  longitude
+                          latitude
+                }
+                properties {
+                  id
+                }
+                workflow
+                impact {
+                  soapRecycled
+                  linensRecycled
+                  bottlesRecycled
+                  paperRecycled
+                  peopleServed
+                  womenEmployed
+                }
+              }
+              impact {
+                soapRecycled
+                linensRecycled
+                bottlesRecycled
+                paperRecycled
+                peopleServed
+                womenEmployed
+              }
+              users {
+                id
+              }
+              pickups {
+                id
+                confirmationCode
+                collectionType
+                status
+                readyDate
+                pickupDate
+                property {
+                  id
+                }
+                cartons {
+                  id
+                  product
+                  percentFull
+                }
+                notes
+              }
+              contract {
+                id
+                startDate
+                endDate
+                paymentStartDate
+                paymentEndDate
+                properties {
+                  id
+                }
+                paymentFrequency
+                price
+                discount
+                billingMethod
+                automatedBilling
+                payments {
+                  id
+                  invoice
+                  invoice
+                  amountPaid
+                  amountDue
+                  date
+                  invoicePeriodStartDate
+                  invoicePeriodEndDate
+                  dueDate
+                  paymentMethod
+                  hospitalityContract {
+                    id
+                  }
+                }
+              }
             }
-        }
-        }
+          }
         }
         """
     }
 
-    private let impactStatsByPropertyId:(String) -> String = {
+    private static func impactStatsByPropertyId(propertyID: String) -> String {
         return """
         query {
         impactStatsByPropertyId(input: {
-        propertyId: "\($0)"
+        propertyId: "\(propertyID)"
         }) {
         impactStats {
         soapRecycled
@@ -156,11 +367,11 @@ class Queries {
         """
     }
 
-    private let hubByPropertyId:(String) -> String = {
+    private static func hubByPropertyId(propertyID: String) -> String {
         """
         query {
           hubByPropertyId(input: {
-            propertyId: "\($0)"
+            propertyId: "\(propertyID)"
           }) {
             hub {
               id
@@ -199,11 +410,11 @@ class Queries {
         """
     }
 
-    private let pickupsByPropertyId:(String) -> String = {
+    private static func pickupsByPropertyId(propertyID: String) -> String {
         """
         query {
           pickupsByPropertyId(input: {
-            propertyId: "\($0)"
+            propertyId: "\(propertyID)"
           })  {
             pickups {
               id
@@ -228,11 +439,11 @@ class Queries {
         """
     }
 
-    private let nextPaymentByPropertyId:(String) -> String = {
+    private static func nextPaymentByPropertyId(propertyID: String) -> String {
         """
         query {
           nextPaymentByPropertyId(input: {
-            propertyId: "\($0)"
+            propertyId: "\(propertyID)"
           }) {
             payment {
               id
@@ -254,11 +465,11 @@ class Queries {
         """
     }
 
-    private let paymentsByPropertyId:(String) -> String = {
+    private static func paymentsByPropertyId(propertyID: String) -> String {
         """
         query {
           paymentsByPropertyId(input: {
-            propertyId: "\($0)"
+            propertyId: "\(propertyID)"
           }) {
           payments {
               id
@@ -280,11 +491,11 @@ class Queries {
         """
     }
 
-    private let monsterFetch:(String) -> String = {
+    private static func monsterFetch(userID: String) -> String {
         return """
         query {
           userById(input: {
-            userId: "\($0)"
+            userId: "\(userID)"
           }) {
             user {
               id
