@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PickupInput {
+class PickupInput: Input {
     private let collectionType: String
     private let status: String
     private let readyDate: String
