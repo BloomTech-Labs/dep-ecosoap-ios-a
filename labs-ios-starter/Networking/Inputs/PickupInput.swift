@@ -35,7 +35,7 @@ class PickupInput {
 
             """
         if let notes = notes {
-            string += "notes: \(notes)"
+            string += "notes: \"\(notes)\""
         }
         return string
     }
