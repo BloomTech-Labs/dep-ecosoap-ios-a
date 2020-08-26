@@ -411,6 +411,18 @@ class BackendController {
         }.resume()
     }
 
+    func schedulePickup(input: PickupInput) {
+        mutateAPI(requestBody: Mutator.shared.schedulePickup(pickup: input), payload: .pickup, mutation: .schedulePickup) { (_, error) in
+            if let error = error {
+                NSLog("Error Scheduling Pickup")
+                NSLog("\(error)")
+                return
+            }
+
+            NSLog("Successfully scheduled pickup.")
+        }
+    }
+
     private func mutateAPI(requestBody: String, payload: ResponseModel, mutation: Mutations, completion: @escaping (Any?, Error?) -> Void) {
         var request = URLRequest(url: apiURL)
         request.httpMethod = "POST"
