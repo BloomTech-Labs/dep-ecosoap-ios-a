@@ -390,8 +390,25 @@ class BackendController {
         }
     }
 
+    // MARK: Mutations
+
     func schedulePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .schedulePickup, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
+    func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .cancelPickup, input: input) else {
             completion(Errors.RequestInitFail)
             return
         }
