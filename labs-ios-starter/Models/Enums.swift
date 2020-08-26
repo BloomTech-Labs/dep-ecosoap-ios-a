@@ -47,3 +47,10 @@ enum PaymentMethod {
     case WIRE
     case OTHER
 }
+
+enum Status {
+    case SUBMITTED
+    case OUT_FOR_PICKUP
+    case COMPLETE
+    case CANCELLED
+}
