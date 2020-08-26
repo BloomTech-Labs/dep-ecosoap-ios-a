@@ -24,7 +24,7 @@ class Queries {
                     Key.monsterFetch.rawValue:"user"]
 
 
-    init() {
+    private init() {
         self.collection = [Key.userById.rawValue:userById,
                            Key.propertyById.rawValue:propertyById,
                            Key.propertiesByUserId.rawValue:propertiesByUserId,
