@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class CartonInput {
+    let product: String
+    let percentFull: Int
+
+    init(product: HospitalityService, percentFull: Int) {
+        self.product = product.rawValue
+        self.percentFull = percentFull
+    }
+}
