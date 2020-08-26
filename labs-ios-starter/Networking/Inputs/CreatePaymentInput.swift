@@ -16,9 +16,14 @@ class CreatePaymentInput: Input {
     let hospitalityContractId: String
 
     var formatted: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyy-mm-dd"
         let string = """
-
-    """
+            amountPaid: \(amountPaid)
+            date: \"\(formatter.string(from: date))\"
+            paymentMethod: \(paymentMethod)
+            hospitalityContractId: \"\(hospitalityContractId)\"
+            """
         return string
     }
 
