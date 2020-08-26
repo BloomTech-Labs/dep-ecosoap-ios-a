@@ -18,3 +18,7 @@ enum ResponseModel: String {
     case payment
     case payments
 }
+
+enum Mutations: String {
+    case schedulePickup
+}
