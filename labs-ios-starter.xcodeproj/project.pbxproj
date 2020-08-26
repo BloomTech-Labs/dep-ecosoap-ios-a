@@ -47,6 +47,8 @@
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2C775E24E1EE9E006EF13C /* OktaAuth */; };
 		9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A8D24F5EA1600FF204D /* Mutator.swift */; };
+		9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A9024F60E6100FF204D /* PickupInput.swift */; };
+		9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A9224F60E8300FF204D /* CartonInput.swift */; };
 		9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F86DD24EF8DAC00DECB24 /* PickupCarton.swift */; };
 		9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E024E4EF3C007FC7DA /* Queries.swift */; };
 		9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */; };
@@ -105,6 +107,8 @@
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
 		9C364A8D24F5EA1600FF204D /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
+		9C364A9024F60E6100FF204D /* PickupInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupInput.swift; sourceTree = "<group>"; };
+		9C364A9224F60E8300FF204D /* CartonInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartonInput.swift; sourceTree = "<group>"; };
 		9C5F86DD24EF8DAC00DECB24 /* PickupCarton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupCarton.swift; sourceTree = "<group>"; };
 		9C9A98E024E4EF3C007FC7DA /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -333,9 +337,19 @@
 			path = Profiles;
 			sourceTree = "<group>";
 		};
+		9C364A8F24F60E4F00FF204D /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				9C364A9024F60E6100FF204D /* PickupInput.swift */,
+				9C364A9224F60E8300FF204D /* CartonInput.swift */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
 		9C9A98DF24E4E22F007FC7DA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9C364A8F24F60E4F00FF204D /* Inputs */,
 				9C9A98E024E4EF3C007FC7DA /* Queries.swift */,
 				9C9A98E224E4F0D3007FC7DA /* NetworkController.swift */,
 				9C364A8D24F5EA1600FF204D /* Mutator.swift */,
@@ -490,6 +504,8 @@
 				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
+				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
+				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				13FD2A9724E45796006D6B43 /* PickupWeightTableViewCell.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* Enums.swift in Sources */,
