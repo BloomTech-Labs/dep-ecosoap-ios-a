@@ -59,6 +59,7 @@
 		9C9A98E824E5078B007FC7DA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E724E5078B007FC7DA /* Property.swift */; };
 		9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98E924E508BE007FC7DA /* Pickup.swift */; };
 		9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */; };
+		9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */; };
 		9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63B524EE24A700A2C446 /* APIEnums.swift */; };
 		9CEA63B924EE257600A2C446 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63B824EE257600A2C446 /* Address.swift */; };
 		9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BA24EE26E700A2C446 /* Coordinates.swift */; };
@@ -122,6 +123,7 @@
 		9C9A98E724E5078B007FC7DA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		9C9A98E924E508BE007FC7DA /* Pickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickup.swift; sourceTree = "<group>"; };
 		9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStats.swift; sourceTree = "<group>"; };
+		9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelPickupInput.swift; sourceTree = "<group>"; };
 		9CEA63B524EE24A700A2C446 /* APIEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnums.swift; sourceTree = "<group>"; };
 		9CEA63B824EE257600A2C446 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		9CEA63BA24EE26E700A2C446 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				9C364A9024F60E6100FF204D /* PickupInput.swift */,
 				9C364A9224F60E8300FF204D /* CartonInput.swift */,
 				9C364A9B24F6393D00FF204D /* Input.swift */,
+				9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
+				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				13FD2A9724E45796006D6B43 /* PickupWeightTableViewCell.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
