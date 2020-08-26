@@ -16,9 +16,11 @@ class Mutator: Request {
 
     var name: String
 
-    private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup]
+    private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
+                                     .cancelPickup: Mutator.cancelPickup]
 
-    private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup]
+    private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
+                                                                  .cancelPickup: .pickup]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -67,6 +69,38 @@ class Mutator: Request {
               notes
             }
             label
+          }
+        }
+        """
+    }
+
+    private static func cancelPickup(input: Input) -> String? {
+        guard let pickup = input as? CancelPickupInput else {
+            NSLog("Couldn't cast input to CancelPickupInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+          cancelPickup(input: {
+            \(pickup.formatted)
+          }) {
+            pickup {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              notes
+            }
           }
         }
 
