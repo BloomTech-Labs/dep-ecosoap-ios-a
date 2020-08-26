@@ -31,6 +31,7 @@ class BackendController {
     private var hubParser: (Any?) -> Void = {_ in }
     private var paymentParser: (Any?) -> Void = {_ in }
     private var paymentsParser: (Any?) -> Void = {_ in }
+    private var cartonParser: (Any?) -> Void = {_ in }
 
 
     init() {
@@ -79,6 +80,10 @@ class BackendController {
 
             guard let pickup = Pickup(dictionary: pickupContainer) else {
                 return
+            }
+
+            if let cartonContainer = pickupContainer["cartons"] as? [[String: Any]] {
+                self.cartonParser(cartonContainer)
             }
             self.pickups[pickup.id] = pickup
         }
@@ -133,6 +138,19 @@ class BackendController {
             for payment in paymentsContainer {
                 self.paymentParser(payment)
             }
+        }
+
+        self.cartonParser = {
+            guard let cartonsContainer = $0 as? [[String: Any]] else {
+                return
+            }
+
+            for cartonDict in cartonsContainer {
+                if let carton = PickupCarton(dictionary: cartonDict) {
+                    self.pickupCartons[carton.id] = carton
+                }
+            }
+
         }
 
         self.parsers = ["properties":propertyParser,
