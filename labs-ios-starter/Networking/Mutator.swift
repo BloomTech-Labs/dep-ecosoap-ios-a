@@ -17,10 +17,12 @@ class Mutator: Request {
     var name: String
 
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
-                                     .cancelPickup: Mutator.cancelPickup]
+                                     .cancelPickup: Mutator.cancelPickup,
+                                     .createPayment: Mutator.createPayment]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
-                                                                  .cancelPickup: .pickup]
+                                                                  .cancelPickup: .pickup,
+                                                                  .createPayment: .payment]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -104,6 +106,36 @@ class Mutator: Request {
           }
         }
 
+        """
+    }
+
+    private static func createPayment(input: Input) -> String? {
+        guard let payment = input as? CreatePaymentInput else {
+            NSLog("Couldn't cast input to CancelPickupInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+          createPayment(input: {
+            \(payment.formatted)
+          }) {
+            payment {
+              id
+              invoiceCode
+              invoice
+              amountPaid
+              amountDue
+              date
+              invoicePeriodStartDate
+              invoicePeriodEndDate
+              dueDate
+              paymentMethod
+              hospitalityContract {
+                id
+              }
+            }
+          }
+        }
         """
     }
 
