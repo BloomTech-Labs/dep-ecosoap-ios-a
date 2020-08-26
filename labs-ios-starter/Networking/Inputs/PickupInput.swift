@@ -9,17 +9,43 @@
 import Foundation
 
 class PickupInput {
-    let collectionType: String
-    let status: String
-    let readyDate: String
-    let propertyId: String
-    let cartons: [CartonInput]
+    private let collectionType: String
+    private let status: String
+    private let readyDate: String
+    private let propertyId: String
+    private let cartons: [CartonInput]
+    private let notes: String?
 
-    init (collectionType: CollectionType, status: Status, readyDate: String, propertyId: String, cartons: [CartonInput]) {
+    var cartonsQuery: String {
+        var string = ""
+        for carton in cartons {
+            string += "{ product: \(carton.product), percentFull: \(carton.percentFull) },\n"
+        }
+        return string
+    }
+
+    var formatted: String {
+        var string = """
+            collectionType: \(collectionType)
+            status: \(status)
+            readyDate: "\(readyDate)"
+            propertyId: "\(propertyId)"
+            cartons: [
+              \(cartonsQuery)]
+
+            """
+        if let notes = notes {
+            string += "notes: \(notes)"
+        }
+        return string
+    }
+
+    init (collectionType: CollectionType, status: Status, readyDate: String, propertyId: String, cartons: [CartonInput], notes: String?) {
         self.collectionType = collectionType.rawValue
         self.status = status.rawValue
         self.readyDate = readyDate
         self.propertyId = propertyId
         self.cartons = cartons
+        self.notes = notes
     }
 }
