@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum PropertyType {
+enum PropertyType: String {
     case BED_AND_BREAKFAST
     case GUESTHOUSE
     case HOTEL
@@ -16,7 +16,7 @@ enum PropertyType {
 }
 
 
-enum HospitalityService {
+enum HospitalityService: String {
     case BOTTLES
     case LINENS
     case OTHER
@@ -24,7 +24,7 @@ enum HospitalityService {
     case SOAP
 }
 
-enum CollectionType {
+enum CollectionType: String {
     case COURIER_CONSOLIDATED
     case COURIER_DIRECT
     case GENERATED_LABEL
@@ -32,7 +32,7 @@ enum CollectionType {
     case OTHER
 }
 
-enum Workflow {
+enum Workflow: String {
     case MANUAL
     case ENHANCED
     case SEMIAUTO
@@ -40,7 +40,7 @@ enum Workflow {
     case OTHER
 }
 
-enum PaymentMethod {
+enum PaymentMethod: String {
     case ACH
     case CREDIT
     case DEBIT
@@ -48,7 +48,7 @@ enum PaymentMethod {
     case OTHER
 }
 
-enum Status {
+enum Status: String {
     case SUBMITTED
     case OUT_FOR_PICKUP
     case COMPLETE
