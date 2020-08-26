@@ -410,4 +410,46 @@ class BackendController {
             }
         }.resume()
     }
+
+    private func mutateAPI(requestBody: String, payload: ResponseModel, mutation: Mutations, completion: @escaping (Any?, Error?) -> Void) {
+        var request = URLRequest(url: apiURL)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        request.httpBody = try! JSONSerialization.data(withJSONObject: ["query": requestBody], options: [])
+
+        print("Request body")
+        print(String(data: request.httpBody!, encoding: .utf8)!)
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let _ = error {
+                completion(nil, error)
+                return
+            }
+
+            guard let data = data else {
+                completion(nil, nil)
+                return
+            }
+
+            do {
+                let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                let dataContainer = dict?["data"]  as? [String: Any]
+
+                let queryContainer:[String: Any]? = dataContainer?[mutation.rawValue] as? [String: Any]
+
+                let payloadString = payload.rawValue
+
+                guard let parser = self.parsers[payloadString] else {
+                    print("The payload \(payloadString) doesn't possess a parser.")
+                    completion(queryContainer?[payloadString], nil)
+                    return
+                }
+                parser(queryContainer?[payloadString])
+                completion(nil, nil)
+
+            } catch let error {
+                completion(nil, error)
+            }
+        }.resume()
+    }
 }
