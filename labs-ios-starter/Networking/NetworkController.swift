@@ -390,8 +390,70 @@ class BackendController {
         }
     }
 
+    // MARK: Mutations
+
     func schedulePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .schedulePickup, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
+    func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .cancelPickup, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
+    func createPayment(input: CreatePaymentInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .createPayment, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
+    func updateUserProfile(input: UpdateUserProfileInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updateUserProfile, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
+    func updateProperty(input: UpdatePropertyInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updateProperty, input: input) else {
             completion(Errors.RequestInitFail)
             return
         }

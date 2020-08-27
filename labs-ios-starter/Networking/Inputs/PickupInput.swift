@@ -16,7 +16,7 @@ class PickupInput: Input {
     private let cartons: [CartonInput]
     private let notes: String?
 
-    var cartonsQuery: String {
+    private var cartonsQuery: String {
         var string = ""
         for carton in cartons {
             string += "{ product: \(carton.product), percentFull: \(carton.percentFull) },\n"
