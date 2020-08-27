@@ -471,6 +471,9 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="addSoapButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="OlF-pQ-MZD"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-zJ-4Yd">
                                                                     <rect key="frame" x="85.5" y="0.0" width="77.5" height="35"/>
@@ -483,6 +486,9 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="addPaperButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="Gdl-Ik-QbE"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAe-sL-BJG">
                                                                     <rect key="frame" x="171" y="0.0" width="77.5" height="35"/>
@@ -495,6 +501,9 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="addLinensButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="2sN-cv-xPN"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-MQ-kje">
                                                                     <rect key="frame" x="256.5" y="0.0" width="77.5" height="35"/>
@@ -507,6 +516,9 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="addBottlesButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="0UM-av-qQR"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -520,8 +532,14 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="CeR-Zq-ccN" secondAttribute="bottom" id="ezo-ue-bOO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addBottlesCartonButton" destination="u2A-MQ-kje" id="4uT-tA-6JN"/>
+                                            <outlet property="addLinensCartonButton" destination="YAe-sL-BJG" id="YOr-W7-Jx1"/>
+                                            <outlet property="addPaperCartonButton" destination="7kG-zJ-4Yd" id="kyN-Et-i4R"/>
+                                            <outlet property="addSoapCartonButton" destination="heg-cy-WCD" id="5jv-yV-KAx"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartonCell" rowHeight="57" id="NKh-Hc-9Oc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartonCell" rowHeight="57" id="NKh-Hc-9Oc" customClass="PickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="475" width="374" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NKh-Hc-9Oc" id="Wne-ZL-iim">

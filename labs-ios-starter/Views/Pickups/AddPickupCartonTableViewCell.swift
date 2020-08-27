@@ -8,17 +8,49 @@
 
 import UIKit
 
-class AddPickupCartonTableViewCell: UITableViewCell {
+enum CartonTypes: Int {
+    case soap = 0
+    case paper = 1
+    case linens = 2
+    case bottles = 3
+}
 
+class AddPickupCartonTableViewCell: UITableViewCell {
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var addSoapCartonButton: UIButton!
+    @IBOutlet weak var addPaperCartonButton: UIButton!
+    @IBOutlet weak var addLinensCartonButton: UIButton!
+    @IBOutlet weak var addBottlesCartonButton: UIButton!
+    
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupViews()
+    }
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        addSoapCartonButton.layer.cornerRadius = 8
+        addPaperCartonButton.layer.cornerRadius = 8
+        addLinensCartonButton.layer.cornerRadius = 8
+        addBottlesCartonButton.layer.cornerRadius = 8
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK: - IBActions
+    @IBAction func addSoapButtonTapped(_ sender: Any) {
     }
-
+    
+    
+    @IBAction func addPaperButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func addLinensButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func addBottlesButtonTapped(_ sender: Any) {
+        
+    }
 }

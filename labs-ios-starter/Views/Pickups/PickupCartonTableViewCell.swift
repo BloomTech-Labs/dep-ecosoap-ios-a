@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartonTableViewCell: UITableViewCell {
+class PickupCartonTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
