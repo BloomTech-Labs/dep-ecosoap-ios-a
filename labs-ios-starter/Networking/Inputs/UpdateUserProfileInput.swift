@@ -16,6 +16,19 @@ class UpdateUserProfileInput: Input {
     private let signupTime: Date?
     private let properties: [String]?
 
+    private var propertiesQuery: String {
+        guard let properties = properties else {
+            return ""
+        }
+
+        var string = "properties: ["
+        for id in properties {
+            string += "\"\(id)\","
+        }
+        string += "]"
+        return string
+    }
+
     private var queryBody: String {
         var string = ""
 
@@ -45,17 +58,17 @@ class UpdateUserProfileInput: Input {
         }
 
         if let address = address {
-            string += address.formatted
+            string += "\(address.formatted)\n"
         }
 
         if let signupTime = signupTime {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyy-mm-dd"
-            string += "signupTime: \(formatter.string(from: signupTime))\n"
+            string += "signupTime: \"\(formatter.string(from: signupTime))\"\n"
         }
 
-        if let properties = properties {
-            string += "[\(properties.joined(separator: ", "))]"
+        if let _ = properties {
+            string += propertiesQuery
         }
 
         return string
