@@ -24,8 +24,9 @@ class PickupCartonTableViewCell: UITableViewCell {
     private func setupViews() {
         let imageView = UIImageView(image: UIImage(systemName: "percent"))
         imageView.tintColor = .lightGray
-        percentageTextfield.leftView = imageView
+        percentageTextfield.rightView = imageView
         percentageTextfield.rightViewMode = .always
         percentageTextfield.textAlignment = .right
+        percentageTextfield.text = "0"
     }
 }

@@ -109,10 +109,10 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
                 cell.cartonTypeLabel.text = "Soap"
             } else if cartons[indexPath.row] == 1 {
                 // Linens
-                cell.cartonTypeLabel.text = "Linens"
+                cell.cartonTypeLabel.text = "Paper"
             } else if cartons[indexPath.row] == 2 {
                 // Paper
-                cell.cartonTypeLabel.text = "Paper"
+                cell.cartonTypeLabel.text = "Linens"
             } else if cartons[indexPath.row] == 3 {
                 // Bottles
                 cell.cartonTypeLabel.text = "Bottles"
