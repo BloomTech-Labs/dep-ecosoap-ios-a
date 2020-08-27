@@ -10,7 +10,10 @@ import Foundation
 
 class HospitalityContract {
     let id, paymentFrequency: String
-    let startDate, endDate, paymentStartDate, paymentEndDate: Date
+    let startDate: Date = Date ()
+    let endDate: Date = Date ()
+    let paymentStartDate: Date = Date ()
+    let paymentEndDate: Date = Date ()
     let price: Int?
     let discount: Float?
     let billingMethod: String?
@@ -21,10 +24,10 @@ class HospitalityContract {
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
         let paymentFrequency = dictionary["paymentFrequency"] as? String,
-        let startDateString = dictionary["startDate"] as? String,
+        /*let startDateString = dictionary["startDate"] as? String,
         let endDateString = dictionary["endDate"] as? String,
         let paymentStartDateString = dictionary["paymentStartDate"] as? String,
-        let paymentEndDateString = dictionary["paymentEndDate"] as? String,
+        let paymentEndDateString = dictionary["paymentEndDate"] as? String,*/
         let automatedBilling = dictionary["automatedBilling"] as? Bool else {
             NSLog("Error unwrapping non-optional HospitalityContract properties:")
             NSLog("\tId: \(String(describing: dictionary["id"]))")
@@ -37,22 +40,22 @@ class HospitalityContract {
             return nil
         }
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
-        guard let startDate = formatter.date(from: startDateString),
-        let endDate = formatter.date(from: endDateString),
-        let paymentStartDate = formatter.date(from: paymentStartDateString),
-        let paymentEndDate = formatter.date(from: paymentEndDateString) else {
-            return nil
-        }
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-mm-dd"
+//        guard let startDate = formatter.date(from: startDateString),
+//        let endDate = formatter.date(from: endDateString),
+//        let paymentStartDate = formatter.date(from: paymentStartDateString),
+//        let paymentEndDate = formatter.date(from: paymentEndDateString) else {
+//            return nil
+//        }
 
 
         self.id = id
         self.paymentFrequency = paymentFrequency
-        self.startDate = startDate
-        self.endDate = endDate
-        self.paymentStartDate = paymentStartDate
-        self.paymentEndDate = paymentEndDate
+//        self.startDate = startDate
+//        self.endDate = endDate
+//        self.paymentStartDate = paymentStartDate
+//        self.paymentEndDate = paymentEndDate
         self.automatedBilling = automatedBilling
 
         self.price = dictionary["price"] as? Int
