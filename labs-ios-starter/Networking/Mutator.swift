@@ -19,12 +19,14 @@ class Mutator: Request {
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
                                      .createPayment: Mutator.createPayment,
-                                     .updateUserProfile: Mutator.updateUserProfile]
+                                     .updateUserProfile: Mutator.updateUserProfile,
+                                     .updateProperty: Mutator.updateProperty]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .createPayment: .payment,
-                                                                  .updateUserProfile: .user]
+                                                                  .updateUserProfile: .user,
+                                                                  .updateProperty: .property]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -181,6 +183,149 @@ class Mutator: Request {
           }
         }
 
+        """
+    }
+
+    private static func updateProperty(input: Input) -> String? {
+        guard let property = input as? UpdatePropertyInput else {
+            NSLog("Couldn't cast input to UpdateUserProfileInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+
+        return """
+        mutation {
+          updateProperty(input: {
+            \(property.formatted)
+          }) {
+            property {
+                id
+                name
+                propertyType
+                rooms
+                services
+                collectionType
+                logo
+                phone
+                billingAddress {
+                  address1
+                  address2
+                  address3
+                  city
+                  state
+                  postalCode
+                  country
+                  # formattedAddress
+                }
+                shippingAddress {
+                  address1
+                  address2
+                  address3
+                  city
+                  state
+                  postalCode
+                  country
+                  # formattedAddress
+                }
+                coordinates {
+                  longitude
+                        latitude
+
+                }
+                shippingNote
+                notes
+                hub {
+                  id
+                  name
+                  address {
+                    address1
+                    address2
+                    address3
+                    city
+                    state
+                    postalCode
+                    country
+                    # formattedAddress
+                  }
+                  email
+                  phone
+                  coordinates {
+                    longitude
+                            latitude
+                  }
+                  properties {
+                    id
+                  }
+                  workflow
+                  impact {
+                    soapRecycled
+                    linensRecycled
+                    bottlesRecycled
+                    paperRecycled
+                    peopleServed
+                    womenEmployed
+                  }
+                }
+                impact {
+                  soapRecycled
+                  linensRecycled
+                  bottlesRecycled
+                  paperRecycled
+                  peopleServed
+                  womenEmployed
+                }
+                users {
+                  id
+                }
+                pickups {
+                  id
+                  confirmationCode
+                  collectionType
+                  status
+                  readyDate
+                  pickupDate
+                  property {
+                    id
+                  }
+                  cartons {
+                    id
+                    product
+                    percentFull
+                  }
+                  notes
+                }
+                contract {
+                  id
+                  startDate
+                  endDate
+                  paymentStartDate
+                  paymentEndDate
+                  properties {
+                    id
+                  }
+                  paymentFrequency
+                  price
+                  discount
+                  billingMethod
+                  automatedBilling
+                  payments {
+                    id
+                    invoice
+                    invoice
+                    amountPaid
+                    amountDue
+                    date
+                    invoicePeriodStartDate
+                    invoicePeriodEndDate
+                    dueDate
+                    paymentMethod
+                    hospitalityContract {
+                      id
+                    }
+                  }
+                }
+            }
+          }
+        }
         """
     }
 
