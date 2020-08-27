@@ -452,6 +452,21 @@ class BackendController {
         }
     }
 
+    func updateProperty(input: UpdatePropertyInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updateProperty, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
     private func requestAPI(with request: Request, completion: @escaping (Any?, Error?) -> Void) {
         var urlRequest = URLRequest(url: apiURL)
         urlRequest.httpMethod = "POST"
