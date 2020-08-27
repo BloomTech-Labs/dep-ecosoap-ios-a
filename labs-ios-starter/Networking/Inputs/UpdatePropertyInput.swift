@@ -17,6 +17,7 @@ class UpdatePropertyInput: Input {
     private let logo: URL?
     private let billingAddress, shippingAddress: AddressInput?
     private let coordinates: CoordinatesInput?
+    private let impact: ImpactStatsInput?
     private let userIds, pickupIds: [String]?
 
     private var servicesQuery: String {
@@ -118,6 +119,10 @@ class UpdatePropertyInput: Input {
             string += "\(coordinates.formatted)\n"
         }
 
+        if let impact = impact {
+            string += impact.formatted
+        }
+
         string += userIdsQuery
         string += pickupIdsQuery
 
@@ -145,6 +150,7 @@ class UpdatePropertyInput: Input {
                   billingAddress: AddressInput? = nil,
                   shippingAddress: AddressInput? = nil,
                   coordinates: CoordinatesInput? = nil,
+                  impact: ImpactStatsInput? = nil,
                   userIds: [String]? = nil,
                   pickupIds: [String]? = nil) {
 
@@ -168,6 +174,8 @@ class UpdatePropertyInput: Input {
         self.shippingAddress = shippingAddress
 
         self.coordinates = coordinates
+
+        self.impact = impact
 
         self.userIds = userIds
         self.pickupIds = pickupIds
