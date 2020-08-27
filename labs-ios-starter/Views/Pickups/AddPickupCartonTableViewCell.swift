@@ -15,6 +15,10 @@ enum CartonTypes: Int {
     case bottles = 3
 }
 
+protocol AddCartonCellDelegate: AnyObject {
+    func addCartonCell(for type: Int)
+}
+
 class AddPickupCartonTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
@@ -22,6 +26,9 @@ class AddPickupCartonTableViewCell: UITableViewCell {
     @IBOutlet weak var addPaperCartonButton: UIButton!
     @IBOutlet weak var addLinensCartonButton: UIButton!
     @IBOutlet weak var addBottlesCartonButton: UIButton!
+    
+    // MARK: - Properties
+    var delegate: AddCartonCellDelegate?
     
     // MARK: - View Lifecycle
     override func awakeFromNib() {
@@ -39,18 +46,18 @@ class AddPickupCartonTableViewCell: UITableViewCell {
 
     // MARK: - IBActions
     @IBAction func addSoapButtonTapped(_ sender: Any) {
+        delegate?.addCartonCell(for: 0)
     }
     
-    
     @IBAction func addPaperButtonTapped(_ sender: Any) {
-        
+        delegate?.addCartonCell(for: 1)
     }
     
     @IBAction func addLinensButtonTapped(_ sender: Any) {
-        
+        delegate?.addCartonCell(for: 2)
     }
     
     @IBAction func addBottlesButtonTapped(_ sender: Any) {
-        
+        delegate?.addCartonCell(for: 3)
     }
 }
