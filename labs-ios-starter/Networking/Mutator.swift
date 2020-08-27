@@ -18,11 +18,13 @@ class Mutator: Request {
 
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
-                                     .createPayment: Mutator.createPayment]
+                                     .createPayment: Mutator.createPayment,
+                                     .updateUserProfile: Mutator.updateUserProfile]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
-                                                                  .createPayment: .payment]
+                                                                  .createPayment: .payment,
+                                                                  .updateUserProfile: .user]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -111,7 +113,7 @@ class Mutator: Request {
 
     private static func createPayment(input: Input) -> String? {
         guard let payment = input as? CreatePaymentInput else {
-            NSLog("Couldn't cast input to CancelPickupInput. Please make sure your input matches the mutation's required input.")
+            NSLog("Couldn't cast input to CreatePaymentInput. Please make sure your input matches the mutation's required input.")
             return nil
         }
         return """
@@ -136,6 +138,49 @@ class Mutator: Request {
             }
           }
         }
+        """
+    }
+
+    private static func updateUserProfile(input: Input) -> String? {
+        guard let user = input as? UpdateUserProfileInput else {
+            NSLog("Couldn't cast input to UpdateUserProfileInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+
+        return """
+        mutation {
+          updateUserProfile(input: {
+            \(user.formatted)
+          }) {
+            user {
+              id
+              firstName
+              middleName
+              lastName
+              title
+              company
+              email
+              password
+              phone
+              skype
+              address {
+                address1
+                address2
+                address3
+                city
+                state
+                postalCode
+                country
+                # formattedAddress
+              }
+              signupTime
+              properties {
+                id
+              }
+            }
+          }
+        }
+
         """
     }
 
