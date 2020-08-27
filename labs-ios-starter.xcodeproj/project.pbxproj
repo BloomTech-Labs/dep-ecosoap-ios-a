@@ -27,7 +27,7 @@
 		13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */; };
 		13FD2A9724E45796006D6B43 /* PickupWeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9624E45796006D6B43 /* PickupWeightTableViewCell.swift */; };
 		13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */; };
-		13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */; };
+		13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */; };
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
 		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
@@ -82,7 +82,7 @@
 		13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupNotesTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9624E45796006D6B43 /* PickupWeightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupWeightTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPropertyTableViewCell.swift; sourceTree = "<group>"; };
-		13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupContentsTableViewCell.swift; sourceTree = "<group>"; };
+		13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPickupCartonTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
 		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 				13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */,
 				13FD2A9624E45796006D6B43 /* PickupWeightTableViewCell.swift */,
 				13FD2A9824E457A1006D6B43 /* PickupPropertyTableViewCell.swift */,
-				13FD2A9B24E45C79006D6B43 /* PickupContentsTableViewCell.swift */,
+				13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */,
 			);
 			path = Pickups;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
-				13FD2A9C24E45C79006D6B43 /* PickupContentsTableViewCell.swift in Sources */,
+				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				1365F63624F4457E00E69068 /* LoginViewController.swift in Sources */,

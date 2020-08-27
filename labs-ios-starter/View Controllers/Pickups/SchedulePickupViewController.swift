@@ -93,7 +93,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             return cell
         } else if indexPath.section == 1 && indexPath.row == 1 {
             // Select Contents
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupContentsCell", for: indexPath) as? PickupContentsTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupContentsCell", for: indexPath) as? AddPickupCartonTableViewCell else { return UITableViewCell() }
             
             return cell
         } else {
