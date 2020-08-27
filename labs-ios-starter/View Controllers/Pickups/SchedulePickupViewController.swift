@@ -14,6 +14,9 @@ class SchedulePickupViewController: UIViewController {
     @IBOutlet weak var schedulePickupButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
+    private var cartons: [Int] = [-1 , -1]
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +52,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         case 0:
             return 3
         case 1:
-            return 2
+            return cartons.count
         case 2:
             return 1
         default:
@@ -92,15 +95,37 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             
             return cell
         } else if indexPath.section == 1 && indexPath.row == 1 {
-            // Select Contents
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupContentsCell", for: indexPath) as? AddPickupCartonTableViewCell else { return UITableViewCell() }
+            // Add Cartons
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddPickupCartonCell", for: indexPath) as? AddPickupCartonTableViewCell else { return UITableViewCell() }
+            
+            cell.delegate = self
             
             return cell
-        } else {
+        } else if indexPath.section == 1 && indexPath.row > 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupCartonCell", for: indexPath) as? PickupCartonTableViewCell else { return UITableViewCell() }
+
+            if cartons[indexPath.row] == 0 {
+                // Soap
+                cell.cartonTypeLabel.text = "Soap"
+            } else if cartons[indexPath.row] == 1 {
+                // Linens
+                cell.cartonTypeLabel.text = "Linens"
+            } else if cartons[indexPath.row] == 2 {
+                // Paper
+                cell.cartonTypeLabel.text = "Paper"
+            } else if cartons[indexPath.row] == 3 {
+                // Bottles
+                cell.cartonTypeLabel.text = "Bottles"
+            }
+            
+            return cell
+        } else if indexPath.section == 2 {
             // Add Notes
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupNotesCell", for: indexPath) as? PickupNotesTableViewCell else { return UITableViewCell() }
             
             return cell
+        } else {
+            return UITableViewCell()
         }
     }
 }
@@ -111,5 +136,15 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
             // Clear selected cell when the user returns from selecting a property
             self.tableView.deselectRow(at: selectionIndexPath, animated: false)
         }
+    }
+}
+
+extension SchedulePickupViewController: AddCartonCellDelegate {
+    func addCartonCell(for type: Int) {
+        cartons.append(type)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: 2, section: 1)], with: .automatic)
+        tableView.endUpdates()
+        tableView.reloadData()
     }
 }

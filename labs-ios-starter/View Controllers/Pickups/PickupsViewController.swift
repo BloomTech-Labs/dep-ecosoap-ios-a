@@ -63,5 +63,4 @@ extension PickupsViewController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: "ShowScheduleNewPushSegue", sender: self)
         }
     }
-    
 }
