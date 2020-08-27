@@ -29,6 +29,6 @@ class PickupCartonTableViewCell: UITableViewCell {
         percentageTextfield.rightViewMode = .always
         percentageTextfield.textAlignment = .right
         percentageTextfield.font = .systemFont(ofSize: 17.0)
-        percentageTextfield.text = "0"
+        percentageTextfield.placeholder = "0"
     }
 }
