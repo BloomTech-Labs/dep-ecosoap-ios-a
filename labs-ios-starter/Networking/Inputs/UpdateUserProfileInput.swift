@@ -20,7 +20,7 @@ class UpdateUserProfileInput: Input {
         guard let properties = properties else {
             return ""
         }
-
+        
         var string = "properties: ["
         for id in properties {
             string += "\"\(id)\","
