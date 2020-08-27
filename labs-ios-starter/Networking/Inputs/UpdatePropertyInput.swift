@@ -108,11 +108,11 @@ class UpdatePropertyInput: Input {
         }
 
         if let billingAddress = billingAddress {
-            string += "billing\(billingAddress.formatted.capitalized)\n"
+            string += "billing\(billingAddress.formatted.firstLetterCapitalizing())\n"
         }
 
         if let shippingAddress = shippingAddress {
-            string += "shipping\(shippingAddress.formatted.capitalized)\n"
+            string += "shipping\(shippingAddress.formatted.firstLetterCapitalizing())\n"
         }
 
         if let coordinates = coordinates {
