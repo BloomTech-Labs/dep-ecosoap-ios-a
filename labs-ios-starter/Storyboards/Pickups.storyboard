@@ -546,7 +546,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGN-QA-t3e">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGN-QA-t3e">
                                                     <rect key="frame" x="294" y="11.5" width="60" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="6kL-gS-JDC"/>
@@ -570,6 +570,10 @@
                                                 <constraint firstItem="JGN-QA-t3e" firstAttribute="centerY" secondItem="Wne-ZL-iim" secondAttribute="centerY" id="qlv-kH-Oer"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cartonTypeLabel" destination="WUx-e0-miw" id="MkG-1M-15W"/>
+                                            <outlet property="percentageTextfield" destination="JGN-QA-t3e" id="zSZ-9b-RyK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

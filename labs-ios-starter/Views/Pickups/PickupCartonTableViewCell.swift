@@ -10,15 +10,22 @@ import UIKit
 
 class PickupCartonTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var percentageTextfield: UITextField!
+    @IBOutlet weak var cartonTypeLabel: UILabel!
+    
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupViews()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        let imageView = UIImageView(image: UIImage(systemName: "percent"))
+        imageView.tintColor = .lightGray
+        percentageTextfield.leftView = imageView
+        percentageTextfield.rightViewMode = .always
+        percentageTextfield.textAlignment = .right
     }
-
 }
