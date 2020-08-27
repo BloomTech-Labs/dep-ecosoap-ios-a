@@ -33,28 +33,28 @@ class UpdateUserProfileInput: Input {
         var string = ""
 
         if let firstName = firstName {
-            string += "firstName: \(firstName)\n"
+            string += "firstName: \"\(firstName)\"\n"
         }
         if let middleName = middleName {
-            string += "middleName: \(middleName)\n"
+            string += "middleName: \"\(middleName)\"\n"
         }
         if let lastName = lastName {
-            string += "lastName: \(lastName)\n"
+            string += "lastName: \"\(lastName)\"\n"
         }
         if let title = title {
-            string += "title: \(title)\n"
+            string += "title: \"\(title)\"\n"
         }
         if let company = company {
-            string += "company: \(company)\n"
+            string += "company: \"\(company)\"\n"
         }
         if let email = email {
-            string += "email: \(email)\n"
+            string += "email: \"\(email)\"\n"
         }
         if let phone = phone {
-            string += "phone: \(phone)\n"
+            string += "phone: \"\(phone)\"\n"
         }
         if let skype = skype {
-            string += "skype: \(skype)\n"
+            string += "skype: \"\(skype)\"\n"
         }
 
         if let address = address {

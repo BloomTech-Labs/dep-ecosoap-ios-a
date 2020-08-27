@@ -13,27 +13,29 @@ class AddressInput {
 
     var formatted: String {
         var string = ""
+
         if let address1 = address1 {
-            string += address1 + "\n"
+            string += "address1: \"\(address1)\" \n"
         }
         if let address2 = address2 {
-            string += address2 + "\n"
+            string += "address2: \"\(address2)\" \n"
         }
         if let address3 = address3 {
-            string += address3 + "\n"
+            string += "address3: \"\(address3)\" \n"
         }
         if let city = city {
-            string += city + "\n"
+            string += "city: \"\(city)\" \n"
         }
         if let state = state {
-            string += state + "\n"
+            string += "state: \"\(state)\" \n"
         }
         if let postalCode = postalCode {
-            string += postalCode + "\n"
+            string += "postalCode: \"\(postalCode)\" \n"
         }
         if let country = country {
-            string += country + "\n"
+            string += "country: \"\(country)\" \n"
         }
+
         if string.isEmpty {
             return string
         } else {
