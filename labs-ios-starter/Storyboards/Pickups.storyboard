@@ -137,7 +137,7 @@
                     <navigationItem key="navigationItem" title="Pickups" id="yiw-ZJ-kgq"/>
                     <connections>
                         <outlet property="tableView" destination="fs7-FZ-bU3" id="a1f-VN-LOz"/>
-                        <segue destination="JMV-Dj-gqf" kind="show" identifier="ShowScheduleNewPushSegue" id="P2w-17-TNZ"/>
+                        <segue destination="JMV-Dj-gqf" kind="show" identifier="ShowScheduleNewPushSegue" id="YIS-fs-3Hv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbv-ZZ-AxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -390,14 +390,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coA-gM-VUU">
-                                                    <rect key="frame" x="20" y="11.5" width="54" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coA-gM-VUU">
+                                                    <rect key="frame" x="20" y="11.5" width="95.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-wG-QIA">
-                                                    <rect key="frame" x="82" y="11" width="258" height="22"/>
+                                                    <rect key="frame" x="123.5" y="11" width="216.5" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
@@ -448,82 +448,98 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPickupCartonCell" rowHeight="57" id="P2T-lN-oQT" customClass="AddPickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="418" width="374" height="57"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPickupCartonCell" rowHeight="89" id="P2T-lN-oQT" customClass="AddPickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="418" width="374" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P2T-lN-oQT" id="ew9-FO-DZb">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CeR-Zq-ccN">
-                                                    <rect key="frame" x="20" y="11" width="334" height="35"/>
+                                                    <rect key="frame" x="20" y="11" width="334" height="67"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-yM-N2M">
-                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="35"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-yM-N2M">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="67"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heg-cy-WCD">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="77.5" height="35"/>
-                                                                    <color key="backgroundColor" name="ESB Blue"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="091-m1-8ye"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title=" Soap" image="plus" catalog="system">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </state>
-                                                                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
-                                                                    <connections>
-                                                                        <action selector="addSoapButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="OlF-pQ-MZD"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-zJ-4Yd">
-                                                                    <rect key="frame" x="85.5" y="0.0" width="77.5" height="35"/>
-                                                                    <color key="backgroundColor" name="ESB Blue"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="NGk-LW-08r"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title=" Paper" image="plus" catalog="system">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </state>
-                                                                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
-                                                                    <connections>
-                                                                        <action selector="addPaperButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="Gdl-Ik-QbE"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAe-sL-BJG">
-                                                                    <rect key="frame" x="171" y="0.0" width="77.5" height="35"/>
-                                                                    <color key="backgroundColor" name="ESB Blue"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="YJ0-rb-TiA"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title=" Linens" image="plus" catalog="system">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </state>
-                                                                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
-                                                                    <connections>
-                                                                        <action selector="addLinensButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="2sN-cv-xPN"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-MQ-kje">
-                                                                    <rect key="frame" x="256.5" y="0.0" width="77.5" height="35"/>
-                                                                    <color key="backgroundColor" name="ESB Blue"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="vyg-rS-uuY"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title=" Bottles" image="plus" catalog="system">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </state>
-                                                                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
-                                                                    <connections>
-                                                                        <action selector="addBottlesButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="0UM-av-qQR"/>
-                                                                    </connections>
-                                                                </button>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sDn-b1-99j">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heg-cy-WCD">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="30"/>
+                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="30" id="091-m1-8ye"/>
+                                                                            </constraints>
+                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title=" Soap" image="plus" catalog="system">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="addSoapButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="OlF-pQ-MZD"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-zJ-4Yd">
+                                                                            <rect key="frame" x="171" y="0.0" width="163" height="30"/>
+                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="30" id="NGk-LW-08r"/>
+                                                                            </constraints>
+                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title=" Paper" image="plus" catalog="system">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="addPaperButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="Gdl-Ik-QbE"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nQU-04-JDq">
+                                                                    <rect key="frame" x="0.0" y="34" width="334" height="33"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAe-sL-BJG">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="33"/>
+                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="30" id="YJ0-rb-TiA"/>
+                                                                            </constraints>
+                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title=" Linens" image="plus" catalog="system">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="addLinensButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="2sN-cv-xPN"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-MQ-kje">
+                                                                            <rect key="frame" x="171" y="0.0" width="163" height="33"/>
+                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="30" id="vyg-rS-uuY"/>
+                                                                            </constraints>
+                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title=" Bottles" image="plus" catalog="system">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="addBottlesButtonTapped:" destination="P2T-lN-oQT" eventType="touchUpInside" id="0UM-av-qQR"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="B0Y-yM-N2M" firstAttribute="leading" secondItem="CeR-Zq-ccN" secondAttribute="leadingMargin" id="6DJ-RJ-M98"/>
+                                                        <constraint firstAttribute="bottom" secondItem="B0Y-yM-N2M" secondAttribute="bottom" constant="4" id="6xU-4X-ZFf"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="B0Y-yM-N2M" secondAttribute="trailing" id="JSO-tR-E1O"/>
+                                                        <constraint firstItem="B0Y-yM-N2M" firstAttribute="top" secondItem="CeR-Zq-ccN" secondAttribute="top" constant="4" id="wSR-u6-4Up"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -541,7 +557,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupCartonCell" rowHeight="57" id="NKh-Hc-9Oc" customClass="PickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="475" width="374" height="57"/>
+                                        <rect key="frame" x="20" y="507" width="374" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NKh-Hc-9Oc" id="Wne-ZL-iim">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
@@ -556,23 +572,33 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUx-e0-miw">
-                                                    <rect key="frame" x="20" y="18.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="53" y="18.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WxK-YJ-EfH">
+                                                    <rect key="frame" x="20" y="16" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="Y7b-Bv-bT8"/>
+                                                        <constraint firstAttribute="width" constant="25" id="i7f-aJ-9Gd"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="WUx-e0-miw" firstAttribute="leading" secondItem="WxK-YJ-EfH" secondAttribute="trailing" constant="8" id="2H0-Rg-Awk"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="JGN-QA-t3e" secondAttribute="bottom" constant="0.5" id="E7v-o7-R6K"/>
+                                                <constraint firstItem="WxK-YJ-EfH" firstAttribute="centerY" secondItem="Wne-ZL-iim" secondAttribute="centerY" id="Mie-Yp-ySZ"/>
                                                 <constraint firstItem="JGN-QA-t3e" firstAttribute="top" secondItem="Wne-ZL-iim" secondAttribute="topMargin" constant="0.5" id="QTS-ov-Evb"/>
-                                                <constraint firstItem="WUx-e0-miw" firstAttribute="leading" secondItem="Wne-ZL-iim" secondAttribute="leadingMargin" id="TIi-M1-nWA"/>
                                                 <constraint firstItem="WUx-e0-miw" firstAttribute="centerY" secondItem="Wne-ZL-iim" secondAttribute="centerY" id="ZxR-IJ-ftC"/>
+                                                <constraint firstItem="WxK-YJ-EfH" firstAttribute="leading" secondItem="Wne-ZL-iim" secondAttribute="leadingMargin" id="eBk-ro-hPD"/>
                                                 <constraint firstItem="JGN-QA-t3e" firstAttribute="trailing" secondItem="Wne-ZL-iim" secondAttribute="trailingMargin" id="pHE-n8-ILg"/>
                                                 <constraint firstItem="JGN-QA-t3e" firstAttribute="centerY" secondItem="Wne-ZL-iim" secondAttribute="centerY" id="qlv-kH-Oer"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cartonTypeLabel" destination="WUx-e0-miw" id="MkG-1M-15W"/>
+                                            <outlet property="iconImageView" destination="WxK-YJ-EfH" id="RzT-zZ-XhW"/>
                                             <outlet property="percentageTextfield" destination="JGN-QA-t3e" id="zSZ-9b-RyK"/>
                                         </connections>
                                     </tableViewCell>
@@ -610,7 +636,7 @@
             <objects>
                 <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">

@@ -65,7 +65,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         case 0:
             return "Pickup Details"
         case 1:
-            return "Package Contents"
+            return "Carton Details"
         case 2:
             return "Notes"
         default:
@@ -107,15 +107,19 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             if cartons[indexPath.row] == 0 {
                 // Soap
                 cell.cartonTypeLabel.text = "Soap"
+                cell.iconImageView.image = UIImage(named: "soap_placeholder")
             } else if cartons[indexPath.row] == 1 {
                 // Linens
                 cell.cartonTypeLabel.text = "Paper"
+                cell.iconImageView.image = UIImage(named: "paper_placeholder")
             } else if cartons[indexPath.row] == 2 {
                 // Paper
                 cell.cartonTypeLabel.text = "Linens"
+                cell.iconImageView.image = UIImage(named: "linens_placeholder")
             } else if cartons[indexPath.row] == 3 {
                 // Bottles
                 cell.cartonTypeLabel.text = "Bottles"
+                cell.iconImageView.image = UIImage(named: "bottles_placeholder")
             }
             
             return cell

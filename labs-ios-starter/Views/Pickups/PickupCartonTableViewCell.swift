@@ -13,6 +13,7 @@ class PickupCartonTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var percentageTextfield: UITextField!
     @IBOutlet weak var cartonTypeLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     // MARK: - View Lifecycle
     override func awakeFromNib() {
@@ -27,6 +28,7 @@ class PickupCartonTableViewCell: UITableViewCell {
         percentageTextfield.rightView = imageView
         percentageTextfield.rightViewMode = .always
         percentageTextfield.textAlignment = .right
+        percentageTextfield.font = .systemFont(ofSize: 17.0)
         percentageTextfield.text = "0"
     }
 }
