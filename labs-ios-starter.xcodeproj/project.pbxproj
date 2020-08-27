@@ -66,6 +66,7 @@
 		9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9ACA7424F7524C002D47B5 /* CoordinatesInput.swift */; };
 		9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9ACA7624F7541D002D47B5 /* ImpactStatsInput.swift */; };
 		9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */; };
+		9C9ACA7E24F779D2002D47B5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9ACA7D24F779D2002D47B5 /* String.swift */; };
 		9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63B524EE24A700A2C446 /* APIEnums.swift */; };
 		9CEA63B924EE257600A2C446 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63B824EE257600A2C446 /* Address.swift */; };
 		9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BA24EE26E700A2C446 /* Coordinates.swift */; };
@@ -136,6 +137,7 @@
 		9C9ACA7424F7524C002D47B5 /* CoordinatesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesInput.swift; sourceTree = "<group>"; };
 		9C9ACA7624F7541D002D47B5 /* ImpactStatsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatsInput.swift; sourceTree = "<group>"; };
 		9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePropertyInput.swift; sourceTree = "<group>"; };
+		9C9ACA7D24F779D2002D47B5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9CEA63B524EE24A700A2C446 /* APIEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnums.swift; sourceTree = "<group>"; };
 		9CEA63B824EE257600A2C446 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		9CEA63BA24EE26E700A2C446 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		466C4272249A8748007D033E /* labs-ios-starter */ = {
 			isa = PBXGroup;
 			children = (
+				9C9ACA7C24F779BB002D47B5 /* Helpers */,
 				9C9A98E424E5068B007FC7DA /* Models */,
 				9C9A98DF24E4E22F007FC7DA /* Networking */,
 				13A4A7D324E1F384005326F9 /* Storyboards */,
@@ -418,6 +421,14 @@
 			path = Attributes;
 			sourceTree = "<group>";
 		};
+		9C9ACA7C24F779BB002D47B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9C9ACA7D24F779D2002D47B5 /* String.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9CEA63B724EE256500A2C446 /* Property Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C9ACA7E24F779D2002D47B5 /* String.swift in Sources */,
 				13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */,
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
