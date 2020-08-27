@@ -354,12 +354,11 @@
 		9C364A8F24F60E4F00FF204D /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
-				9C364A9024F60E6100FF204D /* PickupInput.swift */,
-				9C364A9224F60E8300FF204D /* CartonInput.swift */,
 				9C364A9B24F6393D00FF204D /* Input.swift */,
+				9C9ACA7324F751DD002D47B5 /* Attributes */,
+				9C364A9024F60E6100FF204D /* PickupInput.swift */,
 				9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */,
 				9C9ACA6D24F72327002D47B5 /* CreatePaymentInput.swift */,
-				9C9ACA6F24F7296B002D47B5 /* AddressInput.swift */,
 				9C9ACA7124F72EFD002D47B5 /* UpdateUserProfileInput.swift */,
 			);
 			path = Inputs;
@@ -399,6 +398,15 @@
 				9CEA63C024EF5E7800A2C446 /* Payment.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9C9ACA7324F751DD002D47B5 /* Attributes */ = {
+			isa = PBXGroup;
+			children = (
+				9C364A9224F60E8300FF204D /* CartonInput.swift */,
+				9C9ACA6F24F7296B002D47B5 /* AddressInput.swift */,
+			);
+			path = Attributes;
 			sourceTree = "<group>";
 		};
 		9CEA63B724EE256500A2C446 /* Property Models */ = {
