@@ -89,7 +89,7 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="FPq-l9-Zd0">
                         <barButtonItem key="rightBarButtonItem" title="Testing" id="ctw-pY-XsR">
                             <connections>
-                                <segue destination="v67-ny-P0X" kind="show" id="3C2-8c-kdM"/>
+                                <segue destination="v67-ny-P0X" kind="presentation" modalPresentationStyle="fullScreen" id="3C2-8c-kdM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

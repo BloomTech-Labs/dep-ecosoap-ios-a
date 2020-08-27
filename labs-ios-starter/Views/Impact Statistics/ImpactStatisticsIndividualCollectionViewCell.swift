@@ -42,16 +42,16 @@ class ImpactStatisticsIndividualCollectionViewCell: UICollectionViewCell {
         
         if indexPath.row == 1 {
             titleLabel.text = "Soap"
-            imageView.tintColor = UIColor(named: "ESB Blue")
+            imageView.image = UIImage(named: "soap_placeholder")
         } else if indexPath.row == 2 {
             titleLabel.text = "Linens"
-            imageView.tintColor = UIColor(named: "ESB Green")
+            imageView.image = UIImage(named: "linens_placeholder")
         } else if indexPath.row == 3 {
             titleLabel.text = "Bottles"
-            imageView.tintColor = UIColor(named: "ESB Sapphire")
+            imageView.image = UIImage(named: "bottles_placeholder")
         } else if indexPath.row == 4 {
             titleLabel.text = "Paper"
-            imageView.tintColor = UIColor(named: "ESB Gold")
+            imageView.image = UIImage(named: "paper_placeholder")
         } else if indexPath.row == 5 {
             titleLabel.text = "People"
             imageView.tintColor = UIColor(named: "ESB Orange")

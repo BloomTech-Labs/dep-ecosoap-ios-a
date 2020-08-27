@@ -11,6 +11,8 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
+    let profileController = ProfileController.shared
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +60,7 @@ class LoginViewController: UIViewController {
         button.backgroundColor = UIColor(named: "ESB Green")
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         button.layer.cornerRadius = 8
+        button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         return button
     }()
     
@@ -168,27 +171,34 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
+                                               object: nil,
+                                               queue: .main,
+                                               using: checkForExistingProfile)
+        NotificationCenter.default.addObserver(forName: .oktaAuthenticationExpired,
+                                               object: nil,
+                                               queue: .main,
+                                               using: alertUserOfExpiredCredentials)
+    }
+    
+    // MARK: - IBActions
+    @objc func login(_ sender: Any) {
+        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
     // MARK: - Private Methods
     private func setupViews() {
-        //        title = "Login"
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         view.backgroundColor = UIColor(named: "ESB System Background")
         
-        // Panel View
-        view.addSubview(panelView)
-        panelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        panelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        panelView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        panelView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-        
-        // Login Button
-        panelView.addSubview(loginButton)
-        loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
-        loginButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
-        loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
+        // ESB Logo
+        view.addSubview(imageView)
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: 0.20).isActive = true
         
         // Labels
         infoLabelStackView.addArrangedSubview(titleLabel)
@@ -196,14 +206,14 @@ class LoginViewController: UIViewController {
         view.addSubview(infoLabelStackView)
         infoLabelStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         infoLabelStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        infoLabelStackView.bottomAnchor.constraint(equalTo: panelView.topAnchor, constant: -20).isActive = true
-
-        // Forgot Password Button
-        view.addSubview(forgotPasswordButton)
-        forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-        forgotPasswordButton.topAnchor.constraint(equalTo: panelView.bottomAnchor, constant: 8.0).isActive = true
+        infoLabelStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20).isActive = true
         
+        // Panel View
+        view.addSubview(panelView)
+        panelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        panelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        panelView.topAnchor.constraint(equalTo: infoLabelStackView.bottomAnchor, constant: 20).isActive = true
+
         // Textfields
         usernameStackView.addArrangedSubview(usernameTextField)
         usernameStackView.addArrangedSubview(usernameView)
@@ -216,15 +226,61 @@ class LoginViewController: UIViewController {
         textfieldStackView.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
         textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
         
-        // ESB Logo
-        view.addSubview(imageView)
-        imageView.bottomAnchor.constraint(equalTo: infoLabelStackView.topAnchor, constant: -20).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        // Login Button
+        panelView.addSubview(loginButton)
+        loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
+        loginButton.topAnchor.constraint(equalTo: textfieldStackView.bottomAnchor, constant: 20).isActive = true
+        
+        // Forgot Password Button
+        view.addSubview(forgotPasswordButton)
+        forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        forgotPasswordButton.topAnchor.constraint(equalTo: panelView.bottomAnchor, constant: 8.0).isActive = true
+        forgotPasswordButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+    }
+    
+    private func alertUserOfExpiredCredentials(_ notification: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.presentSimpleAlert(with: "Your Okta credentials have expired",
+                                    message: "Please sign in again",
+                                    preferredStyle: .alert,
+                                    dismissText: "Dimiss")
+        }
+    }
+    
+    // MARK: Notification Handling
+    private func checkForExistingProfile(with notification: Notification) {
+        checkForExistingProfile()
+    }
+    
+    private func checkForExistingProfile() {
+        profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
+            guard let self = self,
+                self.presentedViewController == nil else { return }
+            
+            if exists {
+                self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "ModalAddProfile", sender: nil)
+            }
+        }
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ModalAddProfile" {
+            guard let addProfileVC = segue.destination as? AddProfileViewController else { return }
+            addProfileVC.delegate = self
+        }
     }
 }
+
+// MARK: - Add Profile Delegate
+extension LoginViewController: AddProfileDelegate {
+    func profileWasAdded() {
+        checkForExistingProfile()
+    }
+}
+
