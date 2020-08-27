@@ -28,6 +28,14 @@ class SchedulePickupViewController: UIViewController {
         self.hideKeyboardWhenViewTapped()
         schedulePickupButton.layer.cornerRadius = 8
     }
+    
+    private func testSchedulingPickup() {
+//        PickupInput(collectionType: .LOCAL, status: .SUBMITTED, readyDate: T##String, propertyId: T##String, cartons: [CartonInput(product: .LINENS, percentFull: 10)], notes: T##String?)
+//        BackendController.shared.schedulePickup(input: T##PickupInput) { (Error?) in
+//
+//        }
+        
+    }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

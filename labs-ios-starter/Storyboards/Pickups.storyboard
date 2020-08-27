@@ -447,6 +447,9 @@
                                                 <constraint firstItem="2aV-g2-bu1" firstAttribute="trailing" secondItem="RCA-eP-ZSf" secondAttribute="trailingMargin" id="ceR-WA-LMU"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="notesTextField" destination="2aV-g2-bu1" id="5e9-Bz-Omc"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPickupCartonCell" rowHeight="89" id="P2T-lN-oQT" customClass="AddPickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="418" width="374" height="89"/>
