@@ -132,6 +132,7 @@ class UpdatePropertyInput: Input {
     var formatted: String {
         return """
         id: \"\(id)\"
+        \(queryBody)
         """
     }
 
