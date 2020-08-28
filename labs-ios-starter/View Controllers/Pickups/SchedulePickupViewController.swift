@@ -17,6 +17,14 @@ class SchedulePickupViewController: UIViewController {
     // MARK: - Properties
     private var cartons: [Int] = [-1 , -1]
     
+    private var soapCartons: [UUID:Int] = [:]
+    private var paperCartons: [UUID:Int] = [:]
+    private var linenCartons: [UUID:Int] = [:]
+    private var bottleCartons: [UUID:Int] = [:]
+    
+    // Pickup Input Properties
+    private var notes: String?
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,20 +122,28 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
 
             if cartons[indexPath.row] == 0 {
                 // Soap
-                cell.cartonTypeLabel.text = "Soap"
                 cell.iconImageView.image = UIImage(named: "soap_placeholder")
+                cell.cartonTypeLabel.text = "Soap"
+                cell.delegate = self
+                cell.cellType = .soap
             } else if cartons[indexPath.row] == 1 {
                 // Linens
-                cell.cartonTypeLabel.text = "Paper"
                 cell.iconImageView.image = UIImage(named: "paper_placeholder")
+                cell.cartonTypeLabel.text = "Paper"
+                cell.delegate = self
+                cell.cellType = .paper
             } else if cartons[indexPath.row] == 2 {
                 // Paper
-                cell.cartonTypeLabel.text = "Linens"
                 cell.iconImageView.image = UIImage(named: "linens_placeholder")
+                cell.cartonTypeLabel.text = "Linens"
+                cell.delegate = self
+                cell.cellType = .linens
             } else if cartons[indexPath.row] == 3 {
                 // Bottles
-                cell.cartonTypeLabel.text = "Bottles"
                 cell.iconImageView.image = UIImage(named: "bottles_placeholder")
+                cell.cartonTypeLabel.text = "Bottles"
+                cell.delegate = self
+                cell.cellType = .bottles
             }
             
             return cell
@@ -151,7 +167,28 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
     }
 }
 
-extension SchedulePickupViewController: AddCartonCellDelegate {
+// Custom cell delegate methods
+extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate {
+    // PickupCartonTableViewCell
+    func userAddedPercentage(for cellIdentifier: UUID, cellType: CartonTypes, percentage: Int) {
+        switch cellType {
+        case .soap:
+            soapCartons[cellIdentifier] = percentage
+        case .paper:
+            paperCartons[cellIdentifier] = percentage
+        case .linens:
+            linenCartons[cellIdentifier] = percentage
+        case .bottles:
+            bottleCartons[cellIdentifier] = percentage
+        }
+    }
+    
+    // PickupNotesTableViewCell
+    func userAddedNotes(notes: String) {
+        self.notes = notes
+    }
+    
+    // AddPickupCartonTableViewCell
     func addCartonCell(for type: Int) {
         cartons.append(type)
         tableView.beginUpdates()
@@ -160,3 +197,4 @@ extension SchedulePickupViewController: AddCartonCellDelegate {
         tableView.reloadData()
     }
 }
+
