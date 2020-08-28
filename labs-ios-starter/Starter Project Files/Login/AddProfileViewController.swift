@@ -76,7 +76,7 @@ class AddProfileViewController: UIViewController {
         keyboardDismissalTapRecognizer = recognizer
     }
     
-    @objc private override func dismissKeyboard() {
+    @objc override func dismissKeyboard() {
         view.endEditing(true)
     }
 }
