@@ -47,7 +47,31 @@ class SchedulePickupViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func schedulePickupButtonTapped(_ sender: Any) {
-        // BackendController.shared.schedulePickup(input: <#T##PickupInput#>, completion: <#T##(Error?) -> Void#>)
+        
+        var cartons: [CartonInput] = []
+        for percentage in soapCartons.values {
+            cartons.append(CartonInput(product: .SOAP, percentFull: percentage))
+        }
+        
+        for percentage in paperCartons.values {
+            cartons.append(CartonInput(product: .PAPER, percentFull: percentage))
+        }
+        
+        for percentage in linenCartons.values {
+            cartons.append(CartonInput(product: .LINENS, percentFull: percentage))
+        }
+        
+        for percentage in bottleCartons.values {
+            cartons.append(CartonInput(product: .BOTTLES, percentFull: percentage))
+        }
+        
+        let pickupInput = PickupInput(collectionType: .LOCAL, status: .SUBMITTED, readyDate: "", propertyId: "", cartons: cartons, notes: notes)
+        
+        BackendController.shared.schedulePickup(input: pickupInput) { (error) in
+            if let error = error {
+                NSLog("\(error): Error scheduling pickup.")
+            }
+        }
     }
 }
 
