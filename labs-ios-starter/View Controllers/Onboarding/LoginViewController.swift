@@ -183,7 +183,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    @objc func login(_ sender: Any) {
+    @objc private func login(_ sender: Any) {
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     

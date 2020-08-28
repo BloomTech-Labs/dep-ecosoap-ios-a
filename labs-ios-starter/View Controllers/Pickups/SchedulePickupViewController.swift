@@ -37,12 +37,12 @@ class SchedulePickupViewController: UIViewController {
         schedulePickupButton.layer.cornerRadius = 8
     }
     
-    private func testSchedulingPickup() {
+    @objc private func SchedulePickup() {
 //        PickupInput(collectionType: .LOCAL, status: .SUBMITTED, readyDate: T##String, propertyId: T##String, cartons: [CartonInput(product: .LINENS, percentFull: 10)], notes: T##String?)
 //        BackendController.shared.schedulePickup(input: T##PickupInput) { (Error?) in
 //
 //        }
-        
+//        
     }
 
     // MARK: - Navigation
