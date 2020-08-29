@@ -11,12 +11,12 @@ import Foundation
 extension DateFormatter {
     static let shortFormatter: DateFormatter = {
         var formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
     static let longFormatter: DateFormatter = {
         var formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
         return formatter
     }()
 }
