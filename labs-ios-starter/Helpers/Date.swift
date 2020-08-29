@@ -10,6 +10,14 @@ import Foundation
 
 extension Date {
 
+    func asLongDate() -> String {
+        return DateFormatter.longFormatter.string(from: self)
+    }
+
+    func asShortDate() -> String {
+        return DateFormatter.shortFormatter.string(from: self)
+    }
+
     init?(longDate string: String) {
         guard let date = DateFormatter.longFormatter.date(from: string) else {
             return nil
