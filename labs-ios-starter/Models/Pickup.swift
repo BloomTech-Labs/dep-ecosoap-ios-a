@@ -18,9 +18,6 @@ class Pickup {
 
     init?(dictionary: [String: Any]) {
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
-
         guard let id = dictionary["id"] as? String,
         let confirmationCode = dictionary["confirmationCode"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
@@ -28,7 +25,7 @@ class Pickup {
         let property = dictionary["property"] as? [String: Any],
         let propertyId = property["id"] as? String,
         let readyDateString = dictionary["readyDate"] as? String,
-        let readyDate = formatter.date(from: readyDateString) else {
+            let readyDate = Date(shortDate: readyDateString) else {
             NSLog("Error unwrapping non-optional Pickup properties:")
             NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tConfirmation Code: \(String(describing: dictionary["confirmationCode"])) ")
@@ -49,7 +46,7 @@ class Pickup {
         self.notes = dictionary["notes"] as? String
 
         if let pickupDateString = dictionary["pickupDate"] as? String {
-            self.pickupDate = formatter.date(from: pickupDateString)
+            self.pickupDate = Date(shortDate: pickupDateString)
         }
 
         guard let cartons = dictionary["cartons"] as? [[String: Any]] else {
