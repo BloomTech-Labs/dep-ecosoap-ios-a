@@ -32,7 +32,9 @@ class Payment {
             return nil
         }
 
-        guard let date = Date(shortDate: dateString) else {
+        guard let date = Date(longDate: dateString) else {
+            NSLog("Failure initializing main date for Payment.")
+            NSLog("Date string: \(dateString)")
             return nil
         }
 
@@ -46,8 +48,8 @@ class Payment {
         self.invoice = dictionary["invoice"] as? URL
 
         // TODO: Make this more robust
-        self.invoicePeriodStartDate = Date(shortDate: dictionary["invoicePeriodStartDate"] as? String ?? "")
-        self.invoicePeriodEndDate = Date(shortDate: dictionary["invoicePeriodEndDate"] as? String ?? "")
-        self.dueDate = Date(shortDate: dictionary["dueDate"] as? String ?? "")
+        self.invoicePeriodStartDate = Date(longDate: dictionary["invoicePeriodStartDate"] as? String ?? "")
+        self.invoicePeriodEndDate = Date(longDate: dictionary["invoicePeriodEndDate"] as? String ?? "")
+        self.dueDate = Date(longDate: dictionary["dueDate"] as? String ?? "")
     }
 }
