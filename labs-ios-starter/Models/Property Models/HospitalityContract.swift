@@ -37,12 +37,11 @@ class HospitalityContract {
             return nil
         }
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
-        guard let startDate = formatter.date(from: startDateString),
-        let endDate = formatter.date(from: endDateString),
-        let paymentStartDate = formatter.date(from: paymentStartDateString),
-        let paymentEndDate = formatter.date(from: paymentEndDateString) else {
+
+        guard let startDate = Date(shortDate: startDateString),
+        let endDate = Date(shortDate:  endDateString),
+        let paymentStartDate = Date(shortDate:  paymentStartDateString),
+        let paymentEndDate = Date(shortDate:  paymentEndDateString) else {
             return nil
         }
 
