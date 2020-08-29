@@ -10,25 +10,29 @@ import Foundation
 
 extension Date {
 
-    func asLongDate() -> String {
+    func asLongDateString() -> String {
         return DateFormatter.longFormatter.string(from: self)
     }
 
-    func asShortDate() -> String {
+    func asShortDateString() -> String {
         return DateFormatter.shortFormatter.string(from: self)
     }
 
     init?(longDate string: String) {
-        guard let date = DateFormatter.longFormatter.date(from: string) else {
-            return nil
+        if let date = DateFormatter.longFormatter.date(from: string) {
+            self = date
+        } else {
+            NSLog("Couldn't initialize date from this String. Using placeholder.")
+            self = Date()
         }
-        self.init(timeInterval: 0, since: date)
     }
 
     init?(shortDate string: String) {
-        guard let date = DateFormatter.shortFormatter.date(from: string) else {
-            return nil
+        if let date = DateFormatter.shortFormatter.date(from: string) {
+            self = date
+        } else {
+            NSLog("Couldn't initialize date from this String. Using placeholder.")
+            self = Date()
         }
-        self.init(timeInterval: 0, since: date)
     }
 }
