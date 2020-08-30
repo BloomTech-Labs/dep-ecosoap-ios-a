@@ -32,9 +32,9 @@ class Payment {
             return nil
         }
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
-        guard let date = formatter.date(from: dateString) else {
+        guard let date = Date(longDate: dateString) else {
+            NSLog("Failure initializing main date for Payment.")
+            NSLog("Date string: \(dateString)")
             return nil
         }
 
@@ -46,8 +46,10 @@ class Payment {
 
         self.invoiceCode = dictionary["invoiceCode"] as? String
         self.invoice = dictionary["invoice"] as? URL
-        self.invoicePeriodStartDate = formatter.date(from: dictionary["invoicePeriodStartDate"] as? String ?? "")
-        self.invoicePeriodEndDate = formatter.date(from: dictionary["invoicePeriodEndDate"] as? String ?? "")
-        self.dueDate = formatter.date(from: dictionary["dueDate"] as? String ?? "")
+
+        // TODO: Make this more robust
+        self.invoicePeriodStartDate = Date(longDate: dictionary["invoicePeriodStartDate"] as? String ?? "")
+        self.invoicePeriodEndDate = Date(longDate: dictionary["invoicePeriodEndDate"] as? String ?? "")
+        self.dueDate = Date(longDate: dictionary["dueDate"] as? String ?? "")
     }
 }

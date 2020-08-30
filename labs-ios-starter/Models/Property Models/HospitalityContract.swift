@@ -37,12 +37,16 @@ class HospitalityContract {
             return nil
         }
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
-        guard let startDate = formatter.date(from: startDateString),
-        let endDate = formatter.date(from: endDateString),
-        let paymentStartDate = formatter.date(from: paymentStartDateString),
-        let paymentEndDate = formatter.date(from: paymentEndDateString) else {
+
+        guard let startDate = Date(longDate: startDateString),
+        let endDate = Date(longDate:  endDateString),
+        let paymentStartDate = Date(longDate:  paymentStartDateString),
+        let paymentEndDate = Date(longDate:  paymentEndDateString) else {
+            NSLog("Error initializing HospitalityContract dates.")
+            NSLog("\tStart Date = \(startDateString)")
+            NSLog("\tEnd Date = \(endDateString)")
+            NSLog("\tPayment Start Date = \(paymentStartDateString)")
+            NSLog("\tPayment End Date = \(paymentEndDateString)")
             return nil
         }
 
