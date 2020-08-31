@@ -40,10 +40,11 @@ class PickupInput: Input {
         return string
     }
 
-    init (collectionType: CollectionType, status: Status, readyDate: String, propertyId: String, cartons: [CartonInput], notes: String?) {
+    init (collectionType: CollectionType, status: Status, readyDate: Date, propertyId: String, cartons: [CartonInput], notes: String?) {
         self.collectionType = collectionType.rawValue
         self.status = status.rawValue
-        self.readyDate = readyDate
+        let dateString = readyDate.asShortDateString()
+        self.readyDate = dateString
         self.propertyId = propertyId
         self.cartons = cartons
         self.notes = notes
