@@ -48,10 +48,8 @@ class User {
             self.address = Address(dictionary: addressContainer)
         }
 
-        let dateTime = DateFormatter()
-        dateTime.dateFormat = "yyyy-mm-dd hh:mm:ss+hh:mm"
         if let signupTimeString = dictionary["signupTime"] as? String {
-            self.signupTime = dateTime.date(from: signupTimeString)
+            self.signupTime = Date(longDate:  signupTimeString)
         }
 
         if let properties = dictionary["properties"] as? [[String: Any]] {

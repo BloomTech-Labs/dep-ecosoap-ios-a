@@ -62,9 +62,7 @@ class UpdateUserProfileInput: Input {
         }
 
         if let signupTime = signupTime {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyy-mm-dd"
-            string += "signupTime: \"\(formatter.string(from: signupTime))\"\n"
+            string += "signupTime: \"\(signupTime.asShortDateString())\"\n"
         }
 
         if let _ = properties {
