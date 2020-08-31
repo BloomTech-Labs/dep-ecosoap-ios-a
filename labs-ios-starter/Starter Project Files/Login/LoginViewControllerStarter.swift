@@ -70,18 +70,6 @@ class LoginViewControllerStarter: UIViewController {
         return button
     }()
     
-    private lazy var loginWithOktaButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Logi with Okta", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(named: "ESB Green")
-        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        button.layer.cornerRadius = 8
-        button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
-        return button
-    }()
-    
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -90,26 +78,8 @@ class LoginViewControllerStarter: UIViewController {
         button.backgroundColor = UIColor(named: "ESB Green")
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         button.layer.cornerRadius = 8
+        button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         return button
-    }()
-    
-    private lazy var orLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "or"
-        label.textAlignment = .center
-        label.textColor = .lightGray
-        return label
-    }()
-    
-    private lazy var orLabelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .center
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 8
-        return stackView
     }()
     
     private lazy var usernameTextField: UITextField = {
@@ -260,11 +230,11 @@ class LoginViewControllerStarter: UIViewController {
         textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
         
         // Login Button
-        panelView.addSubview(loginWithOktaButton)
-        loginWithOktaButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
-        loginWithOktaButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
-        loginWithOktaButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
-        loginWithOktaButton.topAnchor.constraint(equalTo: textfieldStackView.bottomAnchor, constant: 20).isActive = true
+        panelView.addSubview(loginButton)
+        loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
+        loginButton.topAnchor.constraint(equalTo: textfieldStackView.bottomAnchor, constant: 20).isActive = true
         
         // Forgot Password Button
         view.addSubview(forgotPasswordButton)
