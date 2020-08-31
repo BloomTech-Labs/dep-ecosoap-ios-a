@@ -9,7 +9,7 @@
 import UIKit
 import OktaAuth
 
-/*
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 }
-*/
 
+/*
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -55,3 +55,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+*/
