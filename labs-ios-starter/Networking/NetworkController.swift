@@ -8,10 +8,16 @@
 
 import Foundation
 
+func newError(message string: String) -> NSError {
+    return NSError(domain: string, code: 0, userInfo: nil)
+}
+
 class BackendController {
 
     enum Errors: Error {
+        case ObjectInitFail
         case RequestInitFail
+        case NoDataInResponse
     }
 
     private let apiURL: URL = URL(string: "http://35.208.9.187:9096/ios-api-3")!
@@ -31,7 +37,7 @@ class BackendController {
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
 
-    private var parsers: [ResponseModel: (Any?)->()] = [.property: BackendController.propertyParser,
+    private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                         .properties: BackendController.propertiesParser,
                                                         .user: BackendController.userParser,
                                                         .pickup:  BackendController.pickupParser,
@@ -41,113 +47,98 @@ class BackendController {
                                                         .payments: BackendController.paymentsParser
                                                         ]
 
-    private static func propertyParser(data: Any?) {
+    private static func propertyParser(data: Any?) throws {
         guard let propertyContainer = data as? [String: Any] else {
-            NSLog("Couldn't PROPERTY cast data as dictionary for initialization")
-            return
+            throw newError(message: "Couldn't cast data as PROPERTY dictionary for initialization")
         }
 
         guard let property = Property(dictionary: propertyContainer) else {
-            return
+            throw Errors.ObjectInitFail
         }
         shared.properties[property.id] = property
     }
 
-    private static func propertiesParser(data: Any?) {
+    private static func propertiesParser(data: Any?) throws {
         guard let propertiesContainer = data as? [[String: Any]] else {
-            NSLog("Couldn't PROPERTIES cast data as dictionary for initialization")
-            return
+            throw newError(message: "Couldn't PROPERTIES cast data as dictionary for initialization")
         }
 
         for prop in propertiesContainer {
-            propertyParser(data:prop)
+            try? propertyParser(data:prop)
         }
     }
 
-    private static func userParser(data: Any?) {
+    private static func userParser(data: Any?) throws {
         guard let userContainer = data as? [String: Any] else {
-            NSLog("Couldn't USER cast data as dictionary for initialization")
-            return
+            throw newError(message: "Couldn't USER cast data as dictionary for initialization")
         }
 
         guard let user = User(dictionary: userContainer) else {
-            return
+            throw Errors.ObjectInitFail
         }
         shared.users[user.id] = user
     }
 
-    private static func pickupParser(data: Any?) {
+    private static func pickupParser(data: Any?) throws {
         guard let pickupContainer = data as? [String: Any] else {
-            NSLog("Couldn't PICKUP cast data as dictionary for initialization")
-            return
+            throw newError(message: "Couldn't PICKUP cast data as dictionary for initialization")
         }
 
         guard let pickup = Pickup(dictionary: pickupContainer) else {
-            return
+            throw Errors.ObjectInitFail
         }
 
         if let cartonContainer = pickupContainer["cartons"] as? [[String: Any]] {
-            cartonParser(data: cartonContainer)
+            try cartonParser(data: cartonContainer)
         }
         shared.pickups[pickup.id] = pickup
     }
 
-    private static func pickupsParser(data: Any?) {
+    private static func pickupsParser(data: Any?) throws {
         guard let pickupsContainer = data as? [[String: Any]] else {
-            NSLog("Couldn't cast data as dictionary for PICKUPS container.")
-            return
+            throw newError(message: "Couldn't cast data as dictionary for PICKUPS container.")
         }
 
         for pickup in pickupsContainer {
-            pickupParser(data: pickup)
+            try pickupParser(data: pickup)
         }
     }
 
-    private static func hubParser(data: Any?) {
+    private static func hubParser(data: Any?) throws {
         guard let hubContainer = data as? [String: Any] else {
-            NSLog("Couldn't cast data as dictionary for HUB initialization.")
-            print(data)
-            return
+            throw newError(message: "Couldn't cast data as dictionary for HUB initialization.")
         }
 
         guard let hub = Hub(dictionary: hubContainer) else {
-            NSLog("Failed to initialize HUB in parser.")
-            NSLog("Dictionary:")
-            NSLog("\t\(hubContainer)")
-            return
+            throw Errors.ObjectInitFail
         }
         shared.hubs[hub.id] = hub
     }
 
-    private static func paymentParser(data: Any?) {
+    private static func paymentParser(data: Any?) throws {
         guard let paymentContainer = data as? [String: Any] else {
-            NSLog("Couldn't cast data as dictionary for PAYMENT initialization.")
-            return
+            throw newError(message: "Couldn't cast data as dictionary for PAYMENT initialization.")
         }
 
         guard let payment = Payment(dictionary: paymentContainer) else {
-            NSLog("Failed to initialize HUB in parser.")
-            NSLog("Dictionary:")
-            NSLog("\t\(paymentContainer)")
-            return
+            throw Errors.ObjectInitFail
         }
         shared.payments[payment.id] = payment
     }
 
-    private static func paymentsParser(data: Any?) {
+    private static func paymentsParser(data: Any?) throws {
         guard let paymentsContainer = data as? [[String: Any]] else {
-            NSLog("Couldn't cast data as dictionary for PAYMENTS container.")
-            return
+            throw newError(message: "Couldn't cast data as dictionary for PAYMENTS container.")
         }
 
         for payment in paymentsContainer {
-            paymentParser(data: payment)
+            try paymentParser(data: payment)
         }
     }
 
-    private static func cartonParser(data: Any?) {
+    private static func cartonParser(data: Any?) throws {
         guard let cartonsContainer = data as? [[String: Any]] else {
-            return
+            throw newError(message: "Couldn't cast data as dictionary for Cartons container.")
         }
 
         for cartonDict in cartonsContainer {
@@ -157,6 +148,8 @@ class BackendController {
         }
 
     }
+
+    // MARK: - Queries
 
     func propertiesByUserId(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .propertiesByUserId, id: id) else {
@@ -483,7 +476,7 @@ class BackendController {
             }
 
             guard let data = data else {
-                completion(nil, nil)
+                completion(nil, Errors.NoDataInResponse)
                 return
             }
 
@@ -491,7 +484,7 @@ class BackendController {
                 let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 guard let dataContainer = dict?["data"]  as? [String: Any] else {
                     NSLog("No data in request response.")
-                    completion(nil, NSError(domain: "No data in response.", code: 0, userInfo: nil))
+                    completion(nil, Errors.NoDataInResponse)
                     return
                 }
 
@@ -516,7 +509,9 @@ class BackendController {
                     completion(queryContainer?[payloadString], nil)
                     return
                 }
-                parser(queryContainer?[payloadString])
+                
+                try parser(queryContainer?[payloadString])
+
                 completion(nil, nil)
 
             } catch let error {
