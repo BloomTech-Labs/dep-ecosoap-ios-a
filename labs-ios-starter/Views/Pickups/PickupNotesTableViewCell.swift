@@ -8,17 +8,35 @@
 
 import UIKit
 
+protocol UserAddedNotesDelegate: AnyObject {
+    func userAddedNotes(notes: String)
+}
+
 class PickupNotesTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var notesTextField: UITextView!
+    
+    // MARK: - Properties
+    var delegate: UserAddedNotesDelegate?
+
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        notesTextField.delegate = self
     }
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+extension PickupNotesTableViewCell: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Add an optional note for pickup instructions" {
+            textView.text = ""
+            textView.textColor = .black
+        }
     }
-
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let notes = textView.text else { return }
+        delegate?.userAddedNotes(notes: notes)
+    }
 }

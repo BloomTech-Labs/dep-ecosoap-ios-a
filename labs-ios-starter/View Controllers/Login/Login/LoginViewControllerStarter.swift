@@ -1,18 +1,36 @@
 //
 //  LoginViewController.swift
-//  labs-ios-starter
+//  LabsScaffolding
 //
-//  Created by Wyatt Harrell on 8/24/20.
+//  Created by Spencer Curtis on 7/23/20.
 //  Copyright © 2020 Spencer Curtis. All rights reserved.
 //
 
 import UIKit
+import OktaAuth
 
-class LoginViewController: UIViewController {
+class LoginViewControllerStarter: UIViewController {
     
     // MARK: - Properties
     let profileController = ProfileController.shared
-
+    
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        
+        NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
+                                               object: nil,
+                                               queue: .main,
+                                               using: checkForExistingProfile)
+        
+        NotificationCenter.default.addObserver(forName: .oktaAuthenticationExpired,
+                                               object: nil,
+                                               queue: .main,
+                                               using: alertUserOfExpiredCredentials)
+        
+    }
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -167,23 +185,8 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     
-    // MARK: - View Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        
-        NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
-                                               object: nil,
-                                               queue: .main,
-                                               using: checkForExistingProfile)
-        NotificationCenter.default.addObserver(forName: .oktaAuthenticationExpired,
-                                               object: nil,
-                                               queue: .main,
-                                               using: alertUserOfExpiredCredentials)
-    }
-    
-    // MARK: - IBActions
-    @objc func login(_ sender: Any) {
+    // MARK: - Actions
+    @objc func login() {
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
@@ -244,9 +247,9 @@ class LoginViewController: UIViewController {
     private func alertUserOfExpiredCredentials(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.presentSimpleAlert(with: "Your Okta credentials have expired",
-                                    message: "Please sign in again",
-                                    preferredStyle: .alert,
-                                    dismissText: "Dimiss")
+                           message: "Please sign in again",
+                           preferredStyle: .alert,
+                           dismissText: "Dimiss")
         }
     }
     
@@ -257,6 +260,7 @@ class LoginViewController: UIViewController {
     
     private func checkForExistingProfile() {
         profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
+            
             guard let self = self,
                 self.presentedViewController == nil else { return }
             
@@ -278,9 +282,8 @@ class LoginViewController: UIViewController {
 }
 
 // MARK: - Add Profile Delegate
-extension LoginViewController: AddProfileDelegate {
+extension LoginViewControllerStarter: AddProfileDelegate {
     func profileWasAdded() {
         checkForExistingProfile()
     }
 }
-

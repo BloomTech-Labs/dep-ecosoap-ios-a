@@ -13,10 +13,14 @@ class DashboardViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - Properties
+    let controller = BackendController.shared
+    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        fetchAll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +40,21 @@ class DashboardViewController: UIViewController {
         }
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         collectionView.allowsMultipleSelection = false
+    }
+    
+    private func fetchAll() {
+        controller.initialFetch(userId: "UserId1") { (error) in
+            if let error = error {
+                NSLog("\(error): Error occured during initial fetch")
+            }
+            print("\(self.controller.users)")
+            print("\(self.controller.properties)")
+            print("\(self.controller.pickups)")
+            print("\(self.controller.payments)")
+            print("\(self.controller.hubs)")
+            print("\(self.controller.pickupCartons)")
+            print("\(self.controller.hospitalityContracts)")
+        }
     }
     
     // MARK: - Navigation

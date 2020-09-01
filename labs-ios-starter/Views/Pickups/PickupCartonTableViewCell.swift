@@ -8,12 +8,21 @@
 
 import UIKit
 
+protocol UserAddedPercentageDelegate: AnyObject {
+    func userAddedPercentage(for cellIdentifier: UUID, cellType: CartonTypes, percentage: Int)
+}
+
 class PickupCartonTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet weak var percentageTextfield: UITextField!
     @IBOutlet weak var cartonTypeLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
+    
+    // MARK: - Properties
+    var delegate: UserAddedPercentageDelegate?
+    var cellType: CartonTypes?
+    private var identifier: UUID = UUID()
     
     // MARK: - View Lifecycle
     override func awakeFromNib() {
@@ -30,5 +39,13 @@ class PickupCartonTableViewCell: UITableViewCell {
         percentageTextfield.textAlignment = .right
         percentageTextfield.font = .systemFont(ofSize: 17.0)
         percentageTextfield.placeholder = "0"
+        percentageTextfield.delegate = self
+    }
+}
+
+extension PickupCartonTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text, !text.isEmpty, let percentage = Int(text), let cellType = cellType else { return }
+        delegate?.userAddedPercentage(for: identifier, cellType: cellType, percentage: percentage)
     }
 }

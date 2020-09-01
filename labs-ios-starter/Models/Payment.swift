@@ -13,16 +13,18 @@ class Payment {
     let invoiceCode: String?
     let invoice: URL?
     let amountPaid, amountDue: Int
-    let date: Date
-    let invoicePeriodStartDate, invoicePeriodEndDate, dueDate: Date?
+    let date: Date = Date()
+    let invoicePeriodStartDate = Date()
+    let invoicePeriodEndDate = Date()
+    let dueDate: Date? = Date()
     let contractsById: [String] = []
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
         let paymentMethod = dictionary["paymentMethod"] as? String,
         let amountPaid = dictionary["amountPaid"] as? Int,
-        let amountDue = dictionary["amountDue"] as? Int,
-        let dateString = dictionary["date"] as? String else {
+        let amountDue = dictionary["amountDue"] as? Int/*,
+        let dateString = dictionary["date"] as? String*/ else {
             NSLog("Error unwrapping non-optional Payment properties:")
             NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tPayment Method: \(String(describing: dictionary["paymentMethod"]))")
@@ -31,6 +33,7 @@ class Payment {
             NSLog("\tDate String: \(String(describing: dictionary["date"]))")
             return nil
         }
+
 
         guard let date = Date(longDate: dateString) else {
             NSLog("Failure initializing main date for Payment.")
@@ -42,7 +45,7 @@ class Payment {
         self.paymentMethod = paymentMethod
         self.amountPaid = amountPaid
         self.amountDue = amountDue
-        self.date = date
+//        self.date = date
 
         self.invoiceCode = dictionary["invoiceCode"] as? String
         self.invoice = dictionary["invoice"] as? URL

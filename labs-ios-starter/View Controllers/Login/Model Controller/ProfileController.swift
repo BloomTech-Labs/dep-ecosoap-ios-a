@@ -29,7 +29,7 @@ class ProfileController {
                                                object: nil)
     }
     
-    @objc func refreshProfiles() {
+    @objc private func refreshProfiles() {
         getAllProfiles()
     }
     
