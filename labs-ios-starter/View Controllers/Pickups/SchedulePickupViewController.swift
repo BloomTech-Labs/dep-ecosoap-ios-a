@@ -65,7 +65,7 @@ class SchedulePickupViewController: UIViewController {
             cartons.append(CartonInput(product: .BOTTLES, percentFull: percentage))
         }
         
-        let pickupInput = PickupInput(collectionType: .LOCAL, status: .SUBMITTED, readyDate: "", propertyId: "", cartons: cartons, notes: notes)
+        let pickupInput = PickupInput(collectionType: .LOCAL, status: .SUBMITTED, readyDate: Date(), propertyId: "", cartons: cartons, notes: notes)
         
         BackendController.shared.schedulePickup(input: pickupInput) { (error) in
             if let error = error {
