@@ -19,6 +19,8 @@
 		13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */; };
 		13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4A7EA24E35923005326F9 /* SchedulePickupViewController.swift */; };
 		13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA9FDD24FD9FF800973F03 /* ConfrimPickupViewController.swift */; };
+		13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA9FDF25001A7900973F03 /* ProfileViewController.swift */; };
+		13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA9FE125001A8500973F03 /* PropertiesViewController.swift */; };
 		13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C23F5F24EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift */; };
 		13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */; };
 		13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */; };
@@ -91,6 +93,8 @@
 		13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
 		13A4A7EA24E35923005326F9 /* SchedulePickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePickupViewController.swift; sourceTree = "<group>"; };
 		13BA9FDD24FD9FF800973F03 /* ConfrimPickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfrimPickupViewController.swift; sourceTree = "<group>"; };
+		13BA9FDF25001A7900973F03 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		13BA9FE125001A8500973F03 /* PropertiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesViewController.swift; sourceTree = "<group>"; };
 		13C23F5F24EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsIndividualCollectionViewCell.swift; sourceTree = "<group>"; };
 		13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsViewController.swift; sourceTree = "<group>"; };
 		13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsOverallCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */,
+				13BA9FDF25001A7900973F03 /* ProfileViewController.swift */,
+				13BA9FE125001A8500973F03 /* PropertiesViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				9C9ACA7E24F779D2002D47B5 /* String.swift in Sources */,
 				13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */,
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
+				13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				13E0E39F24F819BC008AE0F8 /* PickupCartonTableViewCell.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
@@ -552,6 +559,7 @@
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
+				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
