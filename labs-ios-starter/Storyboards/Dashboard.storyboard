@@ -109,34 +109,58 @@
         <!--Profile-->
         <scene sceneID="bQL-Xt-Kl1">
             <objects>
-                <viewController id="nh7-QP-3Kt" sceneMemberID="viewController">
+                <viewController id="nh7-QP-3Kt" customClass="ProfileViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Whb-AI-giO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-p9-JC8">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fSi-p9-JC8" firstAttribute="leading" secondItem="f36-dc-5T8" secondAttribute="leading" id="2eI-RT-7BU"/>
+                            <constraint firstItem="fSi-p9-JC8" firstAttribute="top" secondItem="f36-dc-5T8" secondAttribute="top" id="T8E-wo-bOx"/>
+                            <constraint firstItem="fSi-p9-JC8" firstAttribute="bottom" secondItem="f36-dc-5T8" secondAttribute="bottom" id="kT7-gs-5Fh"/>
+                            <constraint firstItem="fSi-p9-JC8" firstAttribute="trailing" secondItem="f36-dc-5T8" secondAttribute="trailing" id="rB2-GU-aci"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="f36-dc-5T8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="yxf-N1-BCO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMx-2y-fLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="-1104"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="-1104.2410714285713"/>
         </scene>
         <!--Properties-->
         <scene sceneID="RDl-2K-hMz">
             <objects>
-                <viewController id="Zm1-Rj-bdb" sceneMemberID="viewController">
+                <viewController id="Zm1-Rj-bdb" customClass="PropertiesViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="thK-R0-Gg4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5TN-Jt-zdE">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5TN-Jt-zdE" firstAttribute="trailing" secondItem="oea-ft-cxA" secondAttribute="trailing" id="2Ki-aT-1hM"/>
+                            <constraint firstItem="5TN-Jt-zdE" firstAttribute="bottom" secondItem="oea-ft-cxA" secondAttribute="bottom" id="VUc-8f-QAE"/>
+                            <constraint firstItem="5TN-Jt-zdE" firstAttribute="top" secondItem="oea-ft-cxA" secondAttribute="top" id="dbY-TK-cSa"/>
+                            <constraint firstItem="5TN-Jt-zdE" firstAttribute="leading" secondItem="oea-ft-cxA" secondAttribute="leading" id="yEp-ne-RgU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oea-ft-cxA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Properties" id="U66-3v-l33"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XA7-tO-3HN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="-399"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="-399.10714285714283"/>
         </scene>
         <!--Payment History-->
         <scene sceneID="fWj-BW-Iie">
