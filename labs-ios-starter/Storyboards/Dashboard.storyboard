@@ -127,6 +127,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nh7-QP-3Kt" id="ux8-T4-FRv"/>
+                                    <outlet property="delegate" destination="nh7-QP-3Kt" id="eIY-eq-OIm"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="ESB System Background"/>
@@ -168,6 +172,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zm1-Rj-bdb" id="qvD-ys-XWa"/>
+                                    <outlet property="delegate" destination="Zm1-Rj-bdb" id="Mhq-iB-bsh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="ESB System Background"/>
