@@ -168,13 +168,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1365F63424EF714B00E69068 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		13A4A7D224E1F374005326F9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +207,6 @@
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
-				1365F63424EF714B00E69068 /* Onboarding */,
 				13A4A7D224E1F374005326F9 /* Login */,
 			);
 			path = "View Controllers";
