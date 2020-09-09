@@ -118,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileInfoCell" rowHeight="75" id="lho-3W-wfe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileInfoCell" rowHeight="75" id="lho-3W-wfe" customClass="ProfileInfoTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lho-3W-wfe" id="sWs-Jr-Ndh">
@@ -157,6 +157,11 @@
                                                 <constraint firstItem="3p8-4U-PWg" firstAttribute="leading" secondItem="sWs-Jr-Ndh" secondAttribute="leadingMargin" id="mbp-QG-ER6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionTextField" destination="UeD-3Q-dtA" id="ucZ-kE-5yt"/>
+                                            <outlet property="iconImageView" destination="3p8-4U-PWg" id="Qh6-Lc-Oev"/>
+                                            <outlet property="titleLabel" destination="2oX-A8-eKC" id="2bt-0D-aRy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
