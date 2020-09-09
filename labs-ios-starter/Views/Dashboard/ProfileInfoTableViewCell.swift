@@ -13,6 +13,7 @@ class ProfileInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var circularBackgroundImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
