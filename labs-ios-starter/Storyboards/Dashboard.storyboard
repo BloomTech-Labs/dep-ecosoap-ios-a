@@ -118,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NameCell" rowHeight="75" id="lho-3W-wfe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileInfoCell" rowHeight="75" id="lho-3W-wfe">
                                         <rect key="frame" x="20" y="55.5" width="374" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lho-3W-wfe" id="sWs-Jr-Ndh">
@@ -138,14 +138,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeD-3Q-dtA">
+                                                    <rect key="frame" x="81" y="39" width="265" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2oX-A8-eKC" firstAttribute="leading" secondItem="3p8-4U-PWg" secondAttribute="trailing" constant="8" id="4NE-Xb-aV4"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2oX-A8-eKC" secondAttribute="bottom" id="E2U-39-Mec"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UeD-3Q-dtA" secondAttribute="trailing" constant="8" id="9x7-Jy-b47"/>
+                                                <constraint firstItem="UeD-3Q-dtA" firstAttribute="leading" secondItem="3p8-4U-PWg" secondAttribute="trailing" constant="8" id="NR1-ab-KiA"/>
                                                 <constraint firstItem="3p8-4U-PWg" firstAttribute="bottom" secondItem="sWs-Jr-Ndh" secondAttribute="bottomMargin" id="PVH-JC-qLu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2oX-A8-eKC" secondAttribute="trailing" constant="8" id="WQh-lW-RWx"/>
+                                                <constraint firstItem="UeD-3Q-dtA" firstAttribute="bottom" secondItem="sWs-Jr-Ndh" secondAttribute="bottomMargin" id="awW-5G-KQM"/>
                                                 <constraint firstItem="3p8-4U-PWg" firstAttribute="top" secondItem="sWs-Jr-Ndh" secondAttribute="topMargin" id="chI-Iz-Gf9"/>
                                                 <constraint firstItem="2oX-A8-eKC" firstAttribute="top" secondItem="sWs-Jr-Ndh" secondAttribute="topMargin" id="iun-HB-tSx"/>
+                                                <constraint firstItem="UeD-3Q-dtA" firstAttribute="top" secondItem="2oX-A8-eKC" secondAttribute="bottom" constant="4" id="jt5-PM-miy"/>
                                                 <constraint firstItem="3p8-4U-PWg" firstAttribute="leading" secondItem="sWs-Jr-Ndh" secondAttribute="leadingMargin" id="mbp-QG-ER6"/>
                                             </constraints>
                                         </tableViewCellContentView>
