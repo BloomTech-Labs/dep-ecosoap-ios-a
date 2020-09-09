@@ -26,12 +26,6 @@ class ProfileViewController: UIViewController {
     private let contactInfoImageViews = [UIImage(systemName: "phone.fill"),
                                          UIImage(systemName: "desktopcomputer"),
                                          UIImage(systemName: "envelope.fill")]
-    private let accountInfoImageTints = [UIColor(named: .colorESBBlue),
-                                         UIColor(named: .colorESBBrick),
-                                         UIColor(named: .colorESBGold)]
-    private let contactInfoImageTints = [UIColor(named: .colorESBRed),
-                                         UIColor(named: .colorESBSapphire),
-                                         UIColor(named: .colorESBGreen)]
     private let placeholderData = ["Wyatt Harrell",
                                    "Lambda School",
                                    "3452 Apple Park Way"]
@@ -64,9 +58,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Account Information"
+            return "Account Info"
         } else {
-            return "Contact Information"
+            return "Contact Info"
         }
     }
     
@@ -77,13 +71,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
             cell.iconImageView.image = accountInfoImageViews[indexPath.row]
             cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = accountInfoImageTints[indexPath.row]
+            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBBlue)
             cell.descriptionTextField.text = placeholderData[indexPath.row]
         } else {
             cell.titleLabel.text = contactInfoLabels[indexPath.row].uppercased()
             cell.iconImageView.image = contactInfoImageViews[indexPath.row]
             cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = contactInfoImageTints[indexPath.row]
+            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBBlue)
             cell.descriptionTextField.text = placeholderData2[indexPath.row]
         }
         

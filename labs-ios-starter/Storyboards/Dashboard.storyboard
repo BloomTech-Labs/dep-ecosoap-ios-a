@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-p9-JC8">
-                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileInfoCell" rowHeight="75" id="lho-3W-wfe" customClass="ProfileInfoTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
@@ -126,13 +126,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-au-rDI">
-                                                    <rect key="frame" x="20" y="11" width="53" height="53"/>
+                                                    <rect key="frame" x="20" y="15" width="45" height="45"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OtI-Zt-mu8">
-                                                            <rect key="frame" x="0.0" y="0.5" width="53" height="52"/>
+                                                            <rect key="frame" x="0.0" y="0.5" width="45" height="44"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3p8-4U-PWg">
-                                                            <rect key="frame" x="12" y="12" width="29" height="29"/>
+                                                            <rect key="frame" x="12" y="12" width="21" height="21"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -151,11 +151,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HxS-jV-um4" firstAttribute="centerY" secondItem="sWs-Jr-Ndh" secondAttribute="centerY" id="EEi-1Y-nDd"/>
-                                                <constraint firstItem="JZP-au-rDI" firstAttribute="bottom" secondItem="sWs-Jr-Ndh" secondAttribute="bottomMargin" id="TfW-5Z-NLG"/>
-                                                <constraint firstItem="HxS-jV-um4" firstAttribute="leading" secondItem="JZP-au-rDI" secondAttribute="trailing" constant="8" id="XFY-Kz-R2T"/>
+                                                <constraint firstItem="JZP-au-rDI" firstAttribute="bottom" secondItem="sWs-Jr-Ndh" secondAttribute="bottomMargin" constant="-4" id="TfW-5Z-NLG"/>
+                                                <constraint firstItem="HxS-jV-um4" firstAttribute="leading" secondItem="JZP-au-rDI" secondAttribute="trailing" constant="16" id="XFY-Kz-R2T"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="HxS-jV-um4" secondAttribute="trailing" constant="8" id="XQR-j1-Rab"/>
                                                 <constraint firstItem="JZP-au-rDI" firstAttribute="leading" secondItem="sWs-Jr-Ndh" secondAttribute="leadingMargin" id="eO2-SO-sjB"/>
-                                                <constraint firstItem="JZP-au-rDI" firstAttribute="top" secondItem="sWs-Jr-Ndh" secondAttribute="topMargin" id="yRO-W4-9wf"/>
+                                                <constraint firstItem="JZP-au-rDI" firstAttribute="top" secondItem="sWs-Jr-Ndh" secondAttribute="topMargin" constant="4" id="yRO-W4-9wf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -175,7 +175,7 @@
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="fSi-p9-JC8" firstAttribute="leading" secondItem="f36-dc-5T8" secondAttribute="leading" id="2eI-RT-7BU"/>
-                            <constraint firstItem="fSi-p9-JC8" firstAttribute="top" secondItem="f36-dc-5T8" secondAttribute="top" constant="8" id="T8E-wo-bOx"/>
+                            <constraint firstItem="fSi-p9-JC8" firstAttribute="top" secondItem="f36-dc-5T8" secondAttribute="top" id="T8E-wo-bOx"/>
                             <constraint firstItem="fSi-p9-JC8" firstAttribute="bottom" secondItem="f36-dc-5T8" secondAttribute="bottom" id="kT7-gs-5Fh"/>
                             <constraint firstItem="fSi-p9-JC8" firstAttribute="trailing" secondItem="f36-dc-5T8" secondAttribute="trailing" id="rB2-GU-aci"/>
                         </constraints>
