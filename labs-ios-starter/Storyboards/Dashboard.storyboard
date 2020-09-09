@@ -109,17 +109,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oX-A8-eKC">
-                                                    <rect key="frame" x="81" y="11" width="265" height="14.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeD-3Q-dtA">
-                                                    <rect key="frame" x="81" y="29.5" width="265" height="34.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HxS-jV-um4">
+                                                    <rect key="frame" x="81" y="17.5" width="265" height="40.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oX-A8-eKC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeD-3Q-dtA">
+                                                            <rect key="frame" x="0.0" y="18.5" width="265" height="22"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-au-rDI">
                                                     <rect key="frame" x="20" y="11" width="53" height="53"/>
                                                     <subviews>
@@ -145,15 +150,11 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="UeD-3Q-dtA" secondAttribute="trailing" constant="8" id="9x7-Jy-b47"/>
-                                                <constraint firstItem="UeD-3Q-dtA" firstAttribute="leading" secondItem="JZP-au-rDI" secondAttribute="trailing" constant="8" id="A7L-ky-l84"/>
-                                                <constraint firstItem="2oX-A8-eKC" firstAttribute="leading" secondItem="JZP-au-rDI" secondAttribute="trailing" constant="8" id="K5k-29-Em1"/>
+                                                <constraint firstItem="HxS-jV-um4" firstAttribute="centerY" secondItem="sWs-Jr-Ndh" secondAttribute="centerY" id="EEi-1Y-nDd"/>
                                                 <constraint firstItem="JZP-au-rDI" firstAttribute="bottom" secondItem="sWs-Jr-Ndh" secondAttribute="bottomMargin" id="TfW-5Z-NLG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2oX-A8-eKC" secondAttribute="trailing" constant="8" id="WQh-lW-RWx"/>
-                                                <constraint firstItem="UeD-3Q-dtA" firstAttribute="bottom" secondItem="sWs-Jr-Ndh" secondAttribute="bottomMargin" id="awW-5G-KQM"/>
+                                                <constraint firstItem="HxS-jV-um4" firstAttribute="leading" secondItem="JZP-au-rDI" secondAttribute="trailing" constant="8" id="XFY-Kz-R2T"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HxS-jV-um4" secondAttribute="trailing" constant="8" id="XQR-j1-Rab"/>
                                                 <constraint firstItem="JZP-au-rDI" firstAttribute="leading" secondItem="sWs-Jr-Ndh" secondAttribute="leadingMargin" id="eO2-SO-sjB"/>
-                                                <constraint firstItem="2oX-A8-eKC" firstAttribute="top" secondItem="sWs-Jr-Ndh" secondAttribute="topMargin" id="iun-HB-tSx"/>
-                                                <constraint firstItem="UeD-3Q-dtA" firstAttribute="top" secondItem="2oX-A8-eKC" secondAttribute="bottom" constant="4" id="jt5-PM-miy"/>
                                                 <constraint firstItem="JZP-au-rDI" firstAttribute="top" secondItem="sWs-Jr-Ndh" secondAttribute="topMargin" id="yRO-W4-9wf"/>
                                             </constraints>
                                         </tableViewCellContentView>
