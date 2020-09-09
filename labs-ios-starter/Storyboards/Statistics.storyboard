@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ext-rj-mD4">
-                                <rect key="frame" x="0.0" y="164.5" width="414" height="648.5"/>
+                                <rect key="frame" x="0.0" y="170.5" width="414" height="642.5"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QzZ-oM-Csn">
                                     <size key="itemSize" width="128" height="128"/>
@@ -325,10 +325,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjK-Ab-gYa">
-                                <rect key="frame" x="0.0" y="88" width="414" height="76.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="82.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s4L-0q-T9V">
-                                        <rect key="frame" x="20" y="16" width="374" height="52.5"/>
+                                        <rect key="frame" x="20" y="16" width="374" height="58.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECTED PROPERTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-Lz-s6a">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="14.5"/>
@@ -337,19 +337,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fo-h1-Cnr">
-                                                <rect key="frame" x="0.0" y="18.5" width="374" height="34"/>
+                                                <rect key="frame" x="0.0" y="18.5" width="374" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JSy-hp-4C7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="34" id="erF-Gw-G7T"/>
+                                                            <constraint firstAttribute="height" constant="40" id="erF-Gw-G7T"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GHj-eh-RSv">
-                                                        <rect key="frame" x="347.5" y="5" width="18.5" height="24.5"/>
+                                                        <rect key="frame" x="347.5" y="5" width="18.5" height="30.5"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
