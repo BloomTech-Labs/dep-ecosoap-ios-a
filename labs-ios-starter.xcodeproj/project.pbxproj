@@ -234,7 +234,6 @@
 				13A4A7E424E2035F005326F9 /* Dashboard */,
 				13FD2A9A24E457A5006D6B43 /* Pickups */,
 				13DC372724E63C0E00AE20B3 /* Impact Statistics */,
-				13D15E4C250895CB00F021D5 /* Profile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +243,7 @@
 			children = (
 				13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */,
 				13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */,
+				13D15E4A250895C700F021D5 /* ProfileInfoTableViewCell.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -257,14 +257,6 @@
 				13BA9FDD24FD9FF800973F03 /* ConfrimPickupViewController.swift */,
 			);
 			path = Pickups;
-			sourceTree = "<group>";
-		};
-		13D15E4C250895CB00F021D5 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				13D15E4A250895C700F021D5 /* ProfileInfoTableViewCell.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		13DC372224E5EFA800AE20B3 /* Impact Statistics */ = {
