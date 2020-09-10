@@ -202,13 +202,16 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Lwn-Jg-3dF">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="164" id="Lwn-Jg-3dF">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lwn-Jg-3dF" id="QdH-76-JhB">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="164"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XvQ-N7-G52" kind="show" id="tt5-Uq-vA6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -235,6 +238,22 @@
             </objects>
             <point key="canvasLocation" x="1924.6376811594205" y="-399.10714285714283"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="PWQ-Ay-xoT">
+            <objects>
+                <viewController id="XvQ-N7-G52" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qr7-s4-Zkf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="ESB System Background"/>
+                        <viewLayoutGuide key="safeArea" id="OtL-gV-79L"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2I8-RF-x7l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SI7-Re-Z3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2720" y="-399"/>
+        </scene>
         <!--Payment History-->
         <scene sceneID="fWj-BW-Iie">
             <objects>
@@ -242,7 +261,7 @@
                     <view key="view" contentMode="scaleToFill" id="uBk-cy-Myd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ESB System Background"/>
                         <viewLayoutGuide key="safeArea" id="NGz-Hb-P3b"/>
                     </view>
                     <navigationItem key="navigationItem" title="Payment History" id="PDQ-dP-1ID"/>
@@ -258,7 +277,7 @@
                     <view key="view" contentMode="scaleToFill" id="jUs-DN-6fO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ESB System Background"/>
                         <viewLayoutGuide key="safeArea" id="4Yo-4n-eIZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Make a Payment" id="J76-O6-jXF"/>
@@ -274,7 +293,7 @@
                     <view key="view" contentMode="scaleToFill" id="ar1-gf-IHn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ESB System Background"/>
                         <viewLayoutGuide key="safeArea" id="haz-6S-apH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="g2B-YF-WKT"/>
