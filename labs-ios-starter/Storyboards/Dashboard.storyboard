@@ -198,18 +198,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5TN-Jt-zdE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5TN-Jt-zdE">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="164" id="Lwn-Jg-3dF">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="164"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PropertyCell" rowHeight="140" id="Lwn-Jg-3dF" customClass="PropertyTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lwn-Jg-3dF" id="QdH-76-JhB">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8q2-MF-QxK">
+                                                    <rect key="frame" x="0.0" y="8" width="374" height="124"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wqu-Iz-LTT">
+                                                            <rect key="frame" x="28" y="74" width="318" height="34"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(998) 342 - 4245" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wla-WD-cug">
+                                                                    <rect key="frame" x="0.0" y="10" width="155" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOTEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-81-uF8">
+                                                                    <rect key="frame" x="163" y="10" width="155" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="W2d-Ro-G0W">
+                                                            <rect key="frame" x="82" y="16" width="284" height="48.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moR-Ox-xAI">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9241 Apple Way California" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdP-W0-gLs">
+                                                                    <rect key="frame" x="0.0" y="28" width="284" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OdB-sY-UCo">
+                                                            <rect key="frame" x="16" y="15.5" width="50" height="49.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="LkX-ke-42H"/>
+                                                                <constraint firstAttribute="height" constant="50" id="eHV-Et-adi"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6uu-Ag-8fr">
+                                                            <rect key="frame" x="351" y="2" width="15" height="120.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="15" id="uzl-1C-TRq"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Wqu-Iz-LTT" firstAttribute="leading" secondItem="8q2-MF-QxK" secondAttribute="leadingMargin" constant="20" id="1AD-hH-uH2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6uu-Ag-8fr" secondAttribute="trailing" constant="8" id="2X2-MZ-XA1"/>
+                                                        <constraint firstItem="OdB-sY-UCo" firstAttribute="top" secondItem="8q2-MF-QxK" secondAttribute="topMargin" constant="8" id="79U-MY-CZ6"/>
+                                                        <constraint firstItem="W2d-Ro-G0W" firstAttribute="top" secondItem="8q2-MF-QxK" secondAttribute="topMargin" constant="8" id="7W7-Nh-fHH"/>
+                                                        <constraint firstItem="6uu-Ag-8fr" firstAttribute="top" secondItem="8q2-MF-QxK" secondAttribute="top" id="FDG-ev-LBv"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="Wqu-Iz-LTT" secondAttribute="bottom" constant="8" id="YAH-Mi-J7C"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="W2d-Ro-G0W" secondAttribute="trailing" id="f46-c8-Hq7"/>
+                                                        <constraint firstItem="W2d-Ro-G0W" firstAttribute="leading" secondItem="OdB-sY-UCo" secondAttribute="trailing" constant="16" id="jQf-fX-eDU"/>
+                                                        <constraint firstItem="OdB-sY-UCo" firstAttribute="leading" secondItem="8q2-MF-QxK" secondAttribute="leadingMargin" constant="8" id="kXQ-dJ-8pk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6uu-Ag-8fr" secondAttribute="bottom" id="n0g-jW-K9B"/>
+                                                        <constraint firstItem="Wqu-Iz-LTT" firstAttribute="top" secondItem="OdB-sY-UCo" secondAttribute="bottom" constant="8" id="rQx-xg-OYR"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="Wqu-Iz-LTT" secondAttribute="trailing" constant="20" id="t6W-X4-QoB"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="ESB System Background"/>
+                                            <constraints>
+                                                <constraint firstItem="8q2-MF-QxK" firstAttribute="leading" secondItem="QdH-76-JhB" secondAttribute="leading" id="YNB-zX-brb"/>
+                                                <constraint firstItem="8q2-MF-QxK" firstAttribute="top" secondItem="QdH-76-JhB" secondAttribute="top" constant="8" id="ZsA-iQ-hNu"/>
+                                                <constraint firstAttribute="bottom" secondItem="8q2-MF-QxK" secondAttribute="bottom" constant="8" id="q5h-8c-khf"/>
+                                                <constraint firstAttribute="trailing" secondItem="8q2-MF-QxK" secondAttribute="trailing" id="z4z-hB-jv9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellBackgroundView" destination="8q2-MF-QxK" id="GPN-3z-sNz"/>
                                             <segue destination="XvQ-N7-G52" kind="show" id="tt5-Uq-vA6"/>
                                         </connections>
                                     </tableViewCell>
@@ -364,7 +441,9 @@
     </scenes>
     <color key="tintColor" name="ESB Green"/>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="rectangle.3.offgrid.fill" catalog="system" width="128" height="81"/>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
