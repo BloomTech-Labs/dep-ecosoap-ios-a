@@ -26,11 +26,11 @@ class ProfileViewController: UIViewController {
     private let contactInfoImageViews = [UIImage(systemName: "phone.fill"),
                                          UIImage(systemName: "desktopcomputer"),
                                          UIImage(systemName: "envelope.fill")]
-    private let placeholderData = ["Wyatt Harrell",
+    private let placeholderData = ["John Doe",
                                    "Lambda School",
                                    "3452 Apple Park Way"]
     private let placeholderData2 = ["345-394-9034",
-                                   "wyattharrell",
+                                   "jdoe",
                                    "example@gmail.com"]
     
     // MARK: - View Lifecycle

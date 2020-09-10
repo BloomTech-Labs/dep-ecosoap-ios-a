@@ -68,7 +68,7 @@ class DashboardCollectionViewCell: UICollectionViewCell {
             imageView.image = UIImage(systemName: "person.fill")
         } else if indexPath.row == 1 {
             textLabel.text = "Properties"
-            imageView.image = UIImage(systemName: "house.fill")
+            imageView.image = UIImage(named: "ESB Property")
         } else if indexPath.row == 2 {
             textLabel.text = "Payment History"
             imageView.image = UIImage(systemName: "list.dash")
