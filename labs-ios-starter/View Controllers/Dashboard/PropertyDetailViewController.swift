@@ -1,15 +1,16 @@
 //
-//  ProfileViewController.swift
+//  PropertyDetailViewController.swift
 //  labs-ios-starter
 //
-//  Created by Wyatt Harrell on 9/2/20.
+//  Created by Wyatt Harrell on 9/14/20.
 //  Copyright © 2020 Spencer Curtis. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class PropertyDetailViewController: UIViewController {
 
+    
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +25,7 @@ class ProfileViewController: UIViewController {
                                          UIImage(systemName: "briefcase.fill"),
                                          UIImage(systemName: "house.fill")]
     private let contactInfoImageViews = [UIImage(systemName: "phone.fill"),
-                                         UIImage(named: "Skype Logo"),
+                                         UIImage(systemName: "desktopcomputer"),
                                          UIImage(systemName: "envelope.fill")]
     private let placeholderData = ["John Doe",
                                    "Lambda School",
@@ -36,14 +37,28 @@ class ProfileViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        
+    }
+    
+    private func updateViews() {
+        
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
+    
+    // MARK: - IBActions
+
+
 }
 
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             return accountInfoLabels.count
@@ -65,7 +80,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath) as? ProfileInfoTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyInfoCell", for: indexPath) as? ProfileInfoTableViewCell else { return UITableViewCell() }
         
         if indexPath.section == 0 {
             cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()

@@ -27,6 +27,7 @@
 		13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */; };
 		13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */; };
 		13E0E39F24F819BC008AE0F8 /* PickupCartonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0E39E24F819BC008AE0F8 /* PickupCartonTableViewCell.swift */; };
+		13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EF37B6250FE86E002E7959 /* PropertyDetailViewController.swift */; };
 		13FD2A9124E45750006D6B43 /* PickupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9024E45750006D6B43 /* PickupTimeTableViewCell.swift */; };
 		13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9224E4575D006D6B43 /* PickupDateTableViewCell.swift */; };
 		13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */; };
@@ -103,6 +104,7 @@
 		13DC372324E63B5F00AE20B3 /* ImpactStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsViewController.swift; sourceTree = "<group>"; };
 		13DC372524E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStatisticsOverallCollectionViewCell.swift; sourceTree = "<group>"; };
 		13E0E39E24F819BC008AE0F8 /* PickupCartonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupCartonTableViewCell.swift; sourceTree = "<group>"; };
+		13EF37B6250FE86E002E7959 /* PropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewController.swift; sourceTree = "<group>"; };
 		13FD2A9024E45750006D6B43 /* PickupTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTimeTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9224E4575D006D6B43 /* PickupDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupDateTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9424E45788006D6B43 /* PickupNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupNotesTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				13A4A7D424E1F8CF005326F9 /* DashboardViewController.swift */,
 				13BA9FDF25001A7900973F03 /* ProfileViewController.swift */,
 				13BA9FE125001A8500973F03 /* PropertiesViewController.swift */,
+				13EF37B6250FE86E002E7959 /* PropertyDetailViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
+				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
