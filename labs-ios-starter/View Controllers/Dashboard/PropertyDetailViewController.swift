@@ -14,25 +14,32 @@ class PropertyDetailViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
+    private var saveButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: .colorESBGreen)
+        button.setTitle("Save Changes", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        return button
+    }()
+    
     // MARK: - Properties
     private let accountInfoLabels = ["Name",
-                               "Company",
-                               "Address",]
-    private let contactInfoLabels = ["Phone",
-                                     "Skype",
-                                     "Email"]
-    private let accountInfoImageViews = [UIImage(systemName: "person.fill"),
-                                         UIImage(systemName: "briefcase.fill"),
-                                         UIImage(systemName: "house.fill")]
-    private let contactInfoImageViews = [UIImage(systemName: "phone.fill"),
-                                         UIImage(systemName: "desktopcomputer"),
-                                         UIImage(systemName: "envelope.fill")]
-    private let placeholderData = ["John Doe",
-                                   "Lambda School",
-                                   "3452 Apple Park Way"]
-    private let placeholderData2 = ["345-394-9034",
-                                   "jdoe",
-                                   "example@gmail.com"]
+                                     "Property Type",
+                                     "Number of Rooms",
+                                     "Phone",
+                                     "Billing Address",
+                                     "Shipping Address",
+                                     "Coordinates"]
+    
+    private let placeholderData = ["Marriott Resort",
+                                   "Hotel",
+                                   "345",
+                                   "(849) 432-9524",
+                                   "9241 Apple Way Calofornia",
+                                   "9241 Apple Way Calofornia",
+                                   "41.40338, 2.17403"]
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -54,47 +61,28 @@ class PropertyDetailViewController: UIViewController {
     }
     
     // MARK: - IBActions
-
-
+    @IBAction func editButtonTapped(_ sender: Any) {
+        view.addSubview(saveButton)
+        saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        saveButton.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            self.saveButton.alpha = 1.0
+        }
+    }
 }
 
 extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return accountInfoLabels.count
-        } else {
-            return contactInfoLabels.count
-        }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Account Info"
-        } else {
-            return "Contact Info"
-        }
+        return accountInfoLabels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyInfoCell", for: indexPath) as? ProfileInfoTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyInfoCell", for: indexPath) as? PropertyInfoTableViewCell else { return UITableViewCell() }
         
-        if indexPath.section == 0 {
-            cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
-            cell.iconImageView.image = accountInfoImageViews[indexPath.row]
-            cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBBlue)
-            cell.descriptionTextField.text = placeholderData[indexPath.row]
-        } else {
-            cell.titleLabel.text = contactInfoLabels[indexPath.row].uppercased()
-            cell.iconImageView.image = contactInfoImageViews[indexPath.row]
-            cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBBlue)
-            cell.descriptionTextField.text = placeholderData2[indexPath.row]
-        }
+        cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
+        cell.descriptionTextField.text = placeholderData[indexPath.row]
         
         return cell
     }

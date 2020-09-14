@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326A736250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift */; };
 		133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */; };
 		13518FBB2509C15D000C217F /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */; };
 		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1326A736250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				13A4A7E124E2034F005326F9 /* DashboardCollectionViewCell.swift */,
 				13A4A7E824E24A8B005326F9 /* DashboardLayout.swift */,
 				13D15E4A250895C700F021D5 /* ProfileInfoTableViewCell.swift */,
+				1326A736250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
+				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
