@@ -12,19 +12,49 @@ class ImpactStatisticsViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var propertyTextField: UITextField!
+    
+    // MARK: - Properties
+    private let propertyPicker = UIPickerView()
+    
+    lazy var propertyPickerData: [[String]] = {
+        let properties: [String] = Array(0...9).map { String($0) }
+        let data: [[String]] = [properties]
+        return data
+    }()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        propertyPicker.delegate = self
+        propertyPicker.dataSource = self
+        
+        propertyTextField.layer.cornerRadius = 8
+        propertyTextField.setupTextField()
+        propertyTextField.inputView = propertyPicker
+        propertyTextField.text = "Marriott Resort (Default)"
+        self.hideKeyboardWhenViewTapped()
+    }
+    
+    private func updateViews() {
+        
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
+    
+    // MARK: - IBActions
+
 }
 
 extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+
     // MARK: UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -70,3 +100,29 @@ extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
     }
 
 }
+
+extension ImpactStatisticsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return propertyPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return propertyPickerData[component].count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let componentArray = propertyPickerData[component]
+        let title = componentArray[row]
+        
+        return title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+}
+

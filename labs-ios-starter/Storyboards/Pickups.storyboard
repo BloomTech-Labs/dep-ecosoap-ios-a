@@ -84,6 +84,7 @@
                                         <connections>
                                             <outlet property="statusImageView" destination="Lkl-tz-nKS" id="8ZU-P8-BJC"/>
                                             <outlet property="statusLabel" destination="zdN-IR-r8q" id="kVD-sr-fAB"/>
+                                            <segue destination="wUy-2n-5Db" kind="show" id="ZhH-DY-6fm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SchedulePickupCell" rowHeight="80" id="S5c-yf-VPc">
@@ -469,13 +470,13 @@
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heg-cy-WCD">
                                                                             <rect key="frame" x="0.0" y="0.0" width="163" height="30"/>
-                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="091-m1-8ye"/>
                                                                             </constraints>
-                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="tintColor" name="ESB Blue"/>
                                                                             <state key="normal" title=" Soap" image="plus" catalog="system">
-                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="titleColor" name="ESB Blue"/>
                                                                             </state>
                                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                                                                             <connections>
@@ -484,13 +485,13 @@
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-zJ-4Yd">
                                                                             <rect key="frame" x="171" y="0.0" width="163" height="30"/>
-                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="NGk-LW-08r"/>
                                                                             </constraints>
-                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="tintColor" name="ESB Blue"/>
                                                                             <state key="normal" title=" Paper" image="plus" catalog="system">
-                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="titleColor" name="ESB Blue"/>
                                                                             </state>
                                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                                                                             <connections>
@@ -504,13 +505,13 @@
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAe-sL-BJG">
                                                                             <rect key="frame" x="0.0" y="0.0" width="163" height="33"/>
-                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="YJ0-rb-TiA"/>
                                                                             </constraints>
-                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="tintColor" name="ESB Blue"/>
                                                                             <state key="normal" title=" Linens" image="plus" catalog="system">
-                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="titleColor" name="ESB Blue"/>
                                                                             </state>
                                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                                                                             <connections>
@@ -519,13 +520,13 @@
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-MQ-kje">
                                                                             <rect key="frame" x="171" y="0.0" width="163" height="33"/>
-                                                                            <color key="backgroundColor" name="ESB Blue"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="vyg-rS-uuY"/>
                                                                             </constraints>
-                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="tintColor" name="ESB Blue"/>
                                                                             <state key="normal" title=" Bottles" image="plus" catalog="system">
-                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="titleColor" name="ESB Blue"/>
                                                                             </state>
                                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                                                                             <connections>
@@ -633,6 +634,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lL7-9p-YyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2207.2463768115945" y="162.72321428571428"/>
+        </scene>
+        <!--Pickup Detail-->
+        <scene sceneID="paB-UK-hSQ">
+            <objects>
+                <viewController id="wUy-2n-5Db" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LcN-Om-XAz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="ESB System Background"/>
+                        <viewLayoutGuide key="safeArea" id="s8s-Jl-agN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pickup Detail" id="o8Y-vO-eTo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWC-C5-ZsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="842"/>
         </scene>
         <!--Select Property View Controller-->
         <scene sceneID="M9f-Du-bQ5">

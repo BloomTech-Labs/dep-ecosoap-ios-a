@@ -27,3 +27,20 @@ extension UITextField {
         self.layer.cornerRadius = 8
     }
 }
+
+extension String {
+    static var colorESBAqua = "ESB Aqua"
+    static var colorESBBlack = "ESB Black"
+    static var colorESBBlue = "ESB Blue"
+    static var colorESBBrick = "ESB Brick"
+    static var colorESBGold = "ESB Gold"
+    static var colorESBGreen = "ESB Green"
+    static var colorESBMagenta = "ESB Magenta"
+    static var colorESBOrange = "ESB Orange"
+    static var colorESBPink = "ESB Pink"
+    static var colorESBRed = "ESB Red"
+    static var colorESBSapphire = "ESB Sapphire"
+    static var colorESBViolet = "ESB Violet"
+    static var colorESBSystemBackground = "ESB System Background"
+}
+

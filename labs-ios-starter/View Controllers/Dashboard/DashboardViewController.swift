@@ -94,9 +94,11 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
     // MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /*
         if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
             cell.updateShadowOnSelect()
         }
+        */
         
         if indexPath.item == 0 {
             performSegue(withIdentifier: "ShowProfilePushSegue", sender: self)
