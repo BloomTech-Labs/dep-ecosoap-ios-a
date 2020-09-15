@@ -37,8 +37,8 @@ class PropertyDetailViewController: UIViewController {
                                    "Hotel",
                                    "345",
                                    "(849) 432-9524",
-                                   "9241 Apple Way Calofornia",
-                                   "9241 Apple Way Calofornia",
+                                   "9241 Apple Way California",
+                                   "9241 Apple Way California",
                                    "41.40338, 2.17403"]
     
     // MARK: - View Lifecycle
