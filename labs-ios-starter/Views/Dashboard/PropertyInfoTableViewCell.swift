@@ -10,9 +10,11 @@ import UIKit
 
 class PropertyInfoTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField!
     
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

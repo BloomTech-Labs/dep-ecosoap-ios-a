@@ -10,8 +10,19 @@ import UIKit
 
 class PropertyTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var cellBackgroundView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
+    // MARK: - Properties
+    var property: Property? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         cellBackgroundView.layer.cornerRadius = 8
@@ -22,5 +33,11 @@ class PropertyTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    // MARK: - Private Methods
+    private func updateViews() {
+        guard let property = property else { return }
+        titleLabel.text = property.name
+        addressLabel.text = property.shippingAddress?.address1
+    }
 }

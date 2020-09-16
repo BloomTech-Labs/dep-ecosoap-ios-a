@@ -218,7 +218,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="W2d-Ro-G0W">
                                                             <rect key="frame" x="82" y="16" width="284" height="52"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moR-Ox-xAI">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moR-Ox-xAI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="284" height="27.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                     <nil key="textColor"/>
@@ -270,7 +270,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addressLabel" destination="HdP-W0-gLs" id="0Bv-hT-5bc"/>
                                             <outlet property="cellBackgroundView" destination="8q2-MF-QxK" id="GPN-3z-sNz"/>
+                                            <outlet property="titleLabel" destination="moR-Ox-xAI" id="6mg-G5-cJm"/>
                                             <segue destination="XvQ-N7-G52" kind="show" id="tt5-Uq-vA6"/>
                                         </connections>
                                     </tableViewCell>

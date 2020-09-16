@@ -14,20 +14,20 @@ class PropertiesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    
+    private var properties: [Property] = []
+    let controller = BackendController.shared
+
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        grabProperties()
     }
     
     // MARK: - Private Methods
-    private func setupViews() {
-        
-    }
-    
-    private func updateViews() {
-        
+    private func grabProperties() {
+        for property in controller.properties.values {
+            properties.append(property)
+        }
     }
     
     // MARK: - Navigation
@@ -35,17 +35,18 @@ class PropertiesViewController: UIViewController {
     }
     
     // MARK: - IBActions
-
-
 }
 
 extension PropertiesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return properties.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyCell", for: indexPath) as? PropertyTableViewCell else { return UITableViewCell() }
+        
+        let property = properties[indexPath.row]
+        cell.property = property
         
         return cell
     }
