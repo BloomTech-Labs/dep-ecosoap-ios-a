@@ -21,7 +21,7 @@ class Pickup {
         guard let id = dictionary["id"] as? String,
         let confirmationCode = dictionary["confirmationCode"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
-        let status = dictionary["status"] as? String,
+//        let status = dictionary["status"] as? String,
         let property = dictionary["property"] as? [String: Any],
         let propertyId = property["id"] as? String,
         let readyDateString = dictionary["readyDate"] as? String,
@@ -40,7 +40,7 @@ class Pickup {
         self.propertyId = propertyId
         self.confirmationCode = confirmationCode
         self.collectionType = collectionType
-        self.status = status
+        self.status = "COMPLETE"
         self.readyDate = readyDate
 
         self.notes = dictionary["notes"] as? String

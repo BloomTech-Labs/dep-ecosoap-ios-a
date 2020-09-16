@@ -43,9 +43,20 @@ class DashboardViewController: UIViewController {
     }
     
     private func fetchAll() {
-        controller.initialFetch(userId: "UserId1") { (error) in
+//        controller.userById(id: "00uz5ejxyji3PU5mA4x600uz5ejxyji3PU5mA4x6") { (error) in
+//            if let error = error {
+//                NSLog("\(error): Error occured during initial fetch")
+//            }
+//            print(self.controller.users)
+//        }
+        
+        controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
             if let error = error {
                 NSLog("\(error): Error occured during initial fetch")
+            }
+            if let user = self.controller.users[self.controller.loggedInUser.id] {
+                self.controller.loggedInUser = user
+                print(self.controller.loggedInUser)
             }
             print("\(self.controller.users)")
             print("\(self.controller.properties)")
