@@ -14,15 +14,20 @@ class PickupsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
+    private var pickups: [Pickup] = []
+    private let controller = BackendController.shared
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        grabPickups()
     }
     
     // MARK: - Private Methods
-    private func setupViews() {
+    private func grabPickups() {
+        for pickup in controller.pickups.values {
+            pickups.append(pickup)
+        }
     }
 }
 
@@ -36,7 +41,7 @@ extension PickupsViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 4
+            return pickups.count
         }
     }
     
@@ -48,7 +53,8 @@ extension PickupsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupCell", for: indexPath) as? PickupTableViewCell else { return UITableViewCell() }
             
-            cell.indexPath = indexPath
+            let pickup = pickups[indexPath.row]
+            cell.pickup = pickup
             
             return cell
         }

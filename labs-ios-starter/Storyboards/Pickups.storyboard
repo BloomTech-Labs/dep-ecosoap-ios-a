@@ -82,8 +82,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="descriptionLabel" destination="d1u-VD-vAb" id="cxv-xP-m8v"/>
                                             <outlet property="statusImageView" destination="Lkl-tz-nKS" id="8ZU-P8-BJC"/>
                                             <outlet property="statusLabel" destination="zdN-IR-r8q" id="kVD-sr-fAB"/>
+                                            <outlet property="titleLabel" destination="2eG-47-PrT" id="bcJ-L8-zxo"/>
                                             <segue destination="wUy-2n-5Db" kind="show" id="ZhH-DY-6fm"/>
                                         </connections>
                                     </tableViewCell>

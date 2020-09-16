@@ -137,7 +137,7 @@ class Queries: Request {
                         id
                         confirmationCode
                         collectionType
-                        # status
+                        status
                         readyDate
                         pickupDate
                         property {
@@ -299,7 +299,7 @@ class Queries: Request {
                 id
                 confirmationCode
                 collectionType
-                # status
+                status
                 readyDate
                 pickupDate
                 property {
@@ -420,7 +420,7 @@ class Queries: Request {
               id
               confirmationCode
               collectionType
-              # status
+              status
               readyDate
               pickupDate
               property {
@@ -601,7 +601,7 @@ class Queries: Request {
                   id
                   confirmationCode
                   collectionType
-                  # status
+                  status
                   readyDate
                   pickupDate
                   property {

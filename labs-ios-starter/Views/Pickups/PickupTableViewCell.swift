@@ -13,11 +13,13 @@ class PickupTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var statusImageView: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: - Properties
-    var indexPath: IndexPath? {
+    var pickup: Pickup? {
         didSet {
-            updateViews()
+            
         }
     }
     
@@ -35,16 +37,25 @@ class PickupTableViewCell: UITableViewCell {
     
     // MARK: - Private Methods
     private func updateViews() {
-        guard let indexPath = indexPath else { return }
+        guard let pickup = pickup else { return }
+        print(pickup.status)
         
-        if indexPath.row == 1 {
-            self.statusLabel.text = "Active"
+        if pickup.status == "COMPLETE" {
+            self.statusLabel.text = "Complete"
             self.statusImageView.image = UIImage(systemName: "checkmark.seal")
-        } else if indexPath.row == 2 {
+            self.statusImageView.tintColor = UIColor(named: .colorESBGreen)
+        } else if pickup.status == "OUT_FOR_PICKUP" {
+            self.statusLabel.text = "Out for Pickup"
+            self.statusImageView.image = UIImage(systemName: "checkmark.seal")
+            self.statusImageView.tintColor = UIColor(named: .colorESBGreen)
+        } else if pickup.status == "CANCELLED" {
             self.statusLabel.text = "Canceled"
             self.statusImageView.image = UIImage(systemName: "xmark.seal.fill")
-            self.statusImageView.tintColor = UIColor(named: "ESB Red")
-            self.statusLabel.textColor = UIColor(named: "ESB Red")
+            self.statusImageView.tintColor = UIColor(named: .colorESBRed)
+        } else if pickup.status == "SUBMITTED" {
+            self.statusLabel.text = "Sumbitted"
+            self.statusImageView.image = UIImage(systemName: "checkmark.seal")
+            self.statusImageView.tintColor = UIColor(named: .colorESBGreen)
         }
     }
 
