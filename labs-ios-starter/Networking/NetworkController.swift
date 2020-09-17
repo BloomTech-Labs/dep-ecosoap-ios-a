@@ -22,7 +22,7 @@ class BackendController {
 
     private let apiURL: URL = URL(string: "http://35.208.9.187:9096/ios-api-3")!
 
-//    var loggedInUser: User
+    var loggedInUser: User = User()
 
     static let shared: BackendController = BackendController()
 

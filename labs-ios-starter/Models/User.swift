@@ -16,6 +16,14 @@ class User {
     var address: Address?
     var signupTime: Date?
     var propertiesById: [String] = []
+    
+    init() {
+        self.id = "00uz5ejxyji3PU5mA4x6"
+        self.firstName = "Miles"
+        self.lastName = "Watts"
+        self.email = "Miles.K.Watts.1599761674594@test.com"
+        self.password = "1599761674594"
+    }
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
