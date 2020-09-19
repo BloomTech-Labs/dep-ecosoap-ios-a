@@ -24,7 +24,7 @@ class PaymentInvoiceViewController: UIViewController {
     private let pdfView: PDFView = {
         let pdfView = PDFView()
         pdfView.translatesAutoresizingMaskIntoConstraints = false
-        pdfView.autoScales = true
+        // pdfView.autoScales = true
         return pdfView
     }()
     
@@ -32,6 +32,9 @@ class PaymentInvoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        // For testing
+        updateViews()
     }
     
     // MARK: - Private Methods

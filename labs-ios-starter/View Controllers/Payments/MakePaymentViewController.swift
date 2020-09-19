@@ -33,6 +33,13 @@ class MakePaymentViewController: UIViewController {
         paymentBackgroundView.layer.cornerRadius = 8
         viewInvoiceButton.layer.cornerRadius = 8
         makePaymentButton.layer.cornerRadius = 8
+        paymentBackgroundView.layer.cornerRadius = 8.0
+        paymentBackgroundView.layer.backgroundColor = UIColor(named: "Panel System Background")?.cgColor
+        paymentBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
+        paymentBackgroundView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        paymentBackgroundView.layer.shadowRadius = 5.0
+        paymentBackgroundView.layer.shadowOpacity = 0.25
+        paymentBackgroundView.layer.masksToBounds = false
     }
     
     // MARK: - Navigation
