@@ -189,19 +189,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZq-kn-Qgw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZq-kn-Qgw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Invoice" id="kDU-uy-cN1">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ptp-ug-xJl"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ptp-ug-xJl">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="LTH-G9-dEH" id="gqv-KD-THM"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" name="ESB System Background"/>
+                        <constraints>
+                            <constraint firstItem="aZq-kn-Qgw" firstAttribute="leading" secondItem="EWc-nf-hzg" secondAttribute="leading" id="NVM-Jb-Kha"/>
+                            <constraint firstItem="aZq-kn-Qgw" firstAttribute="top" secondItem="EWc-nf-hzg" secondAttribute="top" id="inQ-Jy-pQW"/>
+                            <constraint firstItem="aZq-kn-Qgw" firstAttribute="trailing" secondItem="EWc-nf-hzg" secondAttribute="trailing" id="oNk-Xf-cMw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EWc-nf-hzg"/>
                     </view>
+                    <connections>
+                        <outlet property="navBar" destination="aZq-kn-Qgw" id="s5M-Zv-IcK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDs-15-kCm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
