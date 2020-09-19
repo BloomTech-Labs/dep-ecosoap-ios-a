@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z5J-9R-8ND">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zE8-Th-vF6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ext-rj-mD4">
-                                <rect key="frame" x="0.0" y="170.5" width="414" height="642.5"/>
+                                <rect key="frame" x="0.0" y="126.5" width="414" height="735.5"/>
                                 <color key="backgroundColor" name="ESB System Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QzZ-oM-Csn">
                                     <size key="itemSize" width="128" height="128"/>
@@ -325,7 +325,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjK-Ab-gYa">
-                                <rect key="frame" x="0.0" y="88" width="414" height="82.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="82.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s4L-0q-T9V">
                                         <rect key="frame" x="20" y="16" width="374" height="58.5"/>
@@ -395,32 +395,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eei-He-O58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179.7101449275362" y="57.589285714285708"/>
-        </scene>
-        <!--Statistics-->
-        <scene sceneID="3H2-hx-Bzb">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z5J-9R-8ND" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.fill" catalog="system" id="due-aD-6uq"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="66D-bt-VGZ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="zE8-Th-vF6" kind="relationship" relationship="rootViewController" id="lCb-eA-Kgf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vwK-3Q-QCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="269.56521739130437" y="57.589285714285708"/>
+            <point key="canvasLocation" x="2089.8550724637685" y="57.589285714285708"/>
         </scene>
     </scenes>
     <color key="tintColor" name="ESB Green"/>
     <resources>
-        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
