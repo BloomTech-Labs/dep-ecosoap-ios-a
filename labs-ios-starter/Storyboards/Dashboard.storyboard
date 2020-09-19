@@ -719,10 +719,10 @@
             </objects>
             <point key="canvasLocation" x="-1167" y="21"/>
         </scene>
-        <!--Statistics-->
+        <!--Payments-->
         <scene sceneID="3C4-mu-9PQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Statistics" id="o16-eD-YUi" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Payments" id="o16-eD-YUi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="aMk-71-dp0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbZ-5q-OgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
