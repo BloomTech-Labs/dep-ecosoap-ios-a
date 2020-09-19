@@ -81,14 +81,23 @@
                         <outlet property="collectionView" destination="nWA-ht-8K4" id="baX-2v-0YR"/>
                         <segue destination="nh7-QP-3Kt" kind="show" identifier="ShowProfilePushSegue" id="3lf-uh-BMB"/>
                         <segue destination="Zm1-Rj-bdb" kind="show" identifier="ShowPropertiesPushSegue" id="im5-dt-uH9"/>
-                        <segue destination="P38-vb-gYK" kind="show" identifier="ShowPaymentHistoryPushSegue" id="wZu-K3-cAc"/>
-                        <segue destination="xKw-dO-InQ" kind="show" identifier="ShowMakePaymentPushSegue" id="s9j-dK-Gq7"/>
                         <segue destination="jBn-78-5cb" kind="show" identifier="ShowSettingsPushSegue" id="xDm-wD-8mA"/>
+                        <segue destination="73s-A1-Zqb" kind="show" identifier="ShowStatisticsPushSegue" id="jjD-P6-oFW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCI-fu-8f8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="810.14492753623199" y="-75"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="SX4-gm-BgF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Statistics" id="73s-A1-Zqb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HQn-HY-FT2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiF-5c-bdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="398"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="bQL-Xt-Kl1">
@@ -381,38 +390,6 @@
             </objects>
             <point key="canvasLocation" x="2673.913043478261" y="-399.10714285714283"/>
         </scene>
-        <!--Payment History-->
-        <scene sceneID="fWj-BW-Iie">
-            <objects>
-                <viewController id="P38-vb-gYK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uBk-cy-Myd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="ESB System Background"/>
-                        <viewLayoutGuide key="safeArea" id="NGz-Hb-P3b"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Payment History" id="PDQ-dP-1ID"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vaq-IS-ZIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1925" y="273"/>
-        </scene>
-        <!--Make a Payment-->
-        <scene sceneID="O69-Tc-sde">
-            <objects>
-                <viewController id="xKw-dO-InQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jUs-DN-6fO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="ESB System Background"/>
-                        <viewLayoutGuide key="safeArea" id="4Yo-4n-eIZ"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Make a Payment" id="J76-O6-jXF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V5A-wb-Ok4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1925" y="931"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="uoC-H9-Tgy">
             <objects>
@@ -687,7 +664,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3J-IV-4fc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="1585"/>
+            <point key="canvasLocation" x="1925" y="267"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JBM-rm-gXK">
