@@ -11,7 +11,7 @@
         <!--Payments-->
         <scene sceneID="DVm-op-SHc">
             <objects>
-                <viewController id="gBs-xo-VyB" sceneMemberID="viewController">
+                <viewController id="gBs-xo-VyB" customClass="MakePaymentViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XpR-8S-92g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +116,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34DF2S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fo-oi-9qQ">
                                                         <rect key="frame" x="0.0" y="18.5" width="115.5" height="36"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                        <color key="textColor" name="ESB Black"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -166,17 +166,27 @@
                     <navigationItem key="navigationItem" title="Payments" id="v4k-5O-1J5">
                         <barButtonItem key="rightBarButtonItem" title="History" id="v9Q-F4-aLD"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amountDueLabel" destination="W2S-HP-AwK" id="ODT-WT-ljz"/>
+                        <outlet property="invoiceCodeLabel" destination="3Fo-oi-9qQ" id="3Vf-Sg-QWh"/>
+                        <outlet property="invoiceDueDateLabel" destination="qJM-Gi-x2Z" id="Y2L-6y-qAS"/>
+                        <outlet property="invoiceEndDateLabel" destination="Cz3-vy-Tej" id="Eth-IS-CAk"/>
+                        <outlet property="invoiceStartDateLabel" destination="7YC-r4-Y2q" id="wWS-N6-pgO"/>
+                        <outlet property="makePaymentButton" destination="1ZF-b3-62l" id="S5V-JF-m8E"/>
+                        <outlet property="paymentBackgroundView" destination="Q3R-hl-Vjb" id="h0F-rk-RS3"/>
+                        <outlet property="viewInvoiceButton" destination="DQX-lM-4wF" id="Y9v-Xm-YnW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7l-Kx-2Kb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1010.144927536232" y="119.86607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Payment Invoice View Controller-->
         <scene sceneID="KHa-ij-Ci7">
             <objects>
-                <viewController id="LTH-G9-dEH" sceneMemberID="viewController">
+                <viewController id="LTH-G9-dEH" customClass="PaymentInvoiceViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AWA-TP-9yX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZq-kn-Qgw">
