@@ -15,7 +15,11 @@ class PropertyDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    var property: Property?
+    var property: Property? {
+        didSet {
+            updateViews()
+        }
+    }
     
     private var saveButton: UIButton = {
         let button = UIButton()
@@ -58,7 +62,7 @@ class PropertyDetailViewController: UIViewController {
         propertyData.append(property.phone ?? "")
         propertyData.append(property.billingAddress?.address1 ?? "")
         propertyData.append(property.shippingAddress?.address1 ?? "")
-        propertyData.append("\(property.coordinates?.longitude), \(property.coordinates?.latitude)")
+        propertyData.append("\(property.coordinates?.longitude ?? 0), \(property.coordinates?.latitude ?? 0)")
     }
     
     // MARK: - Navigation

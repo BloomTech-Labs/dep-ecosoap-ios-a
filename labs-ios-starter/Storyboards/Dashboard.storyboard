@@ -282,7 +282,7 @@
                                             <outlet property="addressLabel" destination="HdP-W0-gLs" id="0Bv-hT-5bc"/>
                                             <outlet property="cellBackgroundView" destination="8q2-MF-QxK" id="GPN-3z-sNz"/>
                                             <outlet property="titleLabel" destination="moR-Ox-xAI" id="6mg-G5-cJm"/>
-                                            <segue destination="XvQ-N7-G52" kind="show" id="tt5-Uq-vA6"/>
+                                            <segue destination="XvQ-N7-G52" kind="show" identifier="ShowPropertyDetailPushSegue" id="tt5-Uq-vA6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
