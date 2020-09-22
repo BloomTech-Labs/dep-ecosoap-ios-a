@@ -32,6 +32,12 @@ class PropertiesViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPropertyDetailPushSegue" {
+            guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+            propertyDetailVC.property = properties[selectedIndexPath.row]
+        }
+
     }
     
     // MARK: - IBActions

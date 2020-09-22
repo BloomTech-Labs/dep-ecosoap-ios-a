@@ -43,13 +43,6 @@ class DashboardViewController: UIViewController {
     }
     
     private func fetchAll() {
-//        controller.userById(id: "00uz5ejxyji3PU5mA4x600uz5ejxyji3PU5mA4x6") { (error) in
-//            if let error = error {
-//                NSLog("\(error): Error occured during initial fetch")
-//            }
-//            print(self.controller.users)
-//        }
-        
         controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
             if let error = error {
                 NSLog("\(error): Error occured during initial fetch")
@@ -79,9 +72,6 @@ class DashboardViewController: UIViewController {
           - ShowSettingsPushSegue
         */
     }
-    
-    // MARK: - IBActions
-    
 }
 
 extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -92,7 +82,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,28 +95,14 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
     // MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /*
-        if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
-            cell.updateShadowOnSelect()
-        }
-        */
-        
         if indexPath.item == 0 {
             performSegue(withIdentifier: "ShowProfilePushSegue", sender: self)
         } else if indexPath.item == 1 {
             performSegue(withIdentifier: "ShowPropertiesPushSegue", sender: self)
         } else if indexPath.item == 2 {
-            performSegue(withIdentifier: "ShowPaymentHistoryPushSegue", sender: self)
-        } else if indexPath.item == 3 {
-            performSegue(withIdentifier: "ShowMakePaymentPushSegue", sender: self)
-        } else if indexPath.item == 4 {
             performSegue(withIdentifier: "ShowSettingsPushSegue", sender: self)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
-            cell.updateShadowOnDeselect()
+        } else if indexPath.item == 3 {
+            performSegue(withIdentifier: "ShowStatisticsPushSegue", sender: self)
         }
     }
 }
@@ -137,15 +113,13 @@ extension DashboardViewController: DashboardLayoutDelegate {
         heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat {
         
         if indexPath.item == 0 {
-            return 250
+            return 275
         } else if indexPath.item == 1 {
-            return 200
+            return 225
         } else if indexPath.item == 2 {
-            return 200
-        } else if indexPath.item == 3 {
-            return 250
+            return 225
         } else {
-            return 150
+            return 275
         }
     }
 }

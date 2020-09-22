@@ -11,6 +11,9 @@
 		133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */; };
 		13518FBB2509C15D000C217F /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */; };
 		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
+		1385B7692515A02A00953FD4 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1385B7682515A02A00953FD4 /* Payments.storyboard */; };
+		1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1385B76A2515ACC000953FD4 /* MakePaymentViewController.swift */; };
+		1385B76D2515ADEF00953FD4 /* PaymentInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1385B76C2515ADEF00953FD4 /* PaymentInvoiceViewController.swift */; };
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
 		13A4A7D124E1F363005326F9 /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Pickups.storyboard */; };
@@ -89,6 +92,9 @@
 		133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
+		1385B7682515A02A00953FD4 /* Payments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
+		1385B76A2515ACC000953FD4 /* MakePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentViewController.swift; sourceTree = "<group>"; };
+		1385B76C2515ADEF00953FD4 /* PaymentInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInvoiceViewController.swift; sourceTree = "<group>"; };
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		13A4A7D024E1F363005326F9 /* Pickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1385B76E2515ADF500953FD4 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				1385B76A2515ACC000953FD4 /* MakePaymentViewController.swift */,
+				1385B76C2515ADEF00953FD4 /* PaymentInvoiceViewController.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
 		13A4A7D224E1F374005326F9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +210,7 @@
 				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
 				13A4A7D024E1F363005326F9 /* Pickups.storyboard */,
 				13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */,
+				1385B7682515A02A00953FD4 /* Payments.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -217,6 +233,7 @@
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
 				13A4A7D224E1F374005326F9 /* Login */,
+				1385B76E2515ADF500953FD4 /* Payments */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -529,6 +546,7 @@
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
+				1385B7692515A02A00953FD4 /* Payments.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 				13A4A7DC24E1FA42005326F9 /* Onboarding.storyboard in Resources */,
 			);
@@ -582,7 +600,9 @@
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
+				1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
+				1385B76D2515ADEF00953FD4 /* PaymentInvoiceViewController.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */,

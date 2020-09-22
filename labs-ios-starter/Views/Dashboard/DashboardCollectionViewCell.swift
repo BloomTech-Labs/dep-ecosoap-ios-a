@@ -26,28 +26,7 @@ class DashboardCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         setupViews()
     }
-    
-    // MARK: - Public Methods
-    func updateShadowOnSelect() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2) {
-                self.layer.shadowOffset = CGSize(width: 2.0, height: 5.0)
-                self.layer.shadowRadius = 10.0
-                self.layer.shadowOpacity = 0.75
-            }
-        }
-    }
-    
-    func updateShadowOnDeselect() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2) {
-                self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-                self.layer.shadowRadius = 5.0
-                self.layer.shadowOpacity = 0.25
-            }
-        }
-    }
-    
+        
     // MARK: - Private Methods
     private func setupViews() {
         self.layer.cornerRadius = 8.0
@@ -70,14 +49,11 @@ class DashboardCollectionViewCell: UICollectionViewCell {
             textLabel.text = "Properties"
             imageView.image = UIImage(named: "ESB Property")
         } else if indexPath.row == 2 {
-            textLabel.text = "Payment History"
-            imageView.image = UIImage(systemName: "list.dash")
-        } else if indexPath.row == 3 {
-            textLabel.text = "Make a Payment"
-            imageView.image = UIImage(systemName: "creditcard.fill")
-        } else if indexPath.row == 4 {
             textLabel.text = "Settings"
             imageView.image = UIImage(systemName: "gear")
+        } else if indexPath.row == 3 {
+            textLabel.text = "Impact\nStatistics"
+            imageView.image = UIImage(systemName: "chart.bar.fill")
         }
     }
 }

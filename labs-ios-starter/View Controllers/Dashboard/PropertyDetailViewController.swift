@@ -14,6 +14,13 @@ class PropertyDetailViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
+    var property: Property? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     private var saveButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -33,13 +40,7 @@ class PropertyDetailViewController: UIViewController {
                                      "Shipping Address",
                                      "Coordinates"]
     
-    private let placeholderData = ["Marriott Resort",
-                                   "Hotel",
-                                   "345",
-                                   "(849) 432-9524",
-                                   "9241 Apple Way California",
-                                   "9241 Apple Way California",
-                                   "41.40338, 2.17403"]
+    private var propertyData: [String] = []
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -53,7 +54,15 @@ class PropertyDetailViewController: UIViewController {
     }
     
     private func updateViews() {
+        guard let property = property else { return }
         
+        propertyData.append(property.name)
+        propertyData.append(property.propertyType)
+        propertyData.append("\(property.rooms)")
+        propertyData.append(property.phone ?? "")
+        propertyData.append(property.billingAddress?.address1 ?? "")
+        propertyData.append(property.shippingAddress?.address1 ?? "")
+        propertyData.append("\(property.coordinates?.longitude ?? 0), \(property.coordinates?.latitude ?? 0)")
     }
     
     // MARK: - Navigation
@@ -82,7 +91,7 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyInfoCell", for: indexPath) as? PropertyInfoTableViewCell else { return UITableViewCell() }
         
         cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
-        cell.descriptionTextField.text = placeholderData[indexPath.row]
+        cell.descriptionTextField.text = propertyData[indexPath.row]
         
         return cell
     }
