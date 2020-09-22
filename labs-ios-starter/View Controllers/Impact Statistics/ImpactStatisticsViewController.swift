@@ -16,17 +16,15 @@ class ImpactStatisticsViewController: UIViewController {
     
     // MARK: - Properties
     private let propertyPicker = UIPickerView()
+    private let controller = BackendController.shared
     
-    lazy var propertyPickerData: [[String]] = {
-        let properties: [String] = Array(0...9).map { String($0) }
-        let data: [[String]] = [properties]
-        return data
-    }()
+    private var propertyPickerData: [[String]]?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        grabProperties()
     }
     
     // MARK: - Private Methods
@@ -39,6 +37,15 @@ class ImpactStatisticsViewController: UIViewController {
         propertyTextField.inputView = propertyPicker
         propertyTextField.text = "Marriott Resort (Default)"
         self.hideKeyboardWhenViewTapped()
+    }
+    
+    private func grabProperties() {
+        var properties: [String] = []
+        for property in controller.properties.values {
+            properties.append(property.name)
+        }
+        let data: [[String]] = [properties]
+        propertyPickerData = data
     }
     
     private func updateViews() {
@@ -103,14 +110,18 @@ extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
 
 extension ImpactStatisticsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        guard let propertyPickerData = propertyPickerData else { return 0 }
         return propertyPickerData.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        guard let propertyPickerData = propertyPickerData else { return 0 }
         return propertyPickerData[component].count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let propertyPickerData = propertyPickerData else { return nil }
+
         let componentArray = propertyPickerData[component]
         let title = componentArray[row]
         
@@ -118,7 +129,7 @@ extension ImpactStatisticsViewController: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 50
+        return pickerView.bounds.width - 40 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
