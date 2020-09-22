@@ -20,7 +20,11 @@ class ImpactStatisticsViewController: UIViewController {
     
     private var propertyPickerData: [[String]]?
     private var properties: [Property] = []
-    private var selectedProperty: Property?
+    private var selectedProperty: Property? {
+        didSet {
+            updateViews()
+        }
+    }
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -55,15 +59,16 @@ class ImpactStatisticsViewController: UIViewController {
     }
     
     private func updateViews() {
-        
+        guard let selectedProperty = selectedProperty else { return }
+        controller.impactStatsByPropertyId(id: selectedProperty.id) { (error) in
+            if let error = error {
+                print("Error fetching stats \(error)")
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
-    
-    // MARK: - IBActions
-
 }
 
 extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -86,6 +91,7 @@ extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollection
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImpactStatisticsIndividualCell", for: indexPath) as? ImpactStatisticsIndividualCollectionViewCell else { return UICollectionViewCell() }
             
             cell.indexPath = indexPath
+            cell.property = selectedProperty
             
             return cell
         }
@@ -139,7 +145,7 @@ extension ImpactStatisticsViewController: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        selectedProperty = properties[row]
     }
 }
 
