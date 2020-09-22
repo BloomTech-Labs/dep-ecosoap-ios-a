@@ -69,6 +69,21 @@ class ImpactStatisticsViewController: UIViewController {
             }
         }
     }
+    
+    private func overallBreakDown() -> (Int, Int, Int, Int) {
+        guard let selectedProperty = selectedProperty else { return (0,0,0,0) }
+        let bottlesRecycled = selectedProperty.impact?.bottlesRecycled ?? 0
+        let soapRecycled = selectedProperty.impact?.soapRecycled ?? 0
+        let paperRecycled = selectedProperty.impact?.paperRecycled ?? 0
+        let linensRecycled = selectedProperty.impact?.linensRecycled ?? 0
+        
+        let total = bottlesRecycled + soapRecycled + paperRecycled + linensRecycled
+        let soapPercentage = (Double(soapRecycled) / Double(total)) * 100
+        let bottlesPercentage = (Double(bottlesRecycled) / Double(total)) * 100
+        let paperPercentage = (Double(paperRecycled) / Double(total)) * 100
+        let linensPercentage = (Double(linensRecycled) / Double(total)) * 100
+        return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
+    }
 }
 
 extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -85,6 +100,8 @@ extension ImpactStatisticsViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImpactStatisticsOverallCell", for: indexPath) as? ImpactStatisticsOverallCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.statsTuple = overallBreakDown()
             
             return cell
         } else {

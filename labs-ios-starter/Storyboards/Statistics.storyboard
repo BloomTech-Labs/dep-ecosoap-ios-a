@@ -41,31 +41,31 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="366" height="8"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2S-vr-wbv">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="8"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="91.5" height="8"/>
                                                                     <color key="backgroundColor" name="ESB Blue"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="50" id="NQB-Xr-SFz"/>
+                                                                        <constraint firstAttribute="width" constant="91.5" placeholder="YES" id="fbg-PT-kk6"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgF-gm-8Mv">
-                                                                    <rect key="frame" x="50" y="0.0" width="30" height="8"/>
+                                                                    <rect key="frame" x="91.5" y="0.0" width="91.5" height="8"/>
                                                                     <color key="backgroundColor" name="ESB Green"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="Njd-FE-L25"/>
+                                                                        <constraint firstAttribute="width" constant="91.5" placeholder="YES" id="uCf-2K-Y2a"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-k2-xDv">
-                                                                    <rect key="frame" x="80" y="0.0" width="241" height="8"/>
+                                                                    <rect key="frame" x="183" y="0.0" width="91.5" height="8"/>
                                                                     <color key="backgroundColor" name="ESB Sapphire"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="75" id="Iyf-hz-hWc"/>
+                                                                        <constraint firstAttribute="width" constant="91.5" placeholder="YES" id="ZI8-kF-HSG"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-6s-UPa">
-                                                                    <rect key="frame" x="321" y="0.0" width="45" height="8"/>
+                                                                    <rect key="frame" x="274.5" y="0.0" width="91.5" height="8"/>
                                                                     <color key="backgroundColor" name="ESB Gold"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="45" id="Jfs-SA-0hG"/>
+                                                                        <constraint firstAttribute="width" constant="91.5" placeholder="YES" id="E36-RW-keI"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -194,6 +194,13 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="398" height="200"/>
                                         <connections>
+                                            <outlet property="bottlesPercentageLabel" destination="y6W-zd-Bv9" id="Kv9-fw-W9g"/>
+                                            <outlet property="bottlesView" destination="ubO-k2-xDv" id="4ru-MK-lEM"/>
+                                            <outlet property="linensPercentageLabel" destination="KBC-AH-nhb" id="c8z-EM-Alx"/>
+                                            <outlet property="linensView" destination="KgF-gm-8Mv" id="GVQ-y0-Cdi"/>
+                                            <outlet property="paperPercentageLabel" destination="h57-ua-2bc" id="joO-qf-2vv"/>
+                                            <outlet property="paperView" destination="2ye-6s-UPa" id="YjR-7R-NfC"/>
+                                            <outlet property="soapPercentageLabel" destination="VHZ-Vc-UPh" id="8bl-7T-bgI"/>
                                             <outlet property="soapView" destination="G2S-vr-wbv" id="yfh-Dd-eJQ"/>
                                         </connections>
                                     </collectionViewCell>
