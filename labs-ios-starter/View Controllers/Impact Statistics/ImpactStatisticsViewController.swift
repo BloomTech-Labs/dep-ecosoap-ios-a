@@ -19,6 +19,8 @@ class ImpactStatisticsViewController: UIViewController {
     private let controller = BackendController.shared
     
     private var propertyPickerData: [[String]]?
+    private var properties: [Property] = []
+    private var selectedProperty: Property?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -35,17 +37,21 @@ class ImpactStatisticsViewController: UIViewController {
         propertyTextField.layer.cornerRadius = 8
         propertyTextField.setupTextField()
         propertyTextField.inputView = propertyPicker
-        propertyTextField.text = "Marriott Resort (Default)"
         self.hideKeyboardWhenViewTapped()
     }
     
     private func grabProperties() {
-        var properties: [String] = []
+        var propertyNames: [String] = []
         for property in controller.properties.values {
-            properties.append(property.name)
+            propertyNames.append(property.name)
+            properties.append(property)
         }
-        let data: [[String]] = [properties]
+        let data: [[String]] = [propertyNames]
         propertyPickerData = data
+        
+        guard propertyNames.count > 0, properties.count > 0 else { return }
+        propertyTextField.text = propertyNames[0]
+        selectedProperty = properties[0]
     }
     
     private func updateViews() {
@@ -94,7 +100,7 @@ extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
         
         if indexPath.item == 0 {
             width = collectionView.bounds.width - 40
-            height = 265
+            height = 200
         } else {
             width = (collectionView.bounds.width / 2) - 25
             height = 150

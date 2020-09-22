@@ -34,7 +34,7 @@ class ImpactStatisticsOverallCollectionViewCell: UICollectionViewCell {
         soapView.layer.cornerRadius = 5
         soapView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
-        womenView.layer.cornerRadius = 5
-        womenView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+//        womenView.layer.cornerRadius = 5
+//        womenView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
     }
 }
