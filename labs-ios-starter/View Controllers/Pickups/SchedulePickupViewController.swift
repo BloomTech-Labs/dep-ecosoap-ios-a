@@ -139,25 +139,29 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
 
             if cartons[indexPath.row] == 0 {
                 // Soap
-                cell.iconImageView.image = UIImage(named: "soap_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Soap Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Soap"
                 cell.delegate = self
                 cell.cellType = .soap
             } else if cartons[indexPath.row] == 1 {
                 // Linens
-                cell.iconImageView.image = UIImage(named: "paper_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Paper Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Paper"
                 cell.delegate = self
                 cell.cellType = .paper
             } else if cartons[indexPath.row] == 2 {
                 // Paper
-                cell.iconImageView.image = UIImage(named: "linens_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Linens Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Linens"
                 cell.delegate = self
                 cell.cellType = .linens
             } else if cartons[indexPath.row] == 3 {
                 // Bottles
-                cell.iconImageView.image = UIImage(named: "bottles_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Bottles Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Bottles"
                 cell.delegate = self
                 cell.cellType = .bottles

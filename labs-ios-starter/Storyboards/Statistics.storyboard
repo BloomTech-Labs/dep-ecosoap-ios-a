@@ -235,18 +235,17 @@
                                                     </subviews>
                                                 </stackView>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" image="stop.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="whu-ra-qdi">
-                                                    <rect key="frame" x="8" y="10" width="156" height="66"/>
+                                                    <rect key="frame" x="8" y="10" width="18" height="36"/>
                                                     <color key="tintColor" name="ESB Blue"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="UOT-gw-xtv"/>
+                                                        <constraint firstAttribute="height" constant="40" id="wVA-Zz-FtW"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="whu-ra-qdi" firstAttribute="top" secondItem="Yng-Ue-IXV" secondAttribute="top" constant="8" id="8gr-xn-ubJ"/>
                                                 <constraint firstItem="whu-ra-qdi" firstAttribute="leading" secondItem="Yng-Ue-IXV" secondAttribute="leading" constant="8" id="O5J-jp-hZ9"/>
-                                                <constraint firstAttribute="trailing" secondItem="whu-ra-qdi" secondAttribute="trailing" constant="8" id="hjX-We-JVD"/>
                                                 <constraint firstItem="jEd-iR-ZMi" firstAttribute="leading" secondItem="Yng-Ue-IXV" secondAttribute="leading" constant="12" id="oK0-GX-Z1m"/>
+                                                <constraint firstItem="whu-ra-qdi" firstAttribute="top" secondItem="Yng-Ue-IXV" secondAttribute="top" constant="8" id="qmN-iD-bdc"/>
                                                 <constraint firstAttribute="bottom" secondItem="jEd-iR-ZMi" secondAttribute="bottom" constant="12" id="twP-fH-d6e"/>
                                             </constraints>
                                         </collectionViewCellContentView>

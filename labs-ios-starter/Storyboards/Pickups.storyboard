@@ -586,13 +586,13 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WxK-YJ-EfH">
                                                     <rect key="frame" x="20" y="16" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="Y7b-Bv-bT8"/>
-                                                        <constraint firstAttribute="width" constant="25" id="i7f-aJ-9Gd"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Y7b-Bv-bT8"/>
+                                                        <constraint firstAttribute="width" constant="20" id="i7f-aJ-9Gd"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WUx-e0-miw" firstAttribute="leading" secondItem="WxK-YJ-EfH" secondAttribute="trailing" constant="8" id="2H0-Rg-Awk"/>
+                                                <constraint firstItem="WUx-e0-miw" firstAttribute="leading" secondItem="WxK-YJ-EfH" secondAttribute="trailing" constant="16" id="2H0-Rg-Awk"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="JGN-QA-t3e" secondAttribute="bottom" constant="0.5" id="E7v-o7-R6K"/>
                                                 <constraint firstItem="WxK-YJ-EfH" firstAttribute="centerY" secondItem="Wne-ZL-iim" secondAttribute="centerY" id="Mie-Yp-ySZ"/>
                                                 <constraint firstItem="JGN-QA-t3e" firstAttribute="top" secondItem="Wne-ZL-iim" secondAttribute="topMargin" constant="0.5" id="QTS-ov-Evb"/>

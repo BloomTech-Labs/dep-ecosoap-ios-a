@@ -179,7 +179,7 @@ class LoginViewControllerStarter: UIViewController {
     }()
     
     private lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "ESB-Logo"))
+        let imageView = UIImageView(image: UIImage(named: "ESB Logo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
