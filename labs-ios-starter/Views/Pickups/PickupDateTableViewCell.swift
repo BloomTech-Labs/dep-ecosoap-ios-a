@@ -8,24 +8,38 @@
 
 import UIKit
 
+protocol UserAddedDateAndTimeDelegate: AnyObject {
+    func userAddedDateAndTime(date: Date)
+}
+
 class PickupDateTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet weak var dateTextField: UITextField!
     
     // MARK: - Properties
-    let picker = UIDatePicker()
+    private let picker = UIDatePicker()
+    weak var delegate: UserAddedDateAndTimeDelegate?
     
     // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupViews()
+    }
+    
+    private func setupViews() {
         dateTextField.inputView = picker
+        picker.minimumDate = Date()
+        picker.addTarget(self, action: #selector(selected), for: .valueChanged)
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @objc func selected() {
+        let formatter = DateFormatter()
+        formatter.calendar = picker.calendar
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: picker.date)
+        dateTextField.text = dateString
+        delegate?.userAddedDateAndTime(date: picker.date)
     }
-
 }

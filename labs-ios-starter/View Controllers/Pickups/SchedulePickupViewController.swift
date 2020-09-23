@@ -25,6 +25,7 @@ class SchedulePickupViewController: UIViewController {
     // Pickup Input Properties
     private var notes: String?
     private var selectedProperty: Property?
+    private var pickupDate: Date?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -123,6 +124,8 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             // Select Date
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectDateCell", for: indexPath) as? PickupDateTableViewCell else { return UITableViewCell() }
             
+            cell.delegate = self
+            
             return cell
         } else if indexPath.section == 1 && indexPath.row == 0 {
             // Add Cartons
@@ -186,7 +189,11 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
 }
 
 // Custom cell delegate methods
-extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate, UserAddedPropertyDelegate {
+extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate, UserAddedPropertyDelegate, UserAddedDateAndTimeDelegate {
+    func userAddedDateAndTime(date: Date) {
+        pickupDate = date
+    }
+    
     func userAddedProperty(with property: Property) {
         self.selectedProperty = property
         self.tableView.beginUpdates()
