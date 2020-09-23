@@ -85,7 +85,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 3
+            return 2
         case 1:
             return cartons.count
         case 2:
@@ -100,7 +100,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         case 0:
             return "Pickup Details"
         case 1:
-            return "Carton"
+            return "Cartons"
         case 2:
             return "Notes"
         default:
@@ -122,11 +122,6 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         } else if indexPath.section == 0 && indexPath.row == 1 {
             // Select Date
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectDateCell", for: indexPath) as? PickupDateTableViewCell else { return UITableViewCell() }
-            
-            return cell
-        } else if indexPath.section == 0 && indexPath.row == 2 {
-            // Select Time
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectTimeCell", for: indexPath) as? PickupTimeTableViewCell else { return UITableViewCell() }
             
             return cell
         } else if indexPath.section == 1 && indexPath.row == 0 {

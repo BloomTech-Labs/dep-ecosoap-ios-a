@@ -10,11 +10,18 @@ import UIKit
 
 class PickupDateTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var dateTextField: UITextField!
+    
+    // MARK: - Properties
+    let picker = UIDatePicker()
+    
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        dateTextField.inputView = picker
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
