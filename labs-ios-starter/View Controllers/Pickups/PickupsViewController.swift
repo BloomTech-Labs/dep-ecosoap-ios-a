@@ -23,6 +23,13 @@ class PickupsViewController: UIViewController {
         grabPickups()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     // MARK: - Private Methods
     private func grabPickups() {
         for pickup in controller.pickups.values {

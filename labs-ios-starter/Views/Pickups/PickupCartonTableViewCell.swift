@@ -20,7 +20,7 @@ class PickupCartonTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     
     // MARK: - Properties
-    var delegate: UserAddedPercentageDelegate?
+    weak var delegate: UserAddedPercentageDelegate?
     var cellType: CartonTypes?
     private var identifier: UUID = UUID()
     

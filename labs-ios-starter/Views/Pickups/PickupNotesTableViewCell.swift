@@ -18,7 +18,7 @@ class PickupNotesTableViewCell: UITableViewCell {
     @IBOutlet weak var notesTextField: UITextView!
     
     // MARK: - Properties
-    var delegate: UserAddedNotesDelegate?
+    weak var delegate: UserAddedNotesDelegate?
 
     // MARK: - View Lifecycle
     override func awakeFromNib() {

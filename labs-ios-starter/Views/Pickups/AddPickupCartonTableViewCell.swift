@@ -25,7 +25,7 @@ class AddPickupCartonTableViewCell: UITableViewCell {
     @IBOutlet weak var addCartonButton: UIButton!
     
     // MARK: - Properties
-    var delegate: AddCartonCellDelegate?
+    weak var delegate: AddCartonCellDelegate?
     
     // MARK: - View Lifecycle
     override func awakeFromNib() {
