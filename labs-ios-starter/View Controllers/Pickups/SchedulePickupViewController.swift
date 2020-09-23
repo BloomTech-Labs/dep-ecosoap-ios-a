@@ -15,7 +15,7 @@ class SchedulePickupViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    private var cartons: [Int] = [-1 , -1]
+    private var cartons: [Int] = [-1]
     
     private var soapCartons: [UUID:Int] = [:]
     private var paperCartons: [UUID:Int] = [:]
@@ -123,18 +123,13 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             
             return cell
         } else if indexPath.section == 1 && indexPath.row == 0 {
-            // Add Weight
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupWeightCell", for: indexPath) as? PickupWeightTableViewCell else { return UITableViewCell() }
-            
-            return cell
-        } else if indexPath.section == 1 && indexPath.row == 1 {
             // Add Cartons
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddPickupCartonCell", for: indexPath) as? AddPickupCartonTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
             
             return cell
-        } else if indexPath.section == 1 && indexPath.row > 1 {
+        } else if indexPath.section == 1 && indexPath.row > 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupCartonCell", for: indexPath) as? PickupCartonTableViewCell else { return UITableViewCell() }
 
             if cartons[indexPath.row] == 0 {
@@ -213,7 +208,7 @@ extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDel
     func addCartonCell(for type: Int) {
         cartons.append(type)
         tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: 2, section: 1)], with: .automatic)
+        tableView.insertRows(at: [IndexPath(row: 1, section: 1)], with: .automatic)
         tableView.endUpdates()
         tableView.reloadData()
     }
