@@ -98,7 +98,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         case 0:
             return "Pickup Details"
         case 1:
-            return "Carton Details"
+            return "Cartons"
         case 2:
             return "Notes"
         default:
