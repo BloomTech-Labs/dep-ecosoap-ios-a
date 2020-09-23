@@ -205,12 +205,44 @@ extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDel
     }
     
     // AddPickupCartonTableViewCell
-    func addCartonCell(for type: Int) {
-        cartons.append(type)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: 1, section: 1)], with: .automatic)
-        tableView.endUpdates()
-        tableView.reloadData()
+    func addCartonCell() {
+        
+        let alert = UIAlertController(title: "Carton Type", message: nil, preferredStyle: .actionSheet)
+        let soapAction = UIAlertAction(title: "Soap", style: .default) { (UIAlertAction) in
+            self.cartons.append(0)
+            self.insertCartonCell()
+        }
+        
+        let paperAction = UIAlertAction(title: "Paper", style: .default) { (UIAlertAction) in
+            self.cartons.append(1)
+            self.insertCartonCell()
+        }
+        
+        let linensAction = UIAlertAction(title: "Linens", style: .default) { (UIAlertAction) in
+            self.cartons.append(2)
+            self.insertCartonCell()
+        }
+        
+        let bottlesAction = UIAlertAction(title: "Bottles", style: .default) { (UIAlertAction) in
+            self.cartons.append(3)
+            self.insertCartonCell()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(soapAction)
+        alert.addAction(paperAction)
+        alert.addAction(linensAction)
+        alert.addAction(bottlesAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func insertCartonCell() {
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath(row: 1, section: 1)], with: .left)
+        self.tableView.endUpdates()
+        self.tableView.reloadData()
     }
 }
-
