@@ -113,6 +113,11 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             // Select Property
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectPropertyCell", for: indexPath) as? PickupPropertyTableViewCell else { return UITableViewCell() }
             
+            if let selectedProperty = selectedProperty {
+                cell.propertyLabel.text = selectedProperty.name
+                cell.propertyLabel.textColor = .black
+            }
+            
             return cell
         } else if indexPath.section == 0 && indexPath.row == 1 {
             // Select Date
@@ -189,6 +194,9 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
 extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate, UserAddedPropertyDelegate {
     func userAddedProperty(with property: Property) {
         self.selectedProperty = property
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
+        self.tableView.endUpdates()
     }
     
     // PickupCartonTableViewCell
@@ -212,7 +220,6 @@ extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDel
     
     // AddPickupCartonTableViewCell
     func addCartonCell() {
-        
         let alert = UIAlertController(title: "Carton Type", message: nil, preferredStyle: .actionSheet)
         let soapAction = UIAlertAction(title: "Soap", style: .default) { (UIAlertAction) in
             self.cartons.append(0)

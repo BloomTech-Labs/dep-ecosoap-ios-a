@@ -10,6 +10,9 @@ import UIKit
 
 class PickupPropertyTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var propertyLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

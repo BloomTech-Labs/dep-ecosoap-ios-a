@@ -297,6 +297,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="propertyLabel" destination="3IT-5o-z3b" id="dyu-Nc-UlE"/>
                                             <segue destination="OTE-Xz-pjU" kind="presentation" identifier="SelectPropertyModalSegue" id="lvo-1u-jVT"/>
                                         </connections>
                                     </tableViewCell>
