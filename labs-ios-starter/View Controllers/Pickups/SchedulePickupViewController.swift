@@ -24,6 +24,7 @@ class SchedulePickupViewController: UIViewController {
     
     // Pickup Input Properties
     private var notes: String?
+    private var selectedProperty: Property?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -42,6 +43,7 @@ class SchedulePickupViewController: UIViewController {
         if segue.identifier == "SelectPropertyModalSegue" {
             guard let selectPropertyVC = segue.destination as? SelectPropertyViewController else { return }
             selectPropertyVC.delegate = self
+            selectPropertyVC.delegateProperty = self
         }
     }
     
@@ -184,7 +186,11 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
 }
 
 // Custom cell delegate methods
-extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate {
+extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate, UserAddedPropertyDelegate {
+    func userAddedProperty(with property: Property) {
+        self.selectedProperty = property
+    }
+    
     // PickupCartonTableViewCell
     func userAddedPercentage(for cellIdentifier: UUID, cellType: CartonTypes, percentage: Int) {
         switch cellType {
