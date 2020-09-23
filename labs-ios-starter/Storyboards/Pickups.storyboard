@@ -32,16 +32,16 @@
                                                     <state key="normal" image="ellipsis" catalog="system"/>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3VS-7b-JFU">
-                                                    <rect key="frame" x="95" y="25.5" width="145" height="43"/>
+                                                    <rect key="frame" x="95" y="19" width="259" height="56"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eG-47-PrT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="145" height="25.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Marriott Resort" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eG-47-PrT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="259" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="April 29, 2021 at 9:43 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-VD-vAb">
-                                                            <rect key="frame" x="0.0" y="28.5" width="145" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="28.5" width="259" height="27.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -70,10 +70,12 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3VS-7b-JFU" firstAttribute="top" secondItem="AOi-rV-1jM" secondAttribute="topMargin" constant="8" id="4fV-uD-0rx"/>
                                                 <constraint firstItem="4j1-my-oWu" firstAttribute="top" secondItem="AOi-rV-1jM" secondAttribute="topMargin" id="5lM-sb-P50"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3VS-7b-JFU" secondAttribute="bottom" constant="8" id="EtN-aF-RRg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="4j1-my-oWu" secondAttribute="trailing" id="P9f-cY-XsS"/>
                                                 <constraint firstItem="ah3-uw-oRP" firstAttribute="leading" secondItem="AOi-rV-1jM" secondAttribute="leadingMargin" id="V9x-tE-gp7"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3VS-7b-JFU" secondAttribute="trailing" id="d3D-Jp-pmb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3VS-7b-JFU" secondAttribute="trailing" id="d3D-Jp-pmb"/>
                                                 <constraint firstItem="3VS-7b-JFU" firstAttribute="centerY" secondItem="AOi-rV-1jM" secondAttribute="centerY" id="gr2-Rs-aTc"/>
                                                 <constraint firstItem="3VS-7b-JFU" firstAttribute="leading" secondItem="ah3-uw-oRP" secondAttribute="trailing" constant="20" id="kME-uF-Ppi"/>
                                                 <constraint firstItem="ah3-uw-oRP" firstAttribute="centerY" secondItem="AOi-rV-1jM" secondAttribute="centerY" id="kPu-nw-aFB"/>
@@ -350,7 +352,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupWeightCell" id="mif-Dl-9QB" customClass="PickupWeightTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="291.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="203.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mif-Dl-9QB" id="cLw-Xn-Wr3">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -389,7 +391,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupNotesCell" rowHeight="115" id="brb-WI-4ZM" customClass="PickupNotesTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="335" width="374" height="115"/>
+                                        <rect key="frame" x="20" y="247" width="374" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brb-WI-4ZM" id="RCA-eP-ZSf">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
@@ -418,7 +420,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddPickupCartonCell" rowHeight="93" id="P2T-lN-oQT" customClass="AddPickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="450" width="374" height="93"/>
+                                        <rect key="frame" x="20" y="362" width="374" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P2T-lN-oQT" id="ew9-FO-DZb">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="93"/>
@@ -450,7 +452,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickupCartonCell" rowHeight="57" id="NKh-Hc-9Oc" customClass="PickupCartonTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="543" width="374" height="57"/>
+                                        <rect key="frame" x="20" y="455" width="374" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NKh-Hc-9Oc" id="Wne-ZL-iim">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
@@ -545,7 +547,7 @@
             <objects>
                 <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">

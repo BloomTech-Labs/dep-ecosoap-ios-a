@@ -15,7 +15,8 @@ class PickupsViewController: UIViewController {
     
     // MARK: - Properties
     private var pickups: [Pickup] = []
-    private let controller = BackendController.shared
+    let controller = BackendController.shared
+    let dateFormatter = DateFormatter()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -31,6 +32,12 @@ class PickupsViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    private func setupViews() {
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.calendar = .current
+    }
+    
     private func grabPickups() {
         for pickup in controller.pickups.values {
             pickups.append(pickup)
@@ -61,7 +68,9 @@ extension PickupsViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupCell", for: indexPath) as? PickupTableViewCell else { return UITableViewCell() }
             
             let pickup = pickups[indexPath.row]
+            cell.controller = controller
             cell.pickup = pickup
+            cell.dateFormatter = dateFormatter
             
             return cell
         }

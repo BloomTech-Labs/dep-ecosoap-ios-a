@@ -172,6 +172,8 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             // Add Notes
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupNotesCell", for: indexPath) as? PickupNotesTableViewCell else { return UITableViewCell() }
             
+            cell.delegate = self
+            
             return cell
         } else {
             return UITableViewCell()
