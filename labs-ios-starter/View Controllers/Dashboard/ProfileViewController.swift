@@ -18,8 +18,8 @@ class ProfileViewController: UIViewController {
                                "Company",
                                "Address",]
     private let contactInfoLabels = ["Phone",
-                                     "Skype",
-                                     "Email"]
+                                     "Email",
+                                     "Skype"]
     private let accountInfoImageViews = [UIImage(systemName: "person.fill"),
                                          UIImage(systemName: "briefcase.fill"),
                                          UIImage(systemName: "house.fill")]
@@ -27,11 +27,11 @@ class ProfileViewController: UIViewController {
                                          UIImage(named: "Skype Logo"),
                                          UIImage(systemName: "envelope.fill")]
     private let placeholderData = ["John Doe",
-                                   "Lambda School",
-                                   "3452 Apple Park Way"]
-    private let placeholderData2 = ["345-394-9034",
-                                   "jdoe",
-                                   "example@gmail.com"]
+                                   "Hilton Worldwide Holdings Inc.",
+                                   "250 Forbes Ave"]
+    private let placeholderData2 = ["345-594-9034",
+                                   "example@gmail.com",
+                                    "jdoe"]
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -71,13 +71,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
             cell.iconImageView.image = accountInfoImageViews[indexPath.row]
             cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBBlue)
+            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBGreen)
             cell.descriptionTextField.text = placeholderData[indexPath.row]
         } else {
             cell.titleLabel.text = contactInfoLabels[indexPath.row].uppercased()
             cell.iconImageView.image = contactInfoImageViews[indexPath.row]
             cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBBlue)
+            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBGreen)
             cell.descriptionTextField.text = placeholderData2[indexPath.row]
         }
         

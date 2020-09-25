@@ -105,6 +105,22 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             performSegue(withIdentifier: "ShowStatisticsPushSegue", sender: self)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell {
+                cell.transform = .init(scaleX: 0.80, y: 0.80)
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? DashboardCollectionViewCell{
+                cell.transform = .identity
+            }
+        }
+    }
 }
 
 extension DashboardViewController: DashboardLayoutDelegate {
