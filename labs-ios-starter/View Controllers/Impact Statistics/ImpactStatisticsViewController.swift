@@ -126,7 +126,7 @@ extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
             height = 200
         } else {
             width = (collectionView.bounds.width / 2) - 25
-            height = 150
+            height = 120 
         }
         return CGSize(width: width, height: height)
     }

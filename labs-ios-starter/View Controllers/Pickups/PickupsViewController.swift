@@ -43,6 +43,17 @@ class PickupsViewController: UIViewController {
             pickups.append(pickup)
         }
     }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPickUpDetailsPushSegue" {
+            guard let pickupDetailsVC = segue.destination as? PickupDetailViewController else { return }
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+            pickupDetailsVC.pickup = pickups[selectedIndexPath.row]
+        }
+    }
+    
 }
 
 extension PickupsViewController: UITableViewDelegate, UITableViewDataSource {
