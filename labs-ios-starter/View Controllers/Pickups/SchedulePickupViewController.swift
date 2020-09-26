@@ -15,7 +15,7 @@ class SchedulePickupViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    private var cartons: [Int] = [-1 , -1]
+    private var cartons: [Int] = [-1]
     
     private var soapCartons: [UUID:Int] = [:]
     private var paperCartons: [UUID:Int] = [:]
@@ -24,6 +24,8 @@ class SchedulePickupViewController: UIViewController {
     
     // Pickup Input Properties
     private var notes: String?
+    private var selectedProperty: Property?
+    private var pickupDate: Date?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -42,6 +44,7 @@ class SchedulePickupViewController: UIViewController {
         if segue.identifier == "SelectPropertyModalSegue" {
             guard let selectPropertyVC = segue.destination as? SelectPropertyViewController else { return }
             selectPropertyVC.delegate = self
+            selectPropertyVC.delegateProperty = self
         }
     }
     
@@ -83,7 +86,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 3
+            return 2
         case 1:
             return cartons.count
         case 2:
@@ -98,7 +101,7 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         case 0:
             return "Pickup Details"
         case 1:
-            return "Carton Details"
+            return "Cartons"
         case 2:
             return "Notes"
         default:
@@ -111,53 +114,54 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
             // Select Property
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectPropertyCell", for: indexPath) as? PickupPropertyTableViewCell else { return UITableViewCell() }
             
+            if let selectedProperty = selectedProperty {
+                cell.propertyLabel.text = selectedProperty.name
+                cell.propertyLabel.textColor = .black
+            }
+            
             return cell
         } else if indexPath.section == 0 && indexPath.row == 1 {
             // Select Date
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectDateCell", for: indexPath) as? PickupDateTableViewCell else { return UITableViewCell() }
             
-            return cell
-        } else if indexPath.section == 0 && indexPath.row == 2 {
-            // Select Time
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectTimeCell", for: indexPath) as? PickupTimeTableViewCell else { return UITableViewCell() }
+            cell.delegate = self
             
             return cell
         } else if indexPath.section == 1 && indexPath.row == 0 {
-            // Add Weight
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupWeightCell", for: indexPath) as? PickupWeightTableViewCell else { return UITableViewCell() }
-            
-            return cell
-        } else if indexPath.section == 1 && indexPath.row == 1 {
             // Add Cartons
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddPickupCartonCell", for: indexPath) as? AddPickupCartonTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
             
             return cell
-        } else if indexPath.section == 1 && indexPath.row > 1 {
+        } else if indexPath.section == 1 && indexPath.row > 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupCartonCell", for: indexPath) as? PickupCartonTableViewCell else { return UITableViewCell() }
 
             if cartons[indexPath.row] == 0 {
                 // Soap
-                cell.iconImageView.image = UIImage(named: "soap_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Soap Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Soap"
                 cell.delegate = self
                 cell.cellType = .soap
             } else if cartons[indexPath.row] == 1 {
                 // Linens
-                cell.iconImageView.image = UIImage(named: "paper_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Paper Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Paper"
                 cell.delegate = self
                 cell.cellType = .paper
             } else if cartons[indexPath.row] == 2 {
                 // Paper
-                cell.iconImageView.image = UIImage(named: "linens_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Linens Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Linens"
                 cell.delegate = self
                 cell.cellType = .linens
             } else if cartons[indexPath.row] == 3 {
                 // Bottles
-                cell.iconImageView.image = UIImage(named: "bottles_placeholder")
+                cell.iconImageView.image = UIImage(named: "ESB Bottles Icon")
+                cell.iconImageView.tintColor = UIColor(named: .colorESBGreen)
                 cell.cartonTypeLabel.text = "Bottles"
                 cell.delegate = self
                 cell.cellType = .bottles
@@ -167,6 +171,8 @@ extension SchedulePickupViewController: UITableViewDelegate, UITableViewDataSour
         } else if indexPath.section == 2 {
             // Add Notes
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PickupNotesCell", for: indexPath) as? PickupNotesTableViewCell else { return UITableViewCell() }
+            
+            cell.delegate = self
             
             return cell
         } else {
@@ -185,7 +191,18 @@ extension SchedulePickupViewController: DeselectTableViewCellOnDismissDelegate {
 }
 
 // Custom cell delegate methods
-extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate {
+extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDelegate, UserAddedPercentageDelegate, UserAddedPropertyDelegate, UserAddedDateAndTimeDelegate {
+    func userAddedDateAndTime(date: Date) {
+        pickupDate = date
+    }
+    
+    func userAddedProperty(with property: Property) {
+        self.selectedProperty = property
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
+        self.tableView.endUpdates()
+    }
+    
     // PickupCartonTableViewCell
     func userAddedPercentage(for cellIdentifier: UUID, cellType: CartonTypes, percentage: Int) {
         switch cellType {
@@ -206,12 +223,43 @@ extension SchedulePickupViewController: AddCartonCellDelegate, UserAddedNotesDel
     }
     
     // AddPickupCartonTableViewCell
-    func addCartonCell(for type: Int) {
-        cartons.append(type)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: 2, section: 1)], with: .automatic)
-        tableView.endUpdates()
-        tableView.reloadData()
+    func addCartonCell() {
+        let alert = UIAlertController(title: "Carton Type", message: nil, preferredStyle: .actionSheet)
+        let soapAction = UIAlertAction(title: "Soap", style: .default) { (UIAlertAction) in
+            self.cartons.append(0)
+            self.insertCartonCell()
+        }
+        
+        let paperAction = UIAlertAction(title: "Paper", style: .default) { (UIAlertAction) in
+            self.cartons.append(1)
+            self.insertCartonCell()
+        }
+        
+        let linensAction = UIAlertAction(title: "Linens", style: .default) { (UIAlertAction) in
+            self.cartons.append(2)
+            self.insertCartonCell()
+        }
+        
+        let bottlesAction = UIAlertAction(title: "Bottles", style: .default) { (UIAlertAction) in
+            self.cartons.append(3)
+            self.insertCartonCell()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(soapAction)
+        alert.addAction(paperAction)
+        alert.addAction(linensAction)
+        alert.addAction(bottlesAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func insertCartonCell() {
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath(row: 1, section: 1)], with: .left)
+        self.tableView.endUpdates()
+        self.tableView.reloadData()
     }
 }
-
