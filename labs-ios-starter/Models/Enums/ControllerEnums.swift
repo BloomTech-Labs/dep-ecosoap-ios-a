@@ -30,6 +30,7 @@ enum MutationName: String {
 
 enum QueryName: String {
     case userById
+    case allUsers
     case propertiesByUserId
     case propertyById
     case impactStatsByPropertyId
