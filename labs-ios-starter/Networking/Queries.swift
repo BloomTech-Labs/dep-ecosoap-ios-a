@@ -25,7 +25,8 @@ class Queries: Request {
                                      .pickupsByPropertyId: Queries.pickupsByPropertyId,
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
-                                     .monsterFetch: Queries.monsterFetch]
+                                     .monsterFetch: Queries.monsterFetch,
+                                     .productionReportsByHubId: Queries.productionReportsByHubId]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
                                                                .allUsers: .user,
@@ -36,7 +37,8 @@ class Queries: Request {
                                                                .pickupsByPropertyId: .pickups,
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
-                                                               .monsterFetch: .user]
+                                                               .monsterFetch: .user,
+                                                               .productionReportsByHubId: .properties]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -444,6 +446,27 @@ class Queries: Request {
                 peopleServed
                 womenEmployed
               }
+            }
+          }
+        }
+
+        """
+    }
+
+    // Mark: - Production Report by Hub Id
+
+    private static func productionReportsByHubId(hubID: String) -> String {
+        """
+        query {
+          productionReportsByHubId(input: {hubId: "\(hubID)"}) {
+            productionReports {
+              id
+              date
+              barsProduced
+              soapmakersWorked
+              soapmakerHours
+              soapPhotos
+              media
             }
           }
         }

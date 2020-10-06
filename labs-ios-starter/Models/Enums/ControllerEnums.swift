@@ -18,6 +18,8 @@ enum ResponseModel: String {
     case pickup
     case payment
     case payments
+    case productionReport
+    case productionReports
 }
 
 enum MutationName: String {
@@ -39,4 +41,7 @@ enum QueryName: String {
     case nextPaymentByPropertyId
     case paymentsByPropertyId
     case monsterFetch
+    case productionReportsByHubId
 }
+
+

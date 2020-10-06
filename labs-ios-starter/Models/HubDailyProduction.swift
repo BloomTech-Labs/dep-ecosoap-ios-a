@@ -10,7 +10,7 @@ import Foundation
 
 class HubDailyProduction {
     let id: String
-    let hub: Hub
+    var hub: Hub?
     let date: Date
     let barsProduced: Int
     let soapmakersWorked: Int
@@ -43,8 +43,8 @@ class HubDailyProduction {
         self.soapmakerHours = soapmakerHours
 
         if let hubContainer = dictionary["hub"] as? [String: Any] {
-            self.hub = Hub(dictionary: hubContainer)!
-        }
+            self.hub = Hub(dictionary: hubContainer)
+        } // else statement - NSLOG 
 
         if let properties = dictionary["properties"] as? [[String: Any]] {
             for data in properties {

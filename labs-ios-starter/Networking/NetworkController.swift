@@ -20,6 +20,7 @@ class BackendController {
         case NoDataInResponse
     }
 
+
     private let apiURL: URL = URL(string: "http://35.208.9.187:9194/ios-api-1")!
 
     var loggedInUser: User = User()
@@ -36,6 +37,7 @@ class BackendController {
     var payments: [String: Payment] = [:]
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
+    var productionReports: [String: HubDailyProduction] = [:]
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                         .properties: BackendController.propertiesParser,
@@ -44,7 +46,9 @@ class BackendController {
                                                         .pickups: BackendController.pickupsParser,
                                                         .hub: BackendController.hubParser,
                                                         .payment: BackendController.paymentParser,
-                                                        .payments: BackendController.paymentsParser
+                                                        .payments: BackendController.paymentsParser,
+                                                        .productionReports: BackendController.productionReportsParser,
+                                                        .productionReport: BackendController.productionReportParser(data:)
                                                         ]
 
     private static func propertyParser(data: Any?) throws {
@@ -113,6 +117,29 @@ class BackendController {
             throw Errors.ObjectInitFail
         }
         shared.hubs[hub.id] = hub
+    }
+
+    // Production Reports Parser
+
+    private static func productionReportParser(data: Any?) throws {
+        guard let productionReportContainer = data as? [String: Any] else {
+            throw newError(message: "Couldn't cast data as dictionary for PRODUCTION REPORT initialization.")
+        }
+
+        guard let productionReport = HubDailyProduction(dictionary: productionReportContainer) else {
+            throw Errors.ObjectInitFail
+        }
+        shared.productionReports[productionReport.id] = productionReport
+    }
+
+    private static func productionReportsParser(data: Any?) throws {
+        guard let productionReportsContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for PRODUCTION REPORTS container.")
+        }
+
+        for productionReport in productionReportsContainer {
+            try productionReportParser(data: productionReport)
+        }
     }
 
     private static func paymentParser(data: Any?) throws {
@@ -209,6 +236,22 @@ class BackendController {
 
     func pickupsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .pickupsByPropertyId, id: propertyId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    // Production Report Query
+
+    func productionReportsByHubId(hubId: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .productionReportsByHubId, id: hubId) else {
             completion(Errors.RequestInitFail)
             return
         }
