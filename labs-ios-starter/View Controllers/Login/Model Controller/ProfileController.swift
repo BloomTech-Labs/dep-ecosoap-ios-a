@@ -10,9 +10,11 @@ import UIKit
 import OktaAuth
 
 class ProfileController {
-    
+
+    // MARK: - Singleton
     static let shared = ProfileController()
-    
+
+    // MARK: - Properties
     let oktaAuth = OktaAuth(baseURL: URL(string: "https://auth.lambdalabs.dev/")!,
                             clientID: "0oalwkxvqtKeHBmLI4x6",
                             redirectURI: "labs://scaffolding/implicit/callback")
@@ -32,7 +34,8 @@ class ProfileController {
     @objc private func refreshProfiles() {
         getAllProfiles()
     }
-    
+
+    // MARK: - Get All Profiles
     func getAllProfiles(completion: @escaping () -> Void = {}) {
         
         var oktaCredentials: OktaCredentials
@@ -90,7 +93,8 @@ class ProfileController {
         
         dataTask.resume()
     }
-    
+
+    // MARK: - Get Authenticated User Profile
     func getAuthenticatedUserProfile(completion: @escaping () -> Void = { }) {
         var oktaCredentials: OktaCredentials
         
@@ -120,13 +124,16 @@ class ProfileController {
             }
         }
     }
-    
+
+
+    // MARK: - Check for Existing Authenticated Single User Profile
     func checkForExistingAuthenticatedUserProfile(completion: @escaping (Bool) -> Void) {
         getAuthenticatedUserProfile {
             completion(self.authenticatedUserProfile != nil)
         }
     }
-    
+
+    // MARK: - Get Single User Profile
     func getSingleProfile(_ userID: String, completion: @escaping (Profile?) -> Void) {
         
         var oktaCredentials: OktaCredentials
@@ -185,7 +192,8 @@ class ProfileController {
         
         dataTask.resume()
     }
-    
+
+    // MARK: - Update Authenticated User Profile
     func updateAuthenticatedUserProfile(_ profile: Profile, with name: String, email: String, avatarURL: URL, completion: @escaping (Profile) -> Void) {
         
         var oktaCredentials: OktaCredentials
@@ -255,8 +263,8 @@ class ProfileController {
         dataTask.resume()
     }
     
+    // MARK: - Create User Profile
     // NOTE: This method is unused, but left as an example for creating a profile.
-    
     func createProfile(with email: String, name: String, avatarURL: URL) -> Profile? {
         var oktaCredentials: OktaCredentials
         
@@ -274,9 +282,9 @@ class ProfileController {
         }
         return Profile(id: userID, email: email, name: name, avatarURL: avatarURL)
     }
-    
+
+    // MARK: - Add User Profile
     // NOTE: This method is unused, but left as an example for creating a profile on the scaffolding backend.
-    
     func addProfile(_ profile: Profile, completion: @escaping () -> Void) {
         
         var oktaCredentials: OktaCredentials
@@ -333,7 +341,8 @@ class ProfileController {
         }
         dataTask.resume()
     }
-    
+
+    // MARK: - Get Image
     func image(for url: URL, completion: @escaping (UIImage?) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             
@@ -357,7 +366,8 @@ class ProfileController {
         }
         dataTask.resume()
     }
-    
+
+    // MARK: - Post Authentication Expired Notification
     func postAuthenticationExpiredNotification() {
         NotificationCenter.default.post(name: .oktaAuthenticationExpired, object: nil)
     }

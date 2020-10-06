@@ -47,6 +47,7 @@ class Mutator: Request {
         self.name = name.rawValue
     }
 
+    // MARK: - Schedule Pickup
     private static func schedulePickup(input: Input) -> String? {
         guard let pickup = input as? PickupInput else {
             NSLog("Couldn't cast input to PickupInput. Please make sure your input matches the mutation's required input.")
@@ -80,6 +81,7 @@ class Mutator: Request {
         """
     }
 
+    // MARK: - Cancel Pickup
     private static func cancelPickup(input: Input) -> String? {
         guard let pickup = input as? CancelPickupInput else {
             NSLog("Couldn't cast input to CancelPickupInput. Please make sure your input matches the mutation's required input.")
@@ -113,6 +115,7 @@ class Mutator: Request {
         """
     }
 
+    // MARK: - Create Payment
     private static func createPayment(input: Input) -> String? {
         guard let payment = input as? CreatePaymentInput else {
             NSLog("Couldn't cast input to CreatePaymentInput. Please make sure your input matches the mutation's required input.")
@@ -143,6 +146,33 @@ class Mutator: Request {
         """
     }
 
+    // MARK: - Create User Profile
+    private static func createUserProfile(input: Input) -> String? {
+        guard let user = input as? RegisterInput else {
+            NSLog("Couldn't cast input to RegisterInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+        register(input: {
+        \(user.formatted)
+        }) {
+        email
+        password
+        firstName
+        middleName: String
+        lastName
+        title
+        company
+        phone
+        skype
+        }
+        }
+        }
+        """
+    }
+
+    // MARK: - Update User Profile
     private static func updateUserProfile(input: Input) -> String? {
         guard let user = input as? UpdateUserProfileInput else {
             NSLog("Couldn't cast input to UpdateUserProfileInput. Please make sure your input matches the mutation's required input.")
@@ -186,6 +216,7 @@ class Mutator: Request {
         """
     }
 
+    // MARK: - Update Property
     private static func updateProperty(input: Input) -> String? {
         guard let property = input as? UpdatePropertyInput else {
             NSLog("Couldn't cast input to UpdateUserProfileInput. Please make sure your input matches the mutation's required input.")
