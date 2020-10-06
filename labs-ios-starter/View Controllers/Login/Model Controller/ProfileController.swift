@@ -21,6 +21,8 @@ class ProfileController {
     
     private(set) var authenticatedUserProfile: Profile?
     private(set) var profiles: [Profile] = []
+    private let controller = BackendController.shared
+
     
     private let baseURL = URL(string: "https://labs-api-starter.herokuapp.com/")!
     
@@ -137,6 +139,7 @@ class ProfileController {
     func getSingleProfile(_ userID: String, completion: @escaping (Profile?) -> Void) {
         
         var oktaCredentials: OktaCredentials
+        var fetchedProfile: Profile?
         
         do {
             oktaCredentials = try oktaAuth.credentialsIfAvailable()
@@ -148,49 +151,56 @@ class ProfileController {
             }
             return
         }
-        
-        let requestURL = baseURL
-            .appendingPathComponent("profiles")
-            .appendingPathComponent(userID)
-        var request = URLRequest(url: requestURL)
-        
-        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            var fetchedProfile: Profile?
-            
-            defer {
-                DispatchQueue.main.async {
-                    completion(fetchedProfile)
-                }
-            }
-            
+
+        controller.userById(id: userID) { (error) in
             if let error = error {
-                NSLog("Error getting all profiles: \(error)")
+                print("Error fetching stats \(error)")
             }
-            
-            if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                NSLog("Returned status code is not the expected 200. Instead it is \(response.statusCode)")
-            }
-            
-            guard let data = data else {
-                NSLog("No data returned from getting all profiles")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let profile = try decoder.decode(Profile.self, from: data)
-                fetchedProfile = profile
-            } catch {
-                NSLog("Unable to decode Profile from data: \(error)")
-            }
+//            fetchedProfile = controller.loggedInUser
         }
         
-        dataTask.resume()
+        //        let requestURL = baseURL
+        //            .appendingPathComponent("profiles")
+        //            .appendingPathComponent(userID)
+        //        var request = URLRequest(url: requestURL)
+        //
+        //        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
+        //
+        //        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        //
+        //            var fetchedProfile: Profile?
+        //
+        //            defer {
+        //                DispatchQueue.main.async {
+        //                    completion(fetchedProfile)
+        //                }
+        //            }
+        //
+        //            if let error = error {
+        //                NSLog("Error getting all profiles: \(error)")
+        //            }
+        //
+        //            if let response = response as? HTTPURLResponse,
+        //                response.statusCode != 200 {
+        //                NSLog("Returned status code is not the expected 200. Instead it is \(response.statusCode)")
+        //            }
+        //
+        //            guard let data = data else {
+        //                NSLog("No data returned from getting all profiles")
+        //                return
+        //            }
+        //
+        //            let decoder = JSONDecoder()
+        //
+        //            do {
+        //                let profile = try decoder.decode(Profile.self, from: data)
+        //                fetchedProfile = profile
+        //            } catch {
+        //                NSLog("Unable to decode Profile from data: \(error)")
+        //            }
+        //        }
+        //
+        //        dataTask.resume()
     }
 
     // MARK: - Update Authenticated User Profile
