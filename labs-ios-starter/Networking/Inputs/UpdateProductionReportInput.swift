@@ -33,6 +33,8 @@ class UpdateProductionReportInput: Input {
         if let soapmakerHours = soapmakerHours {
             string += "soapmakerHours: \"\(soapmakerHours)\"\n"
         }
+
+        return string
     }
 
     var formatted: String {

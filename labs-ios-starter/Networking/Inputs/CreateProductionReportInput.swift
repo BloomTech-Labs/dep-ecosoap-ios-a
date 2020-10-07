@@ -29,6 +29,8 @@ class CreateProductionReportInput: Input {
             media: \(media)
 
         """
+
+        return string
     }
 
     init(hubId: String, date: Date, barsProduced: Int, soapmakersWorked: Int, soapmakersHours: Int) {
