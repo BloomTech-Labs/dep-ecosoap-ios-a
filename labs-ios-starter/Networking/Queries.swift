@@ -217,10 +217,7 @@ class Queries: Request {
     }
 
     // MARK: - All Users
-
-    // FIXME: - This function breaks the initializer when property configured to pass NO userID.  Need to determine why.
-    
-    private static func allUsers(userID: String) -> String {
+    private static func allUsers(_ id: String?) -> String {
          return """
         query {
           users {

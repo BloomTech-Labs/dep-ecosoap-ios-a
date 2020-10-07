@@ -199,6 +199,20 @@ class BackendController {
         }
     }
 
+    // MARK: - All Users
+    func allUsers(_ id: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .allUsers, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
     // MARK: - Hub by Property Id
     func hubByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .hubByPropertyId, id: propertyId) else {
