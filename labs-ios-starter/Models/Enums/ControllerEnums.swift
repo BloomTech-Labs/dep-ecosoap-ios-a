@@ -39,6 +39,7 @@ enum QueryName: String {
     case propertiesByUserId
     case propertyById
     case impactStatsByPropertyId
+    case impactStatsByHubId
     case hubByPropertyId
     case pickupsByPropertyId
     case nextPaymentByPropertyId

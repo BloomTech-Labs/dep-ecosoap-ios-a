@@ -326,6 +326,40 @@ class BackendController {
         }
     }
 
+    func impactStatsByHubId(id: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .impactStatsByHubId, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+
+        requestAPI(with: request) { (data, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            guard let hub = self.hubs[id] else {
+                NSLog("This property is not currently stored into memory. Can't store impact stats.")
+                completion(NSError(domain: "Error locating hub.", code: 0, userInfo: nil))
+                return
+            }
+
+            guard let container = data as? [String: Any] else {
+                NSLog("Couldn't unwrap data as dictionary for initializing an ImpactStats object.")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+            
+            guard let stats = ImpactStats(dictionary: container) else {
+                completion(NSError(domain: "Error initializing ImpactStats", code: 0, userInfo: nil))
+                return
+            }
+
+            hub.impact = stats
+            completion(nil)
+        }
+    }
+
     func initialFetch(userId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .monsterFetch, id: userId) else {
             completion(Errors.RequestInitFail)

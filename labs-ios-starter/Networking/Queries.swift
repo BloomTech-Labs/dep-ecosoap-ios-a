@@ -21,6 +21,7 @@ class Queries: Request {
                                      .propertyById: Queries.propertyById,
                                      .propertiesByUserId: Queries.propertiesByUserId,
                                      .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
+                                     .impactStatsByHubId: Queries.impactStatsByHubId,
                                      .hubByPropertyId: Queries.hubByPropertyId,
                                      .pickupsByPropertyId: Queries.pickupsByPropertyId,
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
@@ -409,7 +410,6 @@ class Queries: Request {
     }
 
     // MARK: - Hub by Property Id
-
     private static func hubByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -453,8 +453,7 @@ class Queries: Request {
         """
     }
 
-    // Mark: - Production Report by Hub Id
-
+    // MARK: - Production Report by Hub Id
     private static func productionReportsByHubId(hubID: String) -> String {
         """
         query {
@@ -474,8 +473,28 @@ class Queries: Request {
         """
     }
 
-    // MARK: - Pickups by Property Id
+    // MARK: - Impact Stats by HubId
+    private static func impactStatsByHubId(hubID: String) -> String {
+        """
+        query {
+          impactStatsByHubId(input: {
+            hubId: "\(hubID)" {
+            impactStats {
+              soapRecycled
+              linensRecycled
+              bottlesRecycled
+              paperRecycled
+              peopleServed
+              womenEmployed
+            }
+          }
+        }
 
+        """
+}
+
+
+    // MARK: - Pickups by Property Id
     private static func pickupsByPropertyId(propertyID: String) -> String {
         """
         query {
