@@ -248,6 +248,21 @@ class BackendController {
         }
     }
 
+    func pickupsByHubId(hubID: String, completion: @escaping (Error?) -> Void) {
+           guard let request = Queries(name: .pickupsByHubId, id: hubID) else {
+               completion(Errors.RequestInitFail)
+               return
+           }
+           requestAPI(with: request) { (_, error) in
+               if let error = error {
+                   completion(error)
+                   return
+               }
+               completion(nil)
+           }
+       }
+
+
     // Production Report Query
 
     func productionReportsByHubId(hubId: String, completion: @escaping (Error?) -> Void) {

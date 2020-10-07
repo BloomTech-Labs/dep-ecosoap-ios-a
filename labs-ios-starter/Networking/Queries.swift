@@ -24,6 +24,7 @@ class Queries: Request {
                                      .impactStatsByHubId: Queries.impactStatsByHubId,
                                      .hubByPropertyId: Queries.hubByPropertyId,
                                      .pickupsByPropertyId: Queries.pickupsByPropertyId,
+                                     .pickupsByHubId: Queries.pickupsbyHubId,
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
                                      .monsterFetch: Queries.monsterFetch,
@@ -36,6 +37,7 @@ class Queries: Request {
                                                                .impactStatsByPropertyId: .impactStats,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
+                                                               .pickupsByHubId: .pickups,
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
@@ -517,6 +519,46 @@ class Queries: Request {
                 percentFull
               }
               notes
+            }
+          }
+        }
+
+        """
+    }
+
+    // MARK: - Pickups by Hub Id
+    private static func pickupsbyHubId(hubID: String) -> String {
+        """
+        query {
+          pickupsByHubId(input: {
+            hubId: "\(hubID)"}) {
+            pickups {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+                name
+                shippingAddress {
+                  address1
+                  address2
+                  city
+                  state
+                  postalCode
+                }
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              label
+              driver
+              notes
+
             }
           }
         }
