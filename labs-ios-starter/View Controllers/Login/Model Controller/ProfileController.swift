@@ -19,8 +19,8 @@ class ProfileController {
                             clientID: "0oalwkxvqtKeHBmLI4x6",
                             redirectURI: "labs://scaffolding/implicit/callback")
     
-    private(set) var authenticatedUserProfile: Profile?
-    private(set) var profiles: [Profile] = []
+    private(set) var authenticatedUserProfile: User?
+    private(set) var profiles: [User] = []
     private let controller = BackendController.shared
 
     
@@ -52,48 +52,12 @@ class ProfileController {
             }
             return
         }
-        
-        let requestURL = baseURL.appendingPathComponent("profiles")
-        var request = URLRequest(url: requestURL)
-        
-        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            defer {
-                DispatchQueue.main.async {
-                    completion()
-                }
-            }
-            
+        controller.allUsers("") { (error) in
             if let error = error {
-                NSLog("Error getting all profiles: \(error)")
-            }
-            
-            if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                NSLog("Returned status code is not the expected 200. Instead it is \(response.statusCode)")
-            }
-            
-            guard let data = data else {
-                NSLog("No data returned from getting all profiles")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let profiles = try decoder.decode([Profile].self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.profiles = profiles
-                }
-            } catch {
-                NSLog("Unable to decode [Profile] from data: \(error)")
+                print("Error fetching all users \(error)")
             }
         }
-        
-        dataTask.resume()
+
     }
 
     // MARK: - Get Authenticated User Profile
@@ -136,10 +100,10 @@ class ProfileController {
     }
 
     // MARK: - Get Single User Profile
-    func getSingleProfile(_ userID: String, completion: @escaping (Profile?) -> Void) {
+    func getSingleProfile(_ userID: String, completion: @escaping (User?) -> Void) {
         
         var oktaCredentials: OktaCredentials
-        var fetchedProfile: Profile?
+        var fetchedProfile: User?
         
         do {
             oktaCredentials = try oktaAuth.credentialsIfAvailable()
@@ -155,56 +119,15 @@ class ProfileController {
         controller.userById(id: userID) { (error) in
             if let error = error {
                 print("Error fetching stats \(error)")
+                completion(nil)
             }
-//            fetchedProfile = controller.loggedInUser
+            fetchedProfile = self.controller.loggedInUser
+            completion(fetchedProfile)
         }
-        
-        //        let requestURL = baseURL
-        //            .appendingPathComponent("profiles")
-        //            .appendingPathComponent(userID)
-        //        var request = URLRequest(url: requestURL)
-        //
-        //        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-        //
-        //        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        //
-        //            var fetchedProfile: Profile?
-        //
-        //            defer {
-        //                DispatchQueue.main.async {
-        //                    completion(fetchedProfile)
-        //                }
-        //            }
-        //
-        //            if let error = error {
-        //                NSLog("Error getting all profiles: \(error)")
-        //            }
-        //
-        //            if let response = response as? HTTPURLResponse,
-        //                response.statusCode != 200 {
-        //                NSLog("Returned status code is not the expected 200. Instead it is \(response.statusCode)")
-        //            }
-        //
-        //            guard let data = data else {
-        //                NSLog("No data returned from getting all profiles")
-        //                return
-        //            }
-        //
-        //            let decoder = JSONDecoder()
-        //
-        //            do {
-        //                let profile = try decoder.decode(Profile.self, from: data)
-        //                fetchedProfile = profile
-        //            } catch {
-        //                NSLog("Unable to decode Profile from data: \(error)")
-        //            }
-        //        }
-        //
-        //        dataTask.resume()
     }
 
     // MARK: - Update Authenticated User Profile
-    func updateAuthenticatedUserProfile(_ profile: Profile, with name: String, email: String, avatarURL: URL, completion: @escaping (Profile) -> Void) {
+    func updateAuthenticatedUserProfile(_ profile: UpdateUserProfileInput, with name: String, email: String, completion: @escaping (User?) -> Void) {
         
         var oktaCredentials: OktaCredentials
         
@@ -214,63 +137,18 @@ class ProfileController {
             postAuthenticationExpiredNotification()
             NSLog("Credentials do not exist. Unable to get authenticated user profile from API")
             DispatchQueue.main.async {
-                completion(profile)
+                completion(nil)
             }
             return
         }
-        
-        let requestURL = baseURL
-            .appendingPathComponent("profiles")
-        
-        var request = URLRequest(url: requestURL)
-        request.httpMethod = "PUT"
-        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-        
-        do {
-            request.httpBody = try JSONEncoder().encode(profile)
-        } catch {
-            NSLog("Error encoding profile JSON: \(error)")
-            DispatchQueue.main.async {
-                completion(profile)
-            }
-            return
-        }
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            var profile = profile
-            
-            defer {
-                DispatchQueue.main.async {
-                    completion(profile)
-                }
-            }
-            
+
+        controller.updateUserProfile(input: profile) { (error) in
             if let error = error {
-                NSLog("Error adding profile: \(error)")
-                return
-            }
-            
-            if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                NSLog("Returned status code is not the expected 200. Instead it is \(response.statusCode)")
-                return
-            }
-            
-            guard let data = data else {
-                NSLog("No data returned from updating profile")
-                return
-            }
-            
-            do {
-                profile = try JSONDecoder().decode(ProfileWithMessage.self, from: data).profile
-                self.authenticatedUserProfile = profile
-            } catch {
-                NSLog("Error decoding `ProfileWithMessage`: \(error)")
+                NSLog("There was an error updating the user profile \(error)")
+                completion(nil)
             }
         }
-        
-        dataTask.resume()
+
     }
     
     // MARK: - Create User Profile
@@ -296,7 +174,6 @@ class ProfileController {
     // MARK: - Add User Profile
     // NOTE: This method is unused, but left as an example for creating a profile on the scaffolding backend.
     func addProfile(_ profile: Profile, completion: @escaping () -> Void) {
-        
         var oktaCredentials: OktaCredentials
         
         do {
@@ -311,45 +188,9 @@ class ProfileController {
             }
             return
         }
-        
-        let requestURL = baseURL.appendingPathComponent("profiles")
-        var request = URLRequest(url: requestURL)
-        request.httpMethod = "POST"
-        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-        
-        do {
-            request.httpBody = try JSONEncoder().encode(profile)
-        } catch {
-            NSLog("Error encoding profile: \(profile)")
-            defer {
-                DispatchQueue.main.async {
-                    completion()
-                }
-            }
-            return
-        }
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            defer {
-                DispatchQueue.main.async {
-                    completion()
-                }
-            }
-            
-            if let error = error {
-                NSLog("Error adding profile: \(error)")
-            }
-            
-            if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                NSLog("Returned status code is not the expected 200. Instead it is \(response.statusCode)")
-                return
-            }
-            
-            self.profiles.append(profile)
-        }
-        dataTask.resume()
+
+        // TODO: Need to finish implementation of create user profile (aka register) functionality in Mutator and NetworkingController.
+
     }
 
     // MARK: - Get Image
