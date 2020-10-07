@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Address {
+class Address: Codable {
     var address1, address2, address3, state, postalCode: String?
     var city: String
     var formattedAddress: [String]?
