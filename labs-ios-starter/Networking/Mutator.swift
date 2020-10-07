@@ -47,6 +47,23 @@ class Mutator: Request {
         self.name = name.rawValue
     }
 
+
+
+    // MARK: - Create Production Report
+    private static func createProductionReport(input: Input) -> String? {
+        guard let productionReport = input as? CreateProductionReportInput else {
+            NSLog("Couldn't cast input to CreateProductReportInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+    }
+
+
+    // MARK: - Update Production Report
+
+
+    // MARK: - Delete Production Report
+
+
     // MARK: - Schedule Pickup
     private static func schedulePickup(input: Input) -> String? {
         guard let pickup = input as? PickupInput else {
