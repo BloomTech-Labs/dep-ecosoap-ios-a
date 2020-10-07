@@ -567,7 +567,6 @@ class Queries: Request {
     }
 
     // MARK: - Next Payment by Property Id
-
     private static func nextPaymentByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -595,7 +594,6 @@ class Queries: Request {
     }
 
     // MARK: - Payments by Property Id
-
     private static func paymentsByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -623,7 +621,6 @@ class Queries: Request {
     }
 
     // MARK: - Monster Fetch
-
     private static func monsterFetch(userID: String) -> String {
         return """
         query {

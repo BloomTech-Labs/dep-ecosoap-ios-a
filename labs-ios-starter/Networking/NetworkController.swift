@@ -262,7 +262,6 @@ class BackendController {
            }
        }
 
-
     // Production Report Query
 
     func productionReportsByHubId(hubId: String, completion: @escaping (Error?) -> Void) {
@@ -507,6 +506,23 @@ class BackendController {
             completion(nil)
         }
     }
+
+    func updatePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updatePickup, input: input) else {
+               completion(Errors.RequestInitFail)
+               return
+           }
+           requestAPI(with: request) { (_, error) in
+               if let error = error {
+                   completion(error)
+                   return
+               }
+
+               completion(nil)
+           }
+       }
+
+
 
     func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .cancelPickup, input: input) else {

@@ -17,6 +17,7 @@ class Mutator: Request {
     var name: String
 
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
+                                     .updatePickup: Mutator.updatePickup,
                                      .cancelPickup: Mutator.cancelPickup,
                                      .createProductionReport1: Mutator.createProductionReport,
                                      .updateProductionReport: Mutator.updateProductionReport,
@@ -162,6 +163,51 @@ class Mutator: Request {
           }
         }
         """
+    }
+
+    // MARK: - Update Pickup
+    private static func updatePickup(input: Input) -> String? {
+        guard let pickup = input as? PickupInput else {
+            NSLog("Couldn't cast input to UpdatePickupInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+          updatePickup(input: {
+            pickupId: \(pickup)}) {
+            pickup {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+                name
+                shippingAddress {
+                  address1
+                  address2
+                  city
+                  state
+                  postalCode
+                }
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              label
+              driver
+              notes
+            }
+          }
+        }
+
+
+        """
+
     }
 
     // MARK: - Cancel Pickup
