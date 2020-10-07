@@ -19,6 +19,7 @@ class Mutator: Request {
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
                                      .createProductionReport1: Mutator.createProductionReport,
+                                     .updateProductionReport: Mutator.updateProductionReport,
                                      .createPayment: Mutator.createPayment,
                                      .updateUserProfile: Mutator.updateUserProfile,
                                      .updateProperty: Mutator.updateProperty]
@@ -26,6 +27,7 @@ class Mutator: Request {
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .createPayment: .payment,
+                                                                  .updateProductionReport: .productionReport,
                                                                   .createProductionReport1: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property]
@@ -80,6 +82,31 @@ class Mutator: Request {
 
 
     // MARK: - Update Production Report
+    private static func updateProductionReport(input: Input) -> String? {
+           guard let productionReport = input as? UpdateProductionReportInput else {
+               NSLog("Couldn't cast input to UpdateProductReportInput. Please make sure your input matches the mutation's required input.")
+               return nil
+           }
+
+           return """
+           mutation {
+            updateProductionReport(input: {"\(productionReport.formatted)"}) {
+               productionReport {
+                 id
+                 hub {
+                   id
+                 }
+                 date
+                 barsProduced
+                 soapmakersWorked
+                 soapmakerHours
+                 soapPhotos
+                 media
+               }
+             }
+           }
+           """
+    }
 
 
     // MARK: - Delete Production Report
