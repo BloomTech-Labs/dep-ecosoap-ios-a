@@ -22,7 +22,7 @@ class ProfileDetailViewController: UIViewController {
     @IBOutlet weak var avatarURLTextField: UITextField!
     
     var profileController: ProfileController = ProfileController.shared
-    var profile: Profile?
+    var profile: User?
     var isUsersProfile = true
     
     // MARK: - View Lifecycle
@@ -41,22 +41,22 @@ class ProfileDetailViewController: UIViewController {
         
         guard let profile = profileController.authenticatedUserProfile,
             let name = nameTextField.text,
-            let email = emailTextField.text,
-            let avatarURLString = avatarURLTextField.text,
-            let avatarURL = URL(string: avatarURLString) else {
+            let email = emailTextField.text
+            else {
                 presentSimpleAlert(with: "Some information was missing",
-                                   message: "Please enter all information in, and ensure the avatar URL is in the correct format.",
+                                   message: "Please enter all information in.",
                                    preferredStyle: .alert,
                                    dismissText: "Dismiss")
                 
                 return
         }
+
+        // TODO: Update updateAuthenticatedUserProfile function call
         
-        profileController.updateAuthenticatedUserProfile(profile, with: name, email: email, avatarURL: avatarURL) { [weak self] (updatedProfile) in
-            
-            guard let self = self else { return }
-            self.updateViews(with: updatedProfile)
-        }
+//        profileController.updateAuthenticatedUserProfile(profile, with: name, email: email) { [weak self] (updatedProfile) in
+//            guard let self = self else { return }
+//            self.updateViews(with: updatedProfile)
+//        }
     }
     
     // MARK: - Private Methods
@@ -87,22 +87,11 @@ class ProfileDetailViewController: UIViewController {
         }
     }
     
-    private func updateViews(with profile: Profile) {
+    private func updateViews(with profile: User) {
         guard isViewLoaded else { return }
         
         nameLabel.text = profile.name
         emailLabel.text = profile.email
-        
-        if let avatarImage = profile.avatarImage {
-            avatarImageView.image = avatarImage
-        } else if let avatarURL = profile.avatarURL {
-            profileController.image(for: avatarURL, completion: { [weak self] (avatarImage) in
-                guard let self = self else { return }
-                
-                self.profile?.avatarImage = avatarImage
-                self.avatarImageView.image = avatarImage
-            })
-        }
         
         guard isUsersProfile else { return }
         
@@ -110,6 +99,5 @@ class ProfileDetailViewController: UIViewController {
         
         nameTextField.text = profile.name
         emailTextField.text = profile.email
-        avatarURLTextField.text = profile.avatarURL?.absoluteString
     }
 }
