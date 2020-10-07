@@ -16,6 +16,9 @@ class User: Codable {
     var address: Address?
     var signupTime: Date?
     var propertiesById: [String] = []
+    var name: String {
+        String("\(firstName)+\(lastName)")
+    }
     
     init() {
         self.id = "00uzrwu3qoQExczZF4x6"
