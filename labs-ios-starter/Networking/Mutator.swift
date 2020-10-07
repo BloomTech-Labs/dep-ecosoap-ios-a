@@ -20,6 +20,7 @@ class Mutator: Request {
                                      .cancelPickup: Mutator.cancelPickup,
                                      .createProductionReport1: Mutator.createProductionReport,
                                      .updateProductionReport: Mutator.updateProductionReport,
+                                     .deleteProductionReport: Mutator.deleteProductionReport,
                                      .createPayment: Mutator.createPayment,
                                      .updateUserProfile: Mutator.updateUserProfile,
                                      .updateProperty: Mutator.updateProperty]
@@ -27,8 +28,9 @@ class Mutator: Request {
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .createPayment: .payment,
-                                                                  .updateProductionReport: .productionReport,
                                                                   .createProductionReport1: .productionReport,
+                                                                  .updateProductionReport: .productionReport,
+                                                                  .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property]
 
@@ -110,6 +112,22 @@ class Mutator: Request {
 
 
     // MARK: - Delete Production Report
+    private static func deleteProductionReport(input: Input) -> String? {
+              guard let productionReport = input as? DeleteProductionReportInput else {
+                  NSLog("Couldn't cast input to DeleteProductReportInput. Please make sure your input matches the mutation's required input.")
+                  return nil
+              }
+        return """
+        mutation {
+          deleteProductionReport(
+        input: { id: "\(productionReport.formatted)" }
+          ) {
+            success
+            error
+          }
+        }
+        """
+    }
 
 
     // MARK: - Schedule Pickup
