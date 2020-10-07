@@ -18,6 +18,7 @@ class Mutator: Request {
 
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
+                                     .createProductionReport1: Mutator.createProductionReport,
                                      .createPayment: Mutator.createPayment,
                                      .updateUserProfile: Mutator.updateUserProfile,
                                      .updateProperty: Mutator.updateProperty]
@@ -25,6 +26,7 @@ class Mutator: Request {
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .createPayment: .payment,
+                                                                  .createProductionReport1: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property]
 
@@ -55,6 +57,25 @@ class Mutator: Request {
             NSLog("Couldn't cast input to CreateProductReportInput. Please make sure your input matches the mutation's required input.")
             return nil
         }
+
+        return """
+        mutation {
+        createProductionReport(input: {"\(productionReport.formatted)"}) {
+            productionReport {
+              id
+              hub {
+                id
+              }
+              date
+              barsProduced
+              soapmakersWorked
+              soapmakerHours
+              soapPhotos
+              media
+            }
+          }
+        }
+        """
     }
 
 
@@ -73,7 +94,7 @@ class Mutator: Request {
         return """
         mutation {
           schedulePickup(input:{
-            \(pickup.formatted)
+        \(pickup.formatted)
           }) {
             pickup {
               id
