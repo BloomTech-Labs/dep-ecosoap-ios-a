@@ -38,6 +38,9 @@
 		18C7FA7D252F82A3004520F0 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */; };
 		18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */; };
 		18C7FA7F252F82A3004520F0 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */; };
+		18DE448B252FA63800938162 /* HubAdminNewProductionReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE448A252FA63800938162 /* HubAdminNewProductionReport.storyboard */; };
+		18DE448D252FA73400938162 /* HubAminEditProductionRep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE448C252FA73400938162 /* HubAminEditProductionRep.storyboard */; };
+		18DE448F252FA7E600938162 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE448E252FA7E600938162 /* Settings.storyboard */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -126,6 +129,9 @@
 		18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
 		18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
 		18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
+		18DE448A252FA63800938162 /* HubAdminNewProductionReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminNewProductionReport.storyboard; sourceTree = "<group>"; };
+		18DE448C252FA73400938162 /* HubAminEditProductionRep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAminEditProductionRep.storyboard; sourceTree = "<group>"; };
+		18DE448E252FA7E600938162 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,6 +420,9 @@
 				79517949252B931800513E95 /* HubAdminMain.storyboard */,
 				79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */,
 				79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */,
+				18DE448A252FA63800938162 /* HubAdminNewProductionReport.storyboard */,
+				18DE448C252FA73400938162 /* HubAminEditProductionRep.storyboard */,
+				18DE448E252FA7E600938162 /* Settings.storyboard */,
 			);
 			path = AdminHub;
 			sourceTree = "<group>";
@@ -571,11 +580,14 @@
 			files = (
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */,
+				18DE448D252FA73400938162 /* HubAminEditProductionRep.storyboard in Resources */,
+				18DE448B252FA63800938162 /* HubAdminNewProductionReport.storyboard in Resources */,
 				7951795E252E47C900513E95 /* Dashboard.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */,
 				79517958252E47BC00513E95 /* Payments.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
+				18DE448F252FA7E600938162 /* Settings.storyboard in Resources */,
 				79C0AD10252F830300AE4E1C /* HubAdminOrders.storyboard in Resources */,
 				79517959252E47BC00513E95 /* Statistics.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
