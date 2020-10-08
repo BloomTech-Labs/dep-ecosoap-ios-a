@@ -40,16 +40,16 @@ class BackendController {
     var productionReports: [String: HubDailyProduction] = [:]
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
-                                                        .properties: BackendController.propertiesParser,
-                                                        .user: BackendController.userParser,
-                                                        .pickup:  BackendController.pickupParser,
-                                                        .pickups: BackendController.pickupsParser,
-                                                        .hub: BackendController.hubParser,
-                                                        .payment: BackendController.paymentParser,
-                                                        .payments: BackendController.paymentsParser,
-                                                        .productionReports: BackendController.productionReportsParser,
-                                                        .productionReport: BackendController.productionReportParser(data:)
-                                                        ]
+                                                                .properties: BackendController.propertiesParser,
+                                                                .user: BackendController.userParser,
+                                                                .pickup:  BackendController.pickupParser,
+                                                                .pickups: BackendController.pickupsParser,
+                                                                .hub: BackendController.hubParser,
+                                                                .payment: BackendController.paymentParser,
+                                                                .payments: BackendController.paymentsParser,
+                                                                .productionReports: BackendController.productionReportsParser,
+                                                                .productionReport: BackendController.productionReportParser(data:)
+    ]
     // MARK: - Parsers
     private static func propertyParser(data: Any?) throws {
         guard let propertyContainer = data as? [String: Any] else {
@@ -118,8 +118,6 @@ class BackendController {
         }
         shared.hubs[hub.id] = hub
     }
-
-    // Production Reports Parser
 
     private static func productionReportParser(data: Any?) throws {
         guard let productionReportContainer = data as? [String: Any] else {
@@ -209,7 +207,6 @@ class BackendController {
         }
     }
 
-
     // MARK: - Single User by Id
     func userById(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .userById, id: id) else {
@@ -269,22 +266,22 @@ class BackendController {
         }
     }
 
+    // MARK: - Pickups by Hub Id
     func pickupsByHubId(hubID: String, completion: @escaping (Error?) -> Void) {
-           guard let request = Queries(name: .pickupsByHubId, id: hubID) else {
-               completion(Errors.RequestInitFail)
-               return
-           }
-           requestAPI(with: request) { (_, error) in
-               if let error = error {
-                   completion(error)
-                   return
-               }
-               completion(nil)
-           }
-       }
+        guard let request = Queries(name: .pickupsByHubId, id: hubID) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
 
-    // Production Report Query
-
+    // MARK: - Production Reports by Hub Id
     func productionReportsByHubId(hubId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .productionReportsByHubId, id: hubId) else {
             completion(Errors.RequestInitFail)
@@ -364,6 +361,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Impact Stats by Hub Id
     func impactStatsByHubId(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .impactStatsByHubId, id: id) else {
             completion(Errors.RequestInitFail)
@@ -501,7 +499,7 @@ class BackendController {
 
     // MARK: - Mutations -
 
-    // PRODUCTION REPORT MUTATIONS 
+    // MARK: - Create Production Report
     func createProductionReport(input: CreateProductionReportInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .createProductionReport1, input: input) else {
             completion(Errors.RequestInitFail)
@@ -534,19 +532,18 @@ class BackendController {
 
     func updatePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .updatePickup, input: input) else {
-               completion(Errors.RequestInitFail)
-               return
-           }
-           requestAPI(with: request) { (_, error) in
-               if let error = error {
-                   completion(error)
-                   return
-               }
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
 
-               completion(nil)
-           }
-       }
-
+            completion(nil)
+        }
+    }
 
     // MARK: - Cancel Pickup
     func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {

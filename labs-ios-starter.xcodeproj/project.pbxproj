@@ -40,6 +40,9 @@
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
 		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
 		18B14BCE252BBEFD0082D93F /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B14BCD252BBEFD0082D93F /* RegisterInput.swift */; };
+		18C7FA7D252F82A3004520F0 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */; };
+		18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */; };
+		18C7FA7F252F82A3004520F0 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */; };
 		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
@@ -122,6 +125,9 @@
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
 		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
 		18B14BCD252BBEFD0082D93F /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
+		18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
+		18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
+		18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -398,6 +404,9 @@
 		9C364A8F24F60E4F00FF204D /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
+				18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */,
+				18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */,
+				18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */,
 				9C364A9B24F6393D00FF204D /* Input.swift */,
 				9C364A9924F6310E00FF204D /* Request.swift */,
 				9C9ACA7324F751DD002D47B5 /* Attributes */,
@@ -620,6 +629,7 @@
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
+				18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
@@ -629,7 +639,9 @@
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
+				18C7FA7D252F82A3004520F0 /* CreateProductionReportInput.swift in Sources */,
 				9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */,
+				18C7FA7F252F82A3004520F0 /* DeleteProductionReportInput.swift in Sources */,
 				9C9ACA7024F7296B002D47B5 /* AddressInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
