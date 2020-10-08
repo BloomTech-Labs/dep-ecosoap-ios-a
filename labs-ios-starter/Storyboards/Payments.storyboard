@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5iz-8Q-Wka">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5iz-8Q-Wka">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZF-b3-62l">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZF-b3-62l">
                                 <rect key="frame" x="20" y="747" width="374" height="50"/>
                                 <color key="backgroundColor" name="ESB Green"/>
                                 <constraints>
@@ -28,7 +26,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spV-ba-lif">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spV-ba-lif">
                                 <rect key="frame" x="20" y="709" width="374" height="30"/>
                                 <state key="normal" title="Select Payment Method"/>
                             </button>
@@ -129,7 +127,7 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQX-lM-4wF">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQX-lM-4wF">
                                                         <rect key="frame" x="184" y="0.0" width="150" height="30"/>
                                                         <color key="backgroundColor" name="ESB Blue"/>
                                                         <constraints>
@@ -147,7 +145,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="2L6-wP-L6I" firstAttribute="leading" secondItem="Q3R-hl-Vjb" secondAttribute="leading" constant="20" id="6jc-IO-1iR"/>
                                     <constraint firstAttribute="trailing" secondItem="2L6-wP-L6I" secondAttribute="trailing" constant="20" id="ORd-BZ-5wg"/>
@@ -156,7 +154,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Lpr-GX-kMZ"/>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="Lpr-GX-kMZ" firstAttribute="bottom" secondItem="1ZF-b3-62l" secondAttribute="bottom" constant="16" id="EIx-PG-9qf"/>
@@ -169,6 +166,7 @@
                             <constraint firstItem="1ZF-b3-62l" firstAttribute="leading" secondItem="Lpr-GX-kMZ" secondAttribute="leading" constant="20" id="rBh-Sh-Zcg"/>
                             <constraint firstItem="spV-ba-lif" firstAttribute="leading" secondItem="Lpr-GX-kMZ" secondAttribute="leading" constant="20" id="xht-sd-Opn"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lpr-GX-kMZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Payments" id="v4k-5O-1J5">
                         <barButtonItem key="rightBarButtonItem" title="History" id="v9Q-F4-aLD"/>
@@ -193,7 +191,7 @@
             <objects>
                 <viewController id="LTH-G9-dEH" customClass="PaymentInvoiceViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AWA-TP-9yX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZq-kn-Qgw">
@@ -209,13 +207,13 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="EWc-nf-hzg"/>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="aZq-kn-Qgw" firstAttribute="leading" secondItem="EWc-nf-hzg" secondAttribute="leading" id="NVM-Jb-Kha"/>
                             <constraint firstItem="aZq-kn-Qgw" firstAttribute="top" secondItem="EWc-nf-hzg" secondAttribute="top" id="inQ-Jy-pQW"/>
                             <constraint firstItem="aZq-kn-Qgw" firstAttribute="trailing" secondItem="EWc-nf-hzg" secondAttribute="trailing" id="oNk-Xf-cMw"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="EWc-nf-hzg"/>
                     </view>
                     <connections>
                         <outlet property="navBar" destination="aZq-kn-Qgw" id="s5M-Zv-IcK"/>
@@ -250,7 +248,7 @@
     </scenes>
     <color key="tintColor" name="ESB Green"/>
     <resources>
-        <image name="creditcard.fill" catalog="system" width="128" height="88"/>
+        <image name="creditcard.fill" catalog="system" width="128" height="91"/>
         <namedColor name="ESB Black">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -266,8 +264,5 @@
         <namedColor name="ESB System Background">
             <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
