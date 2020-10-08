@@ -17,7 +17,11 @@ class Mutator: Request {
     var name: String
 
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
+                                     .updatePickup: Mutator.updatePickup,
                                      .cancelPickup: Mutator.cancelPickup,
+                                     .createProductionReport1: Mutator.createProductionReport,
+                                     .updateProductionReport: Mutator.updateProductionReport,
+                                     .deleteProductionReport: Mutator.deleteProductionReport,
                                      .createPayment: Mutator.createPayment,
                                      .updateUserProfile: Mutator.updateUserProfile,
                                      .updateProperty: Mutator.updateProperty]
@@ -25,6 +29,9 @@ class Mutator: Request {
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .createPayment: .payment,
+                                                                  .createProductionReport1: .productionReport,
+                                                                  .updateProductionReport: .productionReport,
+                                                                  .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property]
 
@@ -47,6 +54,83 @@ class Mutator: Request {
         self.name = name.rawValue
     }
 
+
+
+    // MARK: - Create Production Report
+    private static func createProductionReport(input: Input) -> String? {
+        guard let productionReport = input as? CreateProductionReportInput else {
+            NSLog("Couldn't cast input to CreateProductReportInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+
+        return """
+        mutation {
+        createProductionReport(input: {"\(productionReport.formatted)"}) {
+            productionReport {
+              id
+              hub {
+                id
+              }
+              date
+              barsProduced
+              soapmakersWorked
+              soapmakerHours
+              soapPhotos
+              media
+            }
+          }
+        }
+        """
+    }
+
+
+    // MARK: - Update Production Report
+    private static func updateProductionReport(input: Input) -> String? {
+           guard let productionReport = input as? UpdateProductionReportInput else {
+               NSLog("Couldn't cast input to UpdateProductReportInput. Please make sure your input matches the mutation's required input.")
+               return nil
+           }
+
+           return """
+           mutation {
+            updateProductionReport(input: {"\(productionReport.formatted)"}) {
+               productionReport {
+                 id
+                 hub {
+                   id
+                 }
+                 date
+                 barsProduced
+                 soapmakersWorked
+                 soapmakerHours
+                 soapPhotos
+                 media
+               }
+             }
+           }
+           """
+    }
+
+
+    // MARK: - Delete Production Report
+    private static func deleteProductionReport(input: Input) -> String? {
+              guard let productionReport = input as? DeleteProductionReportInput else {
+                  NSLog("Couldn't cast input to DeleteProductReportInput. Please make sure your input matches the mutation's required input.")
+                  return nil
+              }
+        return """
+        mutation {
+          deleteProductionReport(
+        input: { id: "\(productionReport.formatted)" }
+          ) {
+            success
+            error
+          }
+        }
+        """
+    }
+
+
     // MARK: - Schedule Pickup
     private static func schedulePickup(input: Input) -> String? {
         guard let pickup = input as? PickupInput else {
@@ -56,7 +140,7 @@ class Mutator: Request {
         return """
         mutation {
           schedulePickup(input:{
-            \(pickup.formatted)
+        \(pickup.formatted)
           }) {
             pickup {
               id
@@ -79,6 +163,51 @@ class Mutator: Request {
           }
         }
         """
+    }
+
+    // MARK: - Update Pickup
+    private static func updatePickup(input: Input) -> String? {
+        guard let pickup = input as? PickupInput else {
+            NSLog("Couldn't cast input to UpdatePickupInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+          updatePickup(input: {
+            pickupId: \(pickup)}) {
+            pickup {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+                name
+                shippingAddress {
+                  address1
+                  address2
+                  city
+                  state
+                  postalCode
+                }
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              label
+              driver
+              notes
+            }
+          }
+        }
+
+
+        """
+
     }
 
     // MARK: - Cancel Pickup

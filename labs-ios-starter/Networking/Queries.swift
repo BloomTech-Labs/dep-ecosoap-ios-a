@@ -21,11 +21,14 @@ class Queries: Request {
                                      .propertyById: Queries.propertyById,
                                      .propertiesByUserId: Queries.propertiesByUserId,
                                      .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
+                                     .impactStatsByHubId: Queries.impactStatsByHubId,
                                      .hubByPropertyId: Queries.hubByPropertyId,
                                      .pickupsByPropertyId: Queries.pickupsByPropertyId,
+                                     .pickupsByHubId: Queries.pickupsbyHubId,
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
-                                     .monsterFetch: Queries.monsterFetch]
+                                     .monsterFetch: Queries.monsterFetch,
+                                     .productionReportsByHubId: Queries.productionReportsByHubId]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
                                                                .allUsers: .user,
@@ -34,9 +37,11 @@ class Queries: Request {
                                                                .impactStatsByPropertyId: .impactStats,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
+                                                               .pickupsByHubId: .pickups,
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
-                                                               .monsterFetch: .user]
+                                                               .monsterFetch: .user,
+                                                               .productionReportsByHubId: .properties]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -404,7 +409,6 @@ class Queries: Request {
     }
 
     // MARK: - Hub by Property Id
-
     private static func hubByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -448,8 +452,48 @@ class Queries: Request {
         """
     }
 
-    // MARK: - Pickups by Property Id
+    // MARK: - Production Report by Hub Id
+    private static func productionReportsByHubId(hubID: String) -> String {
+        """
+        query {
+          productionReportsByHubId(input: {hubId: "\(hubID)"}) {
+            productionReports {
+              id
+              date
+              barsProduced
+              soapmakersWorked
+              soapmakerHours
+              soapPhotos
+              media
+            }
+          }
+        }
 
+        """
+    }
+
+    // MARK: - Impact Stats by HubId
+    private static func impactStatsByHubId(hubID: String) -> String {
+        """
+        query {
+          impactStatsByHubId(input: {
+            hubId: "\(hubID)" {
+            impactStats {
+              soapRecycled
+              linensRecycled
+              bottlesRecycled
+              paperRecycled
+              peopleServed
+              womenEmployed
+            }
+          }
+        }
+
+        """
+}
+
+
+    // MARK: - Pickups by Property Id
     private static func pickupsByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -479,8 +523,47 @@ class Queries: Request {
         """
     }
 
-    // MARK: - Next Payment by Property Id
+    // MARK: - Pickups by Hub Id
+    private static func pickupsbyHubId(hubID: String) -> String {
+        """
+        query {
+          pickupsByHubId(input: {
+            hubId: "\(hubID)"}) {
+            pickups {
+              id
+              confirmationCode
+              collectionType
+              status
+              readyDate
+              pickupDate
+              property {
+                id
+                name
+                shippingAddress {
+                  address1
+                  address2
+                  city
+                  state
+                  postalCode
+                }
+              }
+              cartons {
+                id
+                product
+                percentFull
+              }
+              label
+              driver
+              notes
 
+            }
+          }
+        }
+
+        """
+    }
+
+    // MARK: - Next Payment by Property Id
     private static func nextPaymentByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -508,7 +591,6 @@ class Queries: Request {
     }
 
     // MARK: - Payments by Property Id
-
     private static func paymentsByPropertyId(propertyID: String) -> String {
         """
         query {
@@ -536,7 +618,6 @@ class Queries: Request {
     }
 
     // MARK: - Monster Fetch
-
     private static func monsterFetch(userID: String) -> String {
         return """
         query {
