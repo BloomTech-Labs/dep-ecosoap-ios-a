@@ -209,6 +209,7 @@ class Queries: Request {
         company
         email
         password
+        role
         phone
         skype
         signupTime
