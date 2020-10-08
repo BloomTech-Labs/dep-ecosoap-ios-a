@@ -250,6 +250,7 @@
 		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7960E2DF252FAB2D00A06582 /* AdminHub */,
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
@@ -276,6 +277,7 @@
 		13A4A7E324E20353005326F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7960E2E0252FAB3D00A06582 /* AdminHub */,
 				13A4A7E424E2035F005326F9 /* Dashboard */,
 				13FD2A9A24E457A5006D6B43 /* Pickups */,
 				13DC372724E63C0E00AE20B3 /* Impact Statistics */,
@@ -423,6 +425,20 @@
 				18DE448A252FA63800938162 /* HubAdminNewProductionReport.storyboard */,
 				18DE448C252FA73400938162 /* HubAminEditProductionRep.storyboard */,
 				18DE448E252FA7E600938162 /* Settings.storyboard */,
+			);
+			path = AdminHub;
+			sourceTree = "<group>";
+		};
+		7960E2DF252FAB2D00A06582 /* AdminHub */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AdminHub;
+			sourceTree = "<group>";
+		};
+		7960E2E0252FAB3D00A06582 /* AdminHub */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = AdminHub;
 			sourceTree = "<group>";
