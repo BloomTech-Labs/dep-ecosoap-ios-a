@@ -55,6 +55,7 @@
 		7951795A252E47BC00513E95 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517956252E47BB00513E95 /* Onboarding.storyboard */; };
 		7951795B252E47BC00513E95 /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517957252E47BC00513E95 /* Pickups.storyboard */; };
 		7951795E252E47C900513E95 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7951795D252E47C900513E95 /* Dashboard.storyboard */; };
+		79C0AD10252F830300AE4E1C /* HubAdminOrders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */; };
 		79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
@@ -140,6 +141,7 @@
 		79517956252E47BB00513E95 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Onboarding.storyboard; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Onboarding.storyboard"; sourceTree = "<group>"; };
 		79517957252E47BC00513E95 /* Pickups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Pickups.storyboard; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Pickups.storyboard"; sourceTree = "<group>"; };
 		7951795D252E47C900513E95 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Dashboard.storyboard; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Dashboard.storyboard"; sourceTree = "<group>"; };
+		79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminOrders.storyboard; sourceTree = "<group>"; };
 		79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminPickup.storyboard; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			children = (
 				79517949252B931800513E95 /* HubAdminMain.storyboard */,
 				79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */,
+				79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */,
 			);
 			path = AdminHub;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */,
 				79517958252E47BC00513E95 /* Payments.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
+				79C0AD10252F830300AE4E1C /* HubAdminOrders.storyboard in Resources */,
 				79517959252E47BC00513E95 /* Statistics.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 				7951795A252E47BC00513E95 /* Onboarding.storyboard in Resources */,

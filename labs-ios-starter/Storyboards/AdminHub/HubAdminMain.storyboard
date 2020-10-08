@@ -24,11 +24,22 @@
                     <connections>
                         <segue destination="lzf-3d-1c2" kind="relationship" relationship="viewControllers" id="Vtb-0S-6Cb"/>
                         <segue destination="Ezf-Gr-2zF" kind="relationship" relationship="viewControllers" id="PoY-cu-cTJ"/>
+                        <segue destination="6vV-14-DP8" kind="relationship" relationship="viewControllers" id="If3-Lu-KTd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnK-Pf-GLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1120" y="-1154"/>
+        </scene>
+        <!--HubAdminOrders-->
+        <scene sceneID="36D-PO-GZO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HubAdminOrders" id="6vV-14-DP8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="KhG-hn-YTH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JbA-nh-fbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1492" y="-700"/>
         </scene>
         <!--HubAdminPickup-->
         <scene sceneID="r5a-5n-Vqh">
