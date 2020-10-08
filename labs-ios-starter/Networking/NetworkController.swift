@@ -20,7 +20,8 @@ class BackendController {
         case NoDataInResponse
     }
 
-    private let apiURL: URL = URL(string: "http://35.208.9.187:9096/ios-api-3")!
+    // MARK: - Properties
+    private let apiURL: URL = URL(string: "http://35.208.9.187:9194/ios-api-1")!
 
     var loggedInUser: User = User()
 
@@ -36,17 +37,20 @@ class BackendController {
     var payments: [String: Payment] = [:]
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
+    var productionReports: [String: HubDailyProduction] = [:]
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
-                                                        .properties: BackendController.propertiesParser,
-                                                        .user: BackendController.userParser,
-                                                        .pickup:  BackendController.pickupParser,
-                                                        .pickups: BackendController.pickupsParser,
-                                                        .hub: BackendController.hubParser,
-                                                        .payment: BackendController.paymentParser,
-                                                        .payments: BackendController.paymentsParser
-                                                        ]
-
+                                                                .properties: BackendController.propertiesParser,
+                                                                .user: BackendController.userParser,
+                                                                .pickup:  BackendController.pickupParser,
+                                                                .pickups: BackendController.pickupsParser,
+                                                                .hub: BackendController.hubParser,
+                                                                .payment: BackendController.paymentParser,
+                                                                .payments: BackendController.paymentsParser,
+                                                                .productionReports: BackendController.productionReportsParser,
+                                                                .productionReport: BackendController.productionReportParser(data:)
+    ]
+    // MARK: - Parsers
     private static func propertyParser(data: Any?) throws {
         guard let propertyContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as PROPERTY dictionary for initialization")
@@ -115,6 +119,27 @@ class BackendController {
         shared.hubs[hub.id] = hub
     }
 
+    private static func productionReportParser(data: Any?) throws {
+        guard let productionReportContainer = data as? [String: Any] else {
+            throw newError(message: "Couldn't cast data as dictionary for PRODUCTION REPORT initialization.")
+        }
+
+        guard let productionReport = HubDailyProduction(dictionary: productionReportContainer) else {
+            throw Errors.ObjectInitFail
+        }
+        shared.productionReports[productionReport.id] = productionReport
+    }
+
+    private static func productionReportsParser(data: Any?) throws {
+        guard let productionReportsContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for PRODUCTION REPORTS container.")
+        }
+
+        for productionReport in productionReportsContainer {
+            try productionReportParser(data: productionReport)
+        }
+    }
+
     private static func paymentParser(data: Any?) throws {
         guard let paymentContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as dictionary for PAYMENT initialization.")
@@ -149,8 +174,10 @@ class BackendController {
 
     }
 
-    // MARK: - Queries
+    // MARK: - Queries -
 
+
+    // MARK: - Properties by User Id
     func propertiesByUserId(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .propertiesByUserId, id: id) else {
             completion(Errors.RequestInitFail)
@@ -165,6 +192,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Properties by Property Id
     func propertyById(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .propertyById, id: id) else {
             completion(Errors.RequestInitFail)
@@ -179,6 +207,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Single User by Id
     func userById(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .userById, id: id) else {
             completion(Errors.RequestInitFail)
@@ -193,6 +222,21 @@ class BackendController {
         }
     }
 
+    // MARK: - All Users
+    func allUsers(_ id: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .allUsers, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    // MARK: - Hub by Property Id
     func hubByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .hubByPropertyId, id: propertyId) else {
             completion(Errors.RequestInitFail)
@@ -207,6 +251,7 @@ class BackendController {
         }
     }
 
+    // MARK: Pickups by Property Id
     func pickupsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .pickupsByPropertyId, id: propertyId) else {
             completion(Errors.RequestInitFail)
@@ -221,6 +266,37 @@ class BackendController {
         }
     }
 
+    // MARK: - Pickups by Hub Id
+    func pickupsByHubId(hubID: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .pickupsByHubId, id: hubID) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    // MARK: - Production Reports by Hub Id
+    func productionReportsByHubId(hubId: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .productionReportsByHubId, id: hubId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    // MARK: - Next Payment by Property Id
     func nextPaymentByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .nextPaymentByPropertyId, id: propertyId) else {
             completion(Errors.RequestInitFail)
@@ -235,6 +311,7 @@ class BackendController {
         }
     }
 
+    // MARK: Payments by Property Id
     func paymentsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .paymentsByPropertyId, id: propertyId) else {
             completion(Errors.RequestInitFail)
@@ -249,6 +326,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Impact Stats by Property Id
     func impactStatsByPropertyId(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .impactStatsByPropertyId, id: id) else {
             completion(Errors.RequestInitFail)
@@ -283,6 +361,42 @@ class BackendController {
         }
     }
 
+    // MARK: - Impact Stats by Hub Id
+    func impactStatsByHubId(id: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .impactStatsByHubId, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+
+        requestAPI(with: request) { (data, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            guard let hub = self.hubs[id] else {
+                NSLog("This property is not currently stored into memory. Can't store impact stats.")
+                completion(NSError(domain: "Error locating hub.", code: 0, userInfo: nil))
+                return
+            }
+
+            guard let container = data as? [String: Any] else {
+                NSLog("Couldn't unwrap data as dictionary for initializing an ImpactStats object.")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+            
+            guard let stats = ImpactStats(dictionary: container) else {
+                completion(NSError(domain: "Error initializing ImpactStats", code: 0, userInfo: nil))
+                return
+            }
+
+            hub.impact = stats
+            completion(nil)
+        }
+    }
+
+    // MARK: - Initial Fetch
     func initialFetch(userId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .monsterFetch, id: userId) else {
             completion(Errors.RequestInitFail)
@@ -383,8 +497,24 @@ class BackendController {
         }
     }
 
-    // MARK: Mutations
+    // MARK: - Mutations -
 
+    // MARK: - Create Production Report
+    func createProductionReport(input: CreateProductionReportInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .createProductionReport1, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+
+    // MARK: - Schedule Pickup
     func schedulePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .schedulePickup, input: input) else {
             completion(Errors.RequestInitFail)
@@ -400,6 +530,22 @@ class BackendController {
         }
     }
 
+    func updatePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updatePickup, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
+        }
+    }
+
+    // MARK: - Cancel Pickup
     func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .cancelPickup, input: input) else {
             completion(Errors.RequestInitFail)
@@ -415,6 +561,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Create Payment
     func createPayment(input: CreatePaymentInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .createPayment, input: input) else {
             completion(Errors.RequestInitFail)
@@ -430,6 +577,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Update User Profile
     func updateUserProfile(input: UpdateUserProfileInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .updateUserProfile, input: input) else {
             completion(Errors.RequestInitFail)
@@ -445,6 +593,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Update Property
     func updateProperty(input: UpdatePropertyInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .updateProperty, input: input) else {
             completion(Errors.RequestInitFail)
@@ -460,6 +609,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Request API -
     private func requestAPI(with request: Request, completion: @escaping (Any?, Error?) -> Void) {
         var urlRequest = URLRequest(url: apiURL)
         urlRequest.httpMethod = "POST"
