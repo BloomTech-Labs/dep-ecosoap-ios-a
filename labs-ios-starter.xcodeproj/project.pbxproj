@@ -34,6 +34,7 @@
 		13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */; };
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
 		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
+		18689BC7252FBEEE00D1A32A /* HubSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */; };
 		18B14BCE252BBEFD0082D93F /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B14BCD252BBEFD0082D93F /* RegisterInput.swift */; };
 		18C7FA7D252F82A3004520F0 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */; };
 		18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */; };
@@ -62,7 +63,6 @@
 		7951795A252E47BC00513E95 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517956252E47BB00513E95 /* Onboarding.storyboard */; };
 		7951795B252E47BC00513E95 /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517957252E47BC00513E95 /* Pickups.storyboard */; };
 		7951795E252E47C900513E95 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7951795D252E47C900513E95 /* Dashboard.storyboard */; };
-		79C0AD10252F830300AE4E1C /* HubAdminOrders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */; };
 		79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
@@ -125,6 +125,7 @@
 		13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPickupCartonTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
 		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
+		18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HubSettingsViewController.swift; path = "labs-ios-starter/View Controllers/HubSettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		18B14BCD252BBEFD0082D93F /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
 		18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
 		18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		79517956252E47BB00513E95 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		79517957252E47BC00513E95 /* Pickups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
 		7951795D252E47C900513E95 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
-		79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminOrders.storyboard; sourceTree = "<group>"; };
 		79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminPickup.storyboard; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -250,6 +250,7 @@
 		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */,
 				7960E2DF252FAB2D00A06582 /* AdminHub */,
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
@@ -421,7 +422,6 @@
 			children = (
 				79517949252B931800513E95 /* HubAdminMain.storyboard */,
 				79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */,
-				79C0AD0F252F830300AE4E1C /* HubAdminOrders.storyboard */,
 				18DE448A252FA63800938162 /* HubAdminNewProductionReport.storyboard */,
 				18DE448C252FA73400938162 /* HubAminEditProductionRep.storyboard */,
 				18DE448E252FA7E600938162 /* Settings.storyboard */,
@@ -604,7 +604,6 @@
 				79517958252E47BC00513E95 /* Payments.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				18DE448F252FA7E600938162 /* Settings.storyboard in Resources */,
-				79C0AD10252F830300AE4E1C /* HubAdminOrders.storyboard in Resources */,
 				79517959252E47BC00513E95 /* Statistics.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 				7951795A252E47BC00513E95 /* Onboarding.storyboard in Resources */,
@@ -640,6 +639,7 @@
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
+				18689BC7252FBEEE00D1A32A /* HubSettingsViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
