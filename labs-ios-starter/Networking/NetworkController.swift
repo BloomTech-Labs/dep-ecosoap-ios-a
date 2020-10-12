@@ -29,7 +29,7 @@ class BackendController {
 
     private init() {
     }
-
+    
     var users: [String: User] = [:]
     var properties: [String: Property] = [:]
     var pickups: [String: Pickup] = [:]
@@ -42,6 +42,7 @@ class BackendController {
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                                 .properties: BackendController.propertiesParser,
                                                                 .user: BackendController.userParser,
+                                                                .users: BackendController.usersParser,
                                                                 .pickup:  BackendController.pickupParser,
                                                                 .pickups: BackendController.pickupsParser,
                                                                 .hub: BackendController.hubParser,
@@ -81,6 +82,16 @@ class BackendController {
             throw Errors.ObjectInitFail
         }
         shared.users[user.id] = user
+    }
+
+    private static func usersParser(data: Any?) throws {
+        guard let usersContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for USERS initialization")
+        }
+
+        for user in usersContainer {
+            try userParser(data: user)
+        }
     }
 
     private static func pickupParser(data: Any?) throws {
@@ -233,6 +244,8 @@ class BackendController {
                 completion(error)
                 return
             }
+
+
             completion(nil)
         }
     }
@@ -650,9 +663,18 @@ class BackendController {
                     completion(queryContainer[payloadString], nil)
                     return
                 } else {
-                    queryContainer = dataContainer[request.name] as? [String: Any]
-                }
+                    if request.name == "users" {
+                        guard let usersQueryContainer = dataContainer["users"] as? [[String: Any]] else {
+                            completion(nil, NSError(domain: "Query container is nil.", code: 0, userInfo: nil))
+                            return
+                        }
+                        queryContainer = [payloadString: usersQueryContainer]
 
+                        completion(usersQueryContainer, nil)
+                    } else {
+                        queryContainer = dataContainer[request.name] as? [String: Any]
+                    }
+                }
 
                 guard let parser = self.parsers[request.payload] else {
                     print("The payload \(payloadString) doesn't possess a parser.")

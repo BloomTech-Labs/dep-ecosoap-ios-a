@@ -10,6 +10,7 @@ import Foundation
 
 enum ResponseModel: String {
     case user
+    case users
     case property
     case properties
     case impactStats
@@ -36,7 +37,7 @@ enum MutationName: String {
 
 enum QueryName: String {
     case userById
-    case allUsers
+    case allUsers = "users"
     case propertiesByUserId
     case propertyById
     case impactStatsByPropertyId
