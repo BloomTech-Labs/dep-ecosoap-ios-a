@@ -95,6 +95,9 @@
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
 		9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63C024EF5E7800A2C446 /* Payment.swift */; };
 		FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */; };
+		FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E42535135300D5C794 /* HubAdminViewController.swift */; };
+		FE6317E82535135600D5C794 /* HubAdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */; };
+		FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317EA2535135900D5C794 /* HubAdminCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +191,9 @@
 		9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalityContract.swift; sourceTree = "<group>"; };
 		9CEA63C024EF5E7800A2C446 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDailyProduction.swift; sourceTree = "<group>"; };
+		FE6317E42535135300D5C794 /* HubAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminViewController.swift; sourceTree = "<group>"; };
+		FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminMainTableViewCell.swift; sourceTree = "<group>"; };
+		FE6317EA2535135900D5C794 /* HubAdminCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +445,9 @@
 		7960E2E0252FAB3D00A06582 /* AdminHub */ = {
 			isa = PBXGroup;
 			children = (
+				FE6317EA2535135900D5C794 /* HubAdminCollectionViewCell.swift */,
+				FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */,
+				FE6317E42535135300D5C794 /* HubAdminViewController.swift */,
 			);
 			path = AdminHub;
 			sourceTree = "<group>";
@@ -620,6 +629,7 @@
 			files = (
 				9C9ACA7E24F779D2002D47B5 /* String.swift in Sources */,
 				13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */,
+				FE6317E82535135600D5C794 /* HubAdminMainTableViewCell.swift in Sources */,
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
 				13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
@@ -645,6 +655,7 @@
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
+				FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */,
 				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
@@ -679,6 +690,7 @@
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
 				18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
+				FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
