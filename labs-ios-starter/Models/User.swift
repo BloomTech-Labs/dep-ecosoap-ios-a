@@ -17,7 +17,7 @@ class User: Codable {
     var signupTime: Date?
     var propertiesById: [String] = []
     var name: String {
-        String("\(firstName)+\(lastName)")
+        String("\(firstName) \(lastName)")
     }
     
     init() {

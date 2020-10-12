@@ -40,11 +40,11 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        nameTexfField.text = name
-        companyTextField.text = controller.loggedInUser.company
-        addressTextField.text = address
-        phoneTextField.text = controller.loggedInUser.phone
-        emailTextField.text = controller.loggedInUser.email
+        nameTexfField.text = authUser?.name
+        companyTextField.text = authUser?.company
+        addressTextField.text = authUser?.address?.city
+        phoneTextField.text = authUser?.phone
+        emailTextField.text = authUser?.email
 
         self.nameTexfField.isEnabled = false
         self.companyTextField.isEnabled = false
