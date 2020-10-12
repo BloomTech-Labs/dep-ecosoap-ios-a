@@ -24,10 +24,17 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     let controller = BackendController.shared
+    var authenticatedUserId: String {
+        ProfileController.shared.authenticatedUserProfile?.id ?? ""
+    }
+    var authUser: User? {
+        guard let authUser = controller.users[authenticatedUserId] else {return nil}
+        return authUser
+    }
     var name: String {
-        "\(controller.loggedInUser.firstName) \(controller.loggedInUser.lastName)"}
+        "\(authUser?.firstName) \(authUser?.lastName)"}
     var address: String {
-        "\(controller.loggedInUser.address)"}
+        "\(authUser?.address)"}
 
     // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
