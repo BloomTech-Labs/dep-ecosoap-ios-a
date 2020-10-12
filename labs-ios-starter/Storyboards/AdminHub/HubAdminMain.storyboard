@@ -81,7 +81,7 @@
         <!--Home-->
         <scene sceneID="nip-cy-5FF">
             <objects>
-                <viewController id="VcN-YH-OlD" sceneMemberID="viewController">
+                <viewController id="VcN-YH-OlD" customClass="HubAdminViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k3Z-qW-Pxm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,7 @@
                                     <constraint firstAttribute="height" constant="283" id="cBg-ci-h91"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9uE-et-WUC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9uE-et-WUC" customClass="HubAdminMainTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="379" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9uE-et-WUC" id="zis-OG-8Xf">
@@ -149,7 +149,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImpactStatisticsOverallCell" id="yiY-pa-K6h" customClass="ImpactStatisticsOverallCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImpactStatisticsOverallCell" id="yiY-pa-K6h" customClass="HubAdminCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="8" y="0.0" width="398" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RkD-nn-0wW">
@@ -316,14 +316,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="398" height="200"/>
                                         <connections>
-                                            <outlet property="bottlesPercentageLabel" destination="Iwe-nk-HRz" id="lJL-RB-c6v"/>
-                                            <outlet property="bottlesView" destination="LVj-kD-TEx" id="m7j-0n-krO"/>
-                                            <outlet property="linensPercentageLabel" destination="QFM-pO-uke" id="Oyy-le-1u2"/>
-                                            <outlet property="linensView" destination="wfg-Ca-fPY" id="P8A-1R-KIw"/>
-                                            <outlet property="paperPercentageLabel" destination="tJ6-no-OTK" id="QYX-hX-4c9"/>
-                                            <outlet property="paperView" destination="9Me-81-pSm" id="gMx-af-xdV"/>
-                                            <outlet property="soapPercentageLabel" destination="btL-uZ-dcZ" id="Dx9-Nh-jaP"/>
-                                            <outlet property="soapView" destination="eGS-Ig-p8f" id="bvE-gt-QOe"/>
+                                            <outlet property="bottlesPercentageLabel" destination="Iwe-nk-HRz" id="4TA-hz-YMr"/>
+                                            <outlet property="bottlesView" destination="LVj-kD-TEx" id="qZR-HW-VcC"/>
+                                            <outlet property="linensPercentageLabel" destination="QFM-pO-uke" id="W47-DH-LnW"/>
+                                            <outlet property="linensView" destination="wfg-Ca-fPY" id="Oki-0h-1qN"/>
+                                            <outlet property="paperPercentageLabel" destination="tJ6-no-OTK" id="10p-rw-k4D"/>
+                                            <outlet property="paperView" destination="9Me-81-pSm" id="EUZ-az-LLD"/>
+                                            <outlet property="soapPercentageLabel" destination="btL-uZ-dcZ" id="ZxM-KH-dev"/>
+                                            <outlet property="soapView" destination="eGS-Ig-p8f" id="aLM-Qe-Ixe"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -377,6 +377,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wjf-oO-gjf" id="nvS-0c-Zuj"/>
+                        <outlet property="tableView" destination="bb2-lC-Wvy" id="jIw-18-Wzu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFT-lz-8rE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
