@@ -15,8 +15,8 @@ class ProfileController {
     static let shared = ProfileController()
 
     // MARK: - Properties
-    let oktaAuth = OktaAuth(baseURL: URL(string: "https://auth.lambdalabs.dev/")!,
-                            clientID: "0oalwkxvqtKeHBmLI4x6",
+    let oktaAuth = OktaAuth(baseURL: URL(string: "https://dev-668428.okta.com/")!,
+                            clientID: "0oapaqacafrGUTfKx4x6",
                             redirectURI: "labs://scaffolding/implicit/callback")
     
     private(set) var authenticatedUserProfile: User?
@@ -118,12 +118,12 @@ class ProfileController {
 
         controller.userById(id: userID) { (error) in
             if let error = error {
-                print("Error fetching stats \(error)")
+                print("Error fetching user info \(error)")
                 completion(nil)
             }
             fetchedProfile = self.controller.loggedInUser
             completion(fetchedProfile)
-        }
+        }                                                                                       
     }
 
     // MARK: - Update Authenticated User Profile
