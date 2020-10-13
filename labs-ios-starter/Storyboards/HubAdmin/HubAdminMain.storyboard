@@ -322,7 +322,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="New Report"/>
                                 <connections>
-                                    <segue destination="Tky-n6-Th5" kind="show" identifier="HubAdminNewProdRepSegue" id="osO-2u-UoI"/>
+                                    <segue destination="Tky-n6-Th5" kind="presentation" identifier="HubAdminNewProdRepSegue" id="osO-2u-UoI"/>
                                 </connections>
                             </button>
                         </subviews>

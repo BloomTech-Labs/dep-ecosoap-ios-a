@@ -63,6 +63,8 @@
 		7951795A252E47BC00513E95 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517956252E47BB00513E95 /* Onboarding.storyboard */; };
 		7951795B252E47BC00513E95 /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517957252E47BC00513E95 /* Pickups.storyboard */; };
 		7951795E252E47C900513E95 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7951795D252E47C900513E95 /* Dashboard.storyboard */; };
+		7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E2EC252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift */; };
+		7960E2F0252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E2EF252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift */; };
 		79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
@@ -160,6 +162,8 @@
 		79517956252E47BB00513E95 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		79517957252E47BC00513E95 /* Pickups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
 		7951795D252E47C900513E95 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		7960E2EC252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminNewProductionReportViewController.swift; sourceTree = "<group>"; };
+		7960E2EF252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminEditProductionReportViewController.swift; sourceTree = "<group>"; };
 		79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminPickup.storyboard; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -237,7 +241,7 @@
 				79517954252E47BB00513E95 /* Payments.storyboard */,
 				79517957252E47BC00513E95 /* Pickups.storyboard */,
 				79517955252E47BB00513E95 /* Statistics.storyboard */,
-				79517961252E47D900513E95 /* AdminHub */,
+				79517961252E47D900513E95 /* HubAdmin */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -257,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */,
-				7960E2DF252FAB2D00A06582 /* AdminHub */,
+				7960E2DF252FAB2D00A06582 /* HubAdmin */,
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
@@ -423,7 +427,7 @@
 			path = Profiles;
 			sourceTree = "<group>";
 		};
-		79517961252E47D900513E95 /* AdminHub */ = {
+		79517961252E47D900513E95 /* HubAdmin */ = {
 			isa = PBXGroup;
 			children = (
 				79517949252B931800513E95 /* HubAdminMain.storyboard */,
@@ -432,14 +436,16 @@
 				18DE448C252FA73400938162 /* HubAminEditProductionRep.storyboard */,
 				18DE448E252FA7E600938162 /* Settings.storyboard */,
 			);
-			path = AdminHub;
+			path = HubAdmin;
 			sourceTree = "<group>";
 		};
-		7960E2DF252FAB2D00A06582 /* AdminHub */ = {
+		7960E2DF252FAB2D00A06582 /* HubAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				7960E2EC252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift */,
+				7960E2EF252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift */,
 			);
-			path = AdminHub;
+			path = HubAdmin;
 			sourceTree = "<group>";
 		};
 		7960E2E0252FAB3D00A06582 /* AdminHub */ = {
@@ -637,6 +643,7 @@
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				9C9A98E824E5078B007FC7DA /* Property.swift in Sources */,
 				FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */,
+				7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */,
 				9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
@@ -651,6 +658,7 @@
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
 				18689BC7252FBEEE00D1A32A /* HubSettingsViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
+				7960E2F0252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
