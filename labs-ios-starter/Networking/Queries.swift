@@ -213,6 +213,9 @@ class Queries: Request {
         phone
         skype
         signupTime
+        hub {
+            id
+        }
         properties {
             id
         }
