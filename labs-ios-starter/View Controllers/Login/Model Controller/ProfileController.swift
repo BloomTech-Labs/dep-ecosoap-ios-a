@@ -85,6 +85,8 @@ class ProfileController {
         
         getSingleProfile(userID) { (profile) in
             self.authenticatedUserProfile = profile
+            if profile != nil {
+                self.controller.loggedInUser = profile! }
             DispatchQueue.main.async {
                 completion()
             }
@@ -121,7 +123,7 @@ class ProfileController {
                 print("Error fetching user info \(error)")
                 completion(nil)
             }
-            fetchedProfile = self.controller.loggedInUser
+            fetchedProfile = self.controller.users[userID]
             completion(fetchedProfile)
         }                                                                                       
     }

@@ -24,20 +24,27 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     let controller = BackendController.shared
+    var authenticatedUserId: String {
+        ProfileController.shared.authenticatedUserProfile?.id ?? ""
+    }
+    var authUser: User? {
+        guard let authUser = controller.users[authenticatedUserId] else {return nil}
+        return authUser
+    }
     var name: String {
-        "\(controller.loggedInUser.firstName) \(controller.loggedInUser.lastName)"}
+        "\(authUser?.firstName) \(authUser?.lastName)"}
     var address: String {
-        "\(controller.loggedInUser.address)"}
+        "\(authUser?.address)"}
 
     // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        nameTexfField.text = name
-        companyTextField.text = controller.loggedInUser.company
-        addressTextField.text = address
-        phoneTextField.text = controller.loggedInUser.phone
-        emailTextField.text = controller.loggedInUser.email
+        nameTexfField.text = authUser?.name
+        companyTextField.text = authUser?.company
+        addressTextField.text = authUser?.address?.city
+        phoneTextField.text = authUser?.phone
+        emailTextField.text = authUser?.email
 
         self.nameTexfField.isEnabled = false
         self.companyTextField.isEnabled = false
