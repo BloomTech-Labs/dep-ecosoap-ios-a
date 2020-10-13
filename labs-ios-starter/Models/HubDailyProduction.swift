@@ -30,7 +30,7 @@ class HubDailyProduction {
             return nil
         }
 
-        guard let date = Date(longDate: dateString) else {
+        guard let date = Date(shortDate: dateString) else {
             NSLog("Failure initializing date")
             NSLog("Date string: \(dateString)")
             return nil
