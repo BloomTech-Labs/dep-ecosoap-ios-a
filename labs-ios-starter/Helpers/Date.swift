@@ -22,7 +22,7 @@ extension Date {
         if let date = DateFormatter.longFormatter.date(from: string) {
             self = date
         } else {
-            NSLog("Couldn't initialize date from this String. Using placeholder.")
+            NSLog("Couldn't initialize long date from this String. Using placeholder.")
             self = Date()
         }
     }
@@ -31,7 +31,7 @@ extension Date {
         if let date = DateFormatter.shortFormatter.date(from: string) {
             self = date
         } else {
-            NSLog("Couldn't initialize date from this String. Using placeholder.")
+            NSLog("Couldn't initialize short date from this String. Using placeholder.")
             self = Date()
         }
     }

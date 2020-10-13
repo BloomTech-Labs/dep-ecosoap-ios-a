@@ -31,7 +31,7 @@ class Queries: Request {
                                      .productionReportsByHubId: Queries.productionReportsByHubId]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
-                                                               .allUsers: .user,
+                                                               .allUsers: .users,
                                                                .propertyById: .property,
                                                                .propertiesByUserId: .properties,
                                                                .impactStatsByPropertyId: .impactStats,
@@ -209,9 +209,13 @@ class Queries: Request {
         company
         email
         password
+        role
         phone
         skype
         signupTime
+        hub {
+            id
+        }
         properties {
             id
         }
@@ -646,6 +650,7 @@ class Queries: Request {
                 # formattedAddress
               }
               signupTime
+              role
               properties {
                 id
                 name

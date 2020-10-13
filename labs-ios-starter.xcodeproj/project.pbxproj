@@ -34,6 +34,7 @@
 		13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */; };
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
 		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
+		18689BC7252FBEEE00D1A32A /* HubSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */; };
 		18B14BCE252BBEFD0082D93F /* RegisterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B14BCD252BBEFD0082D93F /* RegisterInput.swift */; };
 		18C7FA7D252F82A3004520F0 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */; };
 		18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */; };
@@ -96,6 +97,9 @@
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
 		9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63C024EF5E7800A2C446 /* Payment.swift */; };
 		FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */; };
+		FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E42535135300D5C794 /* HubAdminViewController.swift */; };
+		FE6317E82535135600D5C794 /* HubAdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */; };
+		FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317EA2535135900D5C794 /* HubAdminCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +130,7 @@
 		13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPickupCartonTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
 		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
+		18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HubSettingsViewController.swift; path = "labs-ios-starter/View Controllers/HubSettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		18B14BCD252BBEFD0082D93F /* RegisterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInput.swift; sourceTree = "<group>"; };
 		18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
 		18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
@@ -190,6 +195,9 @@
 		9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalityContract.swift; sourceTree = "<group>"; };
 		9CEA63C024EF5E7800A2C446 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDailyProduction.swift; sourceTree = "<group>"; };
+		FE6317E42535135300D5C794 /* HubAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminViewController.swift; sourceTree = "<group>"; };
+		FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminMainTableViewCell.swift; sourceTree = "<group>"; };
+		FE6317EA2535135900D5C794 /* HubAdminCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +260,7 @@
 		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18689BC6252FBEEE00D1A32A /* HubSettingsViewController.swift */,
 				7960E2DF252FAB2D00A06582 /* HubAdmin */,
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
@@ -442,6 +451,9 @@
 		7960E2E0252FAB3D00A06582 /* AdminHub */ = {
 			isa = PBXGroup;
 			children = (
+				FE6317EA2535135900D5C794 /* HubAdminCollectionViewCell.swift */,
+				FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */,
+				FE6317E42535135300D5C794 /* HubAdminViewController.swift */,
 			);
 			path = AdminHub;
 			sourceTree = "<group>";
@@ -623,6 +635,7 @@
 			files = (
 				9C9ACA7E24F779D2002D47B5 /* String.swift in Sources */,
 				13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */,
+				FE6317E82535135600D5C794 /* HubAdminMainTableViewCell.swift in Sources */,
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
 				13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
@@ -643,12 +656,14 @@
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
+				18689BC7252FBEEE00D1A32A /* HubSettingsViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
 				7960E2F0252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
+				FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */,
 				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
@@ -683,6 +698,7 @@
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
 				18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
+				FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
