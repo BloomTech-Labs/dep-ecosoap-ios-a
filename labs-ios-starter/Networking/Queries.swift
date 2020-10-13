@@ -205,6 +205,12 @@ class Queries: Request {
         firstName
         middleName
         lastName
+        address {
+              address1
+              address2
+              city
+              state
+            }
         title
         company
         email
@@ -215,7 +221,16 @@ class Queries: Request {
         signupTime
         hub {
             id
-        }
+            name
+            email
+            phone
+            address {
+                address1
+                city
+                state
+                country
+               }
+             }
         properties {
             id
         }
@@ -639,6 +654,18 @@ class Queries: Request {
               password
               phone
               skype
+            hub {
+              id
+              name
+              email
+              phone
+              address {
+                address1
+                city
+                state
+                country
+                }
+                }
               address {
                 address1
                 address2
