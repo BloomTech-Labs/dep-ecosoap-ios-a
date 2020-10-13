@@ -41,6 +41,7 @@ class BackendController {
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                                 .properties: BackendController.propertiesParser,
+                                                                .impactStats: BackendController.impactStatsParser,
                                                                 .user: BackendController.userParser,
                                                                 .users: BackendController.usersParser,
                                                                 .pickup:  BackendController.pickupParser,
@@ -51,7 +52,8 @@ class BackendController {
                                                                 .productionReports: BackendController.productionReportsParser,
                                                                 .productionReport: BackendController.productionReportParser(data:)
     ]
-    // MARK: - Parsers
+
+    // MARK: Property Parsers
     private static func propertyParser(data: Any?) throws {
         guard let propertyContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as PROPERTY dictionary for initialization")
@@ -73,6 +75,18 @@ class BackendController {
         }
     }
 
+    // MARK: - Impact Stat Parsers
+    private static func impactStatsParser(data: Any?) throws {
+        guard let impactStatsContainer = data as? [String: Any] else {
+            throw newError(message: "Couldn't cast Impact Stats data as dictionary for initialization.")
+        }
+        guard let impactStats = ImpactStats(dictionary: impactStatsContainer) else {
+            throw Errors.ObjectInitFail
+        }
+        shared.loggedInUser.hub?.impact = impactStats
+    }
+
+    //MARK: - User Parsers
     private static func userParser(data: Any?) throws {
         guard let userContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't USER cast data as dictionary for initialization")
@@ -94,6 +108,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Pickup Parsers
     private static func pickupParser(data: Any?) throws {
         guard let pickupContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't PICKUP cast data as dictionary for initialization")
@@ -119,6 +134,7 @@ class BackendController {
         }
     }
 
+    //MARK: - Hub Parser
     private static func hubParser(data: Any?) throws {
         guard let hubContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as dictionary for HUB initialization.")
@@ -130,6 +146,7 @@ class BackendController {
         shared.hubs[hub.id] = hub
     }
 
+    // MARK: - Production Report Parsers
     private static func productionReportParser(data: Any?) throws {
         guard let productionReportContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as dictionary for PRODUCTION REPORT initialization.")
@@ -151,6 +168,7 @@ class BackendController {
         }
     }
 
+    //MARK: - Payment Parsers
     private static func paymentParser(data: Any?) throws {
         guard let paymentContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as dictionary for PAYMENT initialization.")
@@ -172,6 +190,7 @@ class BackendController {
         }
     }
 
+    // MARK: - Carton Parser
     private static func cartonParser(data: Any?) throws {
         guard let cartonsContainer = data as? [[String: Any]] else {
             throw newError(message: "Couldn't cast data as dictionary for Cartons container.")
@@ -182,11 +201,9 @@ class BackendController {
                 shared.pickupCartons[carton.id] = carton
             }
         }
-
     }
 
     // MARK: - Queries -
-
 
     // MARK: - Properties by User Id
     func propertiesByUserId(id: String, completion: @escaping (Error?) -> Void) {
@@ -388,7 +405,7 @@ class BackendController {
             }
 
             guard let hub = self.hubs[id] else {
-                NSLog("This property is not currently stored into memory. Can't store impact stats.")
+                NSLog("This hub is not currently stored into memory. Can't store impact stats.")
                 completion(NSError(domain: "Error locating hub.", code: 0, userInfo: nil))
                 return
             }

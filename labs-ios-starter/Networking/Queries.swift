@@ -35,13 +35,14 @@ class Queries: Request {
                                                                .propertyById: .property,
                                                                .propertiesByUserId: .properties,
                                                                .impactStatsByPropertyId: .impactStats,
+                                                               .impactStatsByHubId: .impactStats,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
                                                                .pickupsByHubId: .pickups,
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
-                                                               .productionReportsByHubId: .properties]
+                                                               .productionReportsByHubId: .productionReports]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -495,8 +496,7 @@ class Queries: Request {
     private static func impactStatsByHubId(hubID: String) -> String {
         """
         query {
-          impactStatsByHubId(input: {
-            hubId: "\(hubID)" {
+          impactStatsByHubId(input: { hubId: "\(hubID)" }) {
             impactStats {
               soapRecycled
               linensRecycled
@@ -507,7 +507,6 @@ class Queries: Request {
             }
           }
         }
-
         """
 }
 

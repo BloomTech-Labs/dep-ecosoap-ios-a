@@ -18,15 +18,13 @@ class HubAdminViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
 
-
-
     // MARK: - Properties
     private let controller = BackendController.shared
     private var hubs: [Hub] = []
     private var selectedHub: Hub? {
         didSet {
             updateViewsImpactStats()
-            updateViewsProducitonReports()
+            updateViewsProductionReports()
         }
     }
 
@@ -48,13 +46,38 @@ class HubAdminViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchAll()
 
-        updateViewsProducitonReports()
+        guard let userhub = controller.loggedInUser.hub else {return}
+        controller.hubs[userhub.id] = userhub
+
+        updateViewsProductionReports()
+
         updateViewsImpactStats()
     }
 
+    private func fetchAll() {
+        controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
+            if let error = error {
+                NSLog("\(error): Error occured during initial fetch")
+            }
+            if let user = self.controller.users[self.controller.loggedInUser.id] {
+                self.controller.loggedInUser = user
+                print(self.controller.loggedInUser.id)
+            }
+            print("\(self.controller.users)")
+            print("\(self.controller.properties)")
+            print("\(self.controller.pickups)")
+            print("\(self.controller.payments)")
+            print("\(self.controller.productionReports)")
+            print("\(self.controller.hubs)")
+            print("\(self.controller.pickupCartons)")
+            print("\(self.controller.hospitalityContracts)")
+        }
+    }
+
     private func updateViewsImpactStats() {
-        guard let selectedHub = selectedHub else { return }
+        guard let selectedHub = controller.loggedInUser.hub else {return}
         controller.impactStatsByHubId(id: selectedHub.id) { (error) in
             if let error = error {
                 print("Error fetching stats \(error)")
@@ -65,8 +88,8 @@ class HubAdminViewController: UIViewController {
         }
     }
 
-    private func updateViewsProducitonReports() {
-        guard let selectedHub = selectedHub else { return }
+    private func updateViewsProductionReports() {
+        guard let selectedHub = controller.loggedInUser.hub else { return }
         controller.productionReportsByHubId(hubId: selectedHub.id) { (error) in
             if let error = error {
                 print("Error fetching stats \(error)")
@@ -97,18 +120,18 @@ class HubAdminViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//         Get the new view controller using segue.destination.
-//         Pass the selected object to the new view controller.
+        //         Get the new view controller using segue.destination.
+        //         Pass the selected object to the new view controller.
 
-                guard let hubAdminEditProduction = segue.destination as? HubAdminEditProductionReportViewController else { return }
+        guard let hubAdminEditProduction = segue.destination as? HubAdminEditProductionReportViewController else { return }
 
-                if segue.identifier == "HubAdminEditProductionReport" {
-                    print("HubAdminEditProductionReport called")
-                } else if segue.identifier == "HubAdminNewProductionReport" {
-                    print("HubAdminNewProductionReport")
+        if segue.identifier == "HubAdminEditProductionReport" {
+            print("HubAdminEditProductionReport called")
+        } else if segue.identifier == "HubAdminNewProductionReport" {
+            print("HubAdminNewProductionReport")
 
-                    guard let indexPath = tableView.indexPathForSelectedRow else { return }
-                }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        }
     }
 }
 
@@ -127,7 +150,7 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImpactStatisticsOverallCell", for: indexPath) as? HubAdminCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HubAdminImpactStatisticsOverallCell", for: indexPath) as? HubAdminCollectionViewCell else { return UICollectionViewCell() }
             cell.statsTuple = overallBreakDown()
 
             return cell
