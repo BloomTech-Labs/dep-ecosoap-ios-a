@@ -54,6 +54,11 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
         self.phoneTextField.isEnabled = false
         self.emailTextField.isEnabled = false
 
+        guard let role = authUser?.role else {return}
+        print(role)
+
+        guard let hub = authUser?.hub?.id else {return}
+        print(hub)
     }
 
     override func viewDidLoad() {

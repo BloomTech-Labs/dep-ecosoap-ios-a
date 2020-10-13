@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Hub {
+class Hub: Codable {
     let id, name, email, phone: String
     var address: Address
     var coordinates: Coordinates?
