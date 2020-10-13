@@ -11,6 +11,8 @@ import Foundation
 extension DateFormatter {
     static let shortFormatter: DateFormatter = {
         var formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(identifier: "UTC")
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
