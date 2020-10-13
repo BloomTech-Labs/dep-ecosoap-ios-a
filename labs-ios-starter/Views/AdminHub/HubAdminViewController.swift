@@ -71,6 +71,23 @@ class HubAdminViewController: UIViewController {
         return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
 
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+
+//        guard let hubAdminEditProduction = segue.destination as? HubAdminEditProduction else { return }
+//
+//        if segue.identifier == "HubAdminEditProductionReport" {
+//            print("HubAdminEditProductionReport called")
+//        } else if segue.identifier == "HubAdminNewProductionReport" {
+//            print("HubAdminNewProductionReport")
+//
+//            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+//        }
+    }
 }
 
 extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -81,7 +98,8 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        // Don't know if this is correct 
+        return hubs.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,8 +115,16 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
     }
+}
 
+extension HubAdminViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 
 
 }
-
