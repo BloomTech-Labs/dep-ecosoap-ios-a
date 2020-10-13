@@ -40,6 +40,8 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        fetchAll()
+
         nameTexfField.text = authUser?.name
         companyTextField.text = authUser?.company
         addressTextField.text = authUser?.address?.city
@@ -62,6 +64,25 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
 
     func updateViews() {
 
+    }
+
+    private func fetchAll() {
+        controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
+            if let error = error {
+                NSLog("\(error): Error occured during initial fetch")
+            }
+            if let user = self.controller.users[self.controller.loggedInUser.id] {
+                self.controller.loggedInUser = user
+                print(self.controller.loggedInUser.id)
+            }
+            print("\(self.controller.users)")
+            print("\(self.controller.properties)")
+            print("\(self.controller.pickups)")
+            print("\(self.controller.payments)")
+            print("\(self.controller.hubs)")
+            print("\(self.controller.pickupCartons)")
+            print("\(self.controller.hospitalityContracts)")
+        }
     }
     
 
