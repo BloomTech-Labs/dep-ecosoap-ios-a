@@ -117,14 +117,14 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-extension HubAdminViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
+//extension HubAdminViewController: UITableViewDataSource, UITableViewDelegate {
+////    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////
+////    }
+////
+////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////
+////    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
 
-
-}
+//}
