@@ -21,6 +21,7 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var editButton: UIButton!
 
     //MARK: - Properties
     let controller = BackendController.shared
@@ -35,6 +36,7 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
         "\(authUser?.firstName) \(authUser?.lastName)"}
     var address: String {
         "\(authUser?.address)"}
+    var toggle: Bool = false
 
     // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +55,8 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
         self.addressTextField.isEnabled = false
         self.phoneTextField.isEnabled = false
         self.emailTextField.isEnabled = false
+        self.editButton.setTitle("Edit", for: .normal)
+        self.editButton.setTitle("Save", for: .selected)
 
         guard let role = authUser?.role else {return}
         print(role)
@@ -89,22 +93,38 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
             print("\(self.controller.hospitalityContracts)")
         }
     }
-    
+
 
     // MARK: - Actions
     @IBAction func editButtonTouched(_ sender: UIButton) {
-        self.nameTexfField.isEnabled = true
-        self.companyTextField.isEnabled = true
-        self.addressTextField.isEnabled = true
-        self.phoneTextField.isEnabled = true
-        self.emailTextField.isEnabled = true
+        if toggle == false  {
+            self.nameTexfField.isEnabled = true
+            self.companyTextField.isEnabled = true
+            self.addressTextField.isEnabled = true
+            self.phoneTextField.isEnabled = true
+            self.emailTextField.isEnabled = true
+            editButton.isSelected = true
+
+            toggle = true
+        } else {
+            if toggle == true  {
+                self.dismiss(animated: true) {
+                    
+                }
+                       self.nameTexfField.isEnabled = false
+                       self.companyTextField.isEnabled = false
+                       self.addressTextField.isEnabled = false
+                       self.phoneTextField.isEnabled = false
+                       self.emailTextField.isEnabled = false
+                    editButton.isSelected = false
+                       toggle = false
+                   }
+        }
+
     }
 
-    @IBAction func deleteButtonTouched(_ sender: UIButton) {
-    }
 
 }
 
-// MARK: - Extension
 
 
