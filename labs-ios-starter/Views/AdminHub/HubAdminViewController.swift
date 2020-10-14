@@ -33,7 +33,7 @@ class HubAdminViewController: UIViewController {
                                                                                "barsProduced": 10,
                                                                                "soapmakersWorked": 3,
                                                                                "soapmakerHours": 17,
-                                                                               "date":  "2020-10-15"
+                                                                               "date":  "2020-10-10"
     ])!]
 
     
@@ -163,7 +163,7 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 7
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

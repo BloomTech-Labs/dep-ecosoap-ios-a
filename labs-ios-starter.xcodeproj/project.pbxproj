@@ -65,6 +65,7 @@
 		7951795E252E47C900513E95 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7951795D252E47C900513E95 /* Dashboard.storyboard */; };
 		7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E2EC252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift */; };
 		7960E2F0252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E2EF252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift */; };
+		79D8353425378B010097C9FB /* BarsofSoap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79D8353325378B010097C9FB /* BarsofSoap.jpg */; };
 		79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
@@ -164,6 +165,7 @@
 		7951795D252E47C900513E95 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		7960E2EC252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminNewProductionReportViewController.swift; sourceTree = "<group>"; };
 		7960E2EF252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminEditProductionReportViewController.swift; sourceTree = "<group>"; };
+		79D8353325378B010097C9FB /* BarsofSoap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BarsofSoap.jpg; path = ../../../../BarsofSoap.jpg; sourceTree = "<group>"; };
 		79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminPickup.storyboard; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				466C4275249A8748007D033E /* SceneDelegate.swift */,
 				466C427E249A8749007D033E /* LaunchScreen.storyboard */,
 				466C427C249A8749007D033E /* Assets.xcassets */,
+				79D8353325378B010097C9FB /* BarsofSoap.jpg */,
 				466C4281249A8749007D033E /* Info.plist */,
 				466C4287249A889F007D033E /* File Organization.md */,
 				13A4A7DD24E1FB1E005326F9 /* HelperExtensions.swift */,
@@ -615,6 +618,7 @@
 				18DE448B252FA63800938162 /* HubAdminNewProductionReport.storyboard in Resources */,
 				7951795E252E47C900513E95 /* Dashboard.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
+				79D8353425378B010097C9FB /* BarsofSoap.jpg in Resources */,
 				7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */,
 				79517958252E47BC00513E95 /* Payments.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
