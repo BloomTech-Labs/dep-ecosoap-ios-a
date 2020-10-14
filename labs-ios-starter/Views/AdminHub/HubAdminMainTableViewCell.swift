@@ -10,22 +10,20 @@ import UIKit
 
 class HubAdminMainTableViewCell: UITableViewCell {
 
-    // Date Button
-
-    // Edit Production ? 
-
-    @IBOutlet var dateCell: HubAdminMainTableViewCell!
-
-    @IBOutlet var productionReportDate: HubAdminMainTableViewCell!
+    // Date Button 
+    @IBOutlet weak var dateLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var productionReports: HubDailyProduction? {
+        didSet {
+            updateView()
+        }
+    }
+    func updateView() {
+        if let productionReports = productionReports {
+            dateLabel.text = productionReports.date
+        }
+    }
+    
+
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    
-    }
-}

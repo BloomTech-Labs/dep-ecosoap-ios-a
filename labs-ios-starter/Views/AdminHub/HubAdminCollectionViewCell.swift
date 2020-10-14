@@ -21,17 +21,30 @@ class HubAdminCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var paperPercentageLabel: UILabel!
 
     // MARK: - Properties
-    var statsTuple: (Int, Int, Int, Int)? {
-        didSet {
-            updateViews()
-        }
-    }
-
+    var statsTuple: (Int, Int, Int, Int)? 
+        
+           
+    
 
     // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        setupViews()
+    }
+    
+    private func setupViews() {
+        self.layer.cornerRadius = 8.0
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.backgroundColor = UIColor(named: "Panel System Background")?.cgColor
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowOpacity = 0.25
+        self.layer.masksToBounds = false
+        soapView.layer.cornerRadius = 5
+        soapView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        paperView.layer.cornerRadius = 5
+        paperView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
     }
     
     private func updateViews() {

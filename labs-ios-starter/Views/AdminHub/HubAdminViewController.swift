@@ -20,7 +20,26 @@ class HubAdminViewController: UIViewController {
 
     // MARK: - Properties
     private let controller = BackendController.shared
+    
     private var hubs: [Hub] = []
+    private var selectedHub: Hub?
+    
+   
+    
+    
+    var productionReportArray: [HubDailyProduction] = [HubDailyProduction(dictionary: ["id" : "5",
+                                                                               "barsProduced": 10,
+                                                                               "soapmakersWorked": 3,
+                                                                               "soapmakerHours": 17,
+                                                                               "date":  "2020-10-15"
+    ])!,
+    HubDailyProduction(dictionary: ["id" : "5",
+                                                                               "barsProduced": 10,
+                                                                               "soapmakersWorked": 3,
+                                                                               "soapmakerHours": 17,
+                                                                               "date":  "2020-10-10"
+    ])!]
+
     private var selectedHub: Hub? {
         didSet {
             updateViewsImpactStats()
@@ -47,6 +66,8 @@ class HubAdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchAll()
+      
+        tableView.delegate = self
 
         guard let userhub = controller.loggedInUser.hub else {return}
         controller.hubs[userhub.id] = userhub
@@ -75,18 +96,21 @@ class HubAdminViewController: UIViewController {
             print("\(self.controller.hospitalityContracts)")
         }
     }
+    
 
     private func updateViewsImpactStats() {
-        guard let selectedHub = controller.loggedInUser.hub else {return}
-        controller.impactStatsByHubId(id: selectedHub.id) { (error) in
+        guard let selectedHub = controller.loggedInUser.hub?.id else { return }
+        controller.impactStatsByHubId(id: selectedHub) { (error) in
             if let error = error {
                 print("Error fetching stats \(error)")
+                
             }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
         }
     }
+    
 
     private func updateViewsProductionReports() {
         guard let selectedHub = controller.loggedInUser.hub else { return }
@@ -116,23 +140,27 @@ class HubAdminViewController: UIViewController {
         return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
 
     }
-
+}
     // MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //         Get the new view controller using segue.destination.
-        //         Pass the selected object to the new view controller.
-
-        guard let hubAdminEditProduction = segue.destination as? HubAdminEditProductionReportViewController else { return }
-
-        if segue.identifier == "HubAdminEditProductionReport" {
-            print("HubAdminEditProductionReport called")
-        } else if segue.identifier == "HubAdminNewProductionReport" {
-            print("HubAdminNewProductionReport")
-
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        }
+extension HubAdminViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width : CGFloat
+        let height : CGFloat
+        
+       
+            width = collectionView.bounds.width - 40
+            height = 200
+       
+     
+        return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20.0, left: 20, bottom: 20, right: 20)
+    }
+
 }
 
 
@@ -144,120 +172,32 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // Don't know if this is correct 
-        return 7
+        
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HubAdminImpactStatisticsOverallCell", for: indexPath) as? HubAdminCollectionViewCell else { return UICollectionViewCell() }
+
             cell.statsTuple = overallBreakDown()
-
-            return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImpactStatisticsIndividualCell", for: indexPath) as? ImpactStatisticsIndividualCollectionViewCell else { return UICollectionViewCell() }
-
-            cell.indexPath = indexPath
-
+            
             return cell
         }
-    }
 }
 
-//extension HubAdminViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
+extension HubAdminViewController: UITableViewDataSource,  UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return productionReportArray.count
+    }
+    
 
-
-
-
-extension HubAdminViewController {
-
-    var collectionViewContentSize: CGSize {
-        return CGSize(width: contentWidth, height: contentHeight)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HubAdminProductionReportsCell", for: indexPath) as? HubAdminMainTableViewCell else {fatalError("oops")}
+        let report = productionReportArray[indexPath.row]
+        cell.productionReports = report
+     
+        return cell
     }
 
-    func prepare() {
-        guard cache.isEmpty == true, let collectionView = collectionView else { return }
-
-        var columnWidth = contentWidth / CGFloat(numberOfColumns)
-        var xOffset: [CGFloat] = []
-        for column in 0..<numberOfColumns {
-            xOffset.append(CGFloat(column) * columnWidth)
-        }
-        var column = 0
-        var yOffset: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
-
-        for item in 0..<collectionView.numberOfItems(inSection: 0) {
-            let indexPath = IndexPath(item: item, section: 0)
-            if indexPath.item == 4 {
-                numberOfColumns = 1
-                columnWidth = contentWidth / CGFloat(numberOfColumns)
-            }
-            let photoHeight = delegate?.collectionView(
-                collectionView,
-                heightForCellAtIndexPath: indexPath) ?? 180
-            let height = cellPadding * 2 + photoHeight
-            let frame = CGRect(x: xOffset[column],
-                               y: yOffset[column],
-                               width: columnWidth,
-                               height: height)
-            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
-
-            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            attributes.frame = insetFrame
-            cache.append(attributes)
-
-            contentHeight = max(contentHeight, frame.maxY)
-            yOffset[column] = yOffset[column] + height
-
-            column = column < (numberOfColumns - 1) ? (column + 1) : 0
-        }
-    }
-
-    func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        var visibleLayoutAttributes: [UICollectionViewLayoutAttributes] = []
-
-        // Loop through the cache and look for items in the rect
-        for attributes in cache {
-            if attributes.frame.intersects(rect) {
-                visibleLayoutAttributes.append(attributes)
-            }
-        }
-        return visibleLayoutAttributes
-    }
-
-    func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cache[indexPath.item]
-    }
 }
-
-
-
-
-//extension ImpactStatisticsViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width : CGFloat
-//        let height : CGFloat
-//
-//        if indexPath.item == 0 {
-//            width = collectionView.bounds.width - 40
-//            height = 200
-//        } else {
-//            width = (collectionView.bounds.width / 2) - 25
-//            height = 120
-//        }
-//        return CGSize(width: width, height: height)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 20.0, left: 20, bottom: 20, right: 20)
-//    }
-//
-//}
