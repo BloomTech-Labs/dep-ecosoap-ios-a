@@ -25,7 +25,6 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     let controller = BackendController.shared
-    var userProfile: UpdateUserProfileInput!
     var authenticatedUserId: String {
         ProfileController.shared.authenticatedUserProfile?.id ?? ""
     }
@@ -68,9 +67,14 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
-    //MARK: - Methods
+    func updateViews() {
+
+    }
+
     private func fetchAll() {
         controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
             if let error = error {
@@ -90,15 +94,6 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    private func updateProfile() {
-
-//        var userProfile: UpdateUserProfileInput! {
-//            userProfile.id = authUser?.id
-//            userProfile.email = self.emailTextField.text
-//            userProfile.phone = self.phoneTextField.text
-//            userProfile.company = self.companyTextField.text
-//        }
-    }
 
     // MARK: - Actions
     @IBAction func editButtonTouched(_ sender: UIButton) {
@@ -113,16 +108,22 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
             toggle = true
         } else {
             if toggle == true  {
-                self.nameTexfField.isEnabled = false
-                self.companyTextField.isEnabled = false
-                self.addressTextField.isEnabled = false
-                self.phoneTextField.isEnabled = false
-                self.emailTextField.isEnabled = false
-                editButton.isSelected = false
-                _ = navigationController?.popViewController(animated: true)
-            }
+                self.dismiss(animated: true) {
+                    
+                }
+                       self.nameTexfField.isEnabled = false
+                       self.companyTextField.isEnabled = false
+                       self.addressTextField.isEnabled = false
+                       self.phoneTextField.isEnabled = false
+                       self.emailTextField.isEnabled = false
+                    editButton.isSelected = false
+                       toggle = false
+                   }
         }
+
     }
+
+
 }
 
 

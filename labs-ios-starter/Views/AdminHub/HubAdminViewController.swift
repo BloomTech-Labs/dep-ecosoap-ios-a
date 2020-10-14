@@ -8,12 +8,16 @@
 
 import UIKit
 
+//protocol DashboardLayoutDelegate: AnyObject {
+//    func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat
+//}
+
 class HubAdminViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
-    
+
     // MARK: - Properties
     private let controller = BackendController.shared
     
@@ -36,19 +40,61 @@ class HubAdminViewController: UIViewController {
                                                                                "date":  "2020-10-10"
     ])!]
 
-    
+    private var selectedHub: Hub? {
+        didSet {
+            updateViewsImpactStats()
+            updateViewsProductionReports()
+        }
+    }
+
+    // MARK: - Properties
+    weak var delegate: DashboardLayoutDelegate?
+
+    private var numberOfColumns = 2
+    private let cellPadding: CGFloat = 8
+    private var cache: [UICollectionViewLayoutAttributes] = []
+    private var contentHeight: CGFloat = 0
+    private var contentWidth: CGFloat {
+        guard let collectionView = collectionView else {
+            return 0
+        }
+        let insets = collectionView.contentInset
+        return collectionView.bounds.width - (insets.left + insets.right)
+    }
+
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        
         fetchAll()
+      
+        tableView.delegate = self
+
+        guard let userhub = controller.loggedInUser.hub else {return}
+        controller.hubs[userhub.id] = userhub
+
+        updateViewsProductionReports()
+
         updateViewsImpactStats()
-        
-        
-        
-        
+    }
+
+    private func fetchAll() {
+        controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
+            if let error = error {
+                NSLog("\(error): Error occured during initial fetch")
+            }
+            if let user = self.controller.users[self.controller.loggedInUser.id] {
+                self.controller.loggedInUser = user
+                print(self.controller.loggedInUser.id)
+            }
+            print("\(self.controller.users)")
+            print("\(self.controller.properties)")
+            print("\(self.controller.pickups)")
+            print("\(self.controller.payments)")
+            print("\(self.controller.productionReports)")
+            print("\(self.controller.hubs)")
+            print("\(self.controller.pickupCartons)")
+            print("\(self.controller.hospitalityContracts)")
+        }
     }
     
 
@@ -65,28 +111,9 @@ class HubAdminViewController: UIViewController {
         }
     }
     
-    private func fetchAll() {
-        controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
-            if let error = error {
-                NSLog("\(error): Error occured during initial fetch")
-            }
-            if let user = self.controller.users[self.controller.loggedInUser.id] {
-                self.controller.loggedInUser = user
-                print(self.controller.loggedInUser.id)
-            }
-            print("\(self.controller.users)")
-            print("\(self.controller.properties)")
-            print("\(self.controller.pickups)")
-            print("\(self.controller.payments)")
-            print("\(self.controller.hubs)")
-            print("\(self.controller.pickupCartons)")
-            print("\(self.controller.hospitalityContracts)")
-        }
-    }
-    
 
-    private func updateViewsProducitonReports() {
-        guard let selectedHub = selectedHub else { return }
+    private func updateViewsProductionReports() {
+        guard let selectedHub = controller.loggedInUser.hub else { return }
         controller.productionReportsByHubId(hubId: selectedHub.id) { (error) in
             if let error = error {
                 print("Error fetching stats \(error)")
@@ -116,24 +143,6 @@ class HubAdminViewController: UIViewController {
 }
     // MARK: - Navigation
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller
-//
-//        if segue.identifier == "HubAdminEditProdRepSegue" {
-//            guard let destinationVC = segue.destination as? HubAdminEditProductionReportViewController,
-//                  
-//            
-//            
-//            print("HubAdminEditProductionReport called")
-//
-//        } else if segue.identifier == "HubAdminNewProdRepSegue" {
-//           print("HubAdminNewProductionReport")
-//
-//
-//        }
-//    }
-
 extension HubAdminViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -153,6 +162,7 @@ extension HubAdminViewController: UICollectionViewDelegateFlowLayout {
     }
 
 }
+
 
 extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 

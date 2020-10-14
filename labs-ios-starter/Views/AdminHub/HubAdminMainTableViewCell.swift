@@ -13,8 +13,6 @@ class HubAdminMainTableViewCell: UITableViewCell {
     // Date Button 
     @IBOutlet weak var dateLabel: UILabel!
     
-   
-    
     var productionReports: HubDailyProduction? {
         didSet {
             updateView()

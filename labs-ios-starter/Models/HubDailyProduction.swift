@@ -28,7 +28,6 @@ class HubDailyProduction {
             NSLog("\tID: \(String(describing: dictionary["id"]))")
             NSLog("\tDate String: \(String(describing: dictionary["date"]))")
             return nil
-        
         }
 
         self.id = id
