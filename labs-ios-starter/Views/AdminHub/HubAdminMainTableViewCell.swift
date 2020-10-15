@@ -10,7 +10,6 @@ import UIKit
 
 class HubAdminMainTableViewCell: UITableViewCell {
 
-    // Date Button 
     @IBOutlet weak var dateLabel: UILabel!
     
     var productionReports: HubDailyProduction? {
@@ -18,12 +17,11 @@ class HubAdminMainTableViewCell: UITableViewCell {
             updateView()
         }
     }
+
     func updateView() {
         if let productionReports = productionReports {
             dateLabel.text = productionReports.date
         }
     }
-    
-
-    }
+}
 
