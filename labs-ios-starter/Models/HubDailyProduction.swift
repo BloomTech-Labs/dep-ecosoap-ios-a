@@ -21,13 +21,14 @@ class HubDailyProduction {
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
-              let barsProduced = dictionary["barsProduced"] as? Int,
-              let soapmakersWorked = dictionary["soapmakersWorked"] as? Int,
-              let soapmakerHours = dictionary["soapmakerHours"] as? Int,
-              let dateString = dictionary["date"] as? String else {
-            NSLog("\tID: \(String(describing: dictionary["id"]))")
-            NSLog("\tDate String: \(String(describing: dictionary["date"]))")
-            return nil
+            let barsProduced = dictionary["barsProduced"] as? Int,
+            let soapmakersWorked = dictionary["soapmakersWorked"] as? Int,
+            let soapmakerHours = dictionary["soapmakerHours"] as? Int,
+            let dateString = dictionary["date"] as? String,
+            let soapPhotos = dictionary["soapPhotos"] as? [String] else {
+                NSLog("\tID: \(String(describing: dictionary["id"]))")
+                NSLog("\tDate String: \(String(describing: dictionary["date"]))")
+                return nil
         }
 
         self.id = id
@@ -35,6 +36,7 @@ class HubDailyProduction {
         self.barsProduced = barsProduced
         self.soapmakersWorked = soapmakersWorked
         self.soapmakerHours = soapmakerHours
+        self.soapPhotos = soapPhotos
 
         if let hubContainer = dictionary["hub"] as? [String: Any] {
             self.hub = Hub(dictionary: hubContainer)

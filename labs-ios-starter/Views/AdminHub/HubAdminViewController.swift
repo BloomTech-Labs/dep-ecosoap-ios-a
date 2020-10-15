@@ -68,6 +68,8 @@ class HubAdminViewController: UIViewController {
                 print("Error fetching stats \(error)")
                 return
             }
+
+            self.controller.loggedInUser.hub?.impact
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -106,6 +108,19 @@ class HubAdminViewController: UIViewController {
         return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
 
     }
+
+    // MARK: - Navigation
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          switch segue.identifier {
+          case "HubAdminEditProdRepSegue":
+              if let indexPath = tableView.indexPathForSelectedRow?.row {
+                guard let editProdReportVC = segue.destination as? HubAdminEditProductionReportViewController else {return}
+
+                editProdReportVC.productionReport = productionReportArray[indexPath]
+              }
+          default: preconditionFailure("unexpected segue identifier")
+          }
+      }
 }
     // MARK: - UICollectionView Extension
 extension HubAdminViewController: UICollectionViewDelegateFlowLayout {
