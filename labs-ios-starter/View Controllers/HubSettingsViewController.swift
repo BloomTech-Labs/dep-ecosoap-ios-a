@@ -92,12 +92,6 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
 
     private func updateProfile() {
 
-//        var userProfile: UpdateUserProfileInput! {
-//            userProfile.id = authUser?.id
-//            userProfile.email = self.emailTextField.text
-//            userProfile.phone = self.phoneTextField.text
-//            userProfile.company = self.companyTextField.text
-//        }
     }
 
     // MARK: - Actions
