@@ -40,12 +40,7 @@ class HubAdminViewController: UIViewController {
                                                                                "date":  "2020-10-10"
     ])!]
 
-    private var selectedHub: Hub? {
-        didSet {
-            updateViewsImpactStats()
-            updateViewsProductionReports()
-        }
-    }
+
 
     // MARK: - Properties
     weak var delegate: DashboardLayoutDelegate?
