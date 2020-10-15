@@ -8,10 +8,6 @@
 
 import UIKit
 
-//protocol DashboardLayoutDelegate: AnyObject {
-//    func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat
-//}
-
 class HubAdminViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -20,31 +16,11 @@ class HubAdminViewController: UIViewController {
 
     // MARK: - Properties
     private let controller = BackendController.shared
-    
     private var hubs: [Hub] = []
     private var selectedHub: Hub?
-    
-   
-    
-    
-    var productionReportArray: [HubDailyProduction] = [HubDailyProduction(dictionary: ["id" : "5",
-                                                                               "barsProduced": 10,
-                                                                               "soapmakersWorked": 3,
-                                                                               "soapmakerHours": 17,
-                                                                               "date":  "2020-10-15"
-    ])!,
-    HubDailyProduction(dictionary: ["id" : "5",
-                                                                               "barsProduced": 10,
-                                                                               "soapmakersWorked": 3,
-                                                                               "soapmakerHours": 17,
-                                                                               "date":  "2020-10-10"
-    ])!]
-
-
+    var productionReportArray: [HubDailyProduction] = []
 
     // MARK: - Properties
-    weak var delegate: DashboardLayoutDelegate?
-
     private var numberOfColumns = 2
     private let cellPadding: CGFloat = 8
     private var cache: [UICollectionViewLayoutAttributes] = []
@@ -60,18 +36,15 @@ class HubAdminViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchAll()
-      
         tableView.delegate = self
-
         guard let userhub = controller.loggedInUser.hub else {return}
         controller.hubs[userhub.id] = userhub
-
+        fetchAll()
         updateViewsProductionReports()
-
         updateViewsImpactStats()
     }
 
+    //MARK: - Methods
     private func fetchAll() {
         controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
             if let error = error {
@@ -82,40 +55,38 @@ class HubAdminViewController: UIViewController {
                 print(self.controller.loggedInUser.id)
             }
             print("\(self.controller.users)")
-            print("\(self.controller.properties)")
             print("\(self.controller.pickups)")
-            print("\(self.controller.payments)")
             print("\(self.controller.productionReports)")
             print("\(self.controller.hubs)")
-            print("\(self.controller.pickupCartons)")
-            print("\(self.controller.hospitalityContracts)")
         }
     }
-    
 
     private func updateViewsImpactStats() {
         guard let selectedHub = controller.loggedInUser.hub?.id else { return }
         controller.impactStatsByHubId(id: selectedHub) { (error) in
             if let error = error {
                 print("Error fetching stats \(error)")
-                
+                return
             }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
         }
     }
-    
 
     private func updateViewsProductionReports() {
         guard let selectedHub = controller.loggedInUser.hub else { return }
         controller.productionReportsByHubId(hubId: selectedHub.id) { (error) in
             if let error = error {
-                print("Error fetching stats \(error)")
+                print("Error fetching production reports \(error)")
+                return
+            }
+            for productionReport in self.controller.productionReports.values {
+                self.productionReportArray.append(productionReport)
             }
 
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self.tableView.reloadData()
             }
         }
     }
@@ -136,19 +107,16 @@ class HubAdminViewController: UIViewController {
 
     }
 }
-    // MARK: - Navigation
-
+    // MARK: - UICollectionView Extension
 extension HubAdminViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width : CGFloat
         let height : CGFloat
-        
-       
-            width = collectionView.bounds.width - 40
-            height = 200
-       
-     
+
+        width = collectionView.bounds.width - 40
+        height = 200
+
         return CGSize(width: width, height: height)
     }
     
@@ -158,10 +126,8 @@ extension HubAdminViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-
 extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    // MARK: UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -179,14 +145,13 @@ extension HubAdminViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
 }
-
+// MARK: - UITableView Extension
 extension HubAdminViewController: UITableViewDataSource,  UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productionReportArray.count
     }
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HubAdminProductionReportsCell", for: indexPath) as? HubAdminMainTableViewCell else {fatalError("oops")}
         let report = productionReportArray[indexPath.row]
