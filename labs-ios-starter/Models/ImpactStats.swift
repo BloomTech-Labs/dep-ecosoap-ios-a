@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ImpactStats {
+class ImpactStats: Codable {
 
     let soapRecycled, linensRecycled, bottlesRecycled, paperRecycled, peopleServed, womenEmployed: Int?
     

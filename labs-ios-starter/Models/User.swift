@@ -11,13 +11,14 @@ import Foundation
 class User: Codable {
     
     let id: String
-    var firstName, lastName, email, password: String
-    var middleName, title, company, phone, skype: String?
+    var firstName, lastName, email: String
+    var middleName, title, company, phone, skype, password, role: String?
     var address: Address?
+    var hub: Hub?
     var signupTime: Date?
     var propertiesById: [String] = []
     var name: String {
-        String("\(firstName)+\(lastName)")
+        String("\(firstName) \(lastName)")
     }
     
     init() {
@@ -26,28 +27,37 @@ class User: Codable {
         self.lastName = "Watts"
         self.email = "Miles.K.Watts.1599761674594@test.com"
         self.password = "1599761674594"
+        self.role = "Test Role"
     }
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
-        let firstName = dictionary["firstName"] as? String,
-        let lastName = dictionary["lastName"] as? String,
-        let email = dictionary["email"] as? String,
-        let password = dictionary["password"] as? String else {
-            NSLog("Error unwrapping non-optional User properties:")
-            NSLog("\tID: \(String(describing: dictionary["id"])) ")
-            NSLog("\tFirst Name: \(String(describing: dictionary["firstName"])) ")
-            NSLog("\tLast Name: \(String(describing: dictionary["lastName"])) ")
-            NSLog("\tEmail: \(String(describing: dictionary["email"])) ")
-            NSLog("\tPassword: \(String(describing: dictionary["password"]))")
-            return nil
+            let firstName = dictionary["firstName"] as? String,
+            let lastName = dictionary["lastName"] as? String,
+            let email = dictionary["email"] as? String
+            else {
+                NSLog("Error unwrapping non-optional User properties:")
+                NSLog("\tID: \(String(describing: dictionary["id"])) ")
+                NSLog("\tFirst Name: \(String(describing: dictionary["firstName"])) ")
+                NSLog("\tLast Name: \(String(describing: dictionary["lastName"])) ")
+                NSLog("\tEmail: \(String(describing: dictionary["email"])) ")
+                NSLog("\tPassword: \(String(describing: dictionary["password"]))")
+                return nil
         }
 
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
+        let password = dictionary["password"] as? String
         self.password = password
+
+        let role = dictionary["role"] as? String
+        self.role = role
+
+        if let hubContainer = dictionary["hub"] as? [String: Any] {
+            self.hub = Hub(dictionary: hubContainer)
+        }
 
         self.middleName = dictionary["middleName"] as? String
         self.title = dictionary["title"] as? String
@@ -70,7 +80,5 @@ class User: Codable {
                 }
             }
         }
-
     }
-    
 }

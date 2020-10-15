@@ -38,10 +38,10 @@ class HospitalityContract {
         }
 
 
-        guard let startDate = Date(longDate: startDateString),
-        let endDate = Date(longDate:  endDateString),
-        let paymentStartDate = Date(longDate:  paymentStartDateString),
-        let paymentEndDate = Date(longDate:  paymentEndDateString) else {
+        guard let startDate = Date(shortDate: startDateString),
+        let endDate = Date(shortDate:  endDateString),
+        let paymentStartDate = Date(shortDate:  paymentStartDateString),
+        let paymentEndDate = Date(shortDate:  paymentEndDateString) else {
             NSLog("Error initializing HospitalityContract dates.")
             NSLog("\tStart Date = \(startDateString)")
             NSLog("\tEnd Date = \(endDateString)")

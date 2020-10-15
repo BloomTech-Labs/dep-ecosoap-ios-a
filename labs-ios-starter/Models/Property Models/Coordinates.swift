@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Coordinates {
+class Coordinates: Codable {
     var latitude: Double
     var longitude: Double
 

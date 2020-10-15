@@ -31,17 +31,18 @@ class Queries: Request {
                                      .productionReportsByHubId: Queries.productionReportsByHubId]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
-                                                               .allUsers: .user,
+                                                               .allUsers: .users,
                                                                .propertyById: .property,
                                                                .propertiesByUserId: .properties,
                                                                .impactStatsByPropertyId: .impactStats,
+                                                               .impactStatsByHubId: .impactStats,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
                                                                .pickupsByHubId: .pickups,
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
-                                                               .productionReportsByHubId: .properties]
+                                                               .productionReportsByHubId: .productionReports]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -205,13 +206,32 @@ class Queries: Request {
         firstName
         middleName
         lastName
+        address {
+              address1
+              address2
+              city
+              state
+            }
         title
         company
         email
         password
+        role
         phone
         skype
         signupTime
+        hub {
+            id
+            name
+            email
+            phone
+            address {
+                address1
+                city
+                state
+                country
+               }
+             }
         properties {
             id
         }
@@ -476,8 +496,7 @@ class Queries: Request {
     private static func impactStatsByHubId(hubID: String) -> String {
         """
         query {
-          impactStatsByHubId(input: {
-            hubId: "\(hubID)" {
+          impactStatsByHubId(input: { hubId: "\(hubID)" }) {
             impactStats {
               soapRecycled
               linensRecycled
@@ -488,7 +507,6 @@ class Queries: Request {
             }
           }
         }
-
         """
 }
 
@@ -635,6 +653,18 @@ class Queries: Request {
               password
               phone
               skype
+            hub {
+              id
+              name
+              email
+              phone
+              address {
+                address1
+                city
+                state
+                country
+                }
+                }
               address {
                 address1
                 address2
@@ -646,6 +676,7 @@ class Queries: Request {
                 # formattedAddress
               }
               signupTime
+              role
               properties {
                 id
                 name

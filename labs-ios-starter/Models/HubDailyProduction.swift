@@ -11,7 +11,7 @@ import Foundation
 class HubDailyProduction {
     let id: String
     var hub: Hub?
-    let date: Date
+    let date: String
     let barsProduced: Int
     let soapmakersWorked: Int
     let soapmakerHours: Int
@@ -30,14 +30,8 @@ class HubDailyProduction {
             return nil
         }
 
-        guard let date = Date(longDate: dateString) else {
-            NSLog("Failure initializing date")
-            NSLog("Date string: \(dateString)")
-            return nil
-        }
-
         self.id = id
-        self.date = date
+        self.date = dateString
         self.barsProduced = barsProduced
         self.soapmakersWorked = soapmakersWorked
         self.soapmakerHours = soapmakerHours
