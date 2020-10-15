@@ -15,10 +15,12 @@ class Pickup {
     var pickupDate: Date?
     var cartonsById: [String] = []
     var notes: String?
+    var driver: String?
 
     init?(dictionary: [String: Any]) {
 
         guard let id = dictionary["id"] as? String,
+        let driver = dictionary["driver"] as? String,
         let confirmationCode = dictionary["confirmationCode"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
         let status = dictionary["status"] as? String,
@@ -42,6 +44,7 @@ class Pickup {
         self.collectionType = collectionType
         self.status = status
         self.readyDate = readyDate
+        self.driver = driver
 
         self.notes = dictionary["notes"] as? String
 

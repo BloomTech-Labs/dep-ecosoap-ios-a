@@ -10,21 +10,39 @@ import UIKit
 
 class HubAdminPickupDetailViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet var locationEntry: UILabel!
+    @IBOutlet var dateEntry: UILabel!
+    @IBOutlet var timeEntry: UILabel!
+    @IBOutlet var driverEntry: UILabel!
+    @IBOutlet var soapEntry: UILabel!
+    @IBOutlet var paperEnttry: UILabel!
+    @IBOutlet var linensEntry: UILabel!
+    @IBOutlet var bottlesEntry: UILabel!
+    @IBOutlet var notesEntry: UITextView!
+
+    // MARK: - Properties
+    var pickup: Pickup? {
+        didSet {
+            updateViews()
+        }
+    }
+    var backendController: BackendController!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Methods
+    private func updateViews() {
+        guard isViewLoaded else { return }
+        if let pickup = pickup {
+            locationEntry.text = pickup.confirmationCode
+            timeEntry.text = pickup.status
+            notesEntry.text = pickup.notes
+            driverEntry.text = pickup.driver
+        }
     }
-    */
-
 }
