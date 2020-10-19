@@ -180,7 +180,8 @@ extension HubAdminViewController: UITableViewDataSource,  UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HubAdminProductionReportsCell", for: indexPath) as? HubAdminMainTableViewCell else {fatalError("oops")}
-        let report = productionReportArray[indexPath.row]
+        let sortedArray = productionReportArray.sorted { $0.barsProduced < $1.barsProduced }
+        let report = sortedArray[indexPath.row]
         cell.productionReports = report
 
         return cell
