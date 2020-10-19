@@ -17,17 +17,19 @@ class CreateProductionReportInput: Input {
     private var soapPhotos: [String] = []
     private let media: [String] = []
 
+    
+
 
     var formatted: String {
-        var string = """
-            hubId: \(hubId)
-            date: \(date)
+        var string =
+        """
+            hubId: "\(hubId)"
+            date: "\(date)"
             barsProduced: \(barsProduced)
             soapmakersWorked: \(soapmakersWorked)
-            soapmakersHours: \(soapmakersHours)
+            soapmakerHours: \(soapmakersHours)
             soapPhotos: \(soapPhotos)
             media: \(media)
-
         """
 
         return string

@@ -512,7 +512,7 @@ class BackendController {
 
     // MARK: - Create Production Report
     func createProductionReport(input: CreateProductionReportInput, completion: @escaping (Error?) -> Void) {
-        guard let request = Mutator(name: .createProductionReport1, input: input) else {
+        guard let request = Mutator(name: .createProductionReport, input: input) else {
             completion(Errors.RequestInitFail)
             return
         }
