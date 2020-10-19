@@ -21,7 +21,7 @@ class Hub: Codable {
         let name = dictionary["name"] as? String,
         let email = dictionary["email"] as? String,
         let phone = dictionary["phone"] as? String,
-            let addContainer = dictionary["address"] as? [String: Any],
+        let addContainer = dictionary["address"] as? [String: Any],
         let address = Address(dictionary: addContainer) else {
             NSLog("Error unwrapping non-optional Hub properties:")
             NSLog("\tID: \(String(describing: dictionary["id"]))")

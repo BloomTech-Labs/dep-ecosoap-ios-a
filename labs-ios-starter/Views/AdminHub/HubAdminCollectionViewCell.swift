@@ -21,15 +21,18 @@ class HubAdminCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var paperPercentageLabel: UILabel!
 
     // MARK: - Properties
-    var statsTuple: (Int, Int, Int, Int)? 
+    var statsTuple: (Int, Int, Int, Int)? {
+        didSet {
+            updateViews()
+        }
+    }
         
-           
-    
 
     // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupViews()
+        updateViews()
     }
     
     private func setupViews() {

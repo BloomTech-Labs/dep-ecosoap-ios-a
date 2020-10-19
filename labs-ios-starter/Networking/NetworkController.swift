@@ -38,6 +38,7 @@ class BackendController {
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
     var productionReports: [String: HubDailyProduction] = [:]
+    var impactStats: [String: ImpactStats] = [:]
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                                 .properties: BackendController.propertiesParser,
@@ -155,6 +156,7 @@ class BackendController {
         guard let productionReport = HubDailyProduction(dictionary: productionReportContainer) else {
             throw Errors.ObjectInitFail
         }
+
         shared.productionReports[productionReport.id] = productionReport
     }
 
@@ -261,8 +263,6 @@ class BackendController {
                 completion(error)
                 return
             }
-
-
             completion(nil)
         }
     }
@@ -317,7 +317,7 @@ class BackendController {
             completion(Errors.RequestInitFail)
             return
         }
-        requestAPI(with: request) { (_, error) in
+        requestAPI(with: request) { (data, error) in
             if let error = error {
                 completion(error)
                 return
@@ -385,44 +385,24 @@ class BackendController {
                 completion(NSError(domain: "Error initializing ImpactStats", code: 0, userInfo: nil))
                 return
             }
-
             property.impact = stats
             completion(nil)
         }
     }
 
     // MARK: - Impact Stats by Hub Id
-    func impactStatsByHubId(id: String, completion: @escaping (Error?) -> Void) {
+    func impactStatsByHubId(id: String, completion: @escaping (Any? ,Error?) -> Void) {
         guard let request = Queries(name: .impactStatsByHubId, id: id) else {
-            completion(Errors.RequestInitFail)
+            completion(nil, Errors.RequestInitFail)
             return
         }
 
         requestAPI(with: request) { (data, error) in
             if let error = error {
-                completion(error)
+                completion(nil, error)
                 return
             }
-
-            guard let hub = self.hubs[id] else {
-                NSLog("This hub is not currently stored into memory. Can't store impact stats.")
-                completion(NSError(domain: "Error locating hub.", code: 0, userInfo: nil))
-                return
-            }
-
-            guard let container = data as? [String: Any] else {
-                NSLog("Couldn't unwrap data as dictionary for initializing an ImpactStats object.")
-                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
-                return
-            }
-            
-            guard let stats = ImpactStats(dictionary: container) else {
-                completion(NSError(domain: "Error initializing ImpactStats", code: 0, userInfo: nil))
-                return
-            }
-
-            hub.impact = stats
-            completion(nil)
+            completion(data, nil)
         }
     }
 
