@@ -51,11 +51,13 @@ class UpdateProductionReportInput: Input {
                   hub: Hub?,
                   date: Date,
                   soapmakersWorked: Int?,
-                  soapmakerHours: Int?) {
+                  soapmakerHours: Int?,
+                  soapPhotos: [String]) {
         self.id = id
         self.hub = hub
         self.date = date
         self.soapmakersWorked = soapmakersWorked
         self.soapmakerHours = soapmakerHours
+        
     }
 }

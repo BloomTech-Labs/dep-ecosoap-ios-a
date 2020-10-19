@@ -28,11 +28,17 @@ class HubAdminNewProductionReportViewController: UIViewController {
     
     public var imagePicker: UIImagePickerController?  // save reference to it
     
+    private let controller = BackendController.shared
+    
     var imageURL: String? // this contains the url for the image that was uploaded
+    
+    var placeHolderURL: String = "https://www.fillmurray.com/1000/768"
    
     var keyboardHeight: CGFloat?
     
     var keyboardIsOpen = true
+    
+    var productionReport: CreateProductionReportInput?
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -60,6 +66,14 @@ class HubAdminNewProductionReportViewController: UIViewController {
         uploadProgressBar.alpha = 0
         uploadProgressPercentLabel.alpha = 0
         
+        
+        func integer(from textField: UITextField) -> Int {
+            guard let text = textField.text, let number = Int(text) else {
+                return 0
+            }
+            return number
+        }
+        
   
        
     }
@@ -75,9 +89,31 @@ class HubAdminNewProductionReportViewController: UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        // TO DO
+        guard let soapWorked = Int(soapWorkersTextField.text ?? "0"),
+              let barsProduced = Int(barsProducedTextFIeld.text ?? "0"),
+              let soapHours = Int(hoursWorkedTextField.text ?? "0")
+              
+              else { return }
+   
+        guard let hubId = controller.loggedInUser.hub?.id else {return}
+        
+        productionReport = CreateProductionReportInput(hubId: hubId, date: Date(), barsProduced: barsProduced, soapmakersWorked: soapWorked, soapmakersHours: soapHours, soapPhotos: [placeHolderURL])
+        
+       
+        
+        controller.createProductionReport(input: productionReport! ) { (error) in
+            
+            if let error = error {
+                print("Error creating Production Report: \(error)")
+                return
+            }
+            
+            
+
+        }
+        self.dismiss(animated: true, completion: nil)
+       
     }
-    
     private func presentPhotoLibraryActionSheet() {
         // make sure imagePicker is nill
         if self.imagePicker != nil {
@@ -143,9 +179,10 @@ class HubAdminNewProductionReportViewController: UIViewController {
     
     /// uploads an image and returns a URL of it's location in the imageURL property in the CreatePlantVC
     private func uploadImage(){
+        
+        
     
-        //TODO
-    
+       
     }
     
     /// resets the whole uploading an image process

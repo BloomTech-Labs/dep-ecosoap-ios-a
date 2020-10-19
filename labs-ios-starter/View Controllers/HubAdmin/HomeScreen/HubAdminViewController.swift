@@ -84,6 +84,7 @@ class HubAdminViewController: UIViewController {
 
     private func updateViewsProductionReports() {
         guard let selectedHub = controller.loggedInUser.hub else { return }
+        productionReportArray = []
         controller.productionReportsByHubId(hubId: selectedHub.id) { (error) in
             if let error = error {
                 print("Error fetching production reports \(error)")
