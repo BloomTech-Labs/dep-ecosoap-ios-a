@@ -24,7 +24,7 @@ class CreateProductionReportInput: Input {
         var string =
         """
             hubId: "\(hubId)"
-            date: "\(date)"
+        date: "\(date.asShortDateString())"
             barsProduced: \(barsProduced)
             soapmakersWorked: \(soapmakersWorked)
             soapmakerHours: \(soapmakersHours)

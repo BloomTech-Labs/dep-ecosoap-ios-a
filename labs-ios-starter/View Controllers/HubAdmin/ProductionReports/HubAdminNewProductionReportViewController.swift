@@ -40,7 +40,7 @@ class HubAdminNewProductionReportViewController: UIViewController {
 
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d yyyy"
+        dateFormatter.dateFormat = "yyyy-dd-MM"
         return dateFormatter
     }()
 
