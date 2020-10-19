@@ -42,9 +42,16 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
     // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        setUpViews()
         fetchAll()
+    }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    //MARK: - Methods
+    private func setUpViews() {
         nameTexfField.text = authUser?.name
         companyTextField.text = authUser?.company
         addressTextField.text = authUser?.address?.city
@@ -59,18 +66,16 @@ class HubSettingsViewController: UIViewController, UITextFieldDelegate {
         self.editButton.setTitle("Edit", for: .normal)
         self.editButton.setTitle("Save", for: .selected)
 
+        self.hideKeyboardWhenViewTapped()
+
         guard let role = authUser?.role else {return}
         print(role)
 
         guard let hub = authUser?.hub?.id else {return}
         print(hub)
+
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    //MARK: - Methods
     private func fetchAll() {
         controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
             if let error = error {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class HubAdminEditProductionReportViewController: UIViewController {
     
@@ -26,7 +27,6 @@ class HubAdminEditProductionReportViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         updateViews()
     }
 
@@ -34,11 +34,22 @@ class HubAdminEditProductionReportViewController: UIViewController {
 
     func updateViews() {
         guard let productionReport = productionReport else { return }
+        
         barsProducedLabel.text = String(productionReport.barsProduced)
         soapMakersWorkedLabel.text = String(productionReport.soapmakersWorked)
         hoursWorkedLabel.text = String(productionReport.soapmakerHours)
         urlString = productionReport.soapPhotos[0]
-        guard let imageURL = URL(string: "https://www.fillmurray.com/1000/768") else { return }
+
+        guard let urlString = urlString else { return }
+
+        if urlString.contains("http:"){
+            imageURL = URL(string: "https://www.fillmurray.com/1000/768")
+        } else {
+            imageURL = URL(string: urlString)
+        }
+
+        guard let imageURL = imageURL else { return }
+
         selectedImage.load(url: imageURL)
     }
     

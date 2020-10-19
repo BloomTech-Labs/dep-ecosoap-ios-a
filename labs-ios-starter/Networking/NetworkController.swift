@@ -391,18 +391,18 @@ class BackendController {
     }
 
     // MARK: - Impact Stats by Hub Id
-    func impactStatsByHubId(id: String, completion: @escaping (Error?) -> Void) {
+    func impactStatsByHubId(id: String, completion: @escaping (Any? ,Error?) -> Void) {
         guard let request = Queries(name: .impactStatsByHubId, id: id) else {
-            completion(Errors.RequestInitFail)
+            completion(nil, Errors.RequestInitFail)
             return
         }
 
         requestAPI(with: request) { (data, error) in
             if let error = error {
-                completion(error)
+                completion(nil, error)
                 return
             }
-            completion(nil)
+            completion(data, nil)
         }
     }
 
