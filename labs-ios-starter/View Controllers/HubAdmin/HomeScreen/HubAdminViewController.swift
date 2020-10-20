@@ -84,6 +84,7 @@ class HubAdminViewController: UIViewController {
 
     private func updateViewsProductionReports() {
         guard let selectedHub = controller.loggedInUser.hub else { return }
+        productionReportArray = []
         controller.productionReportsByHubId(hubId: selectedHub.id) { (error) in
             if let error = error {
                 print("Error fetching production reports \(error)")
@@ -92,6 +93,10 @@ class HubAdminViewController: UIViewController {
             for productionReport in self.controller.productionReports.values {
                 self.productionReportArray.append(productionReport)
             }
+
+            self.productionReportArray.sort (by: { (img0: HubDailyProduction, img1: HubDailyProduction) -> Bool in
+                return img0 > img1
+            })
 
             DispatchQueue.main.async {
                 self.tableView.reloadData()

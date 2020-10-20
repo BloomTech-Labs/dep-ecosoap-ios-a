@@ -30,7 +30,7 @@ enum MutationName: String {
     case createPayment
     case updateUserProfile
     case updateProperty
-    case createProductionReport1
+    case createProductionReport
     case updateProductionReport
     case deleteProductionReport
 }

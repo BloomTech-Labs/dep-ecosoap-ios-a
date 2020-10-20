@@ -52,6 +52,7 @@ class BackendController {
                                                                 .payments: BackendController.paymentsParser,
                                                                 .productionReports: BackendController.productionReportsParser,
                                                                 .productionReport: BackendController.productionReportParser(data:)
+                                                        
     ]
 
     // MARK: Property Parsers
@@ -511,7 +512,21 @@ class BackendController {
 
     // MARK: - Create Production Report
     func createProductionReport(input: CreateProductionReportInput, completion: @escaping (Error?) -> Void) {
-        guard let request = Mutator(name: .createProductionReport1, input: input) else {
+        guard let request = Mutator(name: .createProductionReport, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    // MARK: - Update Production Report
+    func updateProductionReport(input: UpdateProductionReportInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updateProductionReport, input: input) else {
             completion(Errors.RequestInitFail)
             return
         }

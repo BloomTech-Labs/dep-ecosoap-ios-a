@@ -19,7 +19,7 @@ class Mutator: Request {
     private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
                                      .updatePickup: Mutator.updatePickup,
                                      .cancelPickup: Mutator.cancelPickup,
-                                     .createProductionReport1: Mutator.createProductionReport,
+                                     .createProductionReport: Mutator.createProductionReport,
                                      .updateProductionReport: Mutator.updateProductionReport,
                                      .deleteProductionReport: Mutator.deleteProductionReport,
                                      .createPayment: Mutator.createPayment,
@@ -29,7 +29,7 @@ class Mutator: Request {
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .createPayment: .payment,
-                                                                  .createProductionReport1: .productionReport,
+                                                                  .createProductionReport: .productionReport,
                                                                   .updateProductionReport: .productionReport,
                                                                   .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
@@ -55,7 +55,6 @@ class Mutator: Request {
     }
 
 
-
     // MARK: - Create Production Report
     private static func createProductionReport(input: Input) -> String? {
         guard let productionReport = input as? CreateProductionReportInput else {
@@ -65,7 +64,7 @@ class Mutator: Request {
 
         return """
         mutation {
-        createProductionReport(input: {"\(productionReport.formatted)"}) {
+        createProductionReport(input: {\(productionReport.formatted)}) {
             productionReport {
               id
               hub {

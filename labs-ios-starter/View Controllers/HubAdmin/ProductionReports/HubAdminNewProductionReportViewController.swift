@@ -10,7 +10,7 @@ import UIKit
 
 class HubAdminNewProductionReportViewController: UIViewController {
     
-    
+    //MARK: - Outlets
     @IBOutlet weak var selectedImage: UIImageView!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var addAPhotoLabel: UILabel!
@@ -25,25 +25,28 @@ class HubAdminNewProductionReportViewController: UIViewController {
     @IBOutlet weak var uploadProgressBar: CustomProgressView!
     
     @IBOutlet weak var uploadProgressPercentLabel: UILabel!
-    
+
+    // MARK: - Properties
     public var imagePicker: UIImagePickerController?  // save reference to it
     
+    private let controller = BackendController.shared
+    
     var imageURL: String? // this contains the url for the image that was uploaded
-   
+    var placeHolderURL: String = "https://www.fillmurray.com/1000/768"
     var keyboardHeight: CGFloat?
-    
     var keyboardIsOpen = true
-    
+    var productionReport: CreateProductionReportInput?
+    var date = Date()
+
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d yyyy"
+        dateFormatter.dateFormat = "yyyy-dd-MM"
         return dateFormatter
     }()
-    
+
+    //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     deinit {
@@ -52,32 +55,60 @@ class HubAdminNewProductionReportViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
-    /// sets up the view to their initial state
+
+    //MARK: - Methods
     private func setupInitialViews() {
         deactivateButton(uploadThisImageButton)
         deactivateButton(removeThisImageButton)
         uploadProgressBar.alpha = 0
         uploadProgressPercentLabel.alpha = 0
         
-  
-       
+        func integer(from textField: UITextField) -> Int {
+            guard let text = textField.text, let number = Int(text) else {
+                return 0
+            }
+            return number
+        }
     }
-    
+
+    // MARK: - Actions
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: false)
     }
     
- 
+
     @IBAction func addPhotoButtonPressed(_ sender: UIButton) {
         presentPhotoLibraryActionSheet()
     }
+
+    @IBAction func datePickerChanged(_ sender: Any) {
+        date = datePicker.date
+    }
+
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        // TO DO
+        guard let soapWorked = Int(soapWorkersTextField.text ?? "0"),
+            let barsProduced = Int(barsProducedTextFIeld.text ?? "0"),
+            let soapHours = Int(hoursWorkedTextField.text ?? "0")
+
+            else { return }
+
+        guard let hubId = controller.loggedInUser.hub?.id else {return}
+        
+        productionReport = CreateProductionReportInput(hubId: hubId, date: date, barsProduced: barsProduced, soapmakersWorked: soapWorked, soapmakersHours: soapHours, soapPhotos: [placeHolderURL])
+
+        controller.createProductionReport(input: productionReport! ) { (error) in
+            
+            if let error = error {
+                print("Error creating Production Report: \(error)")
+                return
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
+
     }
-    
+
     private func presentPhotoLibraryActionSheet() {
         // make sure imagePicker is nill
         if self.imagePicker != nil {
@@ -132,8 +163,6 @@ class HubAdminNewProductionReportViewController: UIViewController {
             self.keyboardIsOpen = true
         }
     }
-    
-    
 
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -143,9 +172,8 @@ class HubAdminNewProductionReportViewController: UIViewController {
     
     /// uploads an image and returns a URL of it's location in the imageURL property in the CreatePlantVC
     private func uploadImage(){
-    
-        //TODO
-    
+        
+
     }
     
     /// resets the whole uploading an image process
@@ -192,19 +220,6 @@ class HubAdminNewProductionReportViewController: UIViewController {
             self.keyboardHeight = keyboardRectangle.height
         }
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 

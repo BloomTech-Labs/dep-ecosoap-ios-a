@@ -8,7 +8,15 @@
 
 import Foundation
 
-class HubDailyProduction {
+class HubDailyProduction: Comparable {
+    static func < (lhs: HubDailyProduction, rhs: HubDailyProduction) -> Bool {
+        return lhs.barsProduced < rhs.barsProduced
+    }
+
+    static func == (lhs: HubDailyProduction, rhs: HubDailyProduction) -> Bool {
+        lhs.barsProduced == rhs.barsProduced
+    }
+
     let id: String
     var hub: Hub?
     let date: String
