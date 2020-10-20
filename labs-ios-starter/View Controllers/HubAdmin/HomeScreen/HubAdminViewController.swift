@@ -94,6 +94,10 @@ class HubAdminViewController: UIViewController {
                 self.productionReportArray.append(productionReport)
             }
 
+            self.productionReportArray.sort (by: { (img0: HubDailyProduction, img1: HubDailyProduction) -> Bool in
+                return img0 > img1
+            })
+
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -180,8 +184,7 @@ extension HubAdminViewController: UITableViewDataSource,  UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HubAdminProductionReportsCell", for: indexPath) as? HubAdminMainTableViewCell else {fatalError("oops")}
-        let sortedArray = productionReportArray.sorted { $0.barsProduced < $1.barsProduced }
-        let report = sortedArray[indexPath.row]
+        let report = productionReportArray[indexPath.row]
         cell.productionReports = report
 
         return cell
