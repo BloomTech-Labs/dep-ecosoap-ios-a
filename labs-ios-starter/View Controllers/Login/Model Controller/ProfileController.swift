@@ -13,6 +13,7 @@ class ProfileController {
 
     // MARK: - Singleton
     static let shared = ProfileController()
+    static var authID: String = ""
 
     // MARK: - Properties
     let oktaAuth = OktaAuth(baseURL: URL(string: "https://dev-668428.okta.com/")!,
@@ -82,6 +83,9 @@ class ProfileController {
             }
             return
         }
+                
+        guard let oktaID = oktaCredentials.userID else { return }
+        ProfileController.authID = oktaID
         
         getSingleProfile(userID) { (profile) in
             self.authenticatedUserProfile = profile
