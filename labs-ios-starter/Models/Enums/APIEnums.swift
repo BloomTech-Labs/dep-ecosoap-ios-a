@@ -54,3 +54,10 @@ enum Status: String {
     case COMPLETE
     case CANCELLED
 }
+
+enum Role: String {
+    case user
+    case partner
+    case hubAdmin
+    case admin
+}
