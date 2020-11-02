@@ -13,6 +13,7 @@ class LoginViewControllerStarter: UIViewController {
     
     // MARK: - Properties
     let profileController = ProfileController.shared
+    let backendController = BackendController.shared
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -255,7 +256,8 @@ class LoginViewControllerStarter: UIViewController {
     
     // MARK: Notification Handling
     private func checkForExistingProfile(with notification: Notification) {
-        checkForExistingProfile()
+//        checkForExistingProfile()
+        self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
     }
     
     private func checkForExistingProfile() {
@@ -264,11 +266,22 @@ class LoginViewControllerStarter: UIViewController {
             guard let self = self,
                 self.presentedViewController == nil else { return }
             
-            if exists {
-                self.performSegue(withIdentifier: "HubAdminMainSegue", sender: nil)
-            } else {
-                self.performSegue(withIdentifier: "ModalAddProfile", sender: nil)
+            guard let role = self.backendController.loggedInUser.role else { return }
+            
+            if role == "ADMIN" {
+                self.performSegue(withIdentifier: "AdminModalSegue", sender: nil)
             }
+            else if role == "HUB_ADMIN" {
+                self.performSegue(withIdentifier: "HubAdminMainSegue", sender: nil)
+            }
+            else if role == "HUB_USER" {
+                self.performSegue(withIdentifier: "HubUserMainSegue", sender: nil)
+            }
+            else if role == "HOTEL" {
+                self.performSegue(withIdentifier: "HotelMainSegue", sender: nil)
+                
+            }
+            
         }
     }
     
