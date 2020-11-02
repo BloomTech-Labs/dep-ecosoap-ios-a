@@ -16,7 +16,7 @@ class ProfileController {
     static var authID: String = ""
 
     // MARK: - Properties
-    let oktaAuth = OktaAuth(baseURL: URL(string: "https://dev-668428.okta.com")!,
+    let oktaAuth = OktaAuth(baseURL: URL(string: "https://dev-668428.okta.com/")!,
                             clientID: "0oapaqacafrGUTfKx4x6",
                             redirectURI: "labs://scaffolding/implicit/callback")
     
