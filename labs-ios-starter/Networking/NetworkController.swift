@@ -207,6 +207,7 @@ class BackendController {
     }
 
     // MARK: - Queries -
+    
 
     // MARK: - Properties by User Id
     func propertiesByUserId(id: String, completion: @escaping (Error?) -> Void) {

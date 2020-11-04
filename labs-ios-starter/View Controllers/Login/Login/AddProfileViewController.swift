@@ -58,9 +58,9 @@ class AddProfileViewController: UIViewController {
         activityIndicator.startAnimating()
         
         profileController.addProfile(profile) { [weak self] in
-            
+
             guard let self = self else { return }
-            
+
             self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: {
                 self.delegate?.profileWasAdded()
