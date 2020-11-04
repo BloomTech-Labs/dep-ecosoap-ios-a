@@ -66,12 +66,12 @@ class LoginViewControllerStarter: UIViewController {
     private lazy var forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Forgot Password?", for: .normal)
-        button.setTitleColor(UIColor(named: "ESB Green"), for: .normal)
+        button.setTitle("Sign up", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
         return button
     }()
-    ///update
+
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class LoginViewControllerStarter: UIViewController {
         button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         return button
     }()
-    //updated
+    
     private lazy var usernameTextField: UITextField = {
         let textfield = UITextField()
         let borderColor = UIColor.white
@@ -98,7 +98,7 @@ class LoginViewControllerStarter: UIViewController {
         textfield.attributedPlaceholder = NSAttributedString(string: "  Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textfield
     }()
-    //updated
+    
     private lazy var passwordTextField: UITextField = {
         let textfield = UITextField()
         let borderColor = UIColor.white
@@ -123,7 +123,7 @@ class LoginViewControllerStarter: UIViewController {
         stackView.spacing = 8
         return stackView
     }()
-    //updated
+    
     private lazy var textfieldStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -133,7 +133,7 @@ class LoginViewControllerStarter: UIViewController {
         stackView.spacing = 8
         return stackView
     }()
-    //updated
+    
     private lazy var usernameStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -143,7 +143,7 @@ class LoginViewControllerStarter: UIViewController {
         stackView.spacing = 0
         return stackView
     }()
-    //updated
+    
     private lazy var passwordStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -153,21 +153,21 @@ class LoginViewControllerStarter: UIViewController {
         stackView.spacing = 0
         return stackView
     }()
-    //updated
+    
     private lazy var usernameView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         return view
     }()
-    //updated
+    
     private lazy var passwordView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         return view
     }()
-    //updated
+    
     private lazy var panelView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -187,7 +187,6 @@ class LoginViewControllerStarter: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         view.backgroundColor = UIColor(named: "ESB Green")
         
-        //updated
         // Labels
         infoLabelStackView.addArrangedSubview(titleLabel)
         view.addSubview(infoLabelStackView)
@@ -195,14 +194,12 @@ class LoginViewControllerStarter: UIViewController {
         infoLabelStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         infoLabelStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
 
-        //updated
         // Panel View
         view.addSubview(panelView)
         panelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         panelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         panelView.topAnchor.constraint(equalTo: infoLabelStackView.bottomAnchor, constant: 20).isActive = true
         
-        //updated
         // Textfields
         usernameStackView.addArrangedSubview(usernameTextField)
         usernameStackView.addArrangedSubview(usernameView)
@@ -215,7 +212,6 @@ class LoginViewControllerStarter: UIViewController {
         textfieldStackView.trailingAnchor.constraint(equalTo: panelView.trailingAnchor, constant: -20).isActive = true
         textfieldStackView.topAnchor.constraint(equalTo: panelView.topAnchor, constant: 20).isActive = true
         
-        //updated
         // Login Button
         panelView.addSubview(loginButton)
         loginButton.leadingAnchor.constraint(equalTo: panelView.leadingAnchor, constant: 20).isActive = true
@@ -223,7 +219,6 @@ class LoginViewControllerStarter: UIViewController {
         loginButton.bottomAnchor.constraint(equalTo: panelView.bottomAnchor, constant: -20).isActive = true
         loginButton.topAnchor.constraint(equalTo: textfieldStackView.bottomAnchor, constant: 20).isActive = true
         
-        //updated
         // Forgot Password Button
         view.addSubview(forgotPasswordButton)
         forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
