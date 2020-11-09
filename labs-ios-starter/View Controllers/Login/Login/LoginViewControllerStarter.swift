@@ -211,9 +211,12 @@ class LoginViewControllerStarter: UIViewController {
     
     // MARK: Notification Handling
     private func checkForExistingProfile(with notification: Notification) {
+        //TODO: Migrate role check into this notification func.
         checkForExistingProfile()
         self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
     }
+    
+    // MARK: Navigation
     
     private func checkForExistingProfile() {
         profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
@@ -241,18 +244,4 @@ class LoginViewControllerStarter: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ModalAddProfile" {
-            guard let addProfileVC = segue.destination as? AddProfileViewController else { return }
-            addProfileVC.delegate = self
-        }
-    }
-}
-
-// MARK: - Add Profile Delegate
-extension LoginViewControllerStarter: AddProfileDelegate {
-    func profileWasAdded() {
-        checkForExistingProfile()
-    }
 }
