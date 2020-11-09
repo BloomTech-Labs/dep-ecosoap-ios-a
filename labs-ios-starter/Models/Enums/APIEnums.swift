@@ -74,3 +74,8 @@ enum CompanyType: String {
     case LOCAL_MARKET
     case OTHER
 }
+
+enum SponsporshipType: String {
+    case CASH
+    case SOAP
+}
