@@ -214,7 +214,7 @@ class LoginViewControllerStarter: UIViewController {
             
             guard let role = self.profileController.authenticatedUserProfile?.role else { return }
             if role == "ADMIN" {
-                self.performSegue(withIdentifier: "AdminModalSegue", sender: nil)
+                self.performSegue(withIdentifier: "MainAdminShowSegue", sender: nil)
             }
             else if role == "HUB_ADMIN" {
                 self.performSegue(withIdentifier: "HubAdminMainSegue", sender: nil)

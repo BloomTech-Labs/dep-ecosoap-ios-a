@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: MVP!: Load the authenticated user profile and display relevant information in the view.
+
 class AdminProfileViewController: UIViewController {
     
     //MARK:- Outlets
@@ -30,10 +32,14 @@ class AdminProfileViewController: UIViewController {
     
     @IBAction func addProfileTapped(_ sender: Any) {
     }
+    
+    //TODO: No profile needs to be added since we are not adding anything on the app side, only updating
     @IBAction func editProfileTapped(_ sender: Any) {
+        //TODO: Segue to the ProfileDetailVC 
     }
     @IBAction func deleteProfileTapped(_ sender: Any) {
     }
+    //TODO: Not sure if we need delete functionality here necessarily? Probably something that is done on the same website or through e-mail to server admin
     
     
     /*
