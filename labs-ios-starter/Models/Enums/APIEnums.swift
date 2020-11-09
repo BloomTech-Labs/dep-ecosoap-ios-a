@@ -75,7 +75,7 @@ enum CompanyType: String {
     case OTHER
 }
 
-enum SponsporshipType: String {
+enum SponsorshipType: String {
     case CASH
     case SOAP
 }

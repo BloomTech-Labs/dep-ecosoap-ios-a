@@ -66,7 +66,7 @@ class CorporateSponsor {
         self.contactName = contactName
         self.contactInfo = contactInfo
         self.address = address
-        self.sponsorshipType = SponsporshipType(rawValue: sponsorshipType)
+        self.sponsorshipType = SponsorshipType(rawValue: sponsorshipType)
         self.cashValue = cashValue
         self.soapBars = soapBars
         self.soapValue = soapValue
