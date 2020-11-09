@@ -61,3 +61,16 @@ enum Role: String {
     case hubAdmin
     case admin
 }
+
+enum CompanyType: String {
+    case NGO_INTERNATIONAL
+    case NGO_LOCAL
+    case CORPORATION_INTERNATIONAL
+    case CORPORATION_LOCAL
+    case FOR_PROFIT_OTHER
+    case SCHOOL
+    case ORPHANAGE
+    case HEALTHCARE_FACILITY
+    case LOCAL_MARKET
+    case OTHER
+}
