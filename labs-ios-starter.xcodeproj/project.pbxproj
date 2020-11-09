@@ -92,6 +92,8 @@
 		99C04DC225534198000CD14A /* AdminProductReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DC125534198000CD14A /* AdminProductReport.storyboard */; };
 		99E7697B2559B75A003F9456 /* TeamMemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7697A2559B75A003F9456 /* TeamMemberListVC.swift */; };
 		99E7697E2559B786003F9456 /* TeamMemberDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7697D2559B786003F9456 /* TeamMemberDetailVC.swift */; };
+		99E769872559FDDD003F9456 /* AdminHubProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E769862559FDDD003F9456 /* AdminHubProfileVC.swift */; };
+		99E7698B2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7698A2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
 		9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A8D24F5EA1600FF204D /* Mutator.swift */; };
@@ -221,6 +223,8 @@
 		99C04DC125534198000CD14A /* AdminProductReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminProductReport.storyboard; sourceTree = "<group>"; };
 		99E7697A2559B75A003F9456 /* TeamMemberListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberListVC.swift; sourceTree = "<group>"; };
 		99E7697D2559B786003F9456 /* TeamMemberDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberDetailVC.swift; sourceTree = "<group>"; };
+		99E769862559FDDD003F9456 /* AdminHubProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileVC.swift; sourceTree = "<group>"; };
+		99E7698A2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileUpdateVC.swift; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9C364A8D24F5EA1600FF204D /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				99E769852559FD82003F9456 /* AdminHubProfile */,
 				99E769792559B64B003F9456 /* TeamMembers */,
 				DDB69AFB25536BA40024A756 /* DIstribution */,
 				B444C586255351A600D98B5C /* AdminViewControllers */,
@@ -634,6 +639,15 @@
 			path = TeamMembers;
 			sourceTree = "<group>";
 		};
+		99E769852559FD82003F9456 /* AdminHubProfile */ = {
+			isa = PBXGroup;
+			children = (
+				99E769862559FDDD003F9456 /* AdminHubProfileVC.swift */,
+				99E7698A2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift */,
+			);
+			path = AdminHubProfile;
+			sourceTree = "<group>";
+		};
 		9C364A8F24F60E4F00FF204D /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +854,7 @@
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
 				13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
+				99E7698B2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift in Sources */,
 				13E0E39F24F819BC008AE0F8 /* PickupCartonTableViewCell.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				B444C5842553519300D98B5C /* AdminProfileViewController.swift in Sources */,
@@ -914,6 +929,7 @@
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
 				79D835852538BB2D0097C9FB /* HubAdminEditDateTableViewCell.swift in Sources */,
 				18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */,
+				99E769872559FDDD003F9456 /* AdminHubProfileVC.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
 				79D835672538B9480097C9FB /* HubAdminEditPickupViewController.swift in Sources */,
 				FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */,
