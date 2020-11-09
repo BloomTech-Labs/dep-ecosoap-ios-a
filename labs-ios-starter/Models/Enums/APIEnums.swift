@@ -56,10 +56,10 @@ enum Status: String {
 }
 
 enum Role: String {
-    case user
-    case partner
-    case hubAdmin
-    case admin
+    case user =  "HUB_USER"
+    case partner = "HOTEL"
+    case hubAdmin = "HUB_ADMIN"
+    case admin = "ADMIN"
 }
 
 enum CompanyType: String {
