@@ -9,6 +9,8 @@
 import UIKit
 import OktaAuth
 
+//MARK: Initial entry to application
+
 class LoginViewControllerStarter: UIViewController {
     
     // MARK: - Properties
@@ -30,11 +32,6 @@ class LoginViewControllerStarter: UIViewController {
                                                queue: .main,
                                                using: alertUserOfExpiredCredentials)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkForExistingProfile()
     }
     
     private lazy var titleLabel: UILabel = {
@@ -209,24 +206,13 @@ class LoginViewControllerStarter: UIViewController {
         }
     }
     
-    // MARK: Notification Handling
+    // MARK: Notification Handling / Navigation
     private func checkForExistingProfile(with notification: Notification) {
-        //TODO: Migrate role check into this notification func.
-        checkForExistingProfile()
-        self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
-    }
-    
-    // MARK: Navigation
-    
-    private func checkForExistingProfile() {
+        
         profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
-            
-            guard let self = self,
-                self.presentedViewController == nil else { return }
+            guard let self = self, self.presentedViewController == nil else { return }
             
             guard let role = self.profileController.authenticatedUserProfile?.role else { return }
-            print(role)
-            
             if role == "ADMIN" {
                 self.performSegue(withIdentifier: "AdminModalSegue", sender: nil)
             }
@@ -239,9 +225,9 @@ class LoginViewControllerStarter: UIViewController {
             else if role == "HOTEL" {
                 self.performSegue(withIdentifier: "HotelMainSegue", sender: nil)
                 
+            } else {
+            self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
             }
-            
         }
     }
-    
 }
