@@ -9,6 +9,8 @@
 import UIKit
 import OktaAuth
 
+//MARK: Initial entry to application
+
 class LoginViewControllerStarter: UIViewController {
     
     // MARK: - Properties
@@ -82,36 +84,6 @@ class LoginViewControllerStarter: UIViewController {
         button.layer.cornerRadius = 8
         button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         return button
-    }()
-    
-    private lazy var usernameTextField: UITextField = {
-        let textfield = UITextField()
-        let borderColor = UIColor.white
-        
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.layer.borderColor = borderColor.cgColor
-        textfield.layer.borderWidth = 1.0
-        textfield.textContentType = .username
-        textfield.clearButtonMode = .whileEditing
-        textfield.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        textfield.layer.cornerRadius = 8
-        textfield.attributedPlaceholder = NSAttributedString(string: "  Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        return textfield
-    }()
-    
-    private lazy var passwordTextField: UITextField = {
-        let textfield = UITextField()
-        let borderColor = UIColor.white
-        
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.layer.borderColor = borderColor.cgColor
-        textfield.layer.borderWidth = 1.0
-        textfield.textContentType = .password
-        textfield.clearButtonMode = .whileEditing
-        textfield.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        textfield.layer.cornerRadius = 8
-        textfield.attributedPlaceholder = NSAttributedString(string: "  Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        return textfield
     }()
     
     private lazy var infoLabelStackView: UIStackView = {
@@ -201,9 +173,7 @@ class LoginViewControllerStarter: UIViewController {
         panelView.topAnchor.constraint(equalTo: infoLabelStackView.bottomAnchor, constant: 20).isActive = true
         
         // Textfields
-        usernameStackView.addArrangedSubview(usernameTextField)
         usernameStackView.addArrangedSubview(usernameView)
-        passwordStackView.addArrangedSubview(passwordTextField)
         passwordStackView.addArrangedSubview(passwordView)
         textfieldStackView.addArrangedSubview(usernameStackView)
         textfieldStackView.addArrangedSubview(passwordStackView)
@@ -236,22 +206,15 @@ class LoginViewControllerStarter: UIViewController {
         }
     }
     
-    // MARK: Notification Handling
+    // MARK: Notification Handling / Navigation
     private func checkForExistingProfile(with notification: Notification) {
-//        checkForExistingProfile()
-        self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
-    }
-    
-    private func checkForExistingProfile() {
+        
         profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
+            guard let self = self, self.presentedViewController == nil else { return }
             
-            guard let self = self,
-                self.presentedViewController == nil else { return }
-            
-            guard let role = self.backendController.loggedInUser.role else { return }
-            
+            guard let role = self.profileController.authenticatedUserProfile?.role else { return }
             if role == "ADMIN" {
-                self.performSegue(withIdentifier: "AdminModalSegue", sender: nil)
+                self.performSegue(withIdentifier: "MainAdminShowSegue", sender: nil)
             }
             else if role == "HUB_ADMIN" {
                 self.performSegue(withIdentifier: "HubAdminMainSegue", sender: nil)
@@ -262,23 +225,9 @@ class LoginViewControllerStarter: UIViewController {
             else if role == "HOTEL" {
                 self.performSegue(withIdentifier: "HotelMainSegue", sender: nil)
                 
+            } else {
+            self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
             }
-            
         }
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ModalAddProfile" {
-            guard let addProfileVC = segue.destination as? AddProfileViewController else { return }
-            addProfileVC.delegate = self
-        }
-    }
-}
-
-// MARK: - Add Profile Delegate
-extension LoginViewControllerStarter: AddProfileDelegate {
-    func profileWasAdded() {
-        checkForExistingProfile()
     }
 }
