@@ -56,8 +56,26 @@ enum Status: String {
 }
 
 enum Role: String {
-    case user
-    case partner
-    case hubAdmin
-    case admin
+    case user =  "HUB_USER"
+    case partner = "HOTEL"
+    case hubAdmin = "HUB_ADMIN"
+    case admin = "ADMIN"
+}
+
+enum CompanyType: String {
+    case NGO_INTERNATIONAL
+    case NGO_LOCAL
+    case CORPORATION_INTERNATIONAL
+    case CORPORATION_LOCAL
+    case FOR_PROFIT_OTHER
+    case SCHOOL
+    case ORPHANAGE
+    case HEALTHCARE_FACILITY
+    case LOCAL_MARKET
+    case OTHER
+}
+
+enum SponsorshipType: String {
+    case CASH
+    case SOAP
 }

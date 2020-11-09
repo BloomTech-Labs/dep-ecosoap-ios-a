@@ -664,7 +664,7 @@ class BackendController {
                     return
                 }
 
-                var queryContainer:[String: Any]?
+                var queryContainer: [String: Any]?
 
                 let payloadString = request.payload.rawValue
 
