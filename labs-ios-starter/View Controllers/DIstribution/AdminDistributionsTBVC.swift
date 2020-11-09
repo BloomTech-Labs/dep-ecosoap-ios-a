@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminDistributionsViewController: UIViewController {
+class AdminDistributionsTBVC: UIViewController {
     
     // MARK: - Properties
     @IBOutlet weak var newButton: UIButton!
@@ -47,7 +47,7 @@ class AdminDistributionsViewController: UIViewController {
 }
 
 // MARK: - TableView DataSource & Delegate
-extension AdminDistributionsViewController: UITableViewDelegate, UITableViewDataSource {
+extension AdminDistributionsTBVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminDistributionDetailViewController: UIViewController {
+class AdminDistributionDetailVC: UIViewController {
     
     // MARK: - Properties
     

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Distributions View Controller-->
+        <!--Admin DistributionsTBVC-->
         <scene sceneID="MOJ-6i-5iM">
             <objects>
-                <viewController id="TbF-BB-Xp4" customClass="AdminDistributionsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TbF-BB-Xp4" customClass="AdminDistributionsTBVC" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hH-Mm-pCW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
         <!--Oxford International-->
         <scene sceneID="E5c-5k-OV9">
             <objects>
-                <viewController id="FSR-1N-paE" customClass="AdminDistributionDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FSR-1N-paE" customClass="AdminDistributionDetailVC" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uIj-tY-1Dg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
