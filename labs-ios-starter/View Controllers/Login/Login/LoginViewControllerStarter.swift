@@ -32,6 +32,11 @@ class LoginViewControllerStarter: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkForExistingProfile()
+    }
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -82,36 +87,6 @@ class LoginViewControllerStarter: UIViewController {
         button.layer.cornerRadius = 8
         button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         return button
-    }()
-    
-    private lazy var usernameTextField: UITextField = {
-        let textfield = UITextField()
-        let borderColor = UIColor.white
-        
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.layer.borderColor = borderColor.cgColor
-        textfield.layer.borderWidth = 1.0
-        textfield.textContentType = .username
-        textfield.clearButtonMode = .whileEditing
-        textfield.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        textfield.layer.cornerRadius = 8
-        textfield.attributedPlaceholder = NSAttributedString(string: "  Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        return textfield
-    }()
-    
-    private lazy var passwordTextField: UITextField = {
-        let textfield = UITextField()
-        let borderColor = UIColor.white
-        
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.layer.borderColor = borderColor.cgColor
-        textfield.layer.borderWidth = 1.0
-        textfield.textContentType = .password
-        textfield.clearButtonMode = .whileEditing
-        textfield.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        textfield.layer.cornerRadius = 8
-        textfield.attributedPlaceholder = NSAttributedString(string: "  Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        return textfield
     }()
     
     private lazy var infoLabelStackView: UIStackView = {
@@ -201,9 +176,7 @@ class LoginViewControllerStarter: UIViewController {
         panelView.topAnchor.constraint(equalTo: infoLabelStackView.bottomAnchor, constant: 20).isActive = true
         
         // Textfields
-        usernameStackView.addArrangedSubview(usernameTextField)
         usernameStackView.addArrangedSubview(usernameView)
-        passwordStackView.addArrangedSubview(passwordTextField)
         passwordStackView.addArrangedSubview(passwordView)
         textfieldStackView.addArrangedSubview(usernameStackView)
         textfieldStackView.addArrangedSubview(passwordStackView)
@@ -238,7 +211,7 @@ class LoginViewControllerStarter: UIViewController {
     
     // MARK: Notification Handling
     private func checkForExistingProfile(with notification: Notification) {
-//        checkForExistingProfile()
+        checkForExistingProfile()
         self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
     }
     
@@ -248,7 +221,8 @@ class LoginViewControllerStarter: UIViewController {
             guard let self = self,
                 self.presentedViewController == nil else { return }
             
-            guard let role = self.backendController.loggedInUser.role else { return }
+            guard let role = self.profileController.authenticatedUserProfile?.role else { return }
+            print(role)
             
             if role == "ADMIN" {
                 self.performSegue(withIdentifier: "AdminModalSegue", sender: nil)

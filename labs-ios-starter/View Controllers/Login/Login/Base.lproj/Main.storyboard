@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="fm5-ES-PwH"/>
                     <connections>
-                        <segue destination="o9A-9L-jW8" kind="presentation" identifier="ModalAddProfile" id="vYb-th-yYx"/>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
                         <segue destination="7CC-Hs-hrg" kind="presentation" identifier="HubAdminMainSegue" id="Krs-7a-Brc"/>
                     </connections>
@@ -53,11 +52,11 @@
             <objects>
                 <viewController id="o9A-9L-jW8" customClass="AddProfileViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ECQ-R5-khC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7b-Qv-MEf">
-                                <rect key="frame" x="20" y="69" width="374" height="136"/>
+                                <rect key="frame" x="20" y="113" width="374" height="136"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-9G-fp3">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -77,13 +76,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8x-4x-PO2">
-                                <rect key="frame" x="20" y="20" width="374" height="41"/>
+                                <rect key="frame" x="20" y="64" width="374" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iny-A2-ZpV">
-                                <rect key="frame" x="0.0" y="759" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="QPd-zf-qIe">
                                         <connections>
@@ -99,7 +98,7 @@
                                 </items>
                             </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-g9-PBg">
-                                <rect key="frame" x="188.5" y="285" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="329" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qhm-Qa-x5Q"/>
