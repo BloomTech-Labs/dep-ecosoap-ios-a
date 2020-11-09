@@ -9,6 +9,7 @@
 import UIKit
 //TODO: MVP - Implement Admin Hub Profile view/UI and display necessary data
 //TODO: MVP - Segue to a Hub Update screen for the tapped Hub (collection view?)
+//TODO: Stretch - Filter hubs / search hubs
 
 class AdminHubProfileViewController: UIViewController {
 
