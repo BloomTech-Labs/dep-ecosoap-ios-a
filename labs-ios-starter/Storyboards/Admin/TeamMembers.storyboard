@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i64-r4-N8n">
-                                <rect key="frame" x="20" y="138" width="374" height="540"/>
+                                <rect key="frame" x="20" y="108" width="374" height="540"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-jM-3OY">
                                         <rect key="frame" x="0.0" y="0.0" width="49.5" height="40"/>
@@ -389,7 +389,7 @@
                             <constraint firstItem="UNL-S3-8mj" firstAttribute="trailing" secondItem="i64-r4-N8n" secondAttribute="trailing" constant="20" id="agP-10-x7G"/>
                             <constraint firstItem="UNL-S3-8mj" firstAttribute="trailing" secondItem="MMr-99-h54" secondAttribute="trailing" constant="40" id="nMj-50-hFN"/>
                             <constraint firstItem="UNL-S3-8mj" firstAttribute="bottom" secondItem="MMr-99-h54" secondAttribute="bottom" constant="60" id="qKZ-p4-wWr"/>
-                            <constraint firstItem="i64-r4-N8n" firstAttribute="top" secondItem="UNL-S3-8mj" secondAttribute="top" constant="50" id="xW4-Bn-8pV"/>
+                            <constraint firstItem="i64-r4-N8n" firstAttribute="top" secondItem="UNL-S3-8mj" secondAttribute="top" constant="20" id="xW4-Bn-8pV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Member Profile" id="2l6-af-R85"/>
