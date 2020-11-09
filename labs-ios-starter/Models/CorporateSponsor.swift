@@ -9,5 +9,18 @@
 import Foundation
 
 class CorporateSponsor {
+    let id: String
+    var hub: Hub
+    let name: String
+    var type: CompanyType
+    var contactName: String
+    var contactInfo: String
+    var address: String
+    var logo: String?
+    var website: String?
+    var sponsorshipType: SponsorshipType
+    var cashValue: Int
+    var soapBars: Int
+    var soapValue: Int
     
 }
