@@ -57,6 +57,8 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		5E120E6C2558EEDD00BD36B5 /* CorporateSponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */; };
+		5E120E712558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */; };
 		7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517949252B931800513E95 /* HubAdminMain.storyboard */; };
 		79517958252E47BC00513E95 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517954252E47BB00513E95 /* Payments.storyboard */; };
 		79517959252E47BC00513E95 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517955252E47BB00513E95 /* Statistics.storyboard */; };
@@ -90,6 +92,10 @@
 		99C04DBC2553416D000CD14A /* TeamMembers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DBB2553416D000CD14A /* TeamMembers.storyboard */; };
 		99C04DBF25534187000CD14A /* AdminDistribution.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DBE25534187000CD14A /* AdminDistribution.storyboard */; };
 		99C04DC225534198000CD14A /* AdminProductReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DC125534198000CD14A /* AdminProductReport.storyboard */; };
+		99E7697B2559B75A003F9456 /* TeamMemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7697A2559B75A003F9456 /* TeamMemberListVC.swift */; };
+		99E7697E2559B786003F9456 /* TeamMemberDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7697D2559B786003F9456 /* TeamMemberDetailVC.swift */; };
+		99E769872559FDDD003F9456 /* AdminHubProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E769862559FDDD003F9456 /* AdminHubProfileVC.swift */; };
+		99E7698B2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E7698A2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
 		9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A8D24F5EA1600FF204D /* Mutator.swift */; };
@@ -187,6 +193,8 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateSponsor.swift; sourceTree = "<group>"; };
+		5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCorporateSponsorInput.swift; sourceTree = "<group>"; };
 		79517949252B931800513E95 /* HubAdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminMain.storyboard; sourceTree = "<group>"; };
 		79517954252E47BB00513E95 /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		79517955252E47BB00513E95 /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
@@ -220,6 +228,10 @@
 		99C04DBB2553416D000CD14A /* TeamMembers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamMembers.storyboard; sourceTree = "<group>"; };
 		99C04DBE25534187000CD14A /* AdminDistribution.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminDistribution.storyboard; sourceTree = "<group>"; };
 		99C04DC125534198000CD14A /* AdminProductReport.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminProductReport.storyboard; sourceTree = "<group>"; };
+		99E7697A2559B75A003F9456 /* TeamMemberListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberListVC.swift; sourceTree = "<group>"; };
+		99E7697D2559B786003F9456 /* TeamMemberDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberDetailVC.swift; sourceTree = "<group>"; };
+		99E769862559FDDD003F9456 /* AdminHubProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileVC.swift; sourceTree = "<group>"; };
+		99E7698A2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileUpdateVC.swift; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9C364A8D24F5EA1600FF204D /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
@@ -319,7 +331,8 @@
 		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD17801B2559C5C10086C5BA /* Production reports */,
+				99E769852559FD82003F9456 /* AdminHubProfile */,
+				99E769792559B64B003F9456 /* TeamMembers */,
 				DDB69AFB25536BA40024A756 /* DIstribution */,
 				B444C586255351A600D98B5C /* AdminViewControllers */,
 				7960E2DF252FAB2D00A06582 /* HubAdmin */,
@@ -627,21 +640,40 @@
 			path = Admin;
 			sourceTree = "<group>";
 		};
+		99E769792559B64B003F9456 /* TeamMembers */ = {
+			isa = PBXGroup;
+			children = (
+				99E7697A2559B75A003F9456 /* TeamMemberListVC.swift */,
+				99E7697D2559B786003F9456 /* TeamMemberDetailVC.swift */,
+			);
+			path = TeamMembers;
+			sourceTree = "<group>";
+		};
+		99E769852559FD82003F9456 /* AdminHubProfile */ = {
+			isa = PBXGroup;
+			children = (
+				99E769862559FDDD003F9456 /* AdminHubProfileVC.swift */,
+				99E7698A2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift */,
+			);
+			path = AdminHubProfile;
+			sourceTree = "<group>";
+		};
 		9C364A8F24F60E4F00FF204D /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
-				18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */,
-				18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */,
-				18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */,
 				9C364A9B24F6393D00FF204D /* Input.swift */,
 				9C364A9924F6310E00FF204D /* Request.swift */,
 				9C9ACA7324F751DD002D47B5 /* Attributes */,
+				18C7FA7A252F82A3004520F0 /* CreateProductionReportInput.swift */,
+				18C7FA7C252F82A3004520F0 /* DeleteProductionReportInput.swift */,
+				18C7FA7B252F82A3004520F0 /* UpdateProductionReportInput.swift */,
 				9C364A9024F60E6100FF204D /* PickupInput.swift */,
 				9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */,
 				9C9ACA6D24F72327002D47B5 /* CreatePaymentInput.swift */,
 				9C9ACA7124F72EFD002D47B5 /* UpdateUserProfileInput.swift */,
 				18B14BCD252BBEFD0082D93F /* RegisterInput.swift */,
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
+				5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -678,6 +710,7 @@
 				9CEA63BC24EE2D2800A2C446 /* Hub.swift */,
 				9CEA63C024EF5E7800A2C446 /* Payment.swift */,
 				FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */,
+				5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -843,12 +876,15 @@
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
 				13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
+				99E7698B2559FDFD003F9456 /* AdminHubProfileUpdateVC.swift in Sources */,
+				5E120E712558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift in Sources */,
 				13E0E39F24F819BC008AE0F8 /* PickupCartonTableViewCell.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				B444C5842553519300D98B5C /* AdminProfileViewController.swift in Sources */,
 				9C9A98E824E5078B007FC7DA /* Property.swift in Sources */,
 				79D835612538B8F40097C9FB /* HubAdminPickupDetailViewController.swift in Sources */,
 				FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */,
+				5E120E6C2558EEDD00BD36B5 /* CorporateSponsor.swift in Sources */,
 				7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */,
 				9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
@@ -881,6 +917,7 @@
 				79D835702538BA230097C9FB /* HubAdminPickupTableViewCell.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
+				99E7697B2559B75A003F9456 /* TeamMemberListVC.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
@@ -919,6 +956,7 @@
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
 				79D835852538BB2D0097C9FB /* HubAdminEditDateTableViewCell.swift in Sources */,
 				18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */,
+				99E769872559FDDD003F9456 /* AdminHubProfileVC.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
 				79D835672538B9480097C9FB /* HubAdminEditPickupViewController.swift in Sources */,
 				FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */,
@@ -929,6 +967,7 @@
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
 				DDB69AFD25536C020024A756 /* AdminDistributionsTBVC.swift in Sources */,
 				79D835882538BB450097C9FB /* HubAdminEditDriverTableViewCell.swift in Sources */,
+				99E7697E2559B786003F9456 /* TeamMemberDetailVC.swift in Sources */,
 				79D8357C2538BABD0097C9FB /* HubAdminScheduleNotesTableViewCell.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
