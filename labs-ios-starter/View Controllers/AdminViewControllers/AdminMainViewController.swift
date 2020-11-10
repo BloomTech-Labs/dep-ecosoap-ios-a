@@ -12,6 +12,34 @@ import UIKit
 //TODO: MVP: We need the segue to AdminProfileVC -> AdminDetailVC (to edit user info)
 
 class AdminMainViewController: UIViewController {
+    
+    //MARK: - Outlets
+    
+    @IBOutlet weak var hubProfileButton: UIButton!
+    @IBOutlet weak var adminPickupButton: UIButton!
+    @IBOutlet weak var teamMembersButton: UIButton!
+    @IBOutlet weak var distributionButton: UIButton!
+    @IBOutlet weak var productReportButton: UIButton!
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func hubProfileButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func adminPickupButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func teamMembersButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func distributionButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func productReportButtonTapped(_ sender: Any) {
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
