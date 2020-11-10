@@ -60,19 +60,13 @@ class CorporateSponsor {
             self.website = website
         }
         
-        if let companyType = CompanyType(rawValue: companyType) {
-            self.type = companyType
-        }
-        
-        if let sponsorship = SponsorshipType(rawValue: sponsorshipType) {
-            self.sponsorshipType = sponsorship
-        }
-        
         self.id = id
         self.name = name
+        self.type = CompanyType(rawValue: companyType)!
         self.contactName = contactName
         self.contactInfo = contactInfo
         self.address = address
+        self.sponsorshipType = SponsorshipType(rawValue: sponsorshipType)!
         self.cashValue = cashValue
         self.soapBars = soapBars
         self.soapValue = soapValue
