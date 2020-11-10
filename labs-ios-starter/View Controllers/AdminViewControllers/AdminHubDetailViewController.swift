@@ -1,5 +1,5 @@
 //
-//  AdminHubProfileViewController.swift
+//  AdminHubDetailViewController.swift
 //  labs-ios-starter
 //
 //  Created by Patrick Millet on 11/9/20.
@@ -11,7 +11,7 @@ import UIKit
 //TODO: MVP - Segue to a Hub Update screen for the tapped Hub (collection view?)
 //TODO: Stretch - Filter hubs / search hubs
 
-class AdminHubProfileViewController: UIViewController {
+class AdminHubDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
