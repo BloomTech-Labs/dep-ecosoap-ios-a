@@ -121,6 +121,10 @@
 		9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63C024EF5E7800A2C446 /* Payment.swift */; };
 		B444C5842553519300D98B5C /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C5832553519300D98B5C /* AdminProfileViewController.swift */; };
 		B444C5892553548D00D98B5C /* AdminProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C5882553548D00D98B5C /* AdminProfileDetailViewController.swift */; };
+		B48ACBA0255B35D700FC66D1 /* AdminPickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48ACB9F255B35D700FC66D1 /* AdminPickupViewController.swift */; };
+		B48ACBA3255B35F000FC66D1 /* AdminPickupDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48ACBA2255B35F000FC66D1 /* AdminPickupDetailVC.swift */; };
+		B48ACBA6255B360B00FC66D1 /* AdminPickupTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48ACBA5255B360B00FC66D1 /* AdminPickupTableVC.swift */; };
+		B48ACBA9255B361B00FC66D1 /* AdminPickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48ACBA8255B361B00FC66D1 /* AdminPickupTableViewCell.swift */; };
 		DB943572254886BD001E874B /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DB943571254886BD001E874B /* OktaAuth */; };
 		FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */; };
 		FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E42535135300D5C794 /* HubAdminViewController.swift */; };
@@ -246,6 +250,10 @@
 		9CEA63C024EF5E7800A2C446 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		B444C5832553519300D98B5C /* AdminProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
 		B444C5882553548D00D98B5C /* AdminProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProfileDetailViewController.swift; sourceTree = "<group>"; };
+		B48ACB9F255B35D700FC66D1 /* AdminPickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupViewController.swift; sourceTree = "<group>"; };
+		B48ACBA2255B35F000FC66D1 /* AdminPickupDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupDetailVC.swift; sourceTree = "<group>"; };
+		B48ACBA5255B360B00FC66D1 /* AdminPickupTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupTableVC.swift; sourceTree = "<group>"; };
+		B48ACBA8255B361B00FC66D1 /* AdminPickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupTableViewCell.swift; sourceTree = "<group>"; };
 		FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDailyProduction.swift; sourceTree = "<group>"; };
 		FE6317E42535135300D5C794 /* HubAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminViewController.swift; sourceTree = "<group>"; };
 		FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -707,6 +715,10 @@
 			children = (
 				B444C5832553519300D98B5C /* AdminProfileViewController.swift */,
 				B444C5882553548D00D98B5C /* AdminProfileDetailViewController.swift */,
+				B48ACB9F255B35D700FC66D1 /* AdminPickupViewController.swift */,
+				B48ACBA2255B35F000FC66D1 /* AdminPickupDetailVC.swift */,
+				B48ACBA5255B360B00FC66D1 /* AdminPickupTableVC.swift */,
+				B48ACBA8255B361B00FC66D1 /* AdminPickupTableViewCell.swift */,
 			);
 			path = AdminViewControllers;
 			sourceTree = "<group>";
@@ -867,6 +879,7 @@
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */,
+				B48ACBA9255B361B00FC66D1 /* AdminPickupTableViewCell.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				1385B76D2515ADEF00953FD4 /* PaymentInvoiceViewController.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
@@ -899,9 +912,12 @@
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
 				18C7FA7D252F82A3004520F0 /* CreateProductionReportInput.swift in Sources */,
+				B48ACBA6255B360B00FC66D1 /* AdminPickupTableVC.swift in Sources */,
 				9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */,
 				18C7FA7F252F82A3004520F0 /* DeleteProductionReportInput.swift in Sources */,
 				9C9ACA7024F7296B002D47B5 /* AddressInput.swift in Sources */,
+				B48ACBA0255B35D700FC66D1 /* AdminPickupViewController.swift in Sources */,
+				B48ACBA3255B35F000FC66D1 /* AdminPickupDetailVC.swift in Sources */,
 				79D835732538BA700097C9FB /* HubAdminSchedulePropertyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
