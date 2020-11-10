@@ -128,8 +128,11 @@
 		DB0669F8255A064600194E11 /* AdminMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669F7255A064600194E11 /* AdminMainViewController.swift */; };
 		DB066A01255A10DA00194E11 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB066A00255A10DA00194E11 /* AdminMain.storyboard */; };
 		DB943572254886BD001E874B /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DB943571254886BD001E874B /* OktaAuth */; };
-		DDB69AFD25536C020024A756 /* AdminDistributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */; };
-		DDB69B0025536C180024A756 /* AdminDistributionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */; };
+		DD17801E2559D89C0086C5BA /* ProductionReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17801D2559D89C0086C5BA /* ProductionReportVC.swift */; };
+		DD1780212559D8BC0086C5BA /* ProductionReportDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1780202559D8BC0086C5BA /* ProductionReportDetailVC.swift */; };
+		DD1780242559D8E30086C5BA /* CreateReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1780232559D8E30086C5BA /* CreateReportVC.swift */; };
+		DDB69AFD25536C020024A756 /* AdminDistributionsTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFC25536C020024A756 /* AdminDistributionsTBVC.swift */; };
+		DDB69B0025536C180024A756 /* AdminDistributionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFF25536C180024A756 /* AdminDistributionDetailVC.swift */; };
 		FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */; };
 		FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E42535135300D5C794 /* HubAdminViewController.swift */; };
 		FE6317E82535135600D5C794 /* HubAdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */; };
@@ -734,11 +737,21 @@
 			path = AdminViewControllers;
 			sourceTree = "<group>";
 		};
+		DD17801B2559C5C10086C5BA /* Production reports */ = {
+			isa = PBXGroup;
+			children = (
+				DD17801D2559D89C0086C5BA /* ProductionReportVC.swift */,
+				DD1780202559D8BC0086C5BA /* ProductionReportDetailVC.swift */,
+				DD1780232559D8E30086C5BA /* CreateReportVC.swift */,
+			);
+			path = "Production reports";
+			sourceTree = "<group>";
+		};
 		DDB69AFB25536BA40024A756 /* DIstribution */ = {
 			isa = PBXGroup;
 			children = (
-				DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */,
-				DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */,
+				DDB69AFC25536C020024A756 /* AdminDistributionsTBVC.swift */,
+				DDB69AFF25536C180024A756 /* AdminDistributionDetailVC.swift */,
 			);
 			path = DIstribution;
 			sourceTree = "<group>";
@@ -856,10 +869,12 @@
 				7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */,
 				9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				DD1780212559D8BC0086C5BA /* ProductionReportDetailVC.swift in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
 				79D8355E2538B8650097C9FB /* HubAdminPickupViewController.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
 				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,
+				DD17801E2559D89C0086C5BA /* ProductionReportVC.swift in Sources */,
 				9C9ACA7224F72EFD002D47B5 /* UpdateUserProfileInput.swift in Sources */,
 				9C364A9C24F6393D00FF204D /* Input.swift in Sources */,
 				9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */,
@@ -879,6 +894,7 @@
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */,
 				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
+				DD1780242559D8E30086C5BA /* CreateReportVC.swift in Sources */,
 				79D835702538BA230097C9FB /* HubAdminPickupTableViewCell.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
@@ -901,7 +917,7 @@
 				79D8356D2538B9CE0097C9FB /* HubAdminSelectDriverViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
-				DDB69B0025536C180024A756 /* AdminDistributionDetailViewController.swift in Sources */,
+				DDB69B0025536C180024A756 /* AdminDistributionDetailVC.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				DB0669F5255A04C700194E11 /* AdminHubProfileViewController.swift in Sources */,
 				1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */,
@@ -931,7 +947,7 @@
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
-				DDB69AFD25536C020024A756 /* AdminDistributionsViewController.swift in Sources */,
+				DDB69AFD25536C020024A756 /* AdminDistributionsTBVC.swift in Sources */,
 				79D835882538BB450097C9FB /* HubAdminEditDriverTableViewCell.swift in Sources */,
 				79D8357C2538BABD0097C9FB /* HubAdminScheduleNotesTableViewCell.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
