@@ -57,6 +57,8 @@
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		5A260C2F255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A260C2E255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift */; };
+		5ADFF78D255B495300D0C3BD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADFF78C255B495300D0C3BD /* UIColor.swift */; };
+		5ADFF790255B498600D0C3BD /* DashboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADFF78F255B498600D0C3BD /* DashboardButton.swift */; };
 		5E120E6C2558EEDD00BD36B5 /* CorporateSponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */; };
 		5E120E712558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */; };
 		7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517949252B931800513E95 /* HubAdminMain.storyboard */; };
@@ -191,6 +193,8 @@
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
 		5A260C2E255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticConstraintFunctions.swift; sourceTree = "<group>"; };
+		5ADFF78C255B495300D0C3BD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5ADFF78F255B498600D0C3BD /* DashboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardButton.swift; sourceTree = "<group>"; };
 		5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateSponsor.swift; sourceTree = "<group>"; };
 		5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCorporateSponsorInput.swift; sourceTree = "<group>"; };
 		79517949252B931800513E95 /* HubAdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminMain.storyboard; sourceTree = "<group>"; };
@@ -705,6 +709,8 @@
 			isa = PBXGroup;
 			children = (
 				9C9ACA7D24F779D2002D47B5 /* String.swift */,
+				5ADFF78C255B495300D0C3BD /* UIColor.swift */,
+				5ADFF78F255B498600D0C3BD /* DashboardButton.swift */,
 				9C25231B24F9E2BB0023D660 /* DateFormatter.swift */,
 				9C25231D24F9E2C20023D660 /* Date.swift */,
 				5A260C2E255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift */,
@@ -878,6 +884,7 @@
 				7960E2F0252FC7D700A06582 /* HubAdminEditProductionReportViewController.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
+				5ADFF78D255B495300D0C3BD /* UIColor.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */,
@@ -932,6 +939,7 @@
 				FE6317EB2535135900D5C794 /* HubAdminCollectionViewCell.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				79D8358E2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift in Sources */,
+				5ADFF790255B498600D0C3BD /* DashboardButton.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
