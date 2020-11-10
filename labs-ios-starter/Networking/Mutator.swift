@@ -43,7 +43,7 @@ class Mutator: Request {
             return nil
         }
 
-        guard let body = function(input) else {
+        guard let body = selectedFunction(input) else {
             return nil
         }
 
