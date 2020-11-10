@@ -56,6 +56,7 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		5A260C2F255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A260C2E255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift */; };
 		5E120E6C2558EEDD00BD36B5 /* CorporateSponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */; };
 		5E120E712558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */; };
 		7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517949252B931800513E95 /* HubAdminMain.storyboard */; };
@@ -189,6 +190,7 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		5A260C2E255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticConstraintFunctions.swift; sourceTree = "<group>"; };
 		5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateSponsor.swift; sourceTree = "<group>"; };
 		5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCorporateSponsorInput.swift; sourceTree = "<group>"; };
 		79517949252B931800513E95 /* HubAdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminMain.storyboard; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 				9C9ACA7D24F779D2002D47B5 /* String.swift */,
 				9C25231B24F9E2BB0023D660 /* DateFormatter.swift */,
 				9C25231D24F9E2C20023D660 /* Date.swift */,
+				5A260C2E255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				9C25231E24F9E2C20023D660 /* Date.swift in Sources */,
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
 				79D835762538BA8C0097C9FB /* HubAdminScheduleDateTableViewCell.swift in Sources */,
+				5A260C2F255A6879002C4D82 /* ProgrammaticConstraintFunctions.swift in Sources */,
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				DB0669E7255A045600194E11 /* AdminTeamMembersViewController.swift in Sources */,
 				79D835642538B9270097C9FB /* HubAdminSchedulePickupViewController.swift in Sources */,
