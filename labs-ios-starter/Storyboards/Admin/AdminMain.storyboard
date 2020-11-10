@@ -4,12 +4,92 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Main View Controller-->
+        <!--Hubs-->
+        <scene sceneID="Yqd-Vo-zOl">
+            <objects>
+                <tableViewController id="Ce5-4B-SHJ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qCm-MI-jdB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="j77-EY-lkf" detailTextLabel="Vza-w1-aPY" style="IBUITableViewCellStyleSubtitle" id="cuA-MI-d79">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cuA-MI-d79" id="d8S-cF-bv9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Hub Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j77-EY-lkf">
+                                            <rect key="frame" x="20" y="10" width="81" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Hub ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vza-w1-aPY">
+                                            <rect key="frame" x="20" y="31.5" width="39" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="5aU-61-MXb" kind="show" id="DgY-cB-K2r"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ce5-4B-SHJ" id="omb-sw-mzs"/>
+                            <outlet property="delegate" destination="Ce5-4B-SHJ" id="XkY-BF-WFh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Hubs" id="HFf-LD-WFL">
+                        <barButtonItem key="leftBarButtonItem" title="My Profile" id="L5t-3A-iZr">
+                            <connections>
+                                <segue destination="w9r-wM-3FB" kind="showDetail" id="vTc-eZ-HgU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E88-Y6-p9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="-329"/>
+        </scene>
+        <!--AdminProfile-->
+        <scene sceneID="ZeY-B7-WI4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminProfile" id="w9r-wM-3FB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02j-eA-PL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="157"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9fF-Gq-4kY">
+            <objects>
+                <navigationController id="D85-JS-vN5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zsk-er-qrH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ce5-4B-SHJ" kind="relationship" relationship="rootViewController" id="Fg2-e5-05Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clc-SK-Uwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1168" y="-329"/>
+        </scene>
+        <!--Hub Name-->
         <scene sceneID="bZn-tt-76E">
             <objects>
                 <viewController id="5aU-61-MXb" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,24 +97,261 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create buttons that can navigate to all the admin tasks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vau-Fx-9EF">
-                                <rect key="frame" x="0.0" y="289" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vau-Fx-9EF">
+                                <rect key="frame" x="0.0" y="289" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-s6-Qar">
+                                <rect key="frame" x="20" y="168" width="374" height="500"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Mo-1f-Qr1">
+                                        <rect key="frame" x="37" y="0.0" width="300" height="140"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="R8f-OQ-TsI">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="140"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hub Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTC-RB-CcF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="ESB System Background"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0P-4M-PeK">
+                                                        <rect key="frame" x="0.0" y="18.5" width="130" height="120"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="Panel System Background"/>
+                                                            <imageReference key="backgroundImage" image="note.text" catalog="system" symbolScale="medium"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="hubProfileButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="J3J-LR-zL1"/>
+                                                            <segue destination="ZR4-bF-MCV" kind="show" id="rOW-OT-PSt"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="Vpp-Dd-QgR"/>
+                                                    <constraint firstAttribute="width" constant="130" id="wtk-gB-tcs"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="JQd-jh-Nlm">
+                                                <rect key="frame" x="170" y="0.0" width="130" height="140"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Pickup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pz2-lv-wga">
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="ESB System Background"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qq-mF-l34">
+                                                        <rect key="frame" x="0.0" y="17.5" width="130" height="123"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="Panel System Background"/>
+                                                            <imageReference key="backgroundImage" image="shippingbox" catalog="system" symbolScale="medium"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="adminPickupButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="TEW-3V-UMa"/>
+                                                            <segue destination="hle-op-p5V" kind="show" id="cKx-aE-ePk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="6u6-QR-EWc"/>
+                                                    <constraint firstAttribute="height" constant="140" id="88m-xr-y2o"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-49-UvH">
+                                        <rect key="frame" x="37" y="180" width="300" height="140"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-nD-4pO">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="140"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-ul-xdG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="ESB System Background"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRX-ko-obv">
+                                                        <rect key="frame" x="0.0" y="19" width="130" height="119.5"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="Panel System Background"/>
+                                                            <imageReference key="backgroundImage" image="person.fill" catalog="system" symbolScale="medium"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="teamMembersButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="QXS-tj-5E5"/>
+                                                            <segue destination="OdB-wO-Rsm" kind="show" id="MGy-II-9Cl"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="9Pa-cq-2Mm"/>
+                                                    <constraint firstAttribute="width" constant="130" id="hn3-2u-HCs"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Myr-Xl-vPb">
+                                                <rect key="frame" x="170" y="0.0" width="130" height="140"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distribution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98r-WT-JQg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="ESB System Background"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ1-Xs-Qnd">
+                                                        <rect key="frame" x="0.0" y="19" width="130" height="121"/>
+                                                        <color key="backgroundColor" name="ESB Black"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="Panel System Background"/>
+                                                            <imageReference key="backgroundImage" image="cart" catalog="system" symbolScale="medium"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="distributionButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="iic-sx-XWF"/>
+                                                            <segue destination="Vjy-q4-UXZ" kind="show" id="532-pW-rI3"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="H3X-Dz-y9e"/>
+                                                    <constraint firstAttribute="width" constant="130" id="eHf-RT-JBu"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="dnR-0m-rVb">
+                                        <rect key="frame" x="122" y="360" width="130" height="140"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-7e-BRK">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                                <color key="backgroundColor" name="ESB Black"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="ESB System Background"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-Uw-mvi">
+                                                <rect key="frame" x="0.0" y="17.5" width="130" height="122.5"/>
+                                                <color key="backgroundColor" name="ESB Black"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" name="Panel System Background"/>
+                                                    <imageReference key="backgroundImage" image="doc.plaintext.fill" catalog="system" symbolScale="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="productReportButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="xSp-gV-Fbw"/>
+                                                    <segue destination="dqE-5g-oDS" kind="show" id="1ED-gr-BYh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="74c-vc-uvb"/>
+                                            <constraint firstAttribute="height" constant="140" id="LZW-cq-Y1D"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="biv-VH-yjK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="ESB Black"/>
+                        <constraints>
+                            <constraint firstItem="biv-VH-yjK" firstAttribute="bottom" secondItem="dbX-s6-Qar" secondAttribute="bottom" constant="20" id="42X-zd-5Y3"/>
+                            <constraint firstItem="biv-VH-yjK" firstAttribute="trailing" secondItem="dbX-s6-Qar" secondAttribute="trailing" constant="20" id="Jeo-kD-3W6"/>
+                            <constraint firstItem="dbX-s6-Qar" firstAttribute="leading" secondItem="biv-VH-yjK" secondAttribute="leading" constant="20" id="pMV-ky-mVf"/>
+                            <constraint firstItem="dbX-s6-Qar" firstAttribute="top" secondItem="biv-VH-yjK" secondAttribute="top" constant="80" id="yYd-Jy-mTw"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Hub Name" id="VNV-Ew-NXf"/>
+                    <connections>
+                        <outlet property="adminPickupButton" destination="3qq-mF-l34" id="IyF-Kb-QvP"/>
+                        <outlet property="distributionButton" destination="CJ1-Xs-Qnd" id="S2T-SK-VAY"/>
+                        <outlet property="hubProfileButton" destination="d0P-4M-PeK" id="1Lm-aS-8l6"/>
+                        <outlet property="productReportButton" destination="o1u-Uw-mvi" id="M8R-m1-aNt"/>
+                        <outlet property="teamMembersButton" destination="zRX-ko-obv" id="TOL-eI-jJW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soW-HI-uxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="-339"/>
+            <point key="canvasLocation" x="598.55072463768124" y="-329.46428571428572"/>
+        </scene>
+        <!--TeamMembers-->
+        <scene sceneID="Iz6-X6-T1j">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TeamMembers" id="OdB-wO-Rsm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Q7y-yO-xkn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AcW-DU-8Jy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="-329"/>
+        </scene>
+        <!--AdminHubProfile-->
+        <scene sceneID="9zZ-q2-JQj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminHubProfile" id="ZR4-bF-MCV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Psn-aH-i7E"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNw-6B-hMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1411" y="-450"/>
+        </scene>
+        <!--AdminPickups-->
+        <scene sceneID="rgS-00-HTo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminPickups" id="hle-op-p5V" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Tgp-EC-J6k"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACF-8z-K0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1399" y="-386"/>
+        </scene>
+        <!--AdminDistribution-->
+        <scene sceneID="eRz-hb-fzU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminDistribution" id="Vjy-q4-UXZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aK1-Mv-FTM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFp-IX-MyJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1416" y="-258"/>
+        </scene>
+        <!--AdminProductReport-->
+        <scene sceneID="jXD-h7-0N5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminProductReport" id="dqE-5g-oDS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KKk-J5-jYQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ss7-s3-Jlq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429" y="-191"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="ESB Green"/>
     <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
+        <image name="note.text" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="shippingbox" catalog="system" width="128" height="124"/>
+        <namedColor name="ESB Black">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Green">
+            <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB System Background">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Panel System Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
