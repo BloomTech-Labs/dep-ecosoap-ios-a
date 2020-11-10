@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Team Members View Controller-->
+        <!--Team Members-->
         <scene sceneID="jWN-3g-kBc">
             <objects>
                 <viewController id="Bwr-NO-YMN" customClass="AdminTeamMembersViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kv7-a1-U8c">
-                                <rect key="frame" x="10" y="88" width="394" height="808"/>
+                                <rect key="frame" x="10" y="44" width="394" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DistributionCell" rowHeight="64" id="0kr-mQ-1SM">
@@ -94,11 +94,11 @@
             <objects>
                 <viewController id="pNu-af-zvF" customClass="TeamMemberDetailVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ZQ-vi-nq6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i64-r4-N8n">
-                                <rect key="frame" x="20" y="96" width="374" height="742"/>
+                                <rect key="frame" x="20" y="8" width="374" height="742"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-jM-3OY">
                                         <rect key="frame" x="0.0" y="0.0" width="71.5" height="54.5"/>
@@ -307,7 +307,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pcs-wx-rFN">
-                                <rect key="frame" x="40" y="846" width="334" height="88"/>
+                                <rect key="frame" x="40" y="758" width="334" height="88"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6G-2L-bGP">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="36"/>
@@ -382,9 +382,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="QOd-v5-oIh" kind="relationship" relationship="rootViewController" id="9PG-Ow-brS"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOH-3n-Pce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
