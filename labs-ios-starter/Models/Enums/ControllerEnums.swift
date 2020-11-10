@@ -21,6 +21,7 @@ enum ResponseModel: String {
     case payments
     case productionReport
     case productionReports
+    case corporateSponsor
 }
 
 enum MutationName: String {
@@ -33,6 +34,7 @@ enum MutationName: String {
     case createProductionReport
     case updateProductionReport
     case deleteProductionReport
+    case updateCorporateSponsor
 }
 
 enum QueryName: String {
@@ -49,6 +51,7 @@ enum QueryName: String {
     case paymentsByPropertyId
     case monsterFetch
     case productionReportsByHubId
+    case corporateSponsors
 }
 
 

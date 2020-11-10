@@ -28,7 +28,8 @@ class Queries: Request {
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
                                      .monsterFetch: Queries.monsterFetch,
-                                     .productionReportsByHubId: Queries.productionReportsByHubId]
+                                     .productionReportsByHubId: Queries.productionReportsByHubId,
+                                     .corporateSponsors: Queries.corporateSponsors] as? [QueryName : (Any) -> String]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
                                                                .allUsers: .users,
@@ -42,10 +43,10 @@ class Queries: Request {
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
-                                                               .productionReportsByHubId: .productionReports]
+                                                               .productionReportsByHubId: .productionReports, .corporateSponsors: .corporateSponsor]
 
     init?(name: QueryName, id: String) {
-        guard let body = Queries.collection[name] else {
+        guard let body = Queries.collection?[name] else {
             NSLog("Couldn't find this query in the collection. Check your implementation.")
             return nil
         }
@@ -805,6 +806,51 @@ class Queries: Request {
                 }
               }
             }
+          }
+        }
+        """
+    }
+    
+    
+    //MARK: Corporate Sponsors
+    
+    private static func corporateSponsors() -> String {
+        return """
+        query {
+          corporateSponsors {
+            id,
+            hub {
+              id,
+              name,
+              email,
+              phone,
+              address {
+                address1,
+                address2,
+                address3,
+                postalCode,
+                city,
+                formattedAddress
+              },
+              coordinates {
+                latitude,
+                longitude
+              },
+              properties {
+                id
+              }
+            },
+            name,
+            type,
+            contactName,
+            contactInfo,
+            address,
+            logo,
+            website,
+            sponsorshipType,
+            cashValue,
+            soapBars,
+            soapValue
           }
         }
         """

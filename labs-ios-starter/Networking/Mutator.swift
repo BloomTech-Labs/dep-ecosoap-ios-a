@@ -24,7 +24,8 @@ class Mutator: Request {
                                      .deleteProductionReport: Mutator.deleteProductionReport,
                                      .createPayment: Mutator.createPayment,
                                      .updateUserProfile: Mutator.updateUserProfile,
-                                     .updateProperty: Mutator.updateProperty]
+                                     .updateProperty: Mutator.updateProperty,
+                                     .updateCorporateSponsor: Mutator.updateCorporateSponsor] as? [MutationName : (Any) -> String?]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
@@ -33,10 +34,11 @@ class Mutator: Request {
                                                                   .updateProductionReport: .productionReport,
                                                                   .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
-                                                                  .updateProperty: .property]
+                                                                  .updateProperty: .property,
+                                                                  .updateCorporateSponsor: .corporateSponsor]
 
     init?(name: MutationName, input: Input) {
-        guard let function = Mutator.collection[name] else {
+        guard let function = Mutator.collection?[name] else {
             NSLog("Couldn't find this mutation in the collection. Check your implementation.")
             return nil
         }
@@ -483,6 +485,60 @@ class Mutator: Request {
                   }
                 }
             }
+          }
+        }
+        """
+    }
+    
+    //MARK: Update Corporate Sponsor
+    
+    func updateCorporateSponsor(input: Input) -> String? {
+        guard let sponsor = input as? UpdateCorporateSponsorInput else {
+            NSLog("Couldn't cast input to UpdateCorporateSponsorInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        
+        return """
+        mutation {
+          updateCorporateSponsor(input: {
+            \(sponsor.formatted)
+          }) {
+            corporateSponsors {
+                    id,
+                    hub {
+                      id,
+                      name,
+                      email,
+                      phone,
+                      address {
+                        address1,
+                        address2,
+                        address3,
+                        postalCode,
+                        city,
+                        formattedAddress
+                      },
+                      coordinates {
+                        latitude,
+                        longitude
+                      },
+                      properties {
+                        id
+                      }
+                    },
+                    name,
+                    type,
+                    contactName,
+                    contactInfo,
+                    address,
+                    logo,
+                    website,
+                    sponsorshipType,
+                    cashValue,
+                    soapBars,
+                    soapValue
+                  }
+
           }
         }
         """

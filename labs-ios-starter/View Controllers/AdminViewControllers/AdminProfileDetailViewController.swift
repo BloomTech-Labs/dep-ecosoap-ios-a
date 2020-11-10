@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: MVP: Grab the authenticated user profile
+
 class AdminProfileDetailViewController: UIViewController {
     
     //MARK:- Outlets
@@ -28,6 +30,8 @@ class AdminProfileDetailViewController: UIViewController {
     //MARK:- Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        //TODO: Send a mutate request to GQL and update the user information with new data. Guard against empty strings in relevant locations where there is no optionality on the backend,
+        //TODO: Present an alert indicating sucess or failure to update and unwind back to the AdminMain / AdminDashboard.
     }
     
     /*
