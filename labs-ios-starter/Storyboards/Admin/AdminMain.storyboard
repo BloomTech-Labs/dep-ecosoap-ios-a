@@ -105,7 +105,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-s6-Qar">
-                                <rect key="frame" x="20" y="168" width="374" height="480"/>
+                                <rect key="frame" x="20" y="168" width="374" height="674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Mo-1f-Qr1">
                                         <rect key="frame" x="37" y="0.0" width="300" height="140"/>
@@ -175,20 +175,20 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-49-UvH">
-                                        <rect key="frame" x="37" y="170" width="300" height="140"/>
+                                        <rect key="frame" x="37" y="170" width="300" height="334"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-nD-4pO">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="140"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="334"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-ul-xdG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="212"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="ESB Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRX-ko-obv">
-                                                        <rect key="frame" x="0.0" y="16.5" width="130" height="122"/>
+                                                        <rect key="frame" x="0.0" y="210.5" width="130" height="122"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="PDy-qq-8kR"/>
@@ -209,17 +209,17 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Myr-Xl-vPb">
-                                                <rect key="frame" x="170" y="0.0" width="130" height="140"/>
+                                                <rect key="frame" x="170" y="0.0" width="130" height="334"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distribution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98r-WT-JQg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="212"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="ESB Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ1-Xs-Qnd">
-                                                        <rect key="frame" x="0.0" y="16.5" width="130" height="123.5"/>
+                                                        <rect key="frame" x="0.0" y="210.5" width="130" height="123.5"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="h9S-9U-kNX"/>
@@ -242,7 +242,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="dnR-0m-rVb">
-                                        <rect key="frame" x="122" y="340" width="130" height="140"/>
+                                        <rect key="frame" x="122" y="534" width="130" height="140"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-7e-BRK">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
@@ -285,13 +285,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hub Name" id="VNV-Ew-NXf"/>
-                    <connections>
-                        <outlet property="adminPickupButton" destination="3qq-mF-l34" id="IyF-Kb-QvP"/>
-                        <outlet property="distributionButton" destination="CJ1-Xs-Qnd" id="S2T-SK-VAY"/>
-                        <outlet property="hubProfileButton" destination="d0P-4M-PeK" id="1Lm-aS-8l6"/>
-                        <outlet property="productReportButton" destination="o1u-Uw-mvi" id="M8R-m1-aNt"/>
-                        <outlet property="teamMembersButton" destination="zRX-ko-obv" id="TOL-eI-jJW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soW-HI-uxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
