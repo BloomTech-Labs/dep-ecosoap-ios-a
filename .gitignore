@@ -81,3 +81,5 @@ Thumbs.db
 *.alias
 *.gitignore
 
+
+labs-ios-starter.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
