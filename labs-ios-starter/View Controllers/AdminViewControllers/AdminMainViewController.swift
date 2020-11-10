@@ -54,7 +54,6 @@ class AdminMainViewController: UIViewController {
             button.layer.cornerRadius = 12.0
             button.layer.borderWidth = 1.0
             button.layer.borderColor = UIColor.white.cgColor
-            button.tintColor = .white
             button.titleLabel?.font = UIFont(name: "Futura", size: 20)
             
             // Shadow
