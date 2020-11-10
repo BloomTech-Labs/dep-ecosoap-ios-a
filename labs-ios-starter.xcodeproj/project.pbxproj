@@ -84,7 +84,6 @@
 		79D8358B2538BB5B0097C9FB /* HubAdminEditNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8358A2538BB5B0097C9FB /* HubAdminEditNotesTableViewCell.swift */; };
 		79D8358E2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8358D2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift */; };
 		79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */; };
-		99C04DB0255334C3000CD14A /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DAF255334C3000CD14A /* AdminMain.storyboard */; };
 		99C04DB325533E5B000CD14A /* AdminPickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DB225533E5B000CD14A /* AdminPickups.storyboard */; };
 		99C04DB625533E75000CD14A /* AdminHubProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DB525533E75000CD14A /* AdminHubProfile.storyboard */; };
 		99C04DB925534153000CD14A /* AdminProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DB825534153000CD14A /* AdminProfile.storyboard */; };
@@ -127,6 +126,7 @@
 		DB0669EA255A047500194E11 /* AdminPickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669E9255A047500194E11 /* AdminPickupsViewController.swift */; };
 		DB0669F5255A04C700194E11 /* AdminHubProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669F4255A04C700194E11 /* AdminHubProfileViewController.swift */; };
 		DB0669F8255A064600194E11 /* AdminMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669F7255A064600194E11 /* AdminMainViewController.swift */; };
+		DB066A01255A10DA00194E11 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB066A00255A10DA00194E11 /* AdminMain.storyboard */; };
 		DB943572254886BD001E874B /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DB943571254886BD001E874B /* OktaAuth */; };
 		DDB69AFD25536C020024A756 /* AdminDistributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */; };
 		DDB69B0025536C180024A756 /* AdminDistributionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */; };
@@ -217,7 +217,6 @@
 		79D8358A2538BB5B0097C9FB /* HubAdminEditNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminEditNotesTableViewCell.swift; sourceTree = "<group>"; };
 		79D8358D2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminEditRecyclablesTableViewCell.swift; sourceTree = "<group>"; };
 		79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminPickup.storyboard; sourceTree = "<group>"; };
-		99C04DAF255334C3000CD14A /* AdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		99C04DB225533E5B000CD14A /* AdminPickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminPickups.storyboard; sourceTree = "<group>"; };
 		99C04DB525533E75000CD14A /* AdminHubProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminHubProfile.storyboard; sourceTree = "<group>"; };
 		99C04DB825534153000CD14A /* AdminProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminProfile.storyboard; sourceTree = "<group>"; };
@@ -260,6 +259,7 @@
 		DB0669E9255A047500194E11 /* AdminPickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupsViewController.swift; sourceTree = "<group>"; };
 		DB0669F4255A04C700194E11 /* AdminHubProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileViewController.swift; sourceTree = "<group>"; };
 		DB0669F7255A064600194E11 /* AdminMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainViewController.swift; sourceTree = "<group>"; };
+		DB066A00255A10DA00194E11 /* AdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDistributionsViewController.swift; sourceTree = "<group>"; };
 		DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDistributionDetailViewController.swift; sourceTree = "<group>"; };
 		FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDailyProduction.swift; sourceTree = "<group>"; };
@@ -620,7 +620,7 @@
 		995CA3862550DC1200376A03 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				99C04DAF255334C3000CD14A /* AdminMain.storyboard */,
+				DB066A00255A10DA00194E11 /* AdminMain.storyboard */,
 				99C04DB825534153000CD14A /* AdminProfile.storyboard */,
 				99C04DB525533E75000CD14A /* AdminHubProfile.storyboard */,
 				99C04DB225533E5B000CD14A /* AdminPickups.storyboard */,
@@ -817,9 +817,9 @@
 				99C04DB925534153000CD14A /* AdminProfile.storyboard in Resources */,
 				99C04DC225534198000CD14A /* AdminProductReport.storyboard in Resources */,
 				99C04DB325533E5B000CD14A /* AdminPickups.storyboard in Resources */,
+				DB066A01255A10DA00194E11 /* AdminMain.storyboard in Resources */,
 				7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */,
 				99C04DB625533E75000CD14A /* AdminHubProfile.storyboard in Resources */,
-				99C04DB0255334C3000CD14A /* AdminMain.storyboard in Resources */,
 				99C04DBF25534187000CD14A /* AdminDistribution.storyboard in Resources */,
 				79517958252E47BC00513E95 /* Payments.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
