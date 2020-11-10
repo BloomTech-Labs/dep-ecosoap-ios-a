@@ -9,9 +9,17 @@
 import UIKit
 
 class AdminMainViewController: UIViewController {
-    
+  
     @IBOutlet var adminDashboardButtons: [DashboardButton]!
     
+    //MARK: - Outlets
+    
+    @IBOutlet weak var hubProfileButton: UIButton!
+    @IBOutlet weak var adminPickupButton: UIButton!
+    @IBOutlet weak var teamMembersButton: UIButton!
+    @IBOutlet weak var distributionButton: UIButton!
+    @IBOutlet weak var productReportButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetup()

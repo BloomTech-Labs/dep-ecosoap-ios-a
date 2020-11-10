@@ -87,6 +87,8 @@
 		79D8358B2538BB5B0097C9FB /* HubAdminEditNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8358A2538BB5B0097C9FB /* HubAdminEditNotesTableViewCell.swift */; };
 		79D8358E2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8358D2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift */; };
 		79F00FE0252E4B07001FC96A /* HubAdminPickup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */; };
+		996D33D6255B45AF00A3C311 /* AdminDistributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D33D5255B45AF00A3C311 /* AdminDistributionsViewController.swift */; };
+		996D33D9255B45E000A3C311 /* AdminDistributionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D33D8255B45E000A3C311 /* AdminDistributionDetailViewController.swift */; };
 		99C04DB325533E5B000CD14A /* AdminPickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DB225533E5B000CD14A /* AdminPickups.storyboard */; };
 		99C04DB625533E75000CD14A /* AdminHubProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DB525533E75000CD14A /* AdminHubProfile.storyboard */; };
 		99C04DB925534153000CD14A /* AdminProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C04DB825534153000CD14A /* AdminProfile.storyboard */; };
@@ -131,8 +133,9 @@
 		DB0669F8255A064600194E11 /* AdminMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669F7255A064600194E11 /* AdminMainViewController.swift */; };
 		DB066A01255A10DA00194E11 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB066A00255A10DA00194E11 /* AdminMain.storyboard */; };
 		DB943572254886BD001E874B /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DB943571254886BD001E874B /* OktaAuth */; };
-		DDB69AFD25536C020024A756 /* AdminDistributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */; };
-		DDB69B0025536C180024A756 /* AdminDistributionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */; };
+		DD17801E2559D89C0086C5BA /* (null) in Sources */ = {isa = PBXBuildFile; };
+		DD1780212559D8BC0086C5BA /* (null) in Sources */ = {isa = PBXBuildFile; };
+		DD1780242559D8E30086C5BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		FE5F2CB1252BCD8A0099B500 /* HubDailyProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */; };
 		FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E42535135300D5C794 /* HubAdminViewController.swift */; };
 		FE6317E82535135600D5C794 /* HubAdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */; };
@@ -223,6 +226,8 @@
 		79D8358A2538BB5B0097C9FB /* HubAdminEditNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminEditNotesTableViewCell.swift; sourceTree = "<group>"; };
 		79D8358D2538BB740097C9FB /* HubAdminEditRecyclablesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminEditRecyclablesTableViewCell.swift; sourceTree = "<group>"; };
 		79F00FDF252E4B07001FC96A /* HubAdminPickup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminPickup.storyboard; sourceTree = "<group>"; };
+		996D33D5255B45AF00A3C311 /* AdminDistributionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDistributionsViewController.swift; sourceTree = "<group>"; };
+		996D33D8255B45E000A3C311 /* AdminDistributionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDistributionDetailViewController.swift; sourceTree = "<group>"; };
 		99C04DB225533E5B000CD14A /* AdminPickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminPickups.storyboard; sourceTree = "<group>"; };
 		99C04DB525533E75000CD14A /* AdminHubProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminHubProfile.storyboard; sourceTree = "<group>"; };
 		99C04DB825534153000CD14A /* AdminProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminProfile.storyboard; sourceTree = "<group>"; };
@@ -260,14 +265,14 @@
 		9CEA63C024EF5E7800A2C446 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		B444C5832553519300D98B5C /* AdminProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
 		B444C5882553548D00D98B5C /* AdminProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProfileDetailViewController.swift; sourceTree = "<group>"; };
+		B48ACBA5255B360B00FC66D1 /* AdminPickupTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupTableVC.swift; sourceTree = "<group>"; };
+		B48ACBA8255B361B00FC66D1 /* AdminPickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupTableViewCell.swift; sourceTree = "<group>"; };
 		DB0669E3255A042C00194E11 /* AdminProductionReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductionReportViewController.swift; sourceTree = "<group>"; };
 		DB0669E6255A045600194E11 /* AdminTeamMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTeamMembersViewController.swift; sourceTree = "<group>"; };
 		DB0669E9255A047500194E11 /* AdminPickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPickupsViewController.swift; sourceTree = "<group>"; };
 		DB0669F4255A04C700194E11 /* AdminHubProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileViewController.swift; sourceTree = "<group>"; };
 		DB0669F7255A064600194E11 /* AdminMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainViewController.swift; sourceTree = "<group>"; };
 		DB066A00255A10DA00194E11 /* AdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
-		DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDistributionsViewController.swift; sourceTree = "<group>"; };
-		DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDistributionDetailViewController.swift; sourceTree = "<group>"; };
 		FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDailyProduction.swift; sourceTree = "<group>"; };
 		FE6317E42535135300D5C794 /* HubAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminViewController.swift; sourceTree = "<group>"; };
 		FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -734,6 +739,8 @@
 			children = (
 				B444C5832553519300D98B5C /* AdminProfileViewController.swift */,
 				B444C5882553548D00D98B5C /* AdminProfileDetailViewController.swift */,
+				B48ACBA5255B360B00FC66D1 /* AdminPickupTableVC.swift */,
+				B48ACBA8255B361B00FC66D1 /* AdminPickupTableViewCell.swift */,
 				DB0669E3255A042C00194E11 /* AdminProductionReportViewController.swift */,
 				DB0669E6255A045600194E11 /* AdminTeamMembersViewController.swift */,
 				DB0669E9255A047500194E11 /* AdminPickupsViewController.swift */,
@@ -746,8 +753,8 @@
 		DDB69AFB25536BA40024A756 /* DIstribution */ = {
 			isa = PBXGroup;
 			children = (
-				DDB69AFC25536C020024A756 /* AdminDistributionsViewController.swift */,
-				DDB69AFF25536C180024A756 /* AdminDistributionDetailViewController.swift */,
+				996D33D5255B45AF00A3C311 /* AdminDistributionsViewController.swift */,
+				996D33D8255B45E000A3C311 /* AdminDistributionDetailViewController.swift */,
 			);
 			path = DIstribution;
 			sourceTree = "<group>";
@@ -865,10 +872,12 @@
 				7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */,
 				9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				DD1780212559D8BC0086C5BA /* (null) in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
 				79D8355E2538B8650097C9FB /* HubAdminPickupViewController.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
 				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,
+				DD17801E2559D89C0086C5BA /* (null) in Sources */,
 				9C9ACA7224F72EFD002D47B5 /* UpdateUserProfileInput.swift in Sources */,
 				9C364A9C24F6393D00FF204D /* Input.swift in Sources */,
 				9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */,
@@ -889,6 +898,7 @@
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				FE6317E52535135300D5C794 /* HubAdminViewController.swift in Sources */,
 				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
+				DD1780242559D8E30086C5BA /* (null) in Sources */,
 				79D835702538BA230097C9FB /* HubAdminPickupTableViewCell.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
@@ -912,7 +922,6 @@
 				79D8356D2538B9CE0097C9FB /* HubAdminSelectDriverViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
-				DDB69B0025536C180024A756 /* AdminDistributionDetailViewController.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				DB0669F5255A04C700194E11 /* AdminHubProfileViewController.swift in Sources */,
 				1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */,
@@ -924,6 +933,7 @@
 				13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */,
 				DB0669E4255A042C00194E11 /* AdminProductionReportViewController.swift in Sources */,
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
+				996D33D9255B45E000A3C311 /* AdminDistributionDetailViewController.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
@@ -943,9 +953,9 @@
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
-				DDB69AFD25536C020024A756 /* AdminDistributionsViewController.swift in Sources */,
 				79D835882538BB450097C9FB /* HubAdminEditDriverTableViewCell.swift in Sources */,
 				79D8357C2538BABD0097C9FB /* HubAdminScheduleNotesTableViewCell.swift in Sources */,
+				996D33D6255B45AF00A3C311 /* AdminDistributionsViewController.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,
@@ -1099,7 +1109,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 59V75HSK6N;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "labs-ios-starter/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1118,7 +1128,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 59V75HSK6N;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "labs-ios-starter/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

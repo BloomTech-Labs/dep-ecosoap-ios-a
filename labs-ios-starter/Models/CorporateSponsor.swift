@@ -26,7 +26,7 @@ class CorporateSponsor {
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
               let name = dictionary["name"] as? String,
-              let type = dictionary["companyType"] as? String,
+              let companyType = dictionary["companyType"] as? String,
               let contactName = dictionary["contactName"] as? String,
               let contactInfo = dictionary["contactInfo"] as? String,
               let address = dictionary["address"] as? String,
@@ -62,11 +62,11 @@ class CorporateSponsor {
         
         self.id = id
         self.name = name
-        self.type = CompanyType(rawValue: type)
+        self.type = CompanyType(rawValue: companyType)!
         self.contactName = contactName
         self.contactInfo = contactInfo
         self.address = address
-        self.sponsorshipType = SponsorshipType(rawValue: sponsorshipType)
+        self.sponsorshipType = SponsorshipType(rawValue: sponsorshipType)!
         self.cashValue = cashValue
         self.soapBars = soapBars
         self.soapValue = soapValue
