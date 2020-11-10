@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="1401" y="-329"/>
         </scene>
-        <!--AdminHubProfile-->
+        <!--AdminHubDetail-->
         <scene sceneID="9zZ-q2-JQj">
             <objects>
-                <viewControllerPlaceholder storyboardName="AdminHubProfile" id="ZR4-bF-MCV" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AdminHubDetail" id="ZR4-bF-MCV" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Psn-aH-i7E"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNw-6B-hMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
