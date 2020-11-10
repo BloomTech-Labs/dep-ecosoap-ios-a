@@ -38,12 +38,12 @@ class Mutator: Request {
                                                                   .updateCorporateSponsor: .corporateSponsor]
 
     init?(name: MutationName, input: Input) {
-        guard let function = Mutator.collection[name] else {
+        guard let selectedFunction = Mutator.collection[name] else {
             NSLog("Couldn't find this mutation in the collection. Check your implementation.")
             return nil
         }
 
-        guard let body = function(input) else {
+        guard let body = selectedFunction(input) else {
             return nil
         }
 

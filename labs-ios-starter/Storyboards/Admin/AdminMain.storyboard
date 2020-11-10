@@ -10,28 +10,83 @@
     </dependencies>
     <scenes>
         <!--Admin Main View Controller-->
-        <scene sceneID="bZn-tt-76E">
+        <scene sceneID="d4G-ke-aZ7">
             <objects>
-                <viewController id="5aU-61-MXb" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pN2-tt-a2k">
+                <viewController id="1yc-gF-Inh" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sWp-3C-rmp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create buttons that can navigate to all the admin tasks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vau-Fx-9EF">
-                                <rect key="frame" x="0.0" y="289" width="414" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTL-tM-Nif">
+                                <rect key="frame" x="20" y="164" width="374" height="106"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fai-94-Zs2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Production Reports"/>
+                                        <connections>
+                                            <action selector="productionReportButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="08O-3i-8vJ"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-op-0A1">
+                                        <rect key="frame" x="0.0" y="38" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fw-SH-pDf">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
+                                                <state key="normal" title="Profile"/>
+                                                <connections>
+                                                    <action selector="profileButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="DMi-hX-VPD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-1X-WLN">
+                                                <rect key="frame" x="195" y="0.0" width="179" height="30"/>
+                                                <state key="normal" title="Team Members"/>
+                                                <connections>
+                                                    <action selector="teamMembersButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="nS3-Bh-cDw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="flw-tf-s8n">
+                                        <rect key="frame" x="0.0" y="76" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-lW-TkG">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
+                                                <state key="normal" title="Hub Profiles"/>
+                                                <connections>
+                                                    <action selector="hubProfilesButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="ZtW-eO-iOI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-Xr-fh0">
+                                                <rect key="frame" x="195" y="0.0" width="179" height="30"/>
+                                                <state key="normal" title="Pick-Ups"/>
+                                                <connections>
+                                                    <action selector="pickUpsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="dwZ-Yh-19q"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="biv-VH-yjK"/>
+                        <viewLayoutGuide key="safeArea" id="mze-CC-sbR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mze-CC-sbR" firstAttribute="trailing" secondItem="bTL-tM-Nif" secondAttribute="trailing" constant="20" id="Ze3-Fh-MtZ"/>
+                            <constraint firstItem="bTL-tM-Nif" firstAttribute="leading" secondItem="mze-CC-sbR" secondAttribute="leading" constant="20" id="bWA-vY-Glm"/>
+                            <constraint firstItem="bTL-tM-Nif" firstAttribute="top" secondItem="mze-CC-sbR" secondAttribute="top" constant="120" id="tWr-ip-uhN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="adminDashboardButtons" destination="fai-94-Zs2" collectionClass="NSMutableArray" id="dWa-8S-mN0"/>
+                        <outletCollection property="adminDashboardButtons" destination="6Fw-SH-pDf" collectionClass="NSMutableArray" id="D52-Y2-uDz"/>
+                        <outletCollection property="adminDashboardButtons" destination="RUI-1X-WLN" collectionClass="NSMutableArray" id="iAa-qE-OZ6"/>
+                        <outletCollection property="adminDashboardButtons" destination="Yas-lW-TkG" collectionClass="NSMutableArray" id="vyb-Kd-tiw"/>
+                        <outletCollection property="adminDashboardButtons" destination="su3-Xr-fh0" collectionClass="NSMutableArray" id="nwY-7K-FHI"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="soW-HI-uxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBt-D4-Zjb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="-339"/>
+            <point key="canvasLocation" x="345" y="-317"/>
         </scene>
     </scenes>
     <resources>
