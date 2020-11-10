@@ -25,7 +25,7 @@ class Mutator: Request {
                                      .createPayment: Mutator.createPayment,
                                      .updateUserProfile: Mutator.updateUserProfile,
                                      .updateProperty: Mutator.updateProperty,
-                                     .updateCorporateSponsor: Mutator.updateCorporateSponsor]
+                                     .updateCorporateSponsor: Mutator.updateCorporateSponsor] as? [MutationName : (Any) -> String?]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
@@ -38,7 +38,7 @@ class Mutator: Request {
                                                                   .updateCorporateSponsor: .corporateSponsor]
 
     init?(name: MutationName, input: Input) {
-        guard let function = Mutator.collection[name] else {
+        guard let function = Mutator.collection?[name] else {
             NSLog("Couldn't find this mutation in the collection. Check your implementation.")
             return nil
         }
