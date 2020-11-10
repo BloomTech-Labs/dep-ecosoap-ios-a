@@ -53,25 +53,11 @@
                             <outlet property="delegate" destination="Ce5-4B-SHJ" id="XkY-BF-WFh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Hubs" id="HFf-LD-WFL">
-                        <barButtonItem key="leftBarButtonItem" title="My Profile" id="L5t-3A-iZr">
-                            <connections>
-                                <segue destination="w9r-wM-3FB" kind="showDetail" id="vTc-eZ-HgU"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Hubs" id="HFf-LD-WFL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E88-Y6-p9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-278" y="-329"/>
-        </scene>
-        <!--AdminProfile-->
-        <scene sceneID="ZeY-B7-WI4">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AdminProfile" id="w9r-wM-3FB" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="02j-eA-PL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-278" y="157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9fF-Gq-4kY">
@@ -174,8 +160,8 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-49-UvH">
-                                        <rect key="frame" x="37" y="170" width="300" height="140"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-49-UvH">
+                                        <rect key="frame" x="47" y="170" width="280" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-nD-4pO">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="140"/>
@@ -209,7 +195,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Myr-Xl-vPb">
-                                                <rect key="frame" x="170" y="0.0" width="130" height="140"/>
+                                                <rect key="frame" x="150" y="0.0" width="130" height="140"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distribution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98r-WT-JQg">
                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
@@ -278,7 +264,7 @@
                         <viewLayoutGuide key="safeArea" id="biv-VH-yjK"/>
                         <color key="backgroundColor" name="Panel System Background"/>
                         <constraints>
-                            <constraint firstItem="biv-VH-yjK" firstAttribute="bottom" secondItem="dbX-s6-Qar" secondAttribute="bottom" constant="20" id="42X-zd-5Y3"/>
+                            <constraint firstItem="biv-VH-yjK" firstAttribute="bottom" secondItem="dbX-s6-Qar" secondAttribute="bottom" constant="120" id="42X-zd-5Y3"/>
                             <constraint firstItem="biv-VH-yjK" firstAttribute="trailing" secondItem="dbX-s6-Qar" secondAttribute="trailing" constant="20" id="Jeo-kD-3W6"/>
                             <constraint firstItem="dbX-s6-Qar" firstAttribute="leading" secondItem="biv-VH-yjK" secondAttribute="leading" constant="20" id="pMV-ky-mVf"/>
                             <constraint firstItem="dbX-s6-Qar" firstAttribute="top" secondItem="biv-VH-yjK" secondAttribute="top" constant="80" id="yYd-Jy-mTw"/>
