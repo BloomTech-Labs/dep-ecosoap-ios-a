@@ -26,23 +26,23 @@ class AdminMainViewController: UIViewController {
     }
     
     @IBAction func productionReportButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "", sender: nil)
+//        self.performSegue(withIdentifier: "", sender: nil)
     }
     
     @IBAction func hubProfilesButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "", sender: nil)
+//        self.performSegue(withIdentifier: "", sender: nil)
     }
     
     @IBAction func teamMembersButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "", sender: nil)
+//        self.performSegue(withIdentifier: "", sender: nil)
     }
     
     @IBAction func pickUpsButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "", sender: nil)
+//        self.performSegue(withIdentifier: "", sender: nil)
     }
     
     @IBAction func profileButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "", sender: nil)
+//        self.performSegue(withIdentifier: "", sender: nil)
     }
     
     
