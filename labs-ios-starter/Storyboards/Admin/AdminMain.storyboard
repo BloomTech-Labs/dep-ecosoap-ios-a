@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTL-tM-Nif">
                                 <rect key="frame" x="20" y="164" width="374" height="106"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fai-94-Zs2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fai-94-Zs2" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <state key="normal" title="Production Reports"/>
                                         <connections>
@@ -30,14 +30,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-op-0A1">
                                         <rect key="frame" x="0.0" y="38" width="374" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fw-SH-pDf">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fw-SH-pDf" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
                                                 <state key="normal" title="Profile"/>
                                                 <connections>
                                                     <action selector="profileButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="DMi-hX-VPD"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-1X-WLN">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-1X-WLN" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="195" y="0.0" width="179" height="30"/>
                                                 <state key="normal" title="Team Members"/>
                                                 <connections>
@@ -49,14 +49,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="flw-tf-s8n">
                                         <rect key="frame" x="0.0" y="76" width="374" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-lW-TkG">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-lW-TkG" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
                                                 <state key="normal" title="Hub Profiles"/>
                                                 <connections>
                                                     <action selector="hubProfilesButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="ZtW-eO-iOI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-Xr-fh0">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-Xr-fh0" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="195" y="0.0" width="179" height="30"/>
                                                 <state key="normal" title="Pick-Ups"/>
                                                 <connections>
