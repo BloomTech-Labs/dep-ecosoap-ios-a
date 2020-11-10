@@ -80,6 +80,9 @@ class UpdateCorporateSponsorInput: Input {
         self.type = type
         self.contactName = contactName
         self.contactInfo = contactInfo
+        self.address = address
+        self.logo = logo
+        self.website = website
         self.sponsorshipType = sponsorshipType
         self.cashValue = cashValue
         self.soapBars = soapBars
