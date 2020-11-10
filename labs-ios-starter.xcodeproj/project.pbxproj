@@ -132,6 +132,7 @@
 		DB0669F5255A04C700194E11 /* AdminHubProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669F4255A04C700194E11 /* AdminHubProfileViewController.swift */; };
 		DB0669F8255A064600194E11 /* AdminMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0669F7255A064600194E11 /* AdminMainViewController.swift */; };
 		DB066A01255A10DA00194E11 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB066A00255A10DA00194E11 /* AdminMain.storyboard */; };
+		DB066A10255B534300194E11 /* AdminAllHubs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB066A0F255B534300194E11 /* AdminAllHubs.storyboard */; };
 		DB943572254886BD001E874B /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DB943571254886BD001E874B /* OktaAuth */; };
 		DD17801E2559D89C0086C5BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		DD1780212559D8BC0086C5BA /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -273,6 +274,7 @@
 		DB0669F4255A04C700194E11 /* AdminHubProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHubProfileViewController.swift; sourceTree = "<group>"; };
 		DB0669F7255A064600194E11 /* AdminMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainViewController.swift; sourceTree = "<group>"; };
 		DB066A00255A10DA00194E11 /* AdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
+		DB066A0F255B534300194E11 /* AdminAllHubs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminAllHubs.storyboard; sourceTree = "<group>"; };
 		FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDailyProduction.swift; sourceTree = "<group>"; };
 		FE6317E42535135300D5C794 /* HubAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminViewController.swift; sourceTree = "<group>"; };
 		FE6317E72535135600D5C794 /* HubAdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubAdminMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				99C04DBB2553416D000CD14A /* TeamMembers.storyboard */,
 				99C04DBE25534187000CD14A /* AdminDistribution.storyboard */,
 				99C04DC125534198000CD14A /* AdminProductReport.storyboard */,
+				DB066A0F255B534300194E11 /* AdminAllHubs.storyboard */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				99C04DB325533E5B000CD14A /* AdminPickups.storyboard in Resources */,
 				DB066A01255A10DA00194E11 /* AdminMain.storyboard in Resources */,
 				7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */,
+				DB066A10255B534300194E11 /* AdminAllHubs.storyboard in Resources */,
 				99C04DB625533E75000CD14A /* AdminHubProfile.storyboard in Resources */,
 				99C04DBF25534187000CD14A /* AdminDistribution.storyboard in Resources */,
 				79517958252E47BC00513E95 /* Payments.storyboard in Resources */,
