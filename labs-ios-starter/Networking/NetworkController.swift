@@ -21,7 +21,7 @@ class BackendController {
     }
 
     // MARK: - Properties
-    private let apiURL: URL = URL(string: "http://35.208.9.187:9194/ios-api-1")!
+    private let apiURL: URL = URL(string: "http://35.208.9.187:9294/ios-api-1")!
 
     var loggedInUser: User = User()
 

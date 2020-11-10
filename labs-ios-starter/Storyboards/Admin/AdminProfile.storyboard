@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9y7-NL-FGB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -133,7 +133,7 @@
                                 </state>
                                 <connections>
                                     <action selector="editProfileTapped:" destination="fTa-a1-zWO" eventType="touchUpInside" id="JaC-4h-8zC"/>
-                                    <segue destination="hhw-Pv-1Q2" kind="show" id="vBw-UL-ZyU"/>
+                                    <segue destination="hhw-Pv-1Q2" kind="show" identifier="AdminDetailModalSegue" id="vBw-UL-ZyU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9b-9r-feH">
@@ -161,14 +161,7 @@
                             <constraint firstItem="g9b-9r-feH" firstAttribute="leading" secondItem="4wz-Av-UfH" secondAttribute="trailing" constant="52" id="nhy-7o-YQ0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dFa-NW-pMG">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="urw-aS-JAS">
-                            <connections>
-                                <action selector="addProfileTapped:" destination="fTa-a1-zWO" id="YSp-vt-6ii"/>
-                                <segue destination="hhw-Pv-1Q2" kind="show" id="GrT-m2-C4k"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="dFa-NW-pMG"/>
                     <connections>
                         <outlet property="email" destination="h3W-rs-Eow" id="9AY-HL-enA"/>
                         <outlet property="emailLabel" destination="h3W-rs-Eow" id="jHO-Jm-IlU"/>
@@ -353,9 +346,6 @@
             <point key="canvasLocation" x="-1601.449275362319" y="-2268.0803571428569"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="GrT-m2-C4k"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

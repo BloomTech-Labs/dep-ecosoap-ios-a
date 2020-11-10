@@ -179,6 +179,7 @@ class ProfileController {
 
     // MARK: - Add User Profile
     // NOTE: This method is unused, but left as an example for creating a profile on the scaffolding backend.
+    // Not adding user profiles in the application
     func addProfile(_ profile: Profile, completion: @escaping () -> Void) {
         var oktaCredentials: OktaCredentials
         
@@ -194,9 +195,6 @@ class ProfileController {
             }
             return
         }
-
-        // TODO: Need to finish implementation of create user profile (aka register) functionality in Mutator and NetworkingController.
-
     }
 
     // MARK: - Get Image
