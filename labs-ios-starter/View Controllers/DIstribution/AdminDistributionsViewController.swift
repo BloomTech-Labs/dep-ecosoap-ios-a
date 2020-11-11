@@ -7,6 +7,9 @@
 //
 //TODO:
 ///Need singleton for backend with data.
+///Need current user optional value, called from backendcontroller.
+///Need an optional collection of user hubs.
+///Need reload method with bp for concurrency handling.
 
 import UIKit
 class AdminDistributionsViewController: UIViewController {
@@ -29,6 +32,8 @@ class AdminDistributionsViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func newTapped(_ sender: UIButton) {
         // TODO: Segue to empty detail VC
+        
+        ///actually I don't think I need this at all I can handle the segue manually in the IB.
     }
     @IBAction func filtersTapped(_ sender: UIButton) {
         // TODO: Add a filtering method for the hubs. This button can present a modal picker of some kind.

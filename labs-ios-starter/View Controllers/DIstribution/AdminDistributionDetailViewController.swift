@@ -30,8 +30,17 @@ class AdminDistributionDetailViewController: UIViewController {
         deleteButton.layer.cornerRadius = 5
     }
     @IBAction func editButtonTapped(_ sender: UIButton) {
+        //TODO:
+        ///isEditing will change the userInteractionisEnabled on the fields of this view controller
+        
+        /// toggle isEditing
+        /// call setEditing funtion
+        
     }
     @IBAction func submitButtonTapped(_ sender: UIButton) {
+        //TODO:
+        ///create an input object for impact stats
+        
     }
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
     }
