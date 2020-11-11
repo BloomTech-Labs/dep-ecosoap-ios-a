@@ -28,8 +28,9 @@ class Queries: Request {
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
                                      .monsterFetch: Queries.monsterFetch,
-                                     .productionReportsByHubId: Queries.productionReportsByHubId,
-                                     .corporateSponsors: Queries.corporateSponsors] as? [QueryName : (Any) -> String]
+                                     .productionReportsByHubId: Queries.productionReportsByHubId
+                                     // CODY :Removed corportate sponsors
+    ]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
                                                                .allUsers: .users,
@@ -46,7 +47,7 @@ class Queries: Request {
                                                                .productionReportsByHubId: .productionReports, .corporateSponsors: .corporateSponsor]
 
     init?(name: QueryName, id: String) {
-        guard let body = Queries.collection?[name] else {
+        guard let body = Queries.collection[name] else {
             NSLog("Couldn't find this query in the collection. Check your implementation.")
             return nil
         }

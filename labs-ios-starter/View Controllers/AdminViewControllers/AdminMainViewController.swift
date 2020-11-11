@@ -8,10 +8,9 @@
 
 import UIKit
 
-//TODO: This is the APEX location where all the segues to sub-sections are stored. Create buttons and segue logic to handle transition to sub-sections.
-//TODO: MVP: We need the segue to AdminProfileVC -> AdminDetailVC (to edit user info)
-
 class AdminMainViewController: UIViewController {
+  
+    @IBOutlet var adminDashboardButtons: [DashboardButton]!
     
     //MARK: - Outlets
     
@@ -20,42 +19,51 @@ class AdminMainViewController: UIViewController {
     @IBOutlet weak var teamMembersButton: UIButton!
     @IBOutlet weak var distributionButton: UIButton!
     @IBOutlet weak var productReportButton: UIButton!
-    
-    
-    // MARK: - Actions
-    
-    @IBAction func hubProfileButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func adminPickupButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func teamMembersButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func distributionButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func productReportButtonTapped(_ sender: Any) {
-    }
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        buttonSetup()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func productionReportButtonTapped(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "", sender: nil)
     }
-    */
+    
+    @IBAction func hubProfilesButtonTapped(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "", sender: nil)
+    }
+    
+    @IBAction func teamMembersButtonTapped(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "", sender: nil)
+    }
+    
+    @IBAction func pickUpsButtonTapped(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "", sender: nil)
+    }
+    
+    @IBAction func profileButtonTapped(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "", sender: nil)
+    }
+    
+    
+    // MARK: - Button Setup -
+    func buttonSetup() {
+        for button in adminDashboardButtons {
+            button.setWidth(width: 190)
+            button.setHeight(height: 120)
+            button.layer.cornerRadius = 12.0
+            button.layer.borderWidth = 1.0
+            button.layer.borderColor = UIColor.white.cgColor
+            button.tintColor = .white
+            button.titleLabel?.font = UIFont(name: "Futura", size: 20)
+            
+            // Shadow
+            button.layer.shadowColor = UIColor.gray.cgColor
+            button.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+            button.layer.shadowRadius = 5.0
+            button.layer.shadowOpacity = 1.0
+        }
+    }
 
 }
+
