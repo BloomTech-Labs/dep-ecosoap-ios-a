@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    static let esbGreen = UIColor(named: "ESB GREEN")
+    static let esbGreen = UIColor(named: "ESB Green")
     
     func darker(componentDelta: CGFloat = 0.2) -> UIColor {
         return makeColor(componentDelta: -1 * componentDelta)
