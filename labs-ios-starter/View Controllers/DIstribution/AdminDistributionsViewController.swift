@@ -5,6 +5,8 @@
 //  Created by Dahna on 11/10/20.
 //  Copyright © 2020 Spencer Curtis. All rights reserved.
 //
+//TODO:
+///Need singleton for backend with data.
 
 import UIKit
 class AdminDistributionsViewController: UIViewController {
@@ -26,10 +28,14 @@ class AdminDistributionsViewController: UIViewController {
     }
     // MARK: - IBActions
     @IBAction func newTapped(_ sender: UIButton) {
-        // TODO:
+        // TODO: Segue to empty detail VC
     }
     @IBAction func filtersTapped(_ sender: UIButton) {
-        // TODO:
+        // TODO: Add a filtering method for the hubs. This button can present a modal picker of some kind.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //TODO: Add segues to present hub details to edit or empty fields to add new
     }
 }
 // MARK: - TableView DataSource & Delegate
