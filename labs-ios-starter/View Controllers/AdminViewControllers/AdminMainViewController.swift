@@ -9,41 +9,49 @@
 import UIKit
 
 class AdminMainViewController: UIViewController {
+    
+
   
     @IBOutlet var adminDashboardButtons: [DashboardButton]!
     
     //MARK: - Outlets
     
-    @IBOutlet weak var hubProfileButton: UIButton!
-    @IBOutlet weak var adminPickupButton: UIButton!
-    @IBOutlet weak var teamMembersButton: UIButton!
-    @IBOutlet weak var distributionButton: UIButton!
-    @IBOutlet weak var productReportButton: UIButton!
+    @IBOutlet weak var myProfileButton: UIButton!
+    @IBOutlet weak var allHubsButton: UIButton!
+    @IBOutlet weak var partnershipsButton: UIButton!
+    @IBOutlet weak var corporateSponsorsButton: UIButton!
+    @IBOutlet weak var ngoSponsorsButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetup()
     }
     
-    @IBAction func productionReportButtonTapped(_ sender: UIButton) {
-//        self.performSegue(withIdentifier: "", sender: nil)
+    
+    
+//    @IBAction func allHubsButtonTapped(_ sender: UIButton) {
+////        self.performSegue(withIdentifier: "", sender: nil)
+//    }
+    
+    @IBAction func myProfileButtonTapped(_ sender: Any) {
     }
     
-    @IBAction func hubProfilesButtonTapped(_ sender: UIButton) {
-//        self.performSegue(withIdentifier: "", sender: nil)
+    @IBAction func allHubsButtonTapped(_ sender: Any) {
+        
+    }
+    @IBAction func partnershipsButtonTapped(_ sender: Any) {
+        
+    }
+    @IBAction func corporateSponsorsButtonTapped(_ sender: Any) {
+        
+    }
+    @IBAction func ngoSponsorsButtonTapped(_ sender: Any) {
+        
     }
     
-    @IBAction func teamMembersButtonTapped(_ sender: UIButton) {
-//        self.performSegue(withIdentifier: "", sender: nil)
-    }
     
-    @IBAction func pickUpsButtonTapped(_ sender: UIButton) {
-//        self.performSegue(withIdentifier: "", sender: nil)
-    }
     
-    @IBAction func profileButtonTapped(_ sender: UIButton) {
-//        self.performSegue(withIdentifier: "", sender: nil)
-    }
+    
     
     
     // MARK: - Button Setup -
@@ -55,7 +63,7 @@ class AdminMainViewController: UIViewController {
             button.layer.borderWidth = 1.0
             button.layer.borderColor = UIColor.white.cgColor
             button.tintColor = .white
-            button.titleLabel?.font = UIFont(name: "Futura", size: 20)
+            button.titleLabel?.font = UIFont(name: "Futura", size: 15)
             
             // Shadow
             button.layer.shadowColor = UIColor.gray.cgColor
@@ -64,6 +72,7 @@ class AdminMainViewController: UIViewController {
             button.layer.shadowOpacity = 1.0
         }
     }
+    
 
 }
 
