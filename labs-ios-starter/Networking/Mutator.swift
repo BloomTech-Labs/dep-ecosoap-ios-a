@@ -16,16 +16,18 @@ class Mutator: Request {
 
     var name: String
 
-    private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
-                                     .updatePickup: Mutator.updatePickup,
-                                     .cancelPickup: Mutator.cancelPickup,
-                                     .createProductionReport: Mutator.createProductionReport,
-                                     .updateProductionReport: Mutator.updateProductionReport,
-                                     .deleteProductionReport: Mutator.deleteProductionReport,
-                                     .createPayment: Mutator.createPayment,
-                                     .updateUserProfile: Mutator.updateUserProfile,
-                                     .updateProperty: Mutator.updateProperty,
-                                     .updateCorporateSponsor: Mutator.updateCorporateSponsor] as? [MutationName : (Any) -> String?]
+    private static let collection: [MutationName: (Input) -> String?] = [MutationName.schedulePickup: Mutator.schedulePickup,
+                                                                         .updatePickup: Mutator.updatePickup,
+                                                                         .cancelPickup: Mutator.cancelPickup,
+                                                                         .createProductionReport: Mutator.createProductionReport,
+                                                                         .updateProductionReport: Mutator.updateProductionReport,
+                                                                         .deleteProductionReport: Mutator.deleteProductionReport,
+                                                                         .createPayment: Mutator.createPayment,
+                                                                         .updateUserProfile: Mutator.updateUserProfile,
+                                                                         .updateProperty: Mutator.updateProperty,
+                                                                         .updateCorporateSponsor: Mutator.updateCorporateSponsor,
+                                                                         .updateDistribution: Mutator.updateDistribution
+    ]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
@@ -35,10 +37,10 @@ class Mutator: Request {
                                                                   .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property,
-                                                                  .updateCorporateSponsor: .corporateSponsor]
+                                                                  .updateCorporateSponsor: .corporateSponsors]
 
     init?(name: MutationName, input: Input) {
-        guard let function = Mutator.collection?[name] else {
+        guard let function = Mutator.collection[name] else {
             NSLog("Couldn't find this mutation in the collection. Check your implementation.")
             return nil
         }
@@ -492,7 +494,7 @@ class Mutator: Request {
     
     //MARK: Update Corporate Sponsor
     
-    func updateCorporateSponsor(input: Input) -> String? {
+    private static func updateCorporateSponsor(input: Input) -> String? {
         guard let sponsor = input as? UpdateCorporateSponsorInput else {
             NSLog("Couldn't cast input to UpdateCorporateSponsorInput. Please make sure your input matches the mutation's required input.")
             return nil
@@ -543,5 +545,33 @@ class Mutator: Request {
         }
         """
     }
-
+    
+    //MARK: Update Distribution
+    private static func updateDistribution(input: Input) -> String? {
+        guard let distribution = input as? UpdateDistributionInput else {
+            NSLog("")
+            return nil
+        }
+        
+        return """
+            mutation {
+              updateDistribution(input: {
+                \(distribution.formatted)
+              }) {
+                distribution {
+                  id,
+                  hub,
+                  date,
+                  partner,
+                    soapDistributed,
+                  bottlesDistributed,
+                  linensDistributed,
+                  photos,
+                  videos,
+                  notes
+                }
+              }
+            }
+            """
+    }
 }
