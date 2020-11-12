@@ -37,6 +37,7 @@ enum MutationName: String {
     case updateProductionReport
     case deleteProductionReport
     case updateCorporateSponsor
+    case updateDistribution
 }
 
 enum QueryName: String {

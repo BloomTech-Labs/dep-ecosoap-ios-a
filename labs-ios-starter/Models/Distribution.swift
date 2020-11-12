@@ -27,7 +27,8 @@ class Distribution {
               let hubContainer = dictionary["hub"] as? [String : Any],
               let hub = Hub(dictionary: hubContainer),
               let dateString = dictionary["date"] as? String,
-              let date = Date(shortDate: dateString) else {
+              let date = Date(shortDate: dateString),
+              let partnerContainer = dictionary["partner"] as? [String : Any] else {
             NSLog("Error unwrapping non-optional Pickup properties:")
             NSLog("id: \(String(describing: dictionary["id"]))")
             NSLog("hub: \(String(describing: dictionary["hub"]))")
@@ -35,9 +36,6 @@ class Distribution {
             return nil
         }
         
-        if let partnerContainer = dictionary["partner"] as? [String : Any] {
-            self.partner = DistributionPartner(dictionary: partnerContainer)
-        }
         
         if let soapDistributed = dictionary["soapDistributed"] as? Int {
             self.soapDistributed = soapDistributed
@@ -66,6 +64,7 @@ class Distribution {
         self.id = id
         self.hub = hub
         self.date = date
+        self.partner = DistributionPartner(dictionary: partnerContainer)
     }
 }
 
