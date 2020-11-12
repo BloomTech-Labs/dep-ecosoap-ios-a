@@ -32,7 +32,6 @@ class Distribution {
             NSLog("id: \(String(describing: dictionary["id"]))")
             NSLog("hub: \(String(describing: dictionary["hub"]))")
             NSLog("date: \(String(describing: dictionary["date"]))")
-            NSLog("distribution partner: \(String(describing: dictionary["partner"]))")
             return nil
         }
         
