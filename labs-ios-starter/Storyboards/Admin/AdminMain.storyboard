@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTL-tM-Nif">
-                                <rect key="frame" x="20" y="260" width="374" height="106"/>
+                                <rect key="frame" x="20" y="208" width="374" height="106"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fai-94-Zs2" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <state key="normal" title="My Profile"/>
                                         <connections>
                                             <action selector="myProfileButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="PkC-Bt-d4g"/>
-                                            <segue destination="Non-ZJ-1Kz" kind="presentation" modalPresentationStyle="fullScreen" id="BxC-wx-gvh"/>
+                                            <segue destination="Non-ZJ-1Kz" kind="show" id="BxC-wx-gvh"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-op-0A1">
@@ -36,7 +36,7 @@
                                                 <state key="normal" title="All Hubs"/>
                                                 <connections>
                                                     <action selector="allHubsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="VAh-TQ-QUr"/>
-                                                    <segue destination="lOH-8W-bQI" kind="presentation" modalPresentationStyle="fullScreen" id="JyM-h5-TNX"/>
+                                                    <segue destination="lOH-8W-bQI" kind="show" id="JyM-h5-TNX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-1X-WLN" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
@@ -122,8 +122,8 @@
             <objects>
                 <navigationController storyboardIdentifier="NavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x3d-JV-0x6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hTI-2Q-Zoe">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="chevron.backward" catalog="system" id="hTI-2Q-Zoe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -138,6 +138,7 @@
     </scenes>
     <color key="tintColor" name="ESB Green"/>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
