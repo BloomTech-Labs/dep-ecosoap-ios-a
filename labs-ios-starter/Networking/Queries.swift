@@ -44,7 +44,9 @@ class Queries: Request {
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
-                                                               .productionReportsByHubId: .productionReports, .corporateSponsors: .corporateSponsor]
+                                                               .productionReportsByHubId: .productionReports,
+                                                               .corporateSponsors: .corporateSponsors
+    ]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -856,5 +858,142 @@ class Queries: Request {
         }
         """
     }
-
+    
+    //MARK: Distribution Partners
+    private static func distributionPartners() -> String {
+        return """
+            query {
+              distributionPartners {
+                id,
+                hub {
+                  id,
+                  name,
+                  address {
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    state,
+                    postalCode,
+                    country
+                  }
+                  email,
+                  phone,
+                  coordinates {
+                    longitude,
+                    latitude
+                  },
+                  properties, {
+                    id
+                  },
+                  workflow,
+                  impact {
+                    soapRecycled,
+                    linensRecycled,
+                    bottlesRecycled,
+                    paperRecycled,
+                    peopleServed,
+                    womenEmployed,
+                  }
+                },
+                name,
+                type,
+                contactName,
+                contactInfo,
+                address,
+                logo,
+                website
+              }
+            """
+    }
+    
+    //MARK: Distributions
+    private static func distributions() -> String {
+        return """
+            query {
+              distributions {
+                id,
+                hub {
+                  id,
+                  name,
+                  address {
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    state,
+                    postalCode,
+                    country
+                  }
+                  email,
+                  phone,
+                  coordinates {
+                    longitude,
+                    latitude
+                  },
+                  properties, {
+                    id
+                  },
+                  workflow,
+                  impact {
+                    soapRecycled,
+                    linensRecycled,
+                    bottlesRecycled,
+                    paperRecycled,
+                    peopleServed,
+                    womenEmployed,
+                  }
+                },
+                date,
+                partner {
+                  id,
+                    hub {
+                      id,
+                      name,
+                      address {
+                        address1,
+                        address2,
+                        address3,
+                        city,
+                        state,
+                        postalCode,
+                        country
+                      }
+                      email,
+                      phone,
+                      coordinates {
+                        longitude,
+                        latitude
+                      },
+                      properties, {
+                        id
+                      },
+                      workflow,
+                      impact {
+                        soapRecycled,
+                        linensRecycled,
+                        bottlesRecycled,
+                        paperRecycled,
+                        peopleServed,
+                        womenEmployed,
+                      }
+                    },
+                    name,
+                    type,
+                    contactName,
+                    contactInfo,
+                    address,
+                    logo,
+                    website
+                },
+                soapDistributed,
+                bottlesDistributed,
+                linensDistributed,
+                photos,
+                videos,
+                notes
+              }
+            }
+        """
+    }
 }
