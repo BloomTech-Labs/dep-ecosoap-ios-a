@@ -36,7 +36,7 @@
                                                 <state key="normal" title="All Hubs"/>
                                                 <connections>
                                                     <action selector="allHubsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="VAh-TQ-QUr"/>
-                                                    <segue destination="lOH-8W-bQI" kind="showDetail" id="JyM-h5-TNX"/>
+                                                    <segue destination="lOH-8W-bQI" kind="show" id="JyM-h5-TNX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-1X-WLN" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
@@ -105,7 +105,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egp-LA-2qX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925" y="-408"/>
+            <point key="canvasLocation" x="2925" y="-421"/>
         </scene>
         <!--AdminAllHubs-->
         <scene sceneID="S96-vr-B25">
@@ -115,14 +115,14 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQB-aV-dsL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925" y="-273"/>
+            <point key="canvasLocation" x="2930" y="-252"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TAE-YJ-Pj8">
             <objects>
-                <navigationController storyboardIdentifier="NavController" automaticallyAdjustsScrollViewInsets="NO" id="x3d-JV-0x6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x3d-JV-0x6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hTI-2Q-Zoe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="chevron.backward" catalog="system" id="hTI-2Q-Zoe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -138,6 +138,7 @@
     </scenes>
     <color key="tintColor" name="ESB Green"/>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
