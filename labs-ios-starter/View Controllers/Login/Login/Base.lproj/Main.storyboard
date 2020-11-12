@@ -23,7 +23,7 @@
                     <connections>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
                         <segue destination="7CC-Hs-hrg" kind="presentation" identifier="HubAdminMainSegue" id="Krs-7a-Brc"/>
-                        <segue destination="MhS-gf-VFa" kind="show" identifier="MainAdminShowSegue" id="9Fa-uA-3YH"/>
+                        <segue destination="MhS-gf-VFa" kind="presentation" identifier="MainAdminShowSegue" modalPresentationStyle="fullScreen" id="9Fa-uA-3YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcT-Mn-ZnW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -33,7 +33,7 @@
         <!--AdminMain-->
         <scene sceneID="4Rb-ma-uEp">
             <objects>
-                <viewControllerPlaceholder storyboardName="AdminMain" id="MhS-gf-VFa" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="NavController" storyboardName="AdminMain" id="MhS-gf-VFa" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="12B-PH-7ol"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFO-gO-LXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
