@@ -104,24 +104,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-s6-Qar">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-s6-Qar">
                                 <rect key="frame" x="20" y="168" width="374" height="674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Mo-1f-Qr1">
-                                        <rect key="frame" x="37" y="0.0" width="300" height="140"/>
+                                        <rect key="frame" x="37" y="0.0" width="300" height="204.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="R8f-OQ-TsI">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="140"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="204.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hub Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTC-RB-CcF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="82.5"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="ESB Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0P-4M-PeK">
-                                                        <rect key="frame" x="0.0" y="16" width="130" height="122.5"/>
+                                                        <rect key="frame" x="0.0" y="80.5" width="130" height="122.5"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="A1G-A0-z3n"/>
@@ -142,17 +142,17 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="JQd-jh-Nlm">
-                                                <rect key="frame" x="170" y="0.0" width="130" height="140"/>
+                                                <rect key="frame" x="170" y="0.0" width="130" height="204.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Pickup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pz2-lv-wga">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="82.5"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="ESB Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qq-mF-l34">
-                                                        <rect key="frame" x="0.0" y="15" width="130" height="125.5"/>
+                                                        <rect key="frame" x="0.0" y="79.5" width="130" height="125.5"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="pLc-wD-bjj"/>
@@ -175,20 +175,20 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-49-UvH">
-                                        <rect key="frame" x="37" y="170" width="300" height="334"/>
+                                        <rect key="frame" x="37" y="234.5" width="300" height="205"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-nD-4pO">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="205"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-ul-xdG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="212"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="83"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="ESB Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRX-ko-obv">
-                                                        <rect key="frame" x="0.0" y="210.5" width="130" height="122"/>
+                                                        <rect key="frame" x="0.0" y="81.5" width="130" height="122"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="PDy-qq-8kR"/>
@@ -198,7 +198,7 @@
                                                             <imageReference key="backgroundImage" image="person.2.fill" catalog="system" symbolScale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="teamMembersButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="QXS-tj-5E5"/>
+                                                            <action selector="partnershipsButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="QXS-tj-5E5"/>
                                                             <segue destination="OdB-wO-Rsm" kind="show" id="MGy-II-9Cl"/>
                                                         </connections>
                                                     </button>
@@ -209,17 +209,17 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="Myr-Xl-vPb">
-                                                <rect key="frame" x="170" y="0.0" width="130" height="334"/>
+                                                <rect key="frame" x="170" y="0.0" width="130" height="205"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distribution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98r-WT-JQg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="212"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="83"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="ESB Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ1-Xs-Qnd">
-                                                        <rect key="frame" x="0.0" y="210.5" width="130" height="123.5"/>
+                                                        <rect key="frame" x="0.0" y="81.5" width="130" height="123.5"/>
                                                         <color key="backgroundColor" name="Panel System Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="h9S-9U-kNX"/>
@@ -242,17 +242,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="dnR-0m-rVb">
-                                        <rect key="frame" x="122" y="534" width="130" height="140"/>
+                                        <rect key="frame" x="122" y="469.5" width="130" height="204.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-7e-BRK">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="82.5"/>
                                                 <color key="backgroundColor" name="Panel System Background"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="ESB Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-Uw-mvi">
-                                                <rect key="frame" x="0.0" y="15" width="130" height="125"/>
+                                                <rect key="frame" x="0.0" y="79.5" width="130" height="125"/>
                                                 <color key="backgroundColor" name="Panel System Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="125" id="h94-Ri-EUa"/>
