@@ -14,10 +14,6 @@ class AdminPickupTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    // MARK: - OUTLETS
-    @IBOutlet weak var pickupTitle: UILabel!
-    @IBOutlet weak var pickupReadyDate: UILabel!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
