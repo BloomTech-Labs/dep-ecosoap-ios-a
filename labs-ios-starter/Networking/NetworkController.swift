@@ -39,6 +39,10 @@ class BackendController {
     var hospitalityContracts: [String: HospitalityContract] = [:]
     var productionReports: [String: HubDailyProduction] = [:]
     var impactStats: [String: ImpactStats] = [:]
+    var corporateSponsors: [String: CorporateSponsor] = [:]
+    var distributionPartners: [String: DistributionPartner] = [:]
+    var distributions: [String: Distribution] = [:]
+    
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                                 .properties: BackendController.propertiesParser,
@@ -51,7 +55,10 @@ class BackendController {
                                                                 .payment: BackendController.paymentParser,
                                                                 .payments: BackendController.paymentsParser,
                                                                 .productionReports: BackendController.productionReportsParser,
-                                                                .productionReport: BackendController.productionReportParser(data:)
+                                                                .productionReport: BackendController.productionReportParser(data:),
+                                                                .corporateSponsors: BackendController.corporateSponsorParser(data:),
+                                                                .distributionPartners: BackendController.distributionPartnerParser(data:),
+                                                                .distributions: BackendController.distributionsParser(data:)
                                                         
     ]
 
@@ -202,6 +209,45 @@ class BackendController {
         for cartonDict in cartonsContainer {
             if let carton = PickupCarton(dictionary: cartonDict) {
                 shared.pickupCartons[carton.id] = carton
+            }
+        }
+    }
+    
+    // MARK: - Corporate Sponsor Parser
+    private static func corporateSponsorParser(data: Any?) throws {
+        guard let sponsorContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for instantiating corporate sponsors.")
+        }
+        
+        for sponsorDict in sponsorContainer {
+            if let sponsor = CorporateSponsor(dictionary: sponsorDict) {
+                shared.corporateSponsors[sponsor.id] = sponsor
+            }
+        }
+    }
+    
+    // MARK: - Distribution Parsers
+    
+    private static func distributionPartnerParser(data: Any?) throws {
+        guard let partnerContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for instantiating distribution partners.")
+        }
+        
+        for partnerDict in partnerContainer {
+            if let partner = DistributionPartner(dictionary: partnerDict) {
+                shared.distributionPartners[partner.id] = partner
+            }
+        }
+    }
+    
+    private static func distributionsParser(data: Any?) throws {
+        guard let distributions = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for instantiating distributions.")
+        }
+        
+        for distributionDict in distributions {
+            if let distribution = Distribution(dictionary: distributionDict) {
+                shared.distributions[distribution.id] = distribution
             }
         }
     }
