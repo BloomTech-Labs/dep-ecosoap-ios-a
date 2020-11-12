@@ -63,16 +63,16 @@ enum Role: String {
 }
 
 enum CompanyType: String {
-    case ngoInternation = "NGO_INTERNATIONAL"
-    case ngoLocal = "NGO_LOCAL"
-    case internationalCorp = "CORPORATION_INTERNATIONAL"
-    case localCorp = "CORPORATION_LOCAL"
-    case otherForProfit = "FOR_PROFIT_OTHER"
-    case school = "SCHOOL"
-    case orphanage = "ORPHANAGE"
-    case healthcareFacility = "HEALTHCARE_FACILITY"
-    case localMarket = "LOCAL_MARKET"
-    case other = "OTHER"
+    case NGO_INTERNATIONAL
+    case NGO_LOCAL
+    case CORPORATION_INTERNATIONAL
+    case CORPORATION_LOCAL
+    case FOR_PROFIT_OTHER
+    case SCHOOL
+    case ORPHANAGE
+    case HEALTHCARE_FACILITY
+    case LOCAL_MARKET
+    case OTHER
 }
 
 enum SponsorshipType: String {
