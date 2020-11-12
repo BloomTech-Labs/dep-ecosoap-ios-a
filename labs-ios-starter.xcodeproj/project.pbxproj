@@ -61,9 +61,6 @@
 		5ADFF790255B498600D0C3BD /* DashboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADFF78F255B498600D0C3BD /* DashboardButton.swift */; };
 		5E120E6C2558EEDD00BD36B5 /* CorporateSponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */; };
 		5E120E712558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */; };
-		5E3A8E70255D9CB100C957CE /* DistributionPartner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8E6F255D9CB000C957CE /* DistributionPartner.swift */; };
-		5E3A8E73255D9CD800C957CE /* Distribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8E72255D9CD800C957CE /* Distribution.swift */; };
-		5E3A8E77255DB14E00C957CE /* UpdateDistributionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8E76255DB14E00C957CE /* UpdateDistributionInput.swift */; };
 		7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517949252B931800513E95 /* HubAdminMain.storyboard */; };
 		79517958252E47BC00513E95 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517954252E47BB00513E95 /* Payments.storyboard */; };
 		79517959252E47BC00513E95 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517955252E47BB00513E95 /* Statistics.storyboard */; };
@@ -208,9 +205,6 @@
 		5ADFF78F255B498600D0C3BD /* DashboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardButton.swift; sourceTree = "<group>"; };
 		5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateSponsor.swift; sourceTree = "<group>"; };
 		5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCorporateSponsorInput.swift; sourceTree = "<group>"; };
-		5E3A8E6F255D9CB000C957CE /* DistributionPartner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionPartner.swift; sourceTree = "<group>"; };
-		5E3A8E72255D9CD800C957CE /* Distribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distribution.swift; sourceTree = "<group>"; };
-		5E3A8E76255DB14E00C957CE /* UpdateDistributionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDistributionInput.swift; sourceTree = "<group>"; };
 		79517949252B931800513E95 /* HubAdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminMain.storyboard; sourceTree = "<group>"; };
 		79517954252E47BB00513E95 /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		79517955252E47BB00513E95 /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
@@ -673,7 +667,6 @@
 				18B14BCD252BBEFD0082D93F /* RegisterInput.swift */,
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
 				5E120E702558FF4300BD36B5 /* UpdateCorporateSponsorInput.swift */,
-				5E3A8E76255DB14E00C957CE /* UpdateDistributionInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -711,8 +704,6 @@
 				9CEA63C024EF5E7800A2C446 /* Payment.swift */,
 				FE5F2CB0252BCD8A0099B500 /* HubDailyProduction.swift */,
 				5E120E6B2558EEDD00BD36B5 /* CorporateSponsor.swift */,
-				5E3A8E6F255D9CB000C957CE /* DistributionPartner.swift */,
-				5E3A8E72255D9CD800C957CE /* Distribution.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -892,7 +883,6 @@
 				5E120E6C2558EEDD00BD36B5 /* CorporateSponsor.swift in Sources */,
 				7960E2ED252FC7C100A06582 /* HubAdminNewProductionReportViewController.swift in Sources */,
 				9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */,
-				5E3A8E70255D9CB100C957CE /* DistributionPartner.swift in Sources */,
 				B48BDCB3255DB66D006D46FF /* AdminPickupsViewController.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				DD1780212559D8BC0086C5BA /* (null) in Sources */,
@@ -948,7 +938,6 @@
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				DB0669F5255A04C700194E11 /* AdminHubDetailViewController.swift in Sources */,
-				5E3A8E77255DB14E00C957CE /* UpdateDistributionInput.swift in Sources */,
 				1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				1385B76D2515ADEF00953FD4 /* PaymentInvoiceViewController.swift in Sources */,
@@ -967,7 +956,6 @@
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				B444C5892553548D00D98B5C /* AdminProfileDetailViewController.swift in Sources */,
-				5E3A8E73255D9CD800C957CE /* Distribution.swift in Sources */,
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
 				79D835852538BB2D0097C9FB /* HubAdminEditDateTableViewCell.swift in Sources */,
 				18C7FA7E252F82A3004520F0 /* UpdateProductionReportInput.swift in Sources */,
