@@ -35,7 +35,8 @@ class Mutator: Request {
                                                                   .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property,
-                                                                  .updateCorporateSponsor: .corporateSponsor]
+                                                                  .updateCorporateSponsor: .corporateSponsor
+    ]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection?[name] else {

@@ -28,8 +28,9 @@ class Queries: Request {
                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
                                      .monsterFetch: Queries.monsterFetch,
-                                     .productionReportsByHubId: Queries.productionReportsByHubId
-                                     // CODY :Removed corportate sponsors
+                                     .productionReportsByHubId: Queries.productionReportsByHubId,
+                                     .corporateSponsors: Queries.corporateSponsors
+                                     
     ]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
@@ -44,7 +45,8 @@ class Queries: Request {
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
-                                                               .productionReportsByHubId: .productionReports, .corporateSponsors: .corporateSponsor]
+                                                               .productionReportsByHubId: .productionReports,
+                                                               .corporateSponsors: .corporateSponsor]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -815,7 +817,7 @@ class Queries: Request {
     
     //MARK: Corporate Sponsors
     
-    private static func corporateSponsors() -> String {
+    private static func corporateSponsors(_ id: String?) -> String {
         return """
         query {
           corporateSponsors {
