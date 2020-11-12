@@ -21,7 +21,9 @@ enum ResponseModel: String {
     case payments
     case productionReport
     case productionReports
-    case corporateSponsor
+    case corporateSponsors
+    case distributionPartners
+    case distributions
 }
 
 enum MutationName: String {
