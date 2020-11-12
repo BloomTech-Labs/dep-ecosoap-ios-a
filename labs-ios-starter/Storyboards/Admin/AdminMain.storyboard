@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yc-gF-Inh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x3d-JV-0x6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Main View Controller-->
+        <!--Dashboard-->
         <scene sceneID="d4G-ke-aZ7">
             <objects>
                 <viewController id="1yc-gF-Inh" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,13 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTL-tM-Nif">
-                                <rect key="frame" x="20" y="164" width="374" height="106"/>
+                                <rect key="frame" x="20" y="208" width="374" height="106"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fai-94-Zs2" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                        <state key="normal" title="Production Reports"/>
+                                        <state key="normal" title="My Profile"/>
                                         <connections>
-                                            <action selector="productionReportButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="08O-3i-8vJ"/>
+                                            <action selector="myProfileButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="PkC-Bt-d4g"/>
+                                            <segue destination="Non-ZJ-1Kz" kind="show" id="BxC-wx-gvh"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-op-0A1">
@@ -32,16 +33,17 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fw-SH-pDf" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
-                                                <state key="normal" title="Profile"/>
+                                                <state key="normal" title="All Hubs"/>
                                                 <connections>
-                                                    <action selector="profileButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="DMi-hX-VPD"/>
+                                                    <action selector="allHubsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="VAh-TQ-QUr"/>
+                                                    <segue destination="lOH-8W-bQI" kind="showDetail" id="JyM-h5-TNX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-1X-WLN" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="195" y="0.0" width="179" height="30"/>
-                                                <state key="normal" title="Team Members"/>
+                                                <state key="normal" title="Partnerships"/>
                                                 <connections>
-                                                    <action selector="teamMembersButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="nS3-Bh-cDw"/>
+                                                    <action selector="partnershipsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="zD5-S0-12n"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -51,16 +53,17 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-lW-TkG" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
-                                                <state key="normal" title="Hub Profiles"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="Corporate Sponsors"/>
                                                 <connections>
-                                                    <action selector="hubProfilesButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="ZtW-eO-iOI"/>
+                                                    <action selector="corporateSponsorsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="e9v-N0-c5C"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-Xr-fh0" customClass="DashboardButton" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="195" y="0.0" width="179" height="30"/>
-                                                <state key="normal" title="Pick-Ups"/>
+                                                <state key="normal" title="NGO Sponsors"/>
                                                 <connections>
-                                                    <action selector="pickUpsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="dwZ-Yh-19q"/>
+                                                    <action selector="ngoSponsorsButtonTapped:" destination="1yc-gF-Inh" eventType="touchUpInside" id="AcD-wG-ay1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -76,17 +79,61 @@
                             <constraint firstItem="bTL-tM-Nif" firstAttribute="top" secondItem="mze-CC-sbR" secondAttribute="top" constant="120" id="tWr-ip-uhN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Dashboard" largeTitleDisplayMode="always" id="nIS-eA-uOc"/>
                     <connections>
-                        <outletCollection property="adminDashboardButtons" destination="fai-94-Zs2" collectionClass="NSMutableArray" id="dWa-8S-mN0"/>
-                        <outletCollection property="adminDashboardButtons" destination="6Fw-SH-pDf" collectionClass="NSMutableArray" id="D52-Y2-uDz"/>
-                        <outletCollection property="adminDashboardButtons" destination="RUI-1X-WLN" collectionClass="NSMutableArray" id="iAa-qE-OZ6"/>
-                        <outletCollection property="adminDashboardButtons" destination="Yas-lW-TkG" collectionClass="NSMutableArray" id="vyb-Kd-tiw"/>
-                        <outletCollection property="adminDashboardButtons" destination="su3-Xr-fh0" collectionClass="NSMutableArray" id="nwY-7K-FHI"/>
+                        <outlet property="allHubsButton" destination="6Fw-SH-pDf" id="kOy-XO-Jvi"/>
+                        <outlet property="corporateSponsorsButton" destination="Yas-lW-TkG" id="8Ot-3Z-zKA"/>
+                        <outlet property="myProfileButton" destination="fai-94-Zs2" id="bwi-FA-JNe"/>
+                        <outlet property="ngoSponsorsButton" destination="su3-Xr-fh0" id="6hP-kk-qvI"/>
+                        <outlet property="partnershipsButton" destination="RUI-1X-WLN" id="hET-9L-tOD"/>
+                        <outletCollection property="adminDashboardButtons" destination="fai-94-Zs2" collectionClass="NSMutableArray" id="twG-B7-hes"/>
+                        <outletCollection property="adminDashboardButtons" destination="6Fw-SH-pDf" collectionClass="NSMutableArray" id="6TA-G4-zkA"/>
+                        <outletCollection property="adminDashboardButtons" destination="RUI-1X-WLN" collectionClass="NSMutableArray" id="Vuf-ip-eE1"/>
+                        <outletCollection property="adminDashboardButtons" destination="Yas-lW-TkG" collectionClass="NSMutableArray" id="xqw-C2-H2j"/>
+                        <outletCollection property="adminDashboardButtons" destination="su3-Xr-fh0" collectionClass="NSMutableArray" id="bgJ-NB-vrF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBt-D4-Zjb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="345" y="-317"/>
+            <point key="canvasLocation" x="2165.217391304348" y="-317.41071428571428"/>
+        </scene>
+        <!--AdminProfile-->
+        <scene sceneID="hcc-RG-g4v">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="adminProfile" storyboardName="AdminProfile" id="Non-ZJ-1Kz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZxQ-nd-Lx4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egp-LA-2qX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2925" y="-408"/>
+        </scene>
+        <!--AdminAllHubs-->
+        <scene sceneID="S96-vr-B25">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdminAllHubs" id="lOH-8W-bQI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="a60-YF-R3b"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQB-aV-dsL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2925" y="-273"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TAE-YJ-Pj8">
+            <objects>
+                <navigationController storyboardIdentifier="NavController" automaticallyAdjustsScrollViewInsets="NO" id="x3d-JV-0x6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hTI-2Q-Zoe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1yc-gF-Inh" kind="relationship" relationship="rootViewController" id="lio-b8-9g7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48L-fV-CWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255.072463768116" y="-317.41071428571428"/>
         </scene>
     </scenes>
     <color key="tintColor" name="ESB Green"/>
