@@ -10,6 +10,8 @@ import UIKit
 
 class AdminMainViewController: UIViewController {
     
+    
+    
 
   
     @IBOutlet var adminDashboardButtons: [DashboardButton]!
@@ -21,10 +23,13 @@ class AdminMainViewController: UIViewController {
     @IBOutlet weak var partnershipsButton: UIButton!
     @IBOutlet weak var corporateSponsorsButton: UIButton!
     @IBOutlet weak var ngoSponsorsButton: UIButton!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetup()
+        
     }
     
     

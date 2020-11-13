@@ -269,7 +269,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-60-GSN">
-                                <rect key="frame" x="20" y="574.5" width="374" height="61.5"/>
+                                <rect key="frame" x="20" y="564" width="374" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zL-xx-Tl1">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -303,9 +303,9 @@
                             <constraint firstItem="MI3-yf-hxE" firstAttribute="trailing" secondItem="LWE-z4-5j8" secondAttribute="trailing" constant="20" id="EUn-Cz-O4l"/>
                             <constraint firstItem="MI3-yf-hxE" firstAttribute="bottom" secondItem="J03-Pd-FsN" secondAttribute="bottom" constant="79" id="GtG-z4-Qov"/>
                             <constraint firstItem="LWE-z4-5j8" firstAttribute="leading" secondItem="MI3-yf-hxE" secondAttribute="leading" constant="20" id="TAV-qX-85b"/>
-                            <constraint firstItem="J03-Pd-FsN" firstAttribute="top" secondItem="DEC-60-GSN" secondAttribute="bottom" constant="117" id="chE-It-gjH"/>
                             <constraint firstItem="MI3-yf-hxE" firstAttribute="trailing" secondItem="DEC-60-GSN" secondAttribute="trailing" constant="20" id="eJX-Pe-dyG"/>
                             <constraint firstItem="LWE-z4-5j8" firstAttribute="top" secondItem="MI3-yf-hxE" secondAttribute="top" constant="50" id="k3F-Ud-bE9"/>
+                            <constraint firstItem="DEC-60-GSN" firstAttribute="bottom" secondItem="LWE-z4-5j8" secondAttribute="bottom" constant="80" id="wKW-28-xl9"/>
                             <constraint firstItem="J03-Pd-FsN" firstAttribute="leading" secondItem="MI3-yf-hxE" secondAttribute="leading" constant="70" id="zCO-Cp-6D9"/>
                         </constraints>
                     </view>

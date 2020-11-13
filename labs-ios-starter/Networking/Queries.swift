@@ -16,20 +16,22 @@ class Queries: Request {
 
     var name: String
 
-    private static let collection = [QueryName.userById: Queries.userById,
-                                     .allUsers: Queries.allUsers,
-                                     .propertyById: Queries.propertyById,
-                                     .propertiesByUserId: Queries.propertiesByUserId,
-                                     .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
-                                     .impactStatsByHubId: Queries.impactStatsByHubId,
-                                     .hubByPropertyId: Queries.hubByPropertyId,
-                                     .pickupsByPropertyId: Queries.pickupsByPropertyId,
-                                     .pickupsByHubId: Queries.pickupsbyHubId,
-                                     .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
-                                     .paymentsByPropertyId: Queries.paymentsByPropertyId,
-                                     .monsterFetch: Queries.monsterFetch,
-                                     .productionReportsByHubId: Queries.productionReportsByHubId
-                                     // CODY :Removed corportate sponsors
+    private static let collection: [QueryName: (String) -> String] = [QueryName.userById: Queries.userById,
+                                                                     .allUsers: Queries.allUsers,
+                                                                     .propertyById: Queries.propertyById,
+                                                                     .propertiesByUserId: Queries.propertiesByUserId,
+                                                                     .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
+                                                                     .impactStatsByHubId: Queries.impactStatsByHubId,
+                                                                     .hubByPropertyId: Queries.hubByPropertyId,
+                                                                     .pickupsByPropertyId: Queries.pickupsByPropertyId,
+                                                                     .pickupsByHubId: Queries.pickupsbyHubId,
+                                                                     .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
+                                                                     .paymentsByPropertyId: Queries.paymentsByPropertyId,
+                                                                     .monsterFetch: Queries.monsterFetch,
+                                                                     .productionReportsByHubId: Queries.productionReportsByHubId,
+                                                                     .corporateSponsors: Queries.corporateSponsors,
+                                                                     .distributionPartners: Queries.distributionPartners,
+                                                                     .distributions: Queries.distributions
     ]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
@@ -44,7 +46,8 @@ class Queries: Request {
                                                                .nextPaymentByPropertyId: .payment,
                                                                .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user,
-                                                               .productionReportsByHubId: .productionReports, .corporateSponsors: .corporateSponsor]
+                                                               .productionReportsByHubId: .productionReports,
+                                                               .corporateSponsors: .corporateSponsors]
 
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
@@ -815,7 +818,7 @@ class Queries: Request {
     
     //MARK: Corporate Sponsors
     
-    private static func corporateSponsors() -> String {
+    private static func corporateSponsors(_: String?) -> String {
         return """
         query {
           corporateSponsors {
@@ -857,4 +860,142 @@ class Queries: Request {
         """
     }
 
+    
+    //MARK: Distribution Partners
+    private static func distributionPartners(_: String?) -> String {
+        return """
+            query {
+              distributionPartners {
+                id,
+                hub {
+                  id,
+                  name,
+                  address {
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    state,
+                    postalCode,
+                    country
+                  }
+                  email,
+                  phone,
+                  coordinates {
+                    longitude,
+                    latitude
+                  },
+                  properties, {
+                    id
+                  },
+                  workflow,
+                  impact {
+                    soapRecycled,
+                    linensRecycled,
+                    bottlesRecycled,
+                    paperRecycled,
+                    peopleServed,
+                    womenEmployed,
+                  }
+                },
+                name,
+                type,
+                contactName,
+                contactInfo,
+                address,
+                logo,
+                website
+              }
+            """
+    }
+    
+    //MARK: Distributions
+    private static func distributions(_: String?) -> String {
+        return """
+            query {
+              distributions {
+                id,
+                hub {
+                  id,
+                  name,
+                  address {
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    state,
+                    postalCode,
+                    country
+                  }
+                  email,
+                  phone,
+                  coordinates {
+                    longitude,
+                    latitude
+                  },
+                  properties, {
+                    id
+                  },
+                  workflow,
+                  impact {
+                    soapRecycled,
+                    linensRecycled,
+                    bottlesRecycled,
+                    paperRecycled,
+                    peopleServed,
+                    womenEmployed,
+                  }
+                },
+                date,
+                partner {
+                  id,
+                    hub {
+                      id,
+                      name,
+                      address {
+                        address1,
+                        address2,
+                        address3,
+                        city,
+                        state,
+                        postalCode,
+                        country
+                      }
+                      email,
+                      phone,
+                      coordinates {
+                        longitude,
+                        latitude
+                      },
+                      properties, {
+                        id
+                      },
+                      workflow,
+                      impact {
+                        soapRecycled,
+                        linensRecycled,
+                        bottlesRecycled,
+                        paperRecycled,
+                        peopleServed,
+                        womenEmployed,
+                      }
+                    },
+                    name,
+                    type,
+                    contactName,
+                    contactInfo,
+                    address,
+                    logo,
+                    website
+                },
+                soapDistributed,
+                bottlesDistributed,
+                linensDistributed,
+                photos,
+                videos,
+                notes
+              }
+            }
+        """
+    }
 }
