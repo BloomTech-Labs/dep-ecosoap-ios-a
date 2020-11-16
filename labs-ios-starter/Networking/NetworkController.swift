@@ -142,7 +142,7 @@ class BackendController {
             try pickupParser(data: pickup)
         }
     }
-
+    
     //MARK: - Hub Parser
     private static func hubParser(data: Any?) throws {
         guard let hubContainer = data as? [String: Any] else {
@@ -254,6 +254,23 @@ class BackendController {
 
     // MARK: - Queries -
     
+    // MARK: Get all hubs
+    
+    func getAllHubs(completion: @escaping (Error?) -> Void ) {
+        guard let request = Queries(name: .fetchAllHubs, id: "") else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+        print("All hubs request \(request)")
+    }
 
     // MARK: - Properties by User Id
     func propertiesByUserId(id: String, completion: @escaping (Error?) -> Void) {

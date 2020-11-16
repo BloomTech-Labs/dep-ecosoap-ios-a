@@ -88,7 +88,7 @@ class AdminProfileDetailViewController: UIViewController {
                                                 if let error = error {
                                                 print("error in updating user: \(error)")
                                                 }
-                                            })                                            
+                                            })
         
     
         

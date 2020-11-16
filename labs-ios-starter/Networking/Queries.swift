@@ -31,7 +31,8 @@ class Queries: Request {
                                                                      .productionReportsByHubId: Queries.productionReportsByHubId,
                                                                      .corporateSponsors: Queries.corporateSponsors,
                                                                      .distributionPartners: Queries.distributionPartners,
-                                                                     .distributions: Queries.distributions
+                                                                     .distributions: Queries.distributions,
+                                                                     .fetchAllHubs: Queries.fetchAllHubs
     ]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
@@ -49,7 +50,7 @@ class Queries: Request {
                                                                .productionReportsByHubId: .productionReports,
                                                                .corporateSponsors: .corporateSponsors]
 
-    init?(name: QueryName, id: String) {
+    init?(name: QueryName, id: String?) {
         guard let body = Queries.collection[name] else {
             NSLog("Couldn't find this query in the collection. Check your implementation.")
             return nil
@@ -60,7 +61,7 @@ class Queries: Request {
             return nil
         }
 
-        self.body = body(id)
+        self.body = body(id ?? "")
         self.payload = payload
         self.name = name.rawValue
     }
@@ -434,8 +435,8 @@ class Queries: Request {
     }
     
     //MARK: - Fetch All Hubs
-    
-    private static func fetchAllHubs() -> String {
+    private static func fetchAllHubs(id: String?) -> String {
+        // ID IS NOT USED HERE
         """
         query {
              hubs {

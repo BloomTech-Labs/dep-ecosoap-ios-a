@@ -58,6 +58,7 @@ enum QueryName: String {
     case corporateSponsors
     case distributionPartners
     case distributions
+    case fetchAllHubs
 }
 
 
