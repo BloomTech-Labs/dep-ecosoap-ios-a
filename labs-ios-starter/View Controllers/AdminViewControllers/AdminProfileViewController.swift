@@ -10,7 +10,10 @@ import UIKit
 
 //TODO: MVP!: Load the authenticated user profile and display relevant information in the view.
 
+
 class AdminProfileViewController: UIViewController {
+    
+    
     
     //MARK:- Outlets
 
@@ -20,10 +23,12 @@ class AdminProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var skypeLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
-    
+    let currentUser = BackendController.shared.loggedInUser
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
         // Do any additional setup after loading the view.
     }
@@ -35,12 +40,20 @@ class AdminProfileViewController: UIViewController {
     
     //TODO: No profile needs to be added since we are not adding anything on the app side, only updating
     @IBAction func editProfileTapped(_ sender: Any) {
-        //TODO: Segue to the ProfileDetailVC 
+//        performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
     }
     @IBAction func deleteProfileTapped(_ sender: Any) {
     }
     //TODO: Not sure if we need delete functionality here necessarily? Probably something that is done on the same website or through e-mail to server admin
-    
+    func updateViews() {
+        firstNameLabel.text = currentUser.firstName
+        middleNameLabel.text = currentUser.middleName
+        lastNameLabel.text = currentUser.lastName
+        
+        emailLabel.text = currentUser.email
+        skypeLabel.text = currentUser.skype
+        phoneNumberLabel.text = currentUser.phone
+    }
     
     /*
     // MARK: - Navigation

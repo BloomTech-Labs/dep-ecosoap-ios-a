@@ -17,6 +17,7 @@ class HospitalityContract {
     let automatedBilling: Bool
     let paymentsById: [String]
     let amountPaid: Int?
+    let properties: [Property?]
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
@@ -59,6 +60,7 @@ class HospitalityContract {
         self.paymentEndDate = paymentEndDate
         self.automatedBilling = automatedBilling
 
+        self.properties = (dictionary["properties"] as? [Property])!
         self.price = dictionary["price"] as? Int
         self.discount = dictionary["discount"] as? Float
         self.billingMethod = dictionary["billingMethod"] as? String
