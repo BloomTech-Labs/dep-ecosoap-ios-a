@@ -14,13 +14,13 @@
         <!--Hubs-->
         <scene sceneID="Yqd-Vo-zOl">
             <objects>
-                <tableViewController id="Ce5-4B-SHJ" sceneMemberID="viewController">
+                <tableViewController id="Ce5-4B-SHJ" customClass="AdminAllHubsTableViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qCm-MI-jdB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="j77-EY-lkf" detailTextLabel="Vza-w1-aPY" style="IBUITableViewCellStyleSubtitle" id="cuA-MI-d79">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HubCell" textLabel="j77-EY-lkf" detailTextLabel="Vza-w1-aPY" style="IBUITableViewCellStyleSubtitle" id="cuA-MI-d79">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cuA-MI-d79" id="d8S-cF-bv9">
@@ -62,9 +62,9 @@
         <!--Hub Name-->
         <scene sceneID="bZn-tt-76E">
             <objects>
-                <viewController id="5aU-61-MXb" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="5aU-61-MXb" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pN2-tt-a2k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vau-Fx-9EF">
@@ -75,7 +75,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-s6-Qar">
-                                <rect key="frame" x="20" y="80" width="374" height="480"/>
+                                <rect key="frame" x="20" y="124" width="374" height="480"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Mo-1f-Qr1">
                                         <rect key="frame" x="37" y="0.0" width="300" height="140"/>
