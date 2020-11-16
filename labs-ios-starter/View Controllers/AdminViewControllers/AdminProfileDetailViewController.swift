@@ -36,14 +36,59 @@ class AdminProfileDetailViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let currentUser = currentUser else { return }
-        let input = UpdateUserProfileInput(id: currentUser.id ?? "", firstName: firstNameTextField.text, middleName: middleNameTextField.text, lastName: lastNameTextField.text, title: currentUser.title, company: currentUser.company, email: emailTextField.text, phone: numberTextField.text, skype: skypeTextField.text, signupTime: currentUser.signupTime)
+        var firstName: String = ""
+        var lastName: String = ""
+        var middleName: String = ""
+        var phone: String = ""
+        var skype: String = ""
+        var email: String = ""
+        
+        if firstNameTextField.text == "" {
+            firstName = currentUser.firstName
+        } else {
+            guard let uwFirstName = firstNameTextField.text else { return }
+            firstName = uwFirstName
+        }
+        if lastNameTextField.text == "" {
+            lastName = currentUser.lastName
+        } else {
+            guard let uwLastName = lastNameTextField.text else { return }
+            lastName = uwLastName
+        }
+        if middleNameTextField.text == "" {
+            guard let uwMiddleName = currentUser.middleName else { return }
+            middleName = uwMiddleName
+        } else {
+            guard let uwMiddleName = middleNameTextField.text else { return }
+            middleName = uwMiddleName
+        }
+        if emailTextField.text == "" {
+            email = currentUser.email
+        } else {
+            guard let uwEmail = emailTextField.text else { return }
+            email = uwEmail
+        }
+        if numberTextField.text == "" {
+            guard let uwPhone = currentUser.phone else { return }
+            phone = uwPhone
+        } else {
+            guard let uwPhone = numberTextField.text else { return }
+            phone = uwPhone
+        }
+        if skypeTextField.text == "" {
+            guard let uwSkype = currentUser.skype else { return }
+            skype = uwSkype
+        } else {
+            guard let uwSkype = skypeTextField.text else { return }
+            skype = uwSkype
+        }
+        let input = UpdateUserProfileInput(id: currentUser.id, firstName: firstName, middleName: middleName, lastName: lastName, title: currentUser.title, company: currentUser.company, email: email, phone: phone, skype: skype, signupTime: currentUser.signupTime)
 
         controller.updateUserProfile(input: input, completion: { error in
                                                 if let error = error {
                                                 print("error in updating user: \(error)")
                                                 }
-                                            })
-                                            
+                                            })                                            
         
     
         
