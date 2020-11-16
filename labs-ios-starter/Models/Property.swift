@@ -21,6 +21,7 @@ class Property {
     var impact: ImpactStats?
     var usersById: [String] = []
     var pickupsById: [String] = []
+    var contract: HospitalityContract?
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
@@ -38,7 +39,7 @@ class Property {
             NSLog("\tServices: \(String(describing: dictionary["services"]))")
             return nil
         }
-
+        
         self.id = id
         self.name = name
         self.propertyType = propertyType
@@ -50,6 +51,7 @@ class Property {
         self.shippingNote = dictionary["shippingNote"] as? String
         self.notes = dictionary["notes"] as? String
         self.logo = dictionary["logo"] as? URL
+        self.contract = dictionary["contract"] as? HospitalityContract
 
 
         if let billingContainer = dictionary["billingAddress"] as? [String: Any] {

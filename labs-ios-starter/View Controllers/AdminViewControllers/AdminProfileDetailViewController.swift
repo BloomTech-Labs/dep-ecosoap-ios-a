@@ -14,26 +14,52 @@ class AdminProfileDetailViewController: UIViewController {
     
     //MARK:- Outlets
     
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var middleNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var skypeTextField: UITextField!
     @IBOutlet weak var numberTextField: UITextField!
+    var currentUser: User? {
+        return controller.loggedInUser
+    }
+    let controller = BackendController.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
     //MARK:- Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let currentUser = currentUser else { return }
+        let input = UpdateUserProfileInput(id: currentUser.id ?? "", firstName: firstNameTextField.text, middleName: middleNameTextField.text, lastName: lastNameTextField.text, title: currentUser.title, company: currentUser.company, email: emailTextField.text, phone: numberTextField.text, skype: skypeTextField.text, signupTime: currentUser.signupTime)
+
+        controller.updateUserProfile(input: input, completion: { error in
+                                                if let error = error {
+                                                print("error in updating user: \(error)")
+                                                }
+                                            })
+                                            
+        
+    
+        
         //TODO: Send a mutate request to GQL and update the user information with new data. Guard against empty strings in relevant locations where there is no optionality on the backend,
         //TODO: Present an alert indicating sucess or failure to update and unwind back to the AdminMain / AdminDashboard.
     }
-    
+    func updateViews() {
+        guard let currentUser = currentUser else { return }
+        firstNameTextField.placeholder = currentUser.firstName
+        middleNameTextField.placeholder = currentUser.middleName
+        lastNameTextField.placeholder = currentUser.lastName
+        
+        emailTextField.placeholder = currentUser.email
+        skypeTextField.placeholder = currentUser.skype
+        numberTextField.placeholder = currentUser.phone
+    }
     /*
     // MARK: - Navigation
 
