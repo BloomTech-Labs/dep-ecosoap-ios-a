@@ -64,6 +64,7 @@
 		5E3A8E88255DF0B300C957CE /* DistributionPartner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8E87255DF0B300C957CE /* DistributionPartner.swift */; };
 		5E3A8E8B255DF0CC00C957CE /* Distribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8E8A255DF0CC00C957CE /* Distribution.swift */; };
 		5E3A8E8E255DF1E800C957CE /* UpdateDistributionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8E8D255DF1E800C957CE /* UpdateDistributionInput.swift */; };
+		5E3A8EA72562F7E500C957CE /* DistributionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3A8EA62562F7E500C957CE /* DistributionTableViewCell.swift */; };
 		7951794A252B931800513E95 /* HubAdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517949252B931800513E95 /* HubAdminMain.storyboard */; };
 		79517958252E47BC00513E95 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517954252E47BB00513E95 /* Payments.storyboard */; };
 		79517959252E47BC00513E95 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79517955252E47BB00513E95 /* Statistics.storyboard */; };
@@ -211,6 +212,7 @@
 		5E3A8E87255DF0B300C957CE /* DistributionPartner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionPartner.swift; sourceTree = "<group>"; };
 		5E3A8E8A255DF0CC00C957CE /* Distribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distribution.swift; sourceTree = "<group>"; };
 		5E3A8E8D255DF1E800C957CE /* UpdateDistributionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDistributionInput.swift; sourceTree = "<group>"; };
+		5E3A8EA62562F7E500C957CE /* DistributionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionTableViewCell.swift; sourceTree = "<group>"; };
 		79517949252B931800513E95 /* HubAdminMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HubAdminMain.storyboard; sourceTree = "<group>"; };
 		79517954252E47BB00513E95 /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		79517955252E47BB00513E95 /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		13A4A7E324E20353005326F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5E3A8E9C2562F6B300C957CE /* Admin */,
 				7960E2E0252FAB3D00A06582 /* HubAdmin */,
 				13A4A7E424E2035F005326F9 /* Dashboard */,
 				13FD2A9A24E457A5006D6B43 /* Pickups */,
@@ -515,6 +518,14 @@
 				46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */,
 			);
 			path = Profiles;
+			sourceTree = "<group>";
+		};
+		5E3A8E9C2562F6B300C957CE /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				5E3A8EA62562F7E500C957CE /* DistributionTableViewCell.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		79517961252E47D900513E95 /* HubAdmin */ = {
@@ -897,6 +908,7 @@
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				DD1780212559D8BC0086C5BA /* (null) in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
+				5E3A8EA72562F7E500C957CE /* DistributionTableViewCell.swift in Sources */,
 				79D8355E2538B8650097C9FB /* HubAdminPickupViewController.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
 				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,

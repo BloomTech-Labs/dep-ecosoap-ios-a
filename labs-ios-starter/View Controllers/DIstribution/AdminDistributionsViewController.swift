@@ -87,8 +87,9 @@ extension AdminDistributionsViewController: UITableViewDelegate, UITableViewData
         return distributions.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = distributionTableView.dequeueReusableCell(withIdentifier: "DistributionCell", for: indexPath)
+        guard let cell = distributionTableView.dequeueReusableCell(withIdentifier: "DistributionCell", for: indexPath) as? DistributionTableViewCell else { fatalError("Couldn't dequeue cell of type DistributionTableViewCell") }
         
+        cell.distribution = distributions[indexPath.row]
         return cell
     }
 }

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="10" y="208" width="394" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DistributionCell" rowHeight="64" id="Ile-zc-tJZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DistributionCell" rowHeight="64" id="Ile-zc-tJZ" customClass="DistributionTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ile-zc-tJZ" id="3Zb-LT-kN2">
@@ -58,6 +58,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="distributionDate" destination="cLx-IK-2Ky" id="Hnx-ec-4im"/>
+                                            <outlet property="partnerNameLabel" destination="nrZ-La-qLI" id="mlT-ax-9Js"/>
                                             <segue destination="FSR-1N-paE" kind="show" identifier="editDistributionSegue" id="WUd-FO-nVf"/>
                                         </connections>
                                     </tableViewCell>
