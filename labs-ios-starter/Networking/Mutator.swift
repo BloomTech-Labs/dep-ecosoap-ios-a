@@ -26,7 +26,9 @@ class Mutator: Request {
                                                                          .updateUserProfile: Mutator.updateUserProfile,
                                                                          .updateProperty: Mutator.updateProperty,
                                                                          .updateCorporateSponsor: Mutator.updateCorporateSponsor,
-                                                                         .updateDistribution: Mutator.updateDistribution
+                                                                         .updateDistribution: Mutator.updateDistribution,
+                                                                         .shortUpdateUserProfile: Mutator.shortUpdateUserProfile
+                                                                         
     ]
 
     private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
@@ -37,7 +39,8 @@ class Mutator: Request {
                                                                   .deleteProductionReport: .productionReport,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property,
-                                                                  .updateCorporateSponsor: .corporateSponsors]
+                                                                  .updateCorporateSponsor: .corporateSponsors,
+                                                                  .shortUpdateUserProfile: .user]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -305,6 +308,32 @@ class Mutator: Request {
     }
 
     // MARK: - Update User Profile
+    
+    private static func shortUpdateUserProfile(input: Input) -> String? {
+        // This is being used to update profile info, only add things you have a field for.
+        guard let user = input as? UpdateUserProfileInput else {
+            NSLog("Couldn't cast input to UpdateUserProfileInput. Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+          updateUserProfile(input: {
+            \(user.formatted)
+          }) {
+            user {
+              id
+              firstName
+              middleName
+              lastName
+              email
+              phone
+              skype
+            }
+          }
+        }
+
+        """
+    }
     private static func updateUserProfile(input: Input) -> String? {
         guard let user = input as? UpdateUserProfileInput else {
             NSLog("Couldn't cast input to UpdateUserProfileInput. Please make sure your input matches the mutation's required input.")
