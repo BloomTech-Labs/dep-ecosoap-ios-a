@@ -432,6 +432,18 @@ class Queries: Request {
         }
         """
     }
+    
+    //MARK: - Fetch All Hubs
+    
+    private static func fetchAllHubs() -> String {
+        """
+        query {
+             hubs {
+                    id
+                    name
+                }
+        """
+    }
 
     // MARK: - Hub by Property Id
     private static func hubByPropertyId(propertyID: String) -> String {
