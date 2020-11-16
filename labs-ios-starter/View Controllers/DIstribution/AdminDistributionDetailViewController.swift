@@ -20,6 +20,9 @@ class AdminDistributionDetailViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    var distribution: Distribution?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButtonCornerRadius()

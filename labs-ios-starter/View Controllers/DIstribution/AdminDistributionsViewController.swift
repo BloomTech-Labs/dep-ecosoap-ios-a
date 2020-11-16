@@ -55,6 +55,32 @@ class AdminDistributionsViewController: UIViewController {
         }
     }
     
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "newDistributionSegue":
+            guard let newVC = segue.destination as? AdminDistributionDetailViewController else {
+                NSLog("Destination was not a distribution detail view controller")
+                return
+            }
+            ///inject any future dependencies here for new distros.
+        case "editDistributionSegue":
+            guard let indexPath = distributionTableView.indexPathForSelectedRow else {
+                NSLog("Could not fetch index path for selected row.")
+                return
+            }
+            guard let editVC = segue.destination as? AdminDistributionDetailViewController else {
+                NSLog("Destination was not a distribution detail view controller")
+                return
+            }
+            
+            editVC.distribution = distributions[indexPath.row]
+        default:
+            NSLog("No such segue exists:  \(String(describing: segue.identifier))")
+            return
+        }
+    }
+    
     //MARK: - Methods
     private func filterDistributions(_ distroDict: [String: Distribution]) -> [Distribution] {
         var uniques = Set<Distribution>()
