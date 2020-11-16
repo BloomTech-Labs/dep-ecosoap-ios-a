@@ -33,6 +33,7 @@ class AdminDistributionsViewController: UIViewController {
     //MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        populateData()
         configureNewButton()
         configureTableView()
     }
@@ -109,6 +110,23 @@ class AdminDistributionsViewController: UIViewController {
     private func configureTableView() {
         distributionTableView.delegate = self
         distributionTableView.dataSource = self
+    }
+    
+    private func populateData() {
+        DispatchQueue.main.async {
+            self.controller.distributions { error in
+                if let error = error {
+                    NSLog("Problem fetching DISTRIBUTION Objects: \(error)")
+                    return
+                }
+            }
+            self.controller.distributionPartners { error in
+                if let error = error {
+                    NSLog("Problem fetching DISTRIBUTION PARTNER Objects: \(error)")
+                    return
+                }
+            }
+        }
     }
 }
 

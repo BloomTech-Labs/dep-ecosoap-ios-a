@@ -475,7 +475,7 @@ class BackendController {
             }
             
             do {
-                try distributionsParser(data: container)
+                try BackendController.distributionsParser(data: container)
             } catch {
                 NSLog("Error: Couldn't parse DISTRIBUTION objects.\(error)")
                 completion(error)
@@ -485,7 +485,7 @@ class BackendController {
     }
     
     func distributionPartners(_ id: String = "id", completion: @escaping (Error?) -> Void) {
-        guard let request = Queries(name: distributionPartners, id: id) else {
+        guard let request = Queries(name: .distributionPartners, id: id) else {
             completion(Errors.RequestInitFail)
             return
         }
@@ -503,7 +503,7 @@ class BackendController {
             }
             
             do {
-                try distributionPartnersParser(data: container)
+                try BackendController.distributionPartnerParser(data: container)
             } catch {
                 NSLog("Error: Couldn't parse DISTRIBUTION PARTNER objects.\(error)")
                 completion(error)
