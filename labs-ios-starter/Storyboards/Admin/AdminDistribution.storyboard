@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -58,7 +58,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="FSR-1N-paE" kind="show" id="WUd-FO-nVf"/>
+                                            <segue destination="FSR-1N-paE" kind="show" identifier="editDistributionSegue" id="WUd-FO-nVf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,6 +76,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newTapped:" destination="TbF-BB-Xp4" eventType="touchUpInside" id="n7r-Wy-7QY"/>
+                                    <segue destination="FSR-1N-paE" kind="show" identifier="newDistributionSegue" id="U1T-0n-r7O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roW-xU-d6k">
@@ -342,6 +343,9 @@
             <point key="canvasLocation" x="433" y="129"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="U1T-0n-r7O"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="ESB Green">
             <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

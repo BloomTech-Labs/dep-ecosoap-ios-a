@@ -11,11 +11,23 @@ class AdminDistributionsViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var distributionTableView: UITableView!
+    
+    var controller = BackendController.shared
+    var distributionsDict: [String: Distribution] {
+        return controller.distributions
+    }
+    var distributions: [Distribution] {
+        return filterDistributions(distributionsDict)
+    }
+    
+    //MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNewButton()
         configureTableView()
     }
+    
+    
     // MARK: - Helper Methods
     private func configureNewButton() {
         newButton.layer.cornerRadius = 5
@@ -24,12 +36,21 @@ class AdminDistributionsViewController: UIViewController {
         distributionTableView.delegate = self
         distributionTableView.dataSource = self
     }
+    
+    
     // MARK: - IBActions
-    @IBAction func newTapped(_ sender: UIButton) {
-        // TODO:
-    }
     @IBAction func filtersTapped(_ sender: UIButton) {
         // TODO:
+    }
+    
+    //MARK: - Methods
+    private func filterDistributions(_ distroDict: [String: Distribution]) -> [Distribution] {
+        var distros = Set<Distribution>()
+        for (_, distro) in distroDict {
+            distros.insert(distro)
+        }
+        let distributions = Array(distros)
+        return distributions
     }
 }
 // MARK: - TableView DataSource & Delegate
