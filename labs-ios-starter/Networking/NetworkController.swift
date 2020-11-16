@@ -453,6 +453,64 @@ class BackendController {
             completion(data, nil)
         }
     }
+    
+    // MARK: - Distributions and Distributioon Partners
+    
+    func distributions(_ id: String = "id", completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .distributions, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (data, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let container = data as? [String: Any] else {
+                NSLog("Couldn't unwrap DISTRIBUTION data as dictionary in initial fetch.")
+                NSLog("\(String(describing: data))")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+            
+            do {
+                try distributionsParser(data: container)
+            } catch {
+                NSLog("Error: Couldn't parse DISTRIBUTION objects.\(error)")
+                completion(error)
+                return
+            }
+        }
+    }
+    
+    func distributionPartners(_ id: String = "id", completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: distributionPartners, id: id) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (data, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let container = data as? [String : Any] else {
+                NSLog("Couldn't unwrap DISTRIBUTION PARTNER data as dictionary in initial fetch.")
+                NSLog("\(String(describing: data))")
+                completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                return
+            }
+            
+            do {
+                try distributionPartnersParser(data: container)
+            } catch {
+                NSLog("Error: Couldn't parse DISTRIBUTION PARTNER objects.\(error)")
+                completion(error)
+                return
+            }
+        }
+    }
 
     // MARK: - Initial Fetch
     func initialFetch(userId: String, completion: @escaping (Error?) -> Void) {
@@ -677,6 +735,20 @@ class BackendController {
                 return
             }
 
+            completion(nil)
+        }
+    }
+    
+    func updateDistribution(input: UpdateDistributionInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updateDistribution, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { _, error in
+            if let error = error {
+                completion(error)
+                return
+            }
             completion(nil)
         }
     }
