@@ -53,6 +53,7 @@ class AdminDistributionsViewController: UIViewController {
         } else {
             currentFilter += 1
         }
+        distributionTableView.reloadData()
     }
     
     //MARK: - Navigation
