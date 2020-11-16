@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DistributionPartner {
+class DistributionPartner: Hashable {
     let id: String
     let hub: Hub
     let name: String
@@ -56,5 +56,13 @@ class DistributionPartner {
         self.type = type
         self.contactInfo = contactInfo
         self.contactName = contactName
+    }
+    
+    static func == (lhs: DistributionPartner, rhs: DistributionPartner) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
