@@ -651,7 +651,7 @@ class BackendController {
 
     // MARK: - Update User Profile
     func updateUserProfile(input: UpdateUserProfileInput, completion: @escaping (Error?) -> Void) {
-        guard let request = Mutator(name: .updateUserProfile, input: input) else {
+        guard let request = Mutator(name: .shortUpdateUserProfile, input: input) else {
             completion(Errors.RequestInitFail)
             return
         }
@@ -664,6 +664,7 @@ class BackendController {
             completion(nil)
         }
     }
+    
 
     // MARK: - Update Property
     func updateProperty(input: UpdatePropertyInput, completion: @escaping (Error?) -> Void) {
