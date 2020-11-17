@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Distribution {
+class Distribution: Hashable {
+    
     let id: String
     let hub: Hub
     let date: Date
@@ -62,6 +63,14 @@ class Distribution {
         self.hub = hub
         self.date = date
         self.partner = DistributionPartner(dictionary: partnerContainer)
+    }
+    
+    static func == (lhs: Distribution, rhs: Distribution) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 
