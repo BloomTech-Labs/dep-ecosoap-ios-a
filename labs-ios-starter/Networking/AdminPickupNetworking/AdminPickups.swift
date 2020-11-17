@@ -12,20 +12,26 @@ import Foundation
 
 class AdminPickups {
     
-    let id, collectionType, confirmationCode, propertyId, pickupStatus: String
-    var readyDate: Date
+    let id: String
+    let confirmationCode: String
+    let collectionType: String
+    let pickupStatus: String
+    let readyDate: Date!
     var pickupDate: Date?
-    var cartonsById: [String] = []
-    var notes: String?
-    var driver: String?
+    let property: String
+//    let cartons: [String]// needs to be changed most likely, should Be CartonInput
+    let driver: String?
+    let notes: String?
+    
 
     init?(dictionary: [String: Any]) {
-
         guard let id = dictionary["id"] as? String,
         let driver = dictionary["driver"] as? String,
         let confirmationCode = dictionary["confirmationCode"] as? String,
         let collectionType = dictionary["collectionType"] as? String,
         let status = dictionary["status"] as? String,
+        let cartons = dictionary["cartons"] as?
+            String,
         let property = dictionary["property"] as? [String: Any],
         let propertyId = property["id"] as? String,
         let readyDateString = dictionary["readyDate"] as? String,
@@ -41,11 +47,12 @@ class AdminPickups {
         }
 
         self.id = id
-        self.propertyId = propertyId
+        self.property = propertyId
         self.confirmationCode = confirmationCode
         self.collectionType = collectionType
         self.pickupStatus = status
         self.readyDate = readyDate
+//        self.cartons = cartons
         self.driver = driver
 
         self.notes = dictionary["notes"] as? String
@@ -53,16 +60,22 @@ class AdminPickups {
         if let pickupDateString = dictionary["pickupDate"] as? String {
             self.pickupDate = Date(shortDate: pickupDateString)
         }
+        
+        // Todo figure out how to change type array to string
+//        if let cartons = dictionary["cartons"] as?
+//            [String] {
+//            self.cartons = cartons
+//        }
 
-        guard let cartons = dictionary["cartons"] as? [[String: Any]] else {
-            return nil
-        }
-
-        for carton in cartons {
-            if let id = carton["id"] as? String {
-                self.cartonsById.append(id)
-            }
-        }
+//        guard let carton = dictionary["cartons"] as? [String] else {
+//            return nil
+//        }
+//FIXIT
+//        for carton in self.cartons {
+//            if let id = cartons["id"] as? [String] {
+//                self.cartons.append(id)
+//            }
+//        }
 
     }
     

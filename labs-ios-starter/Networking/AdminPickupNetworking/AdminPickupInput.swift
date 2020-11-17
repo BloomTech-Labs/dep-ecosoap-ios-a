@@ -10,15 +10,15 @@ import Foundation
 
 class AdminPickupInput: Input {
     
-    private let collectionCode: String
-    private let collectionType: String
-    private let pickupStatus: String
-    private let readyDate: String
-    private let pickupDate: String
-    private let property: String
-    private let cartons: [CartonInput]// needs to be changed most likely
-    private let driver: String
-    private let notes: String?
+    let collectionCode: String
+    let collectionType: String
+    let pickupStatus: String
+    let readyDate: String
+    var pickupDate: String?
+    let property: String
+    let cartons: [CartonInput]// needs to be changed most likely
+    let driver: String
+    let notes: String?
     
     private var cartonsQuery: String {
         var string = ""
