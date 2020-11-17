@@ -54,8 +54,8 @@ class AdminDistributionDetailViewController: UIViewController {
               let numLinensString = numOfLinensTextField.text,
               numLinensString != "",
               let numLinens = Int(numLinensString),
-              let photos = photosURLTextfield.text ?? "",
-              let videos = videoURLTextField.text ?? "" else {
+              let photos = photosURLTextfield.text,
+              let videos = videoURLTextField.text else {
             NSLog("All fields must be filled to send data to server")
             return
         }
