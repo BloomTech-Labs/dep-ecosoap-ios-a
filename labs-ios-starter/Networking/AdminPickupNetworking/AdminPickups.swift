@@ -44,7 +44,7 @@ class AdminPickups {
         self.propertyId = propertyId
         self.confirmationCode = confirmationCode
         self.collectionType = collectionType
-        self.status = status
+        self.pickupStatus = status
         self.readyDate = readyDate
         self.driver = driver
 
