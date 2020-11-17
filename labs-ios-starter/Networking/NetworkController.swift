@@ -148,6 +148,7 @@ class BackendController {
         guard let hubContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as dictionary for HUB initialization.")
         }
+        
 
         guard let hub = Hub(dictionary: hubContainer) else {
             throw Errors.ObjectInitFail
@@ -313,6 +314,21 @@ class BackendController {
             }
             completion(nil)
         }
+    }
+    // MARK: - All Hubs
+    func getAllHubs(completion: @escaping (Error?) -> Void ) {
+        guard let request = Queries(name: .allHubs, id: "") else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+        print("All hubs request \(request)")
     }
     // MARK: - Hub by Property Id
     func hubByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
@@ -784,7 +800,8 @@ class BackendController {
                 }
 
                 var queryContainer: [String: Any]?
-
+                
+                
                 let payloadString = request.payload.rawValue
 
                 if request.name == "monsterFetch" {
@@ -794,8 +811,7 @@ class BackendController {
                     }
                     completion(queryContainer[payloadString], nil)
                     return
-                } else {
-                    if request.name == "users" {
+                } else if request.name == "users" {
                         guard let usersQueryContainer = dataContainer["users"] as? [[String: Any]] else {
                             completion(nil, NSError(domain: "Query container is nil.", code: 0, userInfo: nil))
                             return
@@ -803,11 +819,21 @@ class BackendController {
                         queryContainer = [payloadString: usersQueryContainer]
 
                         completion(usersQueryContainer, nil)
-                    } else {
-                        queryContainer = dataContainer[request.name] as? [String: Any]
-                    }
-                }
-
+                        return
+                    
+                } else if request.name == "allHubs" {
+                            guard let allHubsQueryContainer = dataContainer["hubs"] as? [String: Any]
+                            else {
+                                completion(nil, NSError(domain: "Hubs container is nil", code: 0, userInfo: nil))
+                                return
+                            }
+                            completion(allHubsQueryContainer, nil)
+                            return
+                        }
+                        else {
+                             queryContainer = dataContainer[request.name] as? [String: Any]
+                        }
+                
                 guard let parser = self.parsers[request.payload] else {
                     print("The payload \(payloadString) doesn't possess a parser.")
                     completion(queryContainer?[payloadString], nil)

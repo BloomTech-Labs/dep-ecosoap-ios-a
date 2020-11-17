@@ -31,7 +31,8 @@ class Queries: Request {
                                                                      .productionReportsByHubId: Queries.productionReportsByHubId,
                                                                      .corporateSponsors: Queries.corporateSponsors,
                                                                      .distributionPartners: Queries.distributionPartners,
-                                                                     .distributions: Queries.distributions
+                                                                     .distributions: Queries.distributions,
+                                                                     .allHubs: Queries.allHubs
     ]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
@@ -64,6 +65,17 @@ class Queries: Request {
         self.payload = payload
         self.name = name.rawValue
     }
+    //MARK: - Fetch All Hubs
+    
+    private static func allHubs(id: String?) -> String {
+        """
+        query {
+            hubs {
+                id
+                name
+            }
+        """
+        }
 
     // MARK: - Properties by UserId
     private static func propertiesByUserId(propertyID: String) -> String {

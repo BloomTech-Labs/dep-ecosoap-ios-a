@@ -13,12 +13,15 @@ private let reuseIdentifier = "HubCell"
 class AdminAllHubsTableViewController: UITableViewController {
     
     var allHubs = [Hub]()
+    
+    let controller = BackendController.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        allHubs = controller.hubs
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,6 +36,8 @@ class AdminAllHubsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return allHubs.count
     }
+    
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

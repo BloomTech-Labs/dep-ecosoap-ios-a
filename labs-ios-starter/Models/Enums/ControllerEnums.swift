@@ -42,6 +42,7 @@ enum MutationName: String {
 }
 
 enum QueryName: String {
+    case allHubs
     case userById
     case allUsers = "users"
     case propertiesByUserId
