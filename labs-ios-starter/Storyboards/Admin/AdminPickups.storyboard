@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKE-6W-wLf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKE-6W-wLf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,13 +13,13 @@
         <!--Pickups-->
         <scene sceneID="Nr4-0U-rg0">
             <objects>
-                <tableViewController id="3pX-q5-ad3" sceneMemberID="viewController">
+                <tableViewController id="3pX-q5-ad3" customClass="AdminPickupTableVC" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3WI-WR-p1C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PickupCell" id="XOk-dr-ZBN" customClass="AdminPickupTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PickupHubCell" id="XOk-dr-ZBN" customClass="AdminPickupTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XOk-dr-ZBN" id="dMT-Gp-nmq">
@@ -56,7 +56,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="z8M-Jz-Cmo" kind="show" identifier="PickupDetailSegue" id="zBG-5N-2KE"/>
+                                    <segue destination="EW8-Me-0Ql" kind="show" identifier="PickupHubCell" id="kph-LZ-hfw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -71,7 +71,65 @@
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="-156.02678571428569"/>
         </scene>
-        <!--Pickup Details-->
+        <!--Admin Pickup By PropertyTVC-->
+        <scene sceneID="8sG-A2-p8S">
+            <objects>
+                <tableViewController id="EW8-Me-0Ql" customClass="AdminPickupByPropertyTVC" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T9K-2x-YxO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickupPropertyCell" id="HJg-Au-0Z6" customClass="AdminPickupPropertyCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HJg-Au-0Z6" id="dip-Zl-lqI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="53G-PM-yCR">
+                                            <rect key="frame" x="20" y="1" width="374" height="42"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5D-47-kvo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF4-gD-akM">
+                                                    <rect key="frame" x="0.0" y="21.5" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="53G-PM-yCR" firstAttribute="leading" secondItem="dip-Zl-lqI" secondAttribute="leading" constant="20" id="3ey-OV-EU5"/>
+                                        <constraint firstItem="53G-PM-yCR" firstAttribute="top" secondItem="dip-Zl-lqI" secondAttribute="top" constant="1" id="8Hf-Du-B1F"/>
+                                        <constraint firstAttribute="trailing" secondItem="53G-PM-yCR" secondAttribute="trailing" constant="20" id="pX9-Ha-SuA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="collectionType" destination="NF4-gD-akM" id="qT9-ki-XQh"/>
+                                    <outlet property="pickupName" destination="e5D-47-kvo" id="jmL-Oe-64k"/>
+                                    <segue destination="z8M-Jz-Cmo" kind="show" identifier="PickupPropCell" id="TSG-Ww-Dc5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EW8-Me-0Ql" id="Nv4-hb-SqO"/>
+                            <outlet property="delegate" destination="EW8-Me-0Ql" id="JRn-tT-Abb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6vZ-fN-Qid"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zaW-35-Cs4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1819" y="-156"/>
+        </scene>
+        <!--Pickup information-->
         <scene sceneID="PX9-Ej-D8n">
             <objects>
                 <viewController id="z8M-Jz-Cmo" customClass="AdminPickupsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,7 +151,7 @@
                                 </state>
                                 <connections>
                                     <action selector="updatePickupTapped:" destination="z8M-Jz-Cmo" eventType="touchUpInside" id="Asm-gQ-FqW"/>
-                                    <segue destination="EyQ-7V-eQ7" kind="show" id="cfo-ms-dYk"/>
+                                    <segue destination="EyQ-7V-eQ7" kind="show" identifier="PickupDetailSegue" id="cfo-ms-dYk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-eR-w3w">
@@ -231,7 +289,7 @@
                             <constraint firstItem="VGU-HA-c7O" firstAttribute="top" secondItem="F2u-jP-Dqw" secondAttribute="bottom" constant="8" symbolic="YES" id="zhu-V0-1Qo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pickup Details" id="USw-c3-XPA"/>
+                    <navigationItem key="navigationItem" title="Pickup information" id="USw-c3-XPA"/>
                     <connections>
                         <outlet property="collectionType" destination="73s-it-G3W" id="0b7-9j-9hi"/>
                         <outlet property="pickupCarton" destination="VGU-HA-c7O" id="HCo-Oo-beb"/>
@@ -244,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLw-uV-9oQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847.826086956522" y="-156.02678571428569"/>
+            <point key="canvasLocation" x="2662" y="-156"/>
         </scene>
         <!--Admin Pickup DetailVC-->
         <scene sceneID="FBO-a0-Qcy">
@@ -413,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8T-R2-ryL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2663.768115942029" y="-156.02678571428569"/>
+            <point key="canvasLocation" x="3442" y="-156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z9c-m0-Uux">

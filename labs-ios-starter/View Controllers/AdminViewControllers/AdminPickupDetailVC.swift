@@ -13,14 +13,15 @@ class AdminPickupDetailVC: UIViewController {
     //MARK: - OUTLETS
     @IBOutlet weak var pickupConfirmationCode: UITextField!
     @IBOutlet weak var pickupDate: UITextField!
-    
     @IBOutlet weak var pickupStatus: UITextField!
-    
     @IBOutlet weak var collectionType: UITextField!
     @IBOutlet weak var pickupDriver: UITextField!
     @IBOutlet weak var pickupCarton: UITextField!
-    
     @IBOutlet weak var pickupNotes: UITextView!
+    
+    var adminPickups: AdminPickups?
+    var controller = BackendController.shared
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

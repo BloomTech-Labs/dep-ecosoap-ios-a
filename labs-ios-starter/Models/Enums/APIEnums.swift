@@ -55,6 +55,13 @@ enum Status: String {
     case CANCELLED
 }
 
+enum PickupStatus: String {
+    case SUBMITTED
+    case OUT_FOR_PICKUP
+    case COMPLETE
+    case CANCELLED
+}
+
 enum Role: String {
     case user =  "HUB_USER"
     case partner = "HOTEL"

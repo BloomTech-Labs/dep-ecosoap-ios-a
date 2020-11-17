@@ -59,3 +59,13 @@ class Hub: Codable {
 
     }
 }
+
+extension Hub: Hashable {
+    static func == (lhs: Hub, rhs: Hub) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}

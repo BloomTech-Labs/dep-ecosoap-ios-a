@@ -1,17 +1,16 @@
 //
-//  AdminPickupTableVC.swift
+//  AdminPickupByPropertyTVC.swift
 //  labs-ios-starter
 //
-//  Created by Nonye on 11/12/20.
+//  Created by Nonye on 11/17/20.
 //  Copyright © 2020 Spencer Curtis. All rights reserved.
 //
 
 import UIKit
 
+// This is the PickupsbyPropertyID Table View (first Table View on AdminPickupStoryboard)
 
-// This is the PickupsbyHubID Table View (first Table View on AdminPickupStoryboard)
-
-class AdminPickupTableVC: UITableViewController {
+class AdminPickupByPropertyTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
