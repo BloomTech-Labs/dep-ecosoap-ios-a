@@ -225,7 +225,6 @@
                                 <rect key="frame" x="40" y="758" width="334" height="44"/>
                                 <color key="backgroundColor" name="ESB Green"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="22j-ls-d1i"/>
                                     <constraint firstAttribute="height" constant="44" id="Q6p-On-eG4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
