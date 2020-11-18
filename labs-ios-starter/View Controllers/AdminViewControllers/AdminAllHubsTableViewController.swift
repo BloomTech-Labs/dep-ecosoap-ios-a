@@ -12,14 +12,16 @@ private let reuseIdentifier = "HubCell"
 
 class AdminAllHubsTableViewController: UITableViewController {
     
-    var allHubs = [Hub]()
+   
     
     var hubsDict: [String: Hub] {
         return controller.hubs
     }
-    var hubsArray: [Hub] {
-    
+    var hubs: [Hub] {
+        return dictToArray(hubsDict)
     }
+  
+    
     
     let controller = BackendController.shared
 
@@ -28,7 +30,7 @@ class AdminAllHubsTableViewController: UITableViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        allHubs = controller.hubs
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,25 +43,26 @@ class AdminAllHubsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allHubs.count
+        return hubs.count
     }
     
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HubCell", for: indexPath)
         
-        cell.textLabel?.text = allHubs[indexPath.row].name
-        cell.detailTextLabel?.text = allHubs[indexPath.row].id
+        cell.textLabel?.text = hubs[indexPath.row].name
+        cell.detailTextLabel?.text = hubs[indexPath.row].id
         
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRow = allHubs[indexPath.row]
-        performSegue(withIdentifier: "HubDetailShowSegue", sender: selectedRow)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedRow = hubs[indexPath.row]
+//        performSegue(withIdentifier: "HubDetailShowSegue", sender: selectedRow)
+//    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

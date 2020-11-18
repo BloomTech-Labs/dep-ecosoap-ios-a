@@ -52,6 +52,7 @@ class BackendController {
                                                                 .pickup:  BackendController.pickupParser,
                                                                 .pickups: BackendController.pickupsParser,
                                                                 .hub: BackendController.hubParser,
+                                                                .hubs: BackendController.hubsParser,
                                                                 .payment: BackendController.paymentParser,
                                                                 .payments: BackendController.paymentsParser,
                                                                 .productionReports: BackendController.productionReportsParser,
