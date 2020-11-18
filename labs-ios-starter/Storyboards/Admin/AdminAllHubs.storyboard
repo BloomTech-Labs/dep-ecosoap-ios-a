@@ -44,7 +44,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="5aU-61-MXb" kind="show" id="DgY-cB-K2r"/>
+                                    <segue destination="5aU-61-MXb" kind="show" identifier="showHubDetailSegue" id="DgY-cB-K2r"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -57,12 +57,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E88-Y6-p9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="-329"/>
+            <point key="canvasLocation" x="-280" y="-340"/>
         </scene>
         <!--Hub Name-->
         <scene sceneID="bZn-tt-76E">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="5aU-61-MXb" customClass="AdminMainViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="5aU-61-MXb" customClass="AdminHubDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pN2-tt-a2k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,8 +101,7 @@
                                                             <imageReference key="backgroundImage" image="note.text" catalog="system" symbolScale="medium"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="hubProfileButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="J3J-LR-zL1"/>
-                                                            <segue destination="ZR4-bF-MCV" kind="show" id="rOW-OT-PSt"/>
+                                                            <segue destination="ZR4-bF-MCV" kind="show" identifier="hubProfileSegue" id="rOW-OT-PSt"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -132,8 +131,7 @@
                                                             <imageReference key="backgroundImage" image="shippingbox" catalog="system" symbolScale="medium"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="adminPickupButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="TEW-3V-UMa"/>
-                                                            <segue destination="hle-op-p5V" kind="show" id="cKx-aE-ePk"/>
+                                                            <segue destination="hle-op-p5V" kind="show" identifier="adminPickupSegue" id="cKx-aE-ePk"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -168,8 +166,7 @@
                                                             <imageReference key="backgroundImage" image="person.2.fill" catalog="system" symbolScale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="partnershipsButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="QXS-tj-5E5"/>
-                                                            <segue destination="OdB-wO-Rsm" kind="show" id="MGy-II-9Cl"/>
+                                                            <segue destination="OdB-wO-Rsm" kind="show" identifier="teamMembersSegue" id="MGy-II-9Cl"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -200,7 +197,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="distributionButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="iic-sx-XWF"/>
-                                                            <segue destination="Vjy-q4-UXZ" kind="show" id="532-pW-rI3"/>
+                                                            <segue destination="Vjy-q4-UXZ" kind="show" identifier="adminDistributionSegue" id="532-pW-rI3"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -233,7 +230,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="productReportButtonTapped:" destination="5aU-61-MXb" eventType="touchUpInside" id="xSp-gV-Fbw"/>
-                                                    <segue destination="dqE-5g-oDS" kind="show" id="1ED-gr-BYh"/>
+                                                    <segue destination="dqE-5g-oDS" kind="show" identifier="productReportSegue" id="1ED-gr-BYh"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -255,6 +252,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hub Name" id="VNV-Ew-NXf"/>
+                    <connections>
+                        <outlet property="adminPickupButton" destination="3qq-mF-l34" id="Un8-JU-8bc"/>
+                        <outlet property="distributionButton" destination="CJ1-Xs-Qnd" id="IuW-yY-G8W"/>
+                        <outlet property="hubProfileButton" destination="d0P-4M-PeK" id="nK8-oQ-z1I"/>
+                        <outlet property="productReportButton" destination="o1u-Uw-mvi" id="AIT-8P-O3j"/>
+                        <outlet property="teamMembersButton" destination="zRX-ko-obv" id="SiB-Lq-2cK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soW-HI-uxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

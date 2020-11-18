@@ -12,20 +12,20 @@ class AdminMainViewController: UIViewController {
     
     
     var controller = BackendController.shared
-
-  
-    @IBOutlet var adminDashboardButtons: [DashboardButton]!
+    
+    
     
     //MARK: - Outlets
     
     
-    @IBOutlet weak var myProfileButton: UIButton!
-    @IBOutlet weak var allHubsButton: UIButton!
-    @IBOutlet weak var partnershipsButton: UIButton!
-    @IBOutlet weak var corporateSponsorsButton: UIButton!
-    @IBOutlet weak var ngoSponsorsButton: UIButton!
+    @IBOutlet weak var myProfileButton: DashboardButton!
+    @IBOutlet weak var allHubsButton: DashboardButton!
+    @IBOutlet weak var partnershipsButton: DashboardButton!
+    @IBOutlet weak var corporateSponsorsButton: DashboardButton!
+    @IBOutlet weak var ngoSponsorsButton: DashboardButton!
     
-    
+    lazy var adminButtons: [DashboardButton] = [myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton]
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,10 @@ class AdminMainViewController: UIViewController {
             }
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        buttonSetup()
+    }
     
     
 //    @IBAction func allHubsButtonTapped(_ sender: UIButton) {
@@ -67,7 +70,7 @@ class AdminMainViewController: UIViewController {
     
     // MARK: - Button Setup -
     func buttonSetup() {
-        for button in adminDashboardButtons {
+        for button in adminButtons {
             button.setWidth(width: 190)
             button.setHeight(height: 120)
             button.layer.cornerRadius = 12.0
