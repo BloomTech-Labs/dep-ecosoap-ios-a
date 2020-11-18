@@ -15,6 +15,7 @@ enum ResponseModel: String {
     case properties
     case impactStats
     case hub
+    case hubs
     case pickups
     case pickup
     case payment

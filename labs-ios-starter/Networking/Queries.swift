@@ -41,6 +41,7 @@ class Queries: Request {
                                                                .propertiesByUserId: .properties,
                                                                .impactStatsByPropertyId: .impactStats,
                                                                .impactStatsByHubId: .impactStats,
+                                                               .allHubs: .hubs,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
                                                                .pickupsByHubId: .pickups,
