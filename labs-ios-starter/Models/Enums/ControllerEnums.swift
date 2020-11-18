@@ -15,6 +15,7 @@ enum ResponseModel: String {
     case properties
     case impactStats
     case hub
+    case hubs
     case pickups
     case pickup
     case payment
@@ -42,6 +43,7 @@ enum MutationName: String {
 }
 
 enum QueryName: String {
+    case allHubs
     case userById
     case allUsers = "users"
     case propertiesByUserId
