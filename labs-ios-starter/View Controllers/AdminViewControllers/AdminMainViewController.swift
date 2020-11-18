@@ -11,12 +11,13 @@ import UIKit
 class AdminMainViewController: UIViewController {
     
     
-    
+    var controller = BackendController.shared
 
   
     @IBOutlet var adminDashboardButtons: [DashboardButton]!
     
     //MARK: - Outlets
+    
     
     @IBOutlet weak var myProfileButton: UIButton!
     @IBOutlet weak var allHubsButton: UIButton!
@@ -29,7 +30,12 @@ class AdminMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetup()
-        
+        controller.getAllHubs { (error) in
+            if let error = error {
+                print("\(error): Error getting all hubs")
+                return
+            }
+        }
     }
     
     
@@ -42,8 +48,8 @@ class AdminMainViewController: UIViewController {
     }
     
     @IBAction func allHubsButtonTapped(_ sender: Any) {
-        
     }
+    
     @IBAction func partnershipsButtonTapped(_ sender: Any) {
         
     }

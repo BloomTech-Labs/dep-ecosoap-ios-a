@@ -8,38 +8,40 @@
 import Foundation
 
 class Queries: Request {
-
+    
     // MARK: - Properties
     var body: String
-
+    
     var payload: ResponseModel
-
+    
     var name: String
-
+    
     private static let collection: [QueryName: (String) -> String] = [QueryName.userById: Queries.userById,
-                                                                     .allUsers: Queries.allUsers,
-                                                                     .propertyById: Queries.propertyById,
-                                                                     .propertiesByUserId: Queries.propertiesByUserId,
-                                                                     .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
-                                                                     .impactStatsByHubId: Queries.impactStatsByHubId,
-                                                                     .hubByPropertyId: Queries.hubByPropertyId,
-                                                                     .pickupsByPropertyId: Queries.pickupsByPropertyId,
-                                                                     .pickupsByHubId: Queries.pickupsbyHubId,
-                                                                     .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
-                                                                     .paymentsByPropertyId: Queries.paymentsByPropertyId,
-                                                                     .monsterFetch: Queries.monsterFetch,
-                                                                     .productionReportsByHubId: Queries.productionReportsByHubId,
-                                                                     .corporateSponsors: Queries.corporateSponsors,
-                                                                     .distributionPartners: Queries.distributionPartners,
-                                                                     .distributions: Queries.distributions
+                                                                      .allUsers: Queries.allUsers,
+                                                                      .propertyById: Queries.propertyById,
+                                                                      .propertiesByUserId: Queries.propertiesByUserId,
+                                                                      .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
+                                                                      .impactStatsByHubId: Queries.impactStatsByHubId,
+                                                                      .hubByPropertyId: Queries.hubByPropertyId,
+                                                                      .pickupsByPropertyId: Queries.pickupsByPropertyId,
+                                                                      .pickupsByHubId: Queries.pickupsbyHubId,
+                                                                      .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
+                                                                      .paymentsByPropertyId: Queries.paymentsByPropertyId,
+                                                                      .monsterFetch: Queries.monsterFetch,
+                                                                      .productionReportsByHubId: Queries.productionReportsByHubId,
+                                                                      .corporateSponsors: Queries.corporateSponsors,
+                                                                      .distributionPartners: Queries.distributionPartners,
+                                                                      .distributions: Queries.distributions,
+                                                                      .allHubs: Queries.allHubs
     ]
-
+    
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
                                                                .allUsers: .users,
                                                                .propertyById: .property,
                                                                .propertiesByUserId: .properties,
                                                                .impactStatsByPropertyId: .impactStats,
                                                                .impactStatsByHubId: .impactStats,
+                                                               .allHubs: .hubs,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
                                                                .pickupsByHubId: .pickups,
@@ -48,23 +50,60 @@ class Queries: Request {
                                                                .monsterFetch: .user,
                                                                .productionReportsByHubId: .productionReports,
                                                                .corporateSponsors: .corporateSponsors]
-
+    
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
             NSLog("Couldn't find this query in the collection. Check your implementation.")
             return nil
         }
-
+        
         guard let payload = Queries.payloads[name] else {
             NSLog("Couldn't find a matching payload name. Check your implementation.")
             return nil
         }
-
+        
         self.body = body(id)
         self.payload = payload
         self.name = name.rawValue
     }
-
+    //MARK: - Fetch All Hubs
+    
+    private static func allHubs(id: String?) -> String {
+        """
+        query {
+            hubs {
+                id,
+                name,
+                address {
+                  address1,
+                  address2,
+                  address3,
+                  city,
+                  state,
+                  postalCode,
+                  country,
+                  formattedAddress
+                    },
+                email,
+                phone,
+                coordinates {
+                  latitude,
+                  longitude
+                },
+                workflow,
+                impact {
+                  soapRecycled,
+                  linensRecycled,
+                  bottlesRecycled,
+                  paperRecycled,
+                  peopleServed,
+                  womenEmployed
+                }
+            }
+        }
+        """
+    }
+    
     // MARK: - Properties by UserId
     private static func propertiesByUserId(propertyID: String) -> String {
         return """
@@ -200,7 +239,7 @@ class Queries: Request {
                 }
         """
     }
-
+    
     // MARK: - Single User by Id
     private static func userById(userID: String) -> String {
         return """
@@ -245,10 +284,10 @@ class Queries: Request {
         }
         """
     }
-
+    
     // MARK: - All Users
     private static func allUsers(_ id: String?) -> String {
-         return """
+        return """
         query {
           users {
             id
@@ -274,7 +313,7 @@ class Queries: Request {
         }
         """
     }
-
+    
     // MARK: - Property by Property Id
     private static func propertyById(propertyID: String) -> String {
         return """
@@ -412,7 +451,7 @@ class Queries: Request {
         }
         """
     }
-
+    
     // MARK: - Impact Stats by Property Id
     private static func impactStatsByPropertyId(propertyID: String) -> String {
         return """
@@ -432,7 +471,7 @@ class Queries: Request {
         }
         """
     }
-
+    
     // MARK: - Hub by Property Id
     private static func hubByPropertyId(propertyID: String) -> String {
         """
@@ -476,7 +515,7 @@ class Queries: Request {
 
         """
     }
-
+    
     // MARK: - Production Report by Hub Id
     private static func productionReportsByHubId(hubID: String) -> String {
         """
@@ -496,7 +535,7 @@ class Queries: Request {
 
         """
     }
-
+    
     // MARK: - Impact Stats by HubId
     private static func impactStatsByHubId(hubID: String) -> String {
         """
@@ -513,9 +552,9 @@ class Queries: Request {
           }
         }
         """
-}
-
-
+    }
+    
+    
     // MARK: - Pickups by Property Id
     private static func pickupsByPropertyId(propertyID: String) -> String {
         """
@@ -545,7 +584,7 @@ class Queries: Request {
 
         """
     }
-
+    
     // MARK: - Pickups by Hub Id
     private static func pickupsbyHubId(hubID: String) -> String {
         """
@@ -585,7 +624,7 @@ class Queries: Request {
 
         """
     }
-
+    
     // MARK: - Next Payment by Property Id
     private static func nextPaymentByPropertyId(propertyID: String) -> String {
         """
@@ -612,7 +651,7 @@ class Queries: Request {
         }
         """
     }
-
+    
     // MARK: - Payments by Property Id
     private static func paymentsByPropertyId(propertyID: String) -> String {
         """
@@ -639,7 +678,7 @@ class Queries: Request {
         }
         """
     }
-
+    
     // MARK: - Monster Fetch
     private static func monsterFetch(userID: String) -> String {
         return """
@@ -859,7 +898,7 @@ class Queries: Request {
         }
         """
     }
-
+    
     
     //MARK: Distribution Partners
     private static func distributionPartners(_: String?) -> String {
