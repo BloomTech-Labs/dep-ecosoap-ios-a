@@ -86,11 +86,6 @@
                         <outlet property="myProfileButton" destination="fai-94-Zs2" id="bwi-FA-JNe"/>
                         <outlet property="ngoSponsorsButton" destination="su3-Xr-fh0" id="6hP-kk-qvI"/>
                         <outlet property="partnershipsButton" destination="RUI-1X-WLN" id="hET-9L-tOD"/>
-                        <outletCollection property="adminDashboardButtons" destination="fai-94-Zs2" collectionClass="NSMutableArray" id="twG-B7-hes"/>
-                        <outletCollection property="adminDashboardButtons" destination="6Fw-SH-pDf" collectionClass="NSMutableArray" id="6TA-G4-zkA"/>
-                        <outletCollection property="adminDashboardButtons" destination="RUI-1X-WLN" collectionClass="NSMutableArray" id="Vuf-ip-eE1"/>
-                        <outletCollection property="adminDashboardButtons" destination="Yas-lW-TkG" collectionClass="NSMutableArray" id="xqw-C2-H2j"/>
-                        <outletCollection property="adminDashboardButtons" destination="su3-Xr-fh0" collectionClass="NSMutableArray" id="bgJ-NB-vrF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBt-D4-Zjb" sceneMemberID="firstResponder"/>

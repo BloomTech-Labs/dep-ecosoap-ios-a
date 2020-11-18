@@ -20,8 +20,11 @@ class AdminDistributionsViewController: UIViewController {
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var distributionTableView: UITableView!
     
+    
     var controller = BackendController.shared
     var currentFilter = 0
+    var hub: Hub?
+    
     var distributionsDict: [String: Distribution] {
         controller.distributions
     }
