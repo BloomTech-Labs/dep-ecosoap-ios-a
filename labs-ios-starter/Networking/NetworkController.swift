@@ -42,8 +42,8 @@ class BackendController {
     var corporateSponsors: [String: CorporateSponsor] = [:]
     var distributionPartners: [String: DistributionPartner] = [:]
     var distributions: [String: Distribution] = [:]
-    
-    
+    var teamMembers: [String: TeamMember] = [:]
+
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                                 .properties: BackendController.propertiesParser,
                                                                 .impactStats: BackendController.impactStatsParser,
@@ -264,6 +264,32 @@ class BackendController {
         }
     }
     
+    // MARK: - Team Members Parser
+    private static func teamMemberParser(data: Any?) throws {
+        guard let teamMemberContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for instantiating distribution partners.")
+        }
+        
+        for memberDict in teamMemberContainer {
+            if let member = TeamMember(dictionary: memberDict) {
+                shared.teamMembers[member.id] = member
+            }
+        }
+    }
+    
+    private static func teamMembersParser(data: Any?) throws {
+        guard let members = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as dictionary for instantiating distributions.")
+        }
+        
+        for memberDict in members {
+            if let member = TeamMember(dictionary: memberDict) {
+                shared.teamMembers[member.id] = member
+            }
+        }
+    }
+
+
     // MARK: - Queries -
     
     
@@ -282,6 +308,22 @@ class BackendController {
         }
     }
     
+    // MARK: - Team Members
+    func fetchTeamMembers(completion: @escaping([TeamMember]?, Error?) -> Void) {
+        guard let request = Queries(name: .teamMembers, id: "") else {
+            completion(nil,Errors.RequestInitFail)
+            return
+        }
+
+        requestAPI(with: request) { (data, error) in
+            if let error = error {
+                completion(nil,error)
+                return
+            }
+
+        }
+  }
+
     // MARK: - Properties by Property Id
     func propertyById(id: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .propertyById, id: id) else {

@@ -25,6 +25,7 @@ enum ResponseModel: String {
     case corporateSponsors
     case distributionPartners
     case distributions
+    case teamMembers
 }
 
 enum MutationName: String {
@@ -60,6 +61,7 @@ enum QueryName: String {
     case corporateSponsors
     case distributionPartners
     case distributions
+    case teamMembers
 }
 
 

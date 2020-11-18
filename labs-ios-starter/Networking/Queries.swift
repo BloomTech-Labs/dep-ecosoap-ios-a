@@ -51,6 +51,9 @@ class Queries: Request {
                                                                .productionReportsByHubId: .productionReports,
                                                                .corporateSponsors: .corporateSponsors]
     
+                                                               .corporateSponsors: .corporateSponsors,
+                                                              .teamMembers: .teamMembers]
+
     init?(name: QueryName, id: String) {
         guard let body = Queries.collection[name] else {
             NSLog("Couldn't find this query in the collection. Check your implementation.")
