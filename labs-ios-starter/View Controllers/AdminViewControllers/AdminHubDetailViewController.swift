@@ -38,14 +38,14 @@ class AdminHubDetailViewController: UIViewController {
         }
         else if segue.identifier == "adminPickupSegue" {
             guard let adminPickupVC = segue.destination as? AdminPickupTableVC else { return }
-            adminPickupVC.hub = self.hub
+//            adminPickupVC.hub = self.hub
             
         
             
         }
         else if segue.identifier == "teamMembersSegue" {
             guard let teamMembersVC = segue.destination as? AdminTeamMembersViewController else { return }
-            teamMembersVC.hub = self.hub
+//            teamMembersVC.hub = self.hub
             
             
         }
@@ -57,7 +57,7 @@ class AdminHubDetailViewController: UIViewController {
         }
         else if segue.identifier == "productReportSegue" {
             guard let productReportVC = segue.destination as? AdminProductionReportViewController else { return }
-            productReportVC.hub = self.hub
+//            productReportVC.hub = self.hub
             
             
         }
