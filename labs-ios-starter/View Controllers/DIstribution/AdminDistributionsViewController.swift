@@ -20,7 +20,6 @@ class AdminDistributionsViewController: UIViewController {
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var distributionTableView: UITableView!
     
-    
     var controller = BackendController.shared
     var currentFilter = 0
     var hub: Hub?
@@ -82,22 +81,6 @@ class AdminDistributionsViewController: UIViewController {
         }
         var distributions = Array(uniques)
         
-        switch currentFilter {
-        case 0:
-            return distributions
-        case 1:
-            let sortedByPartner: [Distribution] = Array(distributions.sorted { (distribution0, distribution1) -> Bool in
-                distribution0.partner?.name ?? "" > distribution1.partner?.name ?? ""
-            })
-            return sortedByPartner
-        case 2:
-            let sortedByHub: [Distribution] = Array(distributions.sorted { (distribution0, distribution1) -> Bool in
-                distribution0.hub.id > distribution1.hub.id
-            })
-            return sortedByHub
-        default:
-            return distributions
-        }
     }
     
     private func configureNewButton() {
