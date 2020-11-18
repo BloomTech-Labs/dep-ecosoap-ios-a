@@ -14,6 +14,13 @@ class AdminAllHubsTableViewController: UITableViewController {
     
     var allHubs = [Hub]()
     
+    var hubsDict: [String: Hub] {
+        return controller.hubs
+    }
+    var hubsArray: [Hub] {
+    
+    }
+    
     let controller = BackendController.shared
 
     override func viewDidLoad() {
@@ -98,4 +105,12 @@ class AdminAllHubsTableViewController: UITableViewController {
     }
     */
 
+    private func dictToArray(_ hubsDict: [String: Hub]) -> [Hub] {
+        var uniques = Set<Hub>()
+        for (_, hub) in hubsDict {
+            uniques.insert(hub)
+        }
+        let hubs = Array(uniques)
+        return hubs
+    }
 }
